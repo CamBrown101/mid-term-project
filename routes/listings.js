@@ -16,7 +16,11 @@ module.exports = (db) => {
     }
 
     if (req.query.category) {
-      queryText += `AND category = ${req.query.category}`;
+      if (req.query.category === 'newest') {
+        queryText += `ORDER BY posted_date`
+      } else {
+        queryText += `AND category = ${req.query.category}`;
+      }
     }
 
     queryText += `;`;
