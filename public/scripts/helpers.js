@@ -15,6 +15,7 @@ const createNewCard = function (listing) {
 const clearResultsContainer = () => {
   $(".results-container").empty();
 };
+
 //Renders listings for home page
 const homePageLoad = () => {
   const renderListings = (listings, index) => {
