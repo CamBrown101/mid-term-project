@@ -1,4 +1,4 @@
-$(Document).ready(() => {
+$(document).ready(() => {
   //jQuery variables
   const resultsContainerHtml = $(`<div class="results-container"></div>`);
   const $mainContainer = $(".main-container");
