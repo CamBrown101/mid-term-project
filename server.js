@@ -64,7 +64,7 @@ app.get("/", (req, res) => {
       []
     )
     .then((res) => {
-      console.log(res.rows);
+      // console.log(res.rows);
     })
     .catch((err) => {
       return null;

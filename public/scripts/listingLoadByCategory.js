@@ -10,22 +10,20 @@ const createNewCard = function (listing) {
 };
 
 $(document).ready(() => {
-  console.log('Document ready')
-  const renderListing = (listings) => {
-    $('#listings-row-1').empty();
-    listings.forEach((element) => {
-      $('#listings-row-1').append(createNewCard(element));
-    });
-  };
-  const loadListings = () => {
-    return $.ajax("/listings").then((listing) => {
-      console.log(listing)
-      // renderListing(listing);
-    });
-  };
+  // console.log("Document ready");
+  // const renderListing = (listings) => {
+  //   $("#listings-row-1").empty();
+  //   listings.forEach((element) => {
+  //     $("#listings-row-1").append(createNewCard(element));
+  //   });
+  // };
+  const loadListings = () => {};
   loadListings();
+  return $.ajax("/listings").then((listing) => {
+    console.log(listing);
+    // renderListing(listing);
+  });
 });
-
 
 // const getTweets = () => {
 //   $.get('/tweets/', function (data) {
