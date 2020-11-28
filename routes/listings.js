@@ -8,7 +8,7 @@ module.exports = (db) => {
     let queryText = `SELECT * FROM listings
     `;
     const queryParams = [];
-    console.log(req.query.text, 'req.query.text')
+    console.log(req.query.text, "req.query.text");
     if (req.query.text) {
       const search = "%" + req.query.text + "%";
       queryParams.push(search);
@@ -28,10 +28,12 @@ module.exports = (db) => {
   //TODO using logged in user id query db for user favorites then display
   router.get("/favourites", (req, res) => {
     const userID = 1;
-    db.query(`
+    db.query(
+      `
               SELECT * FROM listings
               JOIN favorite_items ON listings.id = item_id
-              WHERE favorite_items.user_id = $1;`, [ userID ]
+              WHERE favorite_items.user_id = $1;`,
+      [userID]
     )
       .then((data) => {
         const listings = data.rows;
@@ -47,7 +49,9 @@ module.exports = (db) => {
     console.log(req.params.id);
     db.query(
       `SELECT * FROM listings
-              WHERE id = $1;`, [req.params.id])
+              WHERE id = $1;`,
+      [req.params.id]
+    )
       .then((data) => {
         const listing = data.rows[0];
         res.send(listing);
@@ -84,7 +88,7 @@ module.exports = (db) => {
       });
   });
 
-  router.post("/categories", (req, res) => {
+  router.get("/categories", (req, res) => {
     const listing = req.query;
     console.log(req);
     console.log(res);
