@@ -40,13 +40,13 @@
       id="listing-picture-url"
       placeholder="What are you selling?"
     />
+    <select id="listing-category" name="category">
+      <option value="bikes">Bikes</option>
+      <option value="computers">Computers</option>
+      <option value="games">Games</option>
+    </select>
     <button id="new-Listing" type="submit">Submit</button>
   </form>
 </section>
-<!-- 
-CREATE TABLE listings ( id SERIAL PRIMARY KEY NOT NULL, user_id INTEGER
-REFERENCES users(id) ON DELETE CASCADE, title VARCHAR(255) NOT NULL, price
-INTEGER NOT NULL DEFAULT 0, description VARCHAR(255) NOT NULL, picture_url
-VARCHAR(255) NOT NULL, category VARCHAR(255) NOT NULL, posted_date DATE,
-sold_date DATE, is_sold BOOLEAN NOT NULL DEFAULT FALSE );  -->
+
 <%- include('partials/_footer') %>
