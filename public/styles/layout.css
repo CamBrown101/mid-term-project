@@ -59,6 +59,13 @@ nav .login-info {
   color: #1F271B;
 }
 
+#new-listing-button {
+  margin: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #DCC7BE;
+}
+
 .main-container {
   margin-top: 230px;
   margin-left: 7%;
@@ -124,4 +131,67 @@ nav .login-info {
 
 .main-footer i {
   font-size: 3em;
+}
+
+#new-listing {
+  width: 30vw;
+  height: 20vw;
+  min-width: 400px;
+  min-height: 300px;
+  background-color: grey;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border-color: black;
+}
+
+.new-listing-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+#listing-title {
+  grid-row: 1;
+  grid-column: 1 / 2;
+}
+
+#listing-number {
+  grid-row: 2;
+  grid-column: 1 / 2;
+}
+
+#listing-description {
+  grid-row: 3;
+  grid-column: 1 / 2;
+}
+
+#listing-picture-url {
+  grid-row: 4;
+  grid-column: 1 / 2;
+}
+
+#listing-category {
+  grid-row: 5;
+  grid-column: 1 / 2;
+}
+
+#listing-submit {
+  grid-row: 6;
+  grid-column: 1 / 2;
+}
+
+#listing-title,
+#listing-number,
+#listing-description,
+#listing-picture-url,
+#listing-category,
+#listing-submit {
+  margin: 0.5em;
+}
+
+#hide-new-listing {
+  margin-top: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -6,6 +6,7 @@
     <textarea name="text" id="text" require maxlength="150"></textarea>
     <button class="btn btn-primary" type="submit">Search</button>
   </form>
+  <button id="new-listing-button" class="btn btn-primary">New Listing</button>
 </div>
 
 <main class="main-container">
@@ -38,14 +39,15 @@
       type="text"
       name="picture-url"
       id="listing-picture-url"
-      placeholder="What are you selling?"
+      placeholder="Pic?"
     />
     <select id="listing-category" name="category">
       <option value="bikes">Bikes</option>
       <option value="computers">Computers</option>
       <option value="games">Games</option>
     </select>
-    <button id="new-Listing" type="submit">Submit</button>
+    <button id="listing-submit btn btn-primary" type="submit">Submit</button>
+    <div id="hide-new-listing">Cancel</div>
   </form>
 </section>
 

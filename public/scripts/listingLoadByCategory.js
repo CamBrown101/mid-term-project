@@ -1,6 +1,5 @@
 $(document).ready(() => {
-
-homePageLoad()
+  homePageLoad();
 });
 
 //old render listings code

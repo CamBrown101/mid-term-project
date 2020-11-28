@@ -17,6 +17,8 @@ const clearResultsContainer = () => {
 };
 //Renders listings for home page
 const homePageLoad = () => {
+  $("#new-listing").hide();
+
   const renderListings = (listings, index) => {
     $(`#listings-row-${index}`).empty();
     for (const item of listings) {
