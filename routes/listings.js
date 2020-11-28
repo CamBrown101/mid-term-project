@@ -20,7 +20,7 @@ module.exports = (db) => {
         queryText += `ORDER BY posted_date LIMIT 4`;
       } else {
         queryText += ` 
-        AND category = '${req.query.category}'`;
+        AND category = '${req.query.category}' LIMIT 4`;
       }
     }
 
