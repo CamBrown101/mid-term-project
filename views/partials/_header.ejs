@@ -51,12 +51,14 @@
               </button>
               
             </form>  
+          
           <% } else{ %>  
               <form method="POST" class="row" action="/login" >
                 <h5 class="d-inline">Email:</h5>
                 <input
                   class="form-control d-inline w-25"
                   type="email"
+                  id="login-email"
                   required
                   name="email"
                   style="width: 200px; margin: 1em"

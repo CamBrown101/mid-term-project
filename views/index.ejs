@@ -1,6 +1,5 @@
 <%- include('partials/_header') %>
 
-
 <div class="search-bar">
   <form id="item-search" method="GET" action="/">
     <label for="search-input">Search for an item</label>
@@ -9,71 +8,33 @@
   </form>
 </div>
 
-
 <main class="main-container">
-    <div id="listings-row-0" class="card-row">
-        <article class="card-container">
-          <h5 class="card-title">Item Title</h5>
-          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
-          <p class="card-description">Some kind of description of what the item is and what not</p>
-          <a src="#" class="btn btn-primary">Do Something</a>
-        </article>
-        <article class="card-container">
-          <h5 class="card-title">Item Title</h5>
-          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
-            <p class="card-description">Some kind of description of what the item is and what not</p>
-            <a src="#" class="btn btn-primary">Do Something</a>
-        </article>
-        <article class="card-container">
-          <h5 class="card-title">Item Title</h5>
-          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
-            <p class="card-description">Some kind of description of what the item is and what not</p>
-            <a src="#" class="btn btn-primary">Do Something</a>
-        </article>
-    </div> 
-    <div id="listings-row-1" class="card-row" >
-        <article class="card-container">
-          <h5 class="card-title">Item Title</h5>
-          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
-            <p class="card-description">Some kind of description of what the item is and what not</p>
-            <a src="#" class="btn btn-primary">Do Something</a>
-        </article>
-        <article class="card-container">
-          <h5 class="card-title">Item Title</h5>
-          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
-            <p class="card-description">Some kind of description of what the item is and what not</p>
-            <a src="#" class="btn btn-primary">Do Something</a>
-        </article>
-        <article class="card-container">
-          <h5 class="card-title">Item Title</h5>
-          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
-            <p class="card-description">Some kind of description of what the item is and what not</p>
-            <a src="#" class="btn btn-primary">Do Something</a>
-        </article>
-    </div> 
-    <div id="listings-row-2" class="card-row">
-        <article class="card-container">
-          <h5 class="card-title">Item Title</h5>
-          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
-            <p class="card-description">Some kind of description of what the item is and what not</p>
-            <a src="#" class="btn btn-primary">Do Something</a>
-        </article>
-        <article class="card-container">
-          <h5 class="card-title">Item Title</h5>
-          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
-            <p class="card-description">Some kind of description of what the item is and what not</p>
-            <a src="#" class="btn btn-primary">Do Something</a>
-        </article>
-        <article class="card-container">
-          <h5 class="card-title">Item Title</h5>
-          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
-            <p class="card-description">Some kind of description of what the item is and what not</p>
-            <a src="#" class="btn btn-primary">Do Something</a>
-        </article>
-    </div> 
+  <div id="listings-row-0" class="card-row"></div>
+  <div id="listings-row-1" class="card-row"></div>
+  <div id="listings-row-2" class="card-row"></div>
 </main>
 
-
+<section id="new-listing">
+  <form class="new-listing-content" method="POST" action="/listings/">
+    <input
+      type="text"
+      name="title"
+      id="listing-text"
+      placeholder="What are you selling?"
+    />
+    <input
+      type="number"
+      name="price"
+      id="listing-text"
+      placeholder="How much is it?"
+    />
+    <button id="new-Listing" type="submit">Submit</button>
+  </form>
+</section>
+<!-- 
+CREATE TABLE listings ( id SERIAL PRIMARY KEY NOT NULL, user_id INTEGER
+REFERENCES users(id) ON DELETE CASCADE, title VARCHAR(255) NOT NULL, price
+INTEGER NOT NULL DEFAULT 0, description VARCHAR(255) NOT NULL, picture_url
+VARCHAR(255) NOT NULL, category VARCHAR(255) NOT NULL, posted_date DATE,
+sold_date DATE, is_sold BOOLEAN NOT NULL DEFAULT FALSE );  -->
 <%- include('partials/_footer') %>
-
-
