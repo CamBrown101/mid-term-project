@@ -1,0 +1,42 @@
+.main-container {
+  margin-top: 230px;
+  margin-left: 7%;
+  margin-right: 7%;
+  margin: 230px 7% 7% 100px;
+  padding-bottom: 5%;
+
+  .card-row {
+    display: flex;
+    background-color: gray;
+    padding: 1%;
+    border: solid 3px lightgray;
+    border-radius: 10px;
+    margin-bottom: 2%;
+  }
+
+  .card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 30%;
+    padding: 3%;
+    margin: 3%;
+    text-overflow: inherit;
+    border: solid 5px black;
+    border-radius: 10px;
+    background-color: $light-cream;
+    color:$font-color;
+  }
+
+  img {
+    width: 80%;
+    margin: 5%
+  }
+
+  article.card-container a.btn {
+  background-color: $header-background;
+  color: $project-white;
+}
+
+}
