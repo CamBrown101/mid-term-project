@@ -1,17 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home Page</title>
+<%- include('partials/_header') %>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+<div class="search-bar">
+  <form id="item-search" method="POST" action="/">
+    <label for="search-input">Search for an item</label>
+    <textarea name="text" id="search-input" require maxlength="150"></textarea>
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form>
+</div>
 
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html>
+
+<main class="main-container">
+    <div class="card-row">
+        <article class="card-container">
+          <h5 class="card-title">Item Title</h5>
+          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
+          <p class="card-description">Some kind of description of what the item is and what not</p>
+          <a src="#" class="btn btn-primary">Do Something</a>
+        </article>
+        <article class="card-container">
+          <h5 class="card-title">Item Title</h5>
+          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
+            <p class="card-description">Some kind of description of what the item is and what not</p>
+            <a src="#" class="btn btn-primary">Do Something</a>
+        </article>
+        <article class="card-container">
+          <h5 class="card-title">Item Title</h5>
+          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
+            <p class="card-description">Some kind of description of what the item is and what not</p>
+            <a src="#" class="btn btn-primary">Do Something</a>
+        </article>
+    </div> 
+    <div class="card-row">
+        <article class="card-container">
+          <h5 class="card-title">Item Title</h5>
+          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
+            <p class="card-description">Some kind of description of what the item is and what not</p>
+            <a src="#" class="btn btn-primary">Do Something</a>
+        </article>
+        <article class="card-container">
+          <h5 class="card-title">Item Title</h5>
+          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
+            <p class="card-description">Some kind of description of what the item is and what not</p>
+            <a src="#" class="btn btn-primary">Do Something</a>
+        </article>
+        <article class="card-container">
+          <h5 class="card-title">Item Title</h5>
+          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
+            <p class="card-description">Some kind of description of what the item is and what not</p>
+            <a src="#" class="btn btn-primary">Do Something</a>
+        </article>
+    </div> 
+    <div class="card-row">
+        <article class="card-container">
+          <h5 class="card-title">Item Title</h5>
+          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
+            <p class="card-description">Some kind of description of what the item is and what not</p>
+            <a src="#" class="btn btn-primary">Do Something</a>
+        </article>
+        <article class="card-container">
+          <h5 class="card-title">Item Title</h5>
+          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
+            <p class="card-description">Some kind of description of what the item is and what not</p>
+            <a src="#" class="btn btn-primary">Do Something</a>
+        </article>
+        <article class="card-container">
+          <h5 class="card-title">Item Title</h5>
+          <img src="https://image.shutterstock.com/image-photo/money-600w-696138958.jpg">
+            <p class="card-description">Some kind of description of what the item is and what not</p>
+            <a src="#" class="btn btn-primary">Do Something</a>
+        </article>
+    </div> 
+</main>
+
+
+<%- include('partials/_footer') %>
+
+
