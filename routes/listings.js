@@ -1,5 +1,5 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 module.exports = (db) => {
 
@@ -19,13 +19,12 @@ module.exports = (db) => {
     console.log(queryText, queryParams);
     db.query(queryText, queryParams)
       .then(data => {
+
         const listings = data.rows;
         res.send(listings);
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
 
@@ -39,27 +38,25 @@ module.exports = (db) => {
         const templateVars = { listings };
         res.render("index", templateVars);
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
 
-
   //individual listing
   router.get("/:id", (req, res) => {
-    db.query(`SELECT * FROM listings
-              WHERE id = $1;`, req.params.id)
-      .then(data => {
+    db.query(
+      `SELECT * FROM listings
+              WHERE id = $1;`,
+      req.params.id
+    )
+      .then((data) => {
         const listing = data.rows[0];
         const templateVars = { listing };
         res.render("index", templateVars);
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
 
@@ -75,10 +72,8 @@ module.exports = (db) => {
         const templateVars = { listing };
         res.render("index", templateVars);
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
 
