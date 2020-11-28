@@ -1,10 +1,11 @@
 // See: https://sass-lang.com/
-@import 'variables';
+@import "variables";
 body {
   background-color: $light-cream;
 }
 
-@import 'nav';
-@import 'search-item';
-@import 'item-cards';
-@import 'footer';
+@import "nav";
+@import "search-item";
+@import "item-cards";
+@import "footer";
+@import "new-listing";

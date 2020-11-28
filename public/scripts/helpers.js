@@ -3,7 +3,7 @@ const createNewCard = function (listing) {
   const articleContainer = $(`
     <article class="card-container">
       <h5 class="card-title">${listing.title}</h5>
-      <img src="${listing.photo_url}">
+      <img src="${listing.picture_url}">
       <p class="card-description">${listing.description}</p>
       <a src="#" class="btn btn-primary">Do Something</a>
     </article>
@@ -13,7 +13,7 @@ const createNewCard = function (listing) {
 
 //Clears results container
 const clearResultsContainer = () => {
-  $('.results-container').empty();
+  $(".results-container").empty();
 };
 //Renders listings for home page
 const homePageLoad = () => {
@@ -32,7 +32,7 @@ const homePageLoad = () => {
       renderListings(listings, i);
     });
   }
-}
+};
 
 //Loads listings using the renderListings function
 const loadListings = () => {
@@ -43,9 +43,9 @@ const loadListings = () => {
 
 //Create category row Html
 const createCategoryRows = () => {
-  $('.main-container').append(`
+  $(".main-container").append(`
   <div id="listings-row-0" class="card-row"></div> 
   <div id="listings-row-1" class="card-row"></div> 
   <div id="listings-row-2" class="card-row"></div>
-  `)
-}
+  `);
+};
