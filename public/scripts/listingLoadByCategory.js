@@ -19,8 +19,7 @@ $(document).ready(() => {
   };
   const loadListings = () => {
     return $.ajax("/listings").then((listing) => {
-      console.log(listing)
-      // renderListing(listing);
+      renderListing(listing);
     });
   };
   loadListings();
