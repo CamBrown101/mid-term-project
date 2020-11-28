@@ -12,11 +12,16 @@ module.exports = (db) => {
     if (req.query.text) {
       const search = "%" + req.query.text + "%";
       queryParams.push(search);
-      queryText += `AND (title LIKE $${queryParams.length} OR description LIKE $${queryParams.length} OR category LIKE $${queryParams.length})`;
+      queryText += `AND (LOWER(title) LIKE LOWER($${queryParams.length}) OR LOWER(description) LIKE LOWER($${queryParams.length}) OR LOWER(category) LIKE LOWER($${queryParams.length}))`;
     }
 
     if (req.query.category) {
-      queryText += `AND category = ${req.query.category}`;
+      if (req.query.category === "newest") {
+        queryText += `ORDER BY posted_date LIMIT 4`;
+      } else {
+        queryText += ` 
+        AND category = '${req.query.category}' LIMIT 4`;
+      }
     }
 
     queryText += `;`;
