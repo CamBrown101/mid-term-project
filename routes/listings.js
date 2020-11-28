@@ -14,7 +14,6 @@ module.exports = (db) => {
       queryText += `WHERE title LIKE $${queryParams.length}`;
     }
     queryText += `;`;
-    console.log(queryText, queryParams);
     db.query(queryText, queryParams)
       .then((data) => {
         const listings = data.rows;
@@ -28,14 +27,14 @@ module.exports = (db) => {
   //TODO using logged in user id query db for user favorites then display
   router.get("/favourites", (req, res) => {
     const userID = 1;
-    db.query(
-      `SELECT * FROM listings
-              WHERE user_id = 1;`
+    db.query(`
+              SELECT * FROM listings
+              JOIN favorite_items ON listings.id = item_id
+              WHERE favorite_items.user_id = $1;`, [ userID ]
     )
       .then((data) => {
         const listings = data.rows;
-        const templateVars = { listings };
-        res.render("index", templateVars);
+        res.send(listings);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -44,15 +43,13 @@ module.exports = (db) => {
 
   //individual listing
   router.get("/:id", (req, res) => {
+    console.log(req.params.id);
     db.query(
       `SELECT * FROM listings
-              WHERE id = $1;`,
-      req.params.id
-    )
+              WHERE id = $1;`, [req.params.id])
       .then((data) => {
         const listing = data.rows[0];
-        const templateVars = { listing };
-        res.render("index", templateVars);
+        res.send(listing);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

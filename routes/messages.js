@@ -4,12 +4,13 @@ const router  = express.Router();
 module.exports = (db) => {
 
   //Single page messages app using ajax?
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM messages;`)
+  router.get("/:id", (req, res) => {
+    userID = req.params.id;
+    db.query(`SELECT * FROM messages
+              WHERE sender_id = $1;`,  [userID])
       .then(data => {
         const messages = data.rows;
-        const templateVars = { messages };
-        res.render("index", templateVars);
+        res.send(messages)
       })
       .catch(err => {
         res
