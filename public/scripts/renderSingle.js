@@ -1,6 +1,10 @@
+$(document).ready(() => {
+  console.log("A");
+  $('div').on("click", 'a.small-listing-button', (event) => {
+    console.log("CLICK");
+    $(".main-container").empty();
 
-$(Document).ready(() => {
-  console.log("Aya");
+  })
   const createListingBig = function (listing) {
     const articleContainer = $(`<article class="card-container">
       <h5 class="card-title">${listing.title}</h5>
@@ -10,9 +14,4 @@ $(Document).ready(() => {
       </article>`);
     return articleContainer;
   };
-
-  $('.small-listing-button').click((event) => {
-    event.preventDefault();
-    console.log("CLICK");
-  })
 });
