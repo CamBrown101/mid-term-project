@@ -1,21 +1,6 @@
 $(document).ready(() => {
-  $(".main-footer").hide();
 
-  const renderListings = (listings, index) => {
-    $(`#listings-row-${index}`).empty();
-    for (const item of listings) {
-      $(`#listings-row-${index}`).append(createNewCard(item));
-    }
-  };
-  let categoryArr = ["newest", "games", "bikes"];
-
-  for (let i = 0; i < 3; i++) {
-    let data = { category: categoryArr[i] };
-    $.get("/listings", data).then((listings) => {
-      console.log(listings);
-      renderListings(listings, i);
-    });
-  }
+homePageLoad()
 });
 
 //old render listings code
