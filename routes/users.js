@@ -8,6 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 
+//This currently just returns a json file with all users. Usefull for testing but will delete.
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
