@@ -1,40 +1,42 @@
 $(Document).ready(() => {
+  //jQuery variables
+  const resultsContainerHtml = $(`<div class="results-container"></div>`);
+  const $mainContainer = $(".main-container");
 
-  const createNewCard = function (listing) {
-    const articleContainer = $(`<article class="card-container">
-      <h5 class="card-title">${listing.title}</h5>
-      <img src="${listing.photo_url}">
-      <p class="card-description">${listing.description}</p>
-      <a src="#" class="btn btn-primary">Do Something</a>
-      </article>`);
-    return articleContainer;
+  //Loops through results and adds new cards
+  const renderListing = (listings) => {
+    $mainContainer.empty();
+    $mainContainer.append(resultsContainerHtml);
+    listings.forEach((element) => {
+      const $resultsContainer = $(".results-container");
+      $resultsContainer.append(createNewCard(element));
+    });
   };
-    const renderListing = (listings) => {
-      $('.main-container').empty();
-      listings.forEach((element) => {
-        $('.main-container').append(createNewCard(element));
-      });
+
+  //Takes search input and sends to server to query results from database
+  // $('#item-search').submit((event)=>{
+  //   const searchString = $('#text').val()
+
+  //Empty string check
+  //   if(searchString.trim()) {
+  //     event.preventDefault();
+  //     clearResultsContainer();
+  //      $.get(`/listings/?text=${searchString}`, (listing => {
+  //       renderListing(listing);
+  //     }))
+  //   }
+  // })
+
+  //Ajax call where results were not coming back properly **waiting on mentor**
+  $("#item-search").submit((event) => {
+    const data = {
+      text: $("#text").val(),
     };
-  
-    $('#item-search').submit((event)=>{
-      const searchString = $('#text').val()
-      event.preventDefault();
-      $('.main-container').empty()
-       $.get(`/listings/?text=${searchString}`, (listing => {
-        console.log(listing)
-        renderListing(listing);
-      }))
-    })
-    
-    // $('#item-search').submit((event)=>{
-    //   event.preventDefault();
-    //   $('.main-container').empty()
-    //    $.get('/listings', (listing) => {
-    //     console.log(listing)
-    //     renderListing(listing);
-    //   })
-    // })
-})
-
-
-
+    event.preventDefault();
+    $(".main-container").empty();
+    $.get("/listings", data, (listing) => {
+      console.log(listing);
+      renderListing(listing);
+    });
+  });
+});

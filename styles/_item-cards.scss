@@ -7,7 +7,7 @@
 
   .card-row {
     display: flex;
-    background-color: gray;
+    background-color: $background-grey;
     padding: 1%;
     border: solid 3px lightgray;
     border-radius: 10px;
@@ -23,7 +23,7 @@
     padding: 3%;
     margin: 3%;
     text-overflow: inherit;
-    border: solid 5px black;
+    border: solid 5px $font-color;
     border-radius: 10px;
     background-color: $light-cream;
     color:$font-color;
@@ -31,7 +31,7 @@
 
   img {
     width: 80%;
-    margin: 5%
+    margin: 5%;
   }
 
   article.card-container a.btn {
@@ -39,4 +39,14 @@
   color: $project-white;
 }
 
+}
+
+.results-container {
+  display:flex;
+  padding: 3%;
+  background-color: $background-grey;
+  width: 100%;
+  margin: 0;
+  border: solid 3px lightgray;
+  border-radius: 10px;
 }
