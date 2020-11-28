@@ -17,10 +17,15 @@ $(document).ready(() => {
       $("#listings-row-1").append(createNewCard(element));
     });
   };
-  const loadListings = () => {};
+  const loadListings = () => {
+    return $.post("/categories", 0).then((listing) => {
+      console.log(listing);
+      renderListing(listing);
+    });
+  };
   loadListings();
-  return $.ajax("/listings").then((listing) => {
-    console.log(listing);
-    renderListing(listing);
-  });
+  // return $.ajax("/listings").then((listing) => {
+  //   console.log(listing);
+  //   renderListing(listing);
+  // });
 });
