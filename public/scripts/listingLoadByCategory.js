@@ -1,5 +1,5 @@
 //Loads the initial listings on the home page by category
-const renderListing = function (listing) {
+const createNewCard = function (listing) {
   const articleContainer = $(`<article class="card-container">
     <h5 class="card-title">${listing.title}</h5>
     <img src="${listing.photo_url}">
@@ -10,15 +10,25 @@ const renderListing = function (listing) {
 };
 
 $(document).ready(() => {
-  const renderListings = (listings) => {
-    $().empty();
+  console.log('Document ready')
+  const renderListing = (listings) => {
+    $('#listings-row-1').empty();
     listings.forEach((element) => {
-      id.append(createNewCard(listings));
+      $('#listings-row-1').append(createNewCard(element));
     });
   };
   const loadListings = () => {
-    return $.ajax("/listings", { method: "GET" }).then((listings) => {
-      renderListing(listings);
+    return $.ajax("/listings").then((listing) => {
+      console.log(listing)
+      // renderListing(listing);
     });
   };
+  loadListings();
 });
+
+
+// const getTweets = () => {
+//   $.get('/tweets/', function (data) {
+//     renderTweets(sortTweets(data));
+//   });
+// };
