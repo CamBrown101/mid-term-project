@@ -1,5 +1,6 @@
 
 $(Document).ready(() => {
+  console.log("Aya");
   const createListingBig = function (listing) {
     const articleContainer = $(`<article class="card-container">
       <h5 class="card-title">${listing.title}</h5>
