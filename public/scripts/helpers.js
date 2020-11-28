@@ -28,7 +28,6 @@ const homePageLoad = () => {
   for (let i = 0; i < 3; i++) {
     let data = { category: categoryArr[i] };
     $.get("/listings", data).then((listings) => {
-      console.log(listings);
       renderListings(listings, i);
     });
   }
