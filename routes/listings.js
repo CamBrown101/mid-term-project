@@ -3,10 +3,21 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  //Display all listings
-  //Maybe could add in options to make this our search results page
+  //Display all listings or display search results if given query
+  //Maybe could add in more options
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM listings;`)
+    let queryText = `SELECT * FROM listings
+    `
+    const queryParams = [];
+    if (req.query.text) {
+      const search = '%' + req.query.text + '%';
+      queryParams.push(search);
+      queryText += `WHERE title LIKE $${queryParams.length}`;
+
+    }
+    queryText += `;`;
+    console.log(queryText, queryParams);
+    db.query(queryText, queryParams)
       .then(data => {
         const listings = data.rows;
         const templateVars = { listings };
