@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="robots" content="index,follow">
-    
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <meta name="robots" content="index,follow" />
+
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
     <!-- Icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <script type="text/javascript" src="/scripts/listingLoadByCategory.js"></script>
+    <script
+      type="text/javascript"
+      src="/scripts/listingLoadByCategory.js"
+    ></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/search.js"></script>
 
     <title>Buy Things, Sell Things</title>
-
   </head>
 
   <body>
@@ -29,7 +43,31 @@
         <div class="nav-items">
           <i class="fas fa-bars hamburger"></i>
           <i class="fas fa-money-bill-wave-alt"></i>
-          <h3>USERNAME</h3>          
+          <% if(true){ %>
+            <!-- if (email !== undefined) -->
+            <h5>Logged in as: <%- "username" %></h5>
+            <form method="GET" action="/logout">
+              <button type="submit" class="align-middle btn btn-primary" value="get">Logout</button>
+              </button>
+              
+            </form>  
+          <% } else{ %>  
+              <form method="POST" class="row" action="/login" >
+                <h5 class="d-inline">Email:</h5>
+                <input
+                  class="form-control d-inline w-25"
+                  type="email"
+                  required
+                  name="email"
+                  style="width: 200px; margin: 1em"
+                />
+              <button type="submit" class=" btn btn-primary m-3">Login</button> 
+              </button>
+            </form class="row">  
+           
+         <% } %>
         </div>
-     </nav>
+      </nav>
     </header>
+  </body>
+</html>

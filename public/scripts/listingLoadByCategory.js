@@ -9,23 +9,69 @@ const createNewCard = function (listing) {
   return articleContainer;
 };
 
+// $(document).ready(() => {
+// console.log("Document ready");
+// const rowId = [0, 1, 2];
+
+// const listingRowId = $(`#listings-row-${rowId}`);
+
+// const renderListingsByCategory = () => {
+//   for (let i = 0; i < rowId.length; i++) {
+//     //Send the rowID to the server to use in query
+//     return $.post("/listings", rowId[i]).then((listings) => {
+//       //Clear the row
+//       listingRowId.empty();
+
+//       //Add html to each row individualy
+//       listings.forEach((element) => {
+//         listingRowId.append(createNewCard(element));
+//       });
+//     });
+//   }
+// };
+// renderListingsByCategory();
+
+// const renderListing = (listings) => {
+//   $("#listings-row-1").empty();
+//   listings.forEach((element) => {
+//     $("#listings-row-1").append(createNewCard(element));
+//   });
+// };
+
+// // const loadListings = () => {
+// //   return $.post("/listings", 0).then((listing) => {
+// //     console.log(listing);
+// //     renderListing(listing);
+// //   });
+// // };
+
+// loadListings();
+// const loadListings = () => {};
+// loadListings();
+// return $.ajax("/listings").then((listing) => {
+//   console.log(listing);
+//   renderListing(listing);
+// });
+
+// });
+
 $(document).ready(() => {
   console.log("Document ready");
   const renderListing = (listings) => {
+    $("#listings-row-0").empty();
     $("#listings-row-1").empty();
-    listings.forEach((element) => {
-      $("#listings-row-1").append(createNewCard(element));
-    });
+    $("#listings-row-2").empty();
+
+    for (let i = 0; i < 4; i++) {
+      $("#listings-row-0").append(createNewCard(listings[i]));
+      $("#listings-row-1").append(createNewCard(listings[i]));
+      $("#listings-row-2").append(createNewCard(listings[i]));
+    }
   };
   const loadListings = () => {
-    return $.post("/categories", 0).then((listing) => {
-      console.log(listing);
+    return $.ajax("/listings").then((listing) => {
       renderListing(listing);
     });
   };
   loadListings();
-  // return $.ajax("/listings").then((listing) => {
-  //   console.log(listing);
-  //   renderListing(listing);
-  // });
 });

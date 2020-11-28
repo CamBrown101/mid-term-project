@@ -8,6 +8,7 @@ module.exports = (db) => {
     let queryText = `SELECT * FROM listings
     `;
     const queryParams = [];
+    console.log(req.query.text, 'req.query.text')
     if (req.query.text) {
       const search = "%" + req.query.text + "%";
       queryParams.push(search);
