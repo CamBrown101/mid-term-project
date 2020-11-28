@@ -10,17 +10,48 @@ const createNewCard = function (listing) {
 };
 
 $(document).ready(() => {
-  console.log("Document ready");
-  const renderListing = (listings) => {
-    $("#listings-row-1").empty();
-    listings.forEach((element) => {
-      $("#listings-row-1").append(createNewCard(element));
+
+console.log("Document ready");
+const listingRowId = $(`#listings-row-${rowId}`)
+const rowId = [0, 1, 2];
+
+  const renderListingsByCategory = () => {
+    
+    for(let i = 0; i < rowID.length; i++) {
+      //Send the rowID to the server to use in query
+      return $.post('/listings', rowID[i]).then((listings) => {
+
+        //Clear the row
+        listingRowId.empty();
+
+        //Add html to each row individualy
+        listings.forEach((element) => {
+          listingRowId.append(createNewCard(element));
+      })
     });
-  };
-  const loadListings = () => {};
-  loadListings();
-  return $.ajax("/listings").then((listing) => {
-    console.log(listing);
-    renderListing(listing);
-  });
+    }
+  }
+  renderListingsByCategory()
+
+  // const renderListing = (listings) => {
+  //   $("#listings-row-1").empty();
+  //   listings.forEach((element) => {
+  //     $("#listings-row-1").append(createNewCard(element));
+  //   });
+  // };
+
+  // const loadListings = () => {
+  // return $.post('/listings', 0).then((listing) => {
+  //   console.log(listing);
+  //   renderListing(listing);
+  // });
+  // }
+
+  // loadListings();
+  // const loadListings = () => {};
+  // loadListings();
+  // return $.ajax("/listings").then((listing) => {
+  //   console.log(listing);
+  //   renderListing(listing);
+  // });
 });
