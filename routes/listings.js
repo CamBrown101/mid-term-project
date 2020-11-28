@@ -12,7 +12,7 @@ module.exports = (db) => {
     if (req.query.text) {
       const search = "%" + req.query.text + "%";
       queryParams.push(search);
-      queryText += `AND (title LIKE $${queryParams.length} OR description LIKE $${queryParams.length} OR category LIKE $${queryParams.length})`;
+      queryText += `AND (LOWER(title) LIKE LOWER($${queryParams.length}) OR LOWER(description) LIKE LOWER($${queryParams.length}) OR LOWER(category) LIKE LOWER($${queryParams.length}))`;
     }
 
     if (req.query.category) {
