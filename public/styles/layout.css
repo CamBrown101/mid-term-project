@@ -59,11 +59,25 @@ nav .login-info {
   color: #1F271B;
 }
 
+<<<<<<< HEAD
 #new-listing-button {
   margin: 0.5em;
   margin-left: auto;
   margin-right: auto;
   background-color: #DCC7BE;
+=======
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 3%;
+  background-color: grey;
+  width: 100%;
+  border: solid 3px lightgray;
+  border-radius: 10px;
+  margin: 0;
+  justify-content: center;
+  align-content: center;
+>>>>>>> 304eb4e0d237e765f5a95e386a41725c376b6e82
 }
 
 .main-container {
@@ -88,7 +102,7 @@ nav .login-info {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  width: 30%;
+  width: 90%;
   padding: 3%;
   margin: 3%;
   text-overflow: inherit;
@@ -96,6 +110,7 @@ nav .login-info {
   border-radius: 10px;
   background-color: #DCC7BE;
   color: #1F271B;
+  justify-self: center;
 }
 
 .main-container img {
@@ -106,16 +121,6 @@ nav .login-info {
 .main-container article.card-container a.btn {
   background-color: #0B4F6C;
   color: #ffffff;
-}
-
-.results-container {
-  display: flex;
-  padding: 3%;
-  background-color: grey;
-  width: 100%;
-  margin: 0;
-  border: solid 3px lightgray;
-  border-radius: 10px;
 }
 
 .main-footer {
