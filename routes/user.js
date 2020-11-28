@@ -1,13 +1,14 @@
 const express = require('express');
 const router  = express.Router();
 
-//This currently just returns a json file with all users. Usefull for testing but will delete.
+//Display page of user
 module.exports = (db) => {
-  router.get("/", (req, res) => {
+  router.get("/:id", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        const user = data.rows[0];
+        const templateVars = { user };
+        res.render("index", templateVars);
       })
       .catch(err => {
         res

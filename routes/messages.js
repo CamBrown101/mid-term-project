@@ -9,7 +9,7 @@ module.exports = (db) => {
       .then(data => {
         const messages = data.rows;
         const templateVars = { messages };
-        res.render("messages", templateVars);
+        res.render("index", templateVars);
       })
       .catch(err => {
         res

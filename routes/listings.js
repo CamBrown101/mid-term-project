@@ -10,7 +10,7 @@ module.exports = (db) => {
       .then(data => {
         const listings = data.rows;
         const templateVars = { listings };
-        res.render("listings", templateVars);
+        res.render("index", templateVars);
       })
       .catch(err => {
         res
@@ -25,7 +25,7 @@ module.exports = (db) => {
       .then(data => {
         const listings = data.rows;
         const templateVars = { listings };
-        res.render("listings", templateVars);
+        res.render("index", templateVars);
       })
       .catch(err => {
         res
@@ -42,7 +42,7 @@ module.exports = (db) => {
       .then(data => {
         const listing = data.rows[0];
         const templateVars = { listing };
-        res.render("listings/id", templateVars);
+        res.render("index", templateVars);
       })
       .catch(err => {
         res
@@ -59,7 +59,7 @@ module.exports = (db) => {
       .then(data => {
         const listing = data.rows[0];
         const templateVars = { listing };
-        res.render("listings/id", templateVars);
+        res.render("index", templateVars);
       })
       .catch(err => {
         res
