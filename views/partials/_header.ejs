@@ -10,33 +10,28 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous"
     />
     <!-- Icons -->
     <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
-      crossorigin="anonymous"
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+    crossorigin="anonymous"
     />
-
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <script
-      type="text/javascript"
-      src="/scripts/helpers.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="/scripts/listingLoadByCategory.js"
-    ></script>
+    <script type="text/javascript" src="/scripts/helpers.js"></script>
+    <script type="text/javascript" src="/scripts/listingLoadByCategory.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/search.js"></script>
+    <script type="text/javascript" src="/scripts/nav.js"></script>
 
     <title>Buy Things, Sell Things</title>
   </head>
@@ -46,7 +41,8 @@
       <nav>
         <div class="nav-items">
           <i class="fas fa-bars hamburger"></i>
-          <i class="fas fa-money-bill-wave-alt"></i>
+          <i class="fas fa-money-bill-wave-alt icon"></i>
+          <div class="login-info">
           <% if(true){ %>
             <!-- if (email !== undefined) -->
             <h5>Logged in as: <%- "username" %></h5>
@@ -72,6 +68,7 @@
             </form class="row">  
            
          <% } %>
+          </div>
         </div>
       </nav>
     </header>
