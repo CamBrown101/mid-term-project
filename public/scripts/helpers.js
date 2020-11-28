@@ -16,17 +16,23 @@ const clearResultsContainer = () => {
   $('.results-container').empty();
 };
 //Renders listings for home page
-const renderListing = (listings) => {
-  $("#listings-row-0").empty();
-  $("#listings-row-1").empty();
-  $("#listings-row-2").empty();
+const homePageLoad = () => {
+  const renderListings = (listings, index) => {
+    $(`#listings-row-${index}`).empty();
+    for (const item of listings) {
+      $(`#listings-row-${index}`).append(createNewCard(item));
+    }
+  };
+  let categoryArr = ["newest", "games", "bikes"];
 
-  for (let i = 0; i < 4; i++) {
-    $("#listings-row-0").append(createNewCard(listings[i]));
-    $("#listings-row-1").append(createNewCard(listings[i]));
-    $("#listings-row-2").append(createNewCard(listings[i]));
+  for (let i = 0; i < 3; i++) {
+    let data = { category: categoryArr[i] };
+    $.get("/listings", data).then((listings) => {
+      console.log(listings);
+      renderListings(listings, i);
+    });
   }
-};
+}
 
 //Loads listings using the renderListings function
 const loadListings = () => {
