@@ -2,18 +2,24 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-  //Display all listings or display search results if given query
+  //Return all listings for a given query
   //Maybe could add in more options
   router.get("/", (req, res) => {
     let queryText = `SELECT * FROM listings
+                    WHERE 1 = 1
     `;
     const queryParams = [];
-    console.log(req.query.text, 'req.query.text')
+
     if (req.query.text) {
       const search = "%" + req.query.text + "%";
       queryParams.push(search);
-      queryText += `WHERE title LIKE $${queryParams.length}`;
+      queryText += `AND (title LIKE $${queryParams.length} OR description LIKE $${queryParams.length} OR category LIKE $${queryParams.length})`;
     }
+
+    if (req.query.category) {
+      queryText += `AND category = ${req.query.category}`;
+    }
+
     queryText += `;`;
     db.query(queryText, queryParams)
       .then((data) => {
@@ -26,6 +32,7 @@ module.exports = (db) => {
   });
 
   //TODO using logged in user id query db for user favorites then display
+  //currently only returns favourites for user 1
   router.get("/favourites", (req, res) => {
     const userID = 1;
     db.query(`

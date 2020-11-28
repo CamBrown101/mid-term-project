@@ -3,7 +3,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  //Single page messages app using ajax?
+  //Get all messages for a given user
   router.get("/:id", (req, res) => {
     userID = req.params.id;
     db.query(`SELECT * FROM messages
