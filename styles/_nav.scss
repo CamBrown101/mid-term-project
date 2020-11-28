@@ -13,7 +13,7 @@ nav {
   color: white;
 
   i {
-    font-size: 8em;
+    font-size: 6em;
   }
 
   .hamburger {
@@ -21,9 +21,10 @@ nav {
   }
 
   .nav-items {
-    display: flex;
     width: 100%;
+    margin-bottom: 5%;
     padding: 5%;
+    display: flex;
     justify-content: space-between;
     align-items: baseline;
   }
