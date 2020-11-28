@@ -7,7 +7,7 @@ $(document).ready(() => {
       $(`#listings-row-${index}`).append(createNewCard(item));
     }
   };
-  let categoryArr = ["date", "Bikes", "Games"];
+  let categoryArr = ["newest", "Games", "Bikes"];
 
   for (let i = 0; i < 3; i++) {
     let data = { category: categoryArr[i] };
