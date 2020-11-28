@@ -11,7 +11,8 @@ $(Document).ready(() => {
     return articleContainer;
   };
 
-  $('.small-listing-button').click(() => {
+  $('.small-listing-button').click((event) => {
+    event.preventDefault();
     console.log("CLICK");
   })
 });
