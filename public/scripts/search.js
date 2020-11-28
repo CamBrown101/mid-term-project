@@ -1,8 +1,9 @@
 $(Document).ready(() => {
-
+    //jQuery variables
     const resultsContainerHtml = $(`<div class="results-container"></div>`)
     const $mainContainer = $('.main-container');
     
+    //Loops through results and adds new cards
     const renderListing = (listings) => {
       $mainContainer.empty();
       $mainContainer.append(resultsContainerHtml);
@@ -12,9 +13,11 @@ $(Document).ready(() => {
       });
     };
   
+    //Takes search input and sends to server to query results from database
     $('#item-search').submit((event)=>{
       const searchString = $('#text').val()
 
+      //Empty string check
       if(searchString.trim()) {
         event.preventDefault();
         clearResultsContainer();
@@ -26,7 +29,7 @@ $(Document).ready(() => {
     
 
 
-
+    //Ajax call where results were not coming back properly **waiting on mentor**
     // $('#item-search').submit((event)=>{
     //   event.preventDefault();
     //   $('.main-container').empty()
