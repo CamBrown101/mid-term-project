@@ -241,7 +241,7 @@ nav .login {
   align-content: center;
 }
 
-.messages {
+.inner-message-conatiner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,6 +254,14 @@ nav .login {
   border-radius: 10px;
   background-color: #145C9E;
   color: #1F271B;
+}
+
+.messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .message {
