@@ -4,8 +4,12 @@ $(document).ready(() => {
     console.log("CLICK");
     const listingID = $(event.target).siblings(".id").html();
     $(".main-container").empty();
-    $.get(`/listings/${listingID}`, (listing) => {
-      $(".main-container").append(createListingBig(listing));
+    $.get(`/listings/${listingID}`, (data) => {
+      console.log(data);
+      $(".main-container").append(createListingBig(data.listing));
+      if (data.listing.user_id === data.user_id) {
+        $("#message-seller-btn").hide();
+      }
       $(".big-id").hide();
     });
   });

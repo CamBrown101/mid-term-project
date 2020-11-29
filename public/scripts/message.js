@@ -49,7 +49,7 @@ $(document).ready(() => {
     });
   });
 
-  $("messages-form").submit((event) => {
+  $(".messages-form").submit((event) => {
     event.preventDefault();
     console.log("new-message-click-working");
     const message = $(".message-input").val();
@@ -57,7 +57,7 @@ $(document).ready(() => {
       message: message,
     };
 
-    $.post(`/listings/${listingId}`, data, (message) => {
+    $.post(`/messages/${listingId}`, data, (message) => {
       console.log(message);
     });
   });
