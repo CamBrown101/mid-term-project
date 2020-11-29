@@ -1,17 +1,21 @@
 $(document).ready(() => {
   console.log("A");
-  $('div').on("click", 'a.small-listing-button', (event) => {
+  $('main').on("click", 'a.small-listing-button', (event) => {
     console.log("CLICK");
     const listingID = $(event.target).siblings('.id').html();
     $(".main-container").empty();
     $.get(`/listings/${listingID}`, (listing) => {
       $(".main-container").append(createListingBig(listing));
     });
-    //$(".main-container").append(createListingBig());
+  })
+  $('main').on("click", 'btn.big-back', () => {
+    $(".main-container").empty();
+    window.location.replace("/")
   })
   const createListingBig = function (listing) {
     const articleContainer = $(`
       <article class="big-listing">
+        <btn class="btn btn-primary big-back">HOME</btn>
         <h2 class="big-title">${listing.title}</h5>
         <img class="big-img" src="${listing.picture_url}">
         <h5 class="big-price">$${listing.price}</h5>

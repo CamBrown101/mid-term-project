@@ -92,7 +92,6 @@ module.exports = (db) => {
     )
       .then((data) => {
         const listing = data.rows[0];
-        const templateVars = { listing };
         res.send(listing);
       })
       .catch((err) => {
