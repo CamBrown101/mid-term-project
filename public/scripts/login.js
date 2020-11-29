@@ -8,7 +8,6 @@ $(document).ready(() => {
     } else {
       $("#login").show();
       $("#logout").hide();
-
     }
   });
 
