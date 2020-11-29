@@ -1,13 +1,10 @@
 $(document).ready(() => {
   //Clicking an item brings user to item page
   $("main").on("click", "a.small-listing-button", (event) => {
-    console.log("CLICK");
     const listingID = $(event.target).siblings(".id").html();
     $(".main-container").empty();
     $.get(`/listings/${listingID}`, (data) => {
-      console.log(data);
       $(".main-container").append(createListingBig(data.listing));
-      console.log(data.listing.user_id, data.user_id);
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
       }
@@ -42,10 +39,21 @@ $(document).ready(() => {
         <p class="big-id">${listing.id}</p>
         Message seller</btn>
         <btn class="btn btn-primary" id="fave-button">Favorite</btn>
-        <btn class="btn btn-danger" id="fave-button">Delete</btn>
+        <btn class="btn btn-danger" id="delete-button">Delete</btn>
       </article>
       `);
 
     return articleContainer;
   };
+
+  $("main").on("click", "#delete-button", (event) => {
+    const listingid = $(".big-id").text();
+    console.log(listingid);
+    const idObject = { listingid };
+    $.post("/listings/delete", idObject, () => {
+      $(".main-container").empty();
+      createCategoryRows();
+      homePageLoad();
+    });
+  });
 });

@@ -120,18 +120,19 @@ module.exports = (db) => {
       });
   });
 
-  router.post("/delete", (req, red) => {
-    const listingId = req.body.listingId;
+  router.post("/delete", (req, res) => {
+    const listingId = req.body.listingid;
     const loggedInId = req.session.user_id;
     const queryParams = [listingId, loggedInId];
 
     const queryString = `
-    DELETE row FROM listings 
+    DELETE FROM listings 
     WHERE listings.id = $1
-    AND listings.user_id = $2`;
+    AND listings.user_id = $2;`;
 
     db.query(queryString, queryParams)
       .then(() => {
+        console.log(queryString, queryParams);
         res.status(200);
       })
       .catch((err) => {
