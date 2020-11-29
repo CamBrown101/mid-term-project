@@ -74,6 +74,7 @@ module.exports = (db) => {
 
   //create a listing
   router.post("/", (req, res) => {
+    console.log(req.query);
     const listing = req.query;
     const queryParams = [
       listing.user_id,
@@ -101,7 +102,7 @@ module.exports = (db) => {
 
   router.get("/categories", (req, res) => {
     const listing = req.query;
-    console.log(req);
+    console.log(req.body);
     console.log(res);
 
     const queryStrings = [
