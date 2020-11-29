@@ -3,7 +3,7 @@ const router = express.Router();
 
 module.exports = (db) => {
   //Get all messages for a given user
-  router.get("/:id", (req, res) => {
+  router.get("/", (req, res) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
     db.query(
