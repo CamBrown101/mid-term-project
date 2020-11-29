@@ -34,7 +34,7 @@ nav .nav-items {
   align-items: flex-end;
 }
 
-nav #log-out {
+nav #logout {
   display: flex;
   justify-content: space-between;
   align-items: center;

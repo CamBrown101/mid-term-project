@@ -15,7 +15,10 @@ $(document).ready(() => {
   $(".login-btn").submit((event) => {
     event.preventDefault();
   });
-  $(".logout-btn").submit((event) => {
-    event.preventDefault();
+
+  $("#logout-btn").click(() => {
+    $.get("/logout", () => {
+      console.log("Logged Out");
+    });
   });
 });
