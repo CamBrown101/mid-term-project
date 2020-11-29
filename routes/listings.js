@@ -19,7 +19,7 @@ module.exports = (db) => {
       if (req.query.category === "newest") {
         queryText += `ORDER BY posted_date LIMIT 4`;
       } else {
-        queryText += ` 
+        queryText += `
         AND category = '${req.query.category}' LIMIT 4`;
       }
     }
@@ -74,8 +74,8 @@ module.exports = (db) => {
 
   //create a listing
   router.post("/", (req, res) => {
-    console.log(req.query);
-    const listing = req.query;
+    console.log(req.body);
+    const listing = req.body;
     const queryParams = [
       listing.user_id,
       listing.title,
@@ -93,7 +93,7 @@ module.exports = (db) => {
       .then((data) => {
         const listing = data.rows[0];
         const templateVars = { listing };
-        res.render("index", templateVars);
+        res.send(listing);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

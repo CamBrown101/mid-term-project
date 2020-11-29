@@ -18,6 +18,7 @@ $(document).ready(() => {
       picture_url: picture,
       category: category,
     };
+
     console.log(data);
     $.post("/listings", data, (listing) => {
       console.log(listing);
