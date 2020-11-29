@@ -1,12 +1,14 @@
 <%- include('partials/_header') %>
 
 <div class="search-bar">
-  <form id="item-search" method="GET" action="/">
-    <label for="search-input">Search for an item</label>
-    <textarea name="text" id="text" require maxlength="150"></textarea>
-    <button class="btn btn-primary" type="submit">Search</button>
-  </form>
-  <button id="new-listing-button" class="btn btn-primary">New Listing</button>
+  <div class="menu-container">
+    <form id="item-search" method="GET" action="/">
+      <label for="search-input">Search for an item</label>
+      <textarea name="text" id="text" require maxlength="150"></textarea>
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+    <button id="new-listing-button" class="btn btn-primary">New Listing</button>
+  </div>
 </div>
 
 <main class="main-container">
