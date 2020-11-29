@@ -55,6 +55,8 @@ app.use("/users", usersRoutes(db));
 app.use("/listings", listingsRoutes(db));
 app.use("/messages", messagesRoutes(db));
 app.use("/login", loginRoutes(db));
+app.use("/logout", loginRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
