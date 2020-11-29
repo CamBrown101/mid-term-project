@@ -1,14 +1,14 @@
 $(document).ready(() => {
-  $("#login").hide();
-  $("#log-out").hide();
   $.get("/login", (data) => {
     if (data) {
       const username = data.name;
       $("#login").hide();
-      $("#log-out").show();
+      $("#logout").show();
       $(".usernameLoggedIn").text(`Logged in as ${username}`);
     } else {
       $("#login").show();
+      $("#logout").hide();
+
     }
   });
 
@@ -19,6 +19,8 @@ $(document).ready(() => {
   $("#logout-btn").click(() => {
     $.get("/logout", () => {
       console.log("Logged Out");
+      createCategoryRows();
+      homePageLoad();
     });
   });
 });

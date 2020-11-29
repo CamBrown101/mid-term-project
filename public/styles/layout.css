@@ -35,12 +35,20 @@ nav .nav-items {
 }
 
 nav #logout {
+  display: none;
+}
+
+nav .logout {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 nav #login {
+  display: none;
+}
+
+nav .login {
   display: flex;
   justify-content: center;
   align-items: center;
