@@ -60,14 +60,16 @@ module.exports = (db) => {
     console.log(req.body.listing);
     const userID = req.session.user_id;
     db.query(`
-              INSERT INTO favorite_items (id, user_id, item_id)
-              VALUES ($1, $2);`,
+              INSERT INTO favorite_items (user_id, item_id)
+              VALUES ($1, $2)
+              WHERE NOT user_id = $1 AND item_id = $2;`,
       [userID, req.body.listing]
     )
       .then((data) => {
-        console.log("Worked");
+        res.send(data);
       })
       .catch((err) => {
+        console.log(err.message);
         res.status(500).json({ error: err.message });
       });
   });
