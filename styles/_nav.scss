@@ -1,13 +1,13 @@
-header{
+header {
   position: fixed;
-  top:0;
-  width:100%;
+  top: 0;
+  width: 100%;
   background-color: $header-background;
 }
 
 nav {
   height: 200px;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: flex-end;
   color: white;
@@ -30,5 +30,13 @@ nav {
   }
   .login-info {
     display: flex;
+  }
+
+  #logged-in {
+    display: inline;
+  }
+
+  #logged-out {
+    display: inline;
   }
 }

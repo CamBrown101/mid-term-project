@@ -38,6 +38,14 @@ nav .login-info {
   display: flex;
 }
 
+nav #logged-in {
+  display: inline;
+}
+
+nav #logged-out {
+  display: inline;
+}
+
 #item-search {
   display: flex;
   flex-direction: column;

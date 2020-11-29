@@ -45,17 +45,16 @@
           <i class="fas fa-bars hamburger"></i>
           <i class="fas fa-money-bill-wave-alt icon"></i>
           <div class="login-info">
-          <% if(true){ %>
-            <!-- if (email !== undefined) -->
-            <h5>Logged in as: <%- "username" %></h5>
-            <form method="GET" action="/logout">
+        
+            <form id="logged-in" method="GET" action="/logout">
+              <h5>Logged in as: username</h5>
+
               <button type="submit" class="align-middle btn btn-primary" value="get">Logout</button>
               </button>
 
             </form>
 
-          <% } else{ %>
-              <form method="POST" class="row" action="/login" >
+              <form id="logged-out" method="POST" class="row" action="/login" >
                 <h5 class="d-inline">Email:</h5>
                 <input
                   class="form-control d-inline w-25"
@@ -69,7 +68,6 @@
               </button>
             </form class="row">
 
-         <% } %>
           </div>
         </div>
       </nav>
