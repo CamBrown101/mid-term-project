@@ -55,6 +55,23 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/favourites", (req, res) => {
+    console.log("fave");
+    console.log(req.body.listing);
+    const userID = req.session.user_id;
+    db.query(`
+              INSERT INTO favorite_items (id, user_id, item_id)
+              VALUES ($1, $2);`,
+      [userID, req.body.listing]
+    )
+      .then((data) => {
+        console.log("Worked");
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
   //individual listing
   router.get("/:id", (req, res) => {
     db.query(
@@ -67,7 +84,6 @@ module.exports = (db) => {
           listing: data.rows[0],
           user_id: req.session.user_id,
         };
-        console.log(returnData);
         res.send(returnData);
       })
       .catch((err) => {
@@ -77,7 +93,6 @@ module.exports = (db) => {
 
   //create a listing
   router.post("/", (req, res) => {
-    console.log(req.body);
     const listing = req.body;
     const queryParams = [
       listing.user_id,
@@ -126,7 +141,7 @@ module.exports = (db) => {
     const queryParams = [listingId, loggedInId];
 
     const queryString = `
-    DELETE FROM listings 
+    DELETE FROM listings
     WHERE listings.id = $1
     AND listings.user_id = $2;`;
 

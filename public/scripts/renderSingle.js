@@ -24,7 +24,6 @@ $(document).ready(() => {
     const listing = $(event.target).siblings(".big-id").html();
     console.log(listing);
     $.post("/listings/favourites", { listing: listing }, () => {
-      console.log();
       $(event.target).replace($(`<p>FAVORITED</p>`));
     });
     console.log("fave");
@@ -54,9 +53,7 @@ $(document).ready(() => {
     console.log(listingid);
     const idObject = { listingid };
     $.post("/listings/delete", idObject, () => {
-      $(".main-container").empty();
-      createCategoryRows();
-      homePageLoad();
+      window.location.replace("/");
     });
   });
 });
