@@ -1,6 +1,6 @@
 $(document).ready(() => {
   console.log("its working");
-  $("#listing-submit").submit((event) => {
+  $(".new-listing-content").submit((event) => {
     event.preventDefault();
 
     console.log("click listing");
@@ -18,7 +18,8 @@ $(document).ready(() => {
       picture_url: picture,
       category: category,
     };
-    $.post("/listings/", data, (listing) => {
+    console.log(data);
+    $.post("/listings", data, (listing) => {
       console.log(listing);
     });
   });

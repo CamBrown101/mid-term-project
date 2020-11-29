@@ -18,7 +18,7 @@
 </main>
 
 <section id="new-listing">
-  <form class="new-listing-content">
+  <form class="new-listing-content" method="POST" action="/listings">
     <input
       type="text"
       name="title"
@@ -48,7 +48,7 @@
       <option value="computers">Computers</option>
       <option value="games">Games</option>
     </select>
-    <button id="listing-submit" class="btn btn-primary" type="submit">
+    <button id="new-listing-click" class="btn btn-primary" type="submit">
       Submit
     </button>
     <div id="hide-new-listing">Cancel</div>
