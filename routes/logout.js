@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-  //Get all messages for a given user
   router.get("/", (req, res) => {
     console.log("Deleting cookie, logging out...");
     req.session = null;
-    res.render("/");
+    res.clearCookie("user_id");
+
+    res.redirect("/");
   });
 
   return router;
