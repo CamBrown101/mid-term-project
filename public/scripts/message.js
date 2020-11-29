@@ -1,8 +1,9 @@
 const createMessagesContainer = () => {
   const messagesContainer = $(`
-<div class="main-container">
   <section id="messages-container">
-    <div class="messages">
+    <div class="inner-message-conatiner">
+      <div class="messages">
+      </div>
       <form class="messages-form" method="POST" action="/messages/:listingid">
         <textarea class="message-input" placeholder="New Message"></textarea>
         <button id="message-submit" class="btn btn-primary" type="submit">
@@ -11,7 +12,6 @@ const createMessagesContainer = () => {
       </form>
     </div>
   </section>
-</div>
 `);
   return messagesContainer;
 };
