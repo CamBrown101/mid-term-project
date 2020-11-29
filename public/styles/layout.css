@@ -150,19 +150,8 @@ nav .login {
   color: #ffffff;
 }
 
-.main-footer {
-  position: fixed;
-  bottom: 0;
-  height: 100px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.main-footer i {
-  font-size: 3em;
+#delete-button {
+  display: none;
 }
 
 #new-listing {
@@ -323,4 +312,19 @@ nav .login {
   width: 100%;
   border: none;
   resize: none;
+}
+
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.main-footer i {
+  font-size: 3em;
 }

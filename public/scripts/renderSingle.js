@@ -8,6 +8,9 @@ $(document).ready(() => {
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
       }
+      if (data.listing.user_id === data.user_id) {
+        $("#delete-button").show();
+      }
       $(".big-id").hide();
     });
   });
