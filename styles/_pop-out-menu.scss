@@ -1,7 +1,15 @@
 #item-search {
   display: flex;
   flex-direction: column;
-  margin: 10% 10%;
+  width: 90%;
+}
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:2%;
+  width: 90%;
+  margin: auto;
 }
 .search-bar {
   display: none;
