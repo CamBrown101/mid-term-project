@@ -14,6 +14,7 @@ $(document).ready(() => {
       $(".big-id").hide();
     });
   });
+
   //returning to home
   $("main").on("click", "btn.big-back", () => {
     $(".main-container").empty();
