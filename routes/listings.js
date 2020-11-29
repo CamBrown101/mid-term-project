@@ -56,15 +56,16 @@ module.exports = (db) => {
   });
 
   router.post("/favourites", (req, res) => {
-    const userID = 1;
+    console.log("fave");
+    console.log(req.body.listing);
+    const userID = req.session.user_id;
     db.query(`
               INSERT INTO favorite_items (id, user_id, item_id)
-              VALUES (1, 1, 2),;`,
-      [userID]
+              VALUES ($1, $2);`,
+      [userID, req.body.listing]
     )
       .then((data) => {
-        const listings = data.rows;
-        res.send(listings);
+        console.log("Worked");
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
