@@ -39,13 +39,11 @@ nav .login-info {
 }
 
 nav #logged-in {
-  display: inline-block;
-  white-space: nowrap;
+  display: inline;
 }
 
 nav #logged-out {
-  display: inline-block;
-  white-space: nowrap;
+  display: inline;
 }
 
 #item-search {
@@ -128,7 +126,7 @@ nav #logged-out {
   flex-direction: column;
   width: 90%;
   padding: 3%;
-  margin: 3%;
+  margin: 1%;
   text-overflow: inherit;
   border: solid 5px #1F271B;
   border-radius: 10px;
