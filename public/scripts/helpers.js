@@ -6,6 +6,7 @@ const createNewCard = function (listing) {
       <img src="${listing.picture_url}">
       <p class="card-description">${listing.description}</p>
       <a class="btn btn-primary small-listing-button">Do Something</a>
+      <div class="id">${listing.id}</div>
     </article>
     `);
   return articleContainer;
@@ -43,8 +44,8 @@ const loadListings = () => {
 //Create category row Html
 const createCategoryRows = () => {
   $(".main-container").append(`
-  <div id="listings-row-0" class="card-row"></div> 
-  <div id="listings-row-1" class="card-row"></div> 
+  <div id="listings-row-0" class="card-row"></div>
+  <div id="listings-row-1" class="card-row"></div>
   <div id="listings-row-2" class="card-row"></div>
   `);
 };
