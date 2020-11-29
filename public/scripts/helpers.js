@@ -20,7 +20,7 @@ const clearResultsContainer = () => {
 //Renders listings for home page
 const homePageLoad = () => {
   $("#new-listing").hide();
-
+  $("#logged-in").hide();
   const renderListings = (listings, index) => {
     $(`#listings-row-${index}`).empty();
     for (const item of listings) {
