@@ -28,7 +28,6 @@
   display: flex;
   flex-direction: column;
   width: 70%;
-  background-color: $light-cream;
   border: solid 3px $background-grey;
   color: $font-color;
   border-radius: 10px;
@@ -38,10 +37,12 @@
 
 .recieved {
   align-self: flex-start;
+  background-color: $accent-color;
 }
 
 .sent {
   align-self: flex-end;
+  background-color: $light-cream;
 }
 
 .recieved .username {
@@ -66,4 +67,19 @@
 
 .message-content {
   font-size: 1.5em;
+}
+.messages-form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+  border: solid 3px $font-color;
+  border-radius: 10px;
+  background-color: $project-white;
+  width: 100%;
+
+  .message-input {
+    width: 100%;
+    border: none;
+    resize: none;
+  }
 }
