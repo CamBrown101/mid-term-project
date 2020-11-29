@@ -260,7 +260,6 @@ nav .login {
   display: flex;
   flex-direction: column;
   width: 70%;
-  background-color: #DCC7BE;
   border: solid 3px grey;
   color: #1F271B;
   border-radius: 10px;
@@ -270,10 +269,12 @@ nav .login {
 
 .recieved {
   align-self: flex-start;
+  background-color: #CBB9A8;
 }
 
 .sent {
   align-self: flex-end;
+  background-color: #DCC7BE;
 }
 
 .recieved .username {
@@ -298,4 +299,20 @@ nav .login {
 
 .message-content {
   font-size: 1.5em;
+}
+
+.messages-form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+  border: solid 3px #1F271B;
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.messages-form .message-input {
+  width: 100%;
+  border: none;
+  resize: none;
 }

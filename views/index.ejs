@@ -59,19 +59,28 @@
 </section>
 
 <!-- Messaging -->
-<section id="messages-container">
-  <div class="messages">
-    <div class="message sent">
-      <p class="username">username</p>
-      <p class="message-content">message content</p>
-      <p class="timestamp">timestamp</p>
+<div class="main-container">
+  <section id="messages-container">
+    <div class="messages">
+      <div class="message sent">
+        <p class="username">username</p>
+        <p class="message-content">message content</p>
+        <p class="timestamp">timestamp</p>
+      </div>
+
+      <div class="message recieved">
+        <p class="username">username</p>
+        <p class="message-content">message content</p>
+        <p class="timestamp">timestamp</p>
+      </div>
+      <form class="messages-form" method="POST" action="/messages/:listingid">
+        <textarea class="message-input" placeholder="New Message"></textarea>
+        <button id="message-submit" class="btn btn-primary" type="submit">
+          Send
+        </button>
+      </form>
     </div>
-    <div class="message recieved">
-      <p class="username">username</p>
-      <p class="message-content">message content</p>
-      <p class="timestamp">timestamp</p>
-    </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <%- include('partials/_footer') %>
