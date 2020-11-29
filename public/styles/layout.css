@@ -35,13 +35,13 @@ nav .nav-items {
 }
 
 nav #log-out {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
 }
 
 nav #login {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
