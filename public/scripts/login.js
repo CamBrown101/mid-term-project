@@ -1,8 +1,8 @@
 $(document).ready(() => {
   $('#login').hide()
   $('#logout').hide()
-  
-  
+
+
   $.get('/login', (data) => {
     if(data) {
       const username = data.name;
@@ -17,6 +17,7 @@ $(document).ready(() => {
   $('#logout-btn').click(()=>{
     $.get('/logout', ()=> {
       console.log('Logged Out')
+      location.reload();
     })
   })
 });

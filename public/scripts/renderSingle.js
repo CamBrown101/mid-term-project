@@ -13,11 +13,14 @@ $(document).ready(() => {
     $(".main-container").empty();
     window.location.replace("/")
   })
-  // $('main').on("click", '#fave-button', (event) => {
-  //   $.post("/listings/favorites", {listing.id}, () => {
-  //     $(event.target).replace($(`<p>FAVORITED</p>`))
-  //   });
-  // })
+  $('main').on("click", '#fave-button', (event) => {
+    const listing = $(event.target).siblings('.big-id').html()
+    console.log(listing);
+    $.post("/listings/favourites", {listing: listing}, () => {
+      $(event.target).replace($(`<p>FAVORITED</p>`))
+    });
+    console.log('fave');
+  })
   const createListingBig = function (listing) {
     const articleContainer = $(`
       <article class="big-listing">
@@ -27,6 +30,7 @@ $(document).ready(() => {
         <h5 class="big-price">$${listing.price}</h5>
         <p class="big-description">${listing.description}</p>
         <p class="big-date">Posted: ${listing.posted_date}</p>
+        <p class="big-id">${listing.id}</p>
         <btn class="btn btn-primary message-button">Message seller</btn>
         <btn class="btn btn-primary" id="fave-button">Favorite</btn>
       </article>

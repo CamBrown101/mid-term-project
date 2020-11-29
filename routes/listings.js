@@ -58,6 +58,7 @@ module.exports = (db) => {
   router.post("/favourites", (req, res) => {
     const listingID = req.body.listing;
     const userID = 1;
+    console.log(req.body);
     db.query(`
               INSERT INTO favorite_items (user_id, item_id)
               VALUES ($1, $2);
