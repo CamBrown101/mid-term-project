@@ -1,3 +1,12 @@
+const clearForm = () => {
+  $("#listing-title").val("");
+  $("#listing-number").val("");
+  $("#listing-description").val("");
+  $("#listing-picture-url").val("");
+  $("#listing-category").val("");
+  $("#new-listing").fadeOut();
+};
+
 $(document).ready(() => {
   console.log("its working");
   $(".new-listing-content").submit((event) => {
@@ -20,6 +29,7 @@ $(document).ready(() => {
     };
 
     console.log(data);
+    clearForm();
     $.post("/listings", data, (listing) => {
       console.log(listing);
     });
