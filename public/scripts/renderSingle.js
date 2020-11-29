@@ -1,13 +1,10 @@
 $(document).ready(() => {
   //Clicking an item brings user to item page
   $("main").on("click", "a.small-listing-button", (event) => {
-    console.log("CLICK");
     const listingID = $(event.target).siblings(".id").html();
     $(".main-container").empty();
     $.get(`/listings/${listingID}`, (data) => {
-      console.log(data);
       $(".main-container").append(createListingBig(data.listing));
-      console.log(data.listing.user_id, data.user_id);
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
       }
@@ -23,7 +20,6 @@ $(document).ready(() => {
     const listing = $(event.target).siblings(".big-id").html();
     console.log(listing);
     $.post("/listings/favourites", { listing: listing }, () => {
-      console.log();
       $(event.target).replace($(`<p>FAVORITED</p>`));
     });
     console.log("fave");

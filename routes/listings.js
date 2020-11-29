@@ -55,6 +55,22 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/favourites", (req, res) => {
+    const userID = 1;
+    db.query(`
+              INSERT INTO favorite_items (id, user_id, item_id)
+              VALUES (1, 1, 2),;`,
+      [userID]
+    )
+      .then((data) => {
+        const listings = data.rows;
+        res.send(listings);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
   //individual listing
   router.get("/:id", (req, res) => {
     db.query(
@@ -67,7 +83,6 @@ module.exports = (db) => {
           listing: data.rows[0],
           user_id: req.session.user_id,
         };
-        console.log(returnData);
         res.send(returnData);
       })
       .catch((err) => {
@@ -77,7 +92,6 @@ module.exports = (db) => {
 
   //create a listing
   router.post("/", (req, res) => {
-    console.log(req.body);
     const listing = req.body;
     const queryParams = [
       listing.user_id,
@@ -96,26 +110,6 @@ module.exports = (db) => {
       .then((data) => {
         const listing = data.rows[0];
         res.send(listing);
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
-  });
-
-  router.get("/categories", (req, res) => {
-    const listing = req.query;
-    console.log(req.body);
-    console.log(res);
-
-    const queryStrings = [
-      `SELECT * FROM listings ORDER BY posted_date LIMIT 10`,
-      `SELECT * FROM listings WHERE category = 'Games' ORDER BY posted_date LIMIT 10`,
-      `SELECT * FROM listings WHERE category = 'Bikes' ORDER BY posted_date LIMIT 10`,
-    ];
-
-    db.query(queryStrings[0], [])
-      .then((data) => {
-        res.send(data.rows);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
