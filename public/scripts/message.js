@@ -49,7 +49,7 @@ $(document).ready(() => {
     });
   });
 
-  $("message-submit").submit((event) => {
+  $("messages-form").submit((event) => {
     event.preventDefault();
     console.log("new-message-click-working");
     const message = $(".message-input").val();

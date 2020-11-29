@@ -30,7 +30,7 @@ module.exports = (db) => {
     userID = req.session.user_id;
     const listingID = req.params.id;
     db.query(`INSERT INTO messages (listing_id, receiver_id, sender_id, message)
-              VALUES ($1, 2, $3, 'TEST');`,
+              VALUES ($1, 2, $2, 'TEST');`,
       [userID, listingID]
     )
       .then((data) => {
