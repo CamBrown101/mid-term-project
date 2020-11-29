@@ -5,8 +5,7 @@ const createNewCard = function (listing) {
       <h5 class="card-title">${listing.title}</h5>
       <img src="${listing.picture_url}">
       <p class="card-description">${listing.description}</p>
-      <a class="btn btn-primary small-listing-button">Do Something</a>
-      <div class="id">${listing.id}</div>
+      <a src="#" class="btn btn-primary">Do Something</a>
     </article>
     `);
   return articleContainer;
@@ -20,7 +19,7 @@ const clearResultsContainer = () => {
 //Renders listings for home page
 const homePageLoad = () => {
   $("#new-listing").hide();
-  $("#logged-in").hide();
+
   const renderListings = (listings, index) => {
     $(`#listings-row-${index}`).empty();
     for (const item of listings) {
@@ -47,8 +46,8 @@ const loadListings = () => {
 //Create category row Html
 const createCategoryRows = () => {
   $(".main-container").append(`
-  <div id="listings-row-0" class="card-row"></div>
-  <div id="listings-row-1" class="card-row"></div>
+  <div id="listings-row-0" class="card-row"></div> 
+  <div id="listings-row-1" class="card-row"></div> 
   <div id="listings-row-2" class="card-row"></div>
   `);
 };
