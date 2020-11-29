@@ -13,7 +13,7 @@ module.exports = (db) => {
           req.session.user_id = data.rows[0].id
         }
         const user = data.rows[0];
-        res.send(user);
+        res.redirect('/');
       })
       .catch(err => {
         res
