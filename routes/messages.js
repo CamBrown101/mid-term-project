@@ -12,7 +12,7 @@ module.exports = (db) => {
               JOIN users ON sender_id = users.id
               JOIN listings ON listing_id = listings.id
               WHERE sender_id = $1
-              OR reciever_id = $1
+              OR receiver_id = $1
               AND listing_id = $2;`,
       [userID, listingID]
     )
