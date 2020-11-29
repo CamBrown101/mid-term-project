@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
+const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -22,6 +23,11 @@ db.connect();
 app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
+app.use(cookieSession({
+  name: 'session',
+  keys: ['BuyAndSell']
+}));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   "/styles",

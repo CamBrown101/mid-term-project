@@ -3,11 +3,14 @@ const router  = express.Router();
 
 //Get a single user
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    const email = req.query.email;
+  router.get('/login', (req, res) => {
+    const email = req.body.email;
     db.query(`SELECT * FROM users
               WHERE email = $1;`, [email])
       .then(data => {
+        if(data.rows.length >= 1) {
+          req.session.user_id = data.rows[0].id
+        }
         const user = data.rows[0];
         res.send(user);
       })
