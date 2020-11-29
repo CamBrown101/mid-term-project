@@ -39,24 +39,23 @@ const createRecievedMessage = (message) => {
 };
 
 $(document).ready(() => {
-  let listingId = 1;
   $("main").on("click", "#message-seller-btn", (event) => {
     event.preventDefault();
-    listingId = $("#message-seller-btn").children("p").text();
+    const listingId = $("#message-seller-btn").siblings(".big-id").text();
     console.log(listingId);
-    $.get(`/messages/${listingId}`, (listing) => {
-      console.log(listing);
+    $.get(`/messages/${listingId}`, (messages) => {
+      console.log(messages);
     });
   });
 
-  $(".messages-form").submit((event) => {
+  $("main").on("submit", ".messages-form", (event) => {
     event.preventDefault();
     console.log("new-message-click-working");
     const message = $(".message-input").val();
     const data = {
       message: message,
     };
-
+    console.log(data);
     $.post(`/messages/${listingId}`, data, (message) => {
       console.log(message);
     });

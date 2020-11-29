@@ -25,7 +25,7 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
-  //WIP
+  //WIP need get reciever id
   router.post("/:id", (req, res) => {
     userID = req.session.user_id;
     const listingID = req.params.id;

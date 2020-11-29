@@ -23,6 +23,7 @@ $(document).ready(() => {
     const listing = $(event.target).siblings(".big-id").html();
     console.log(listing);
     $.post("/listings/favourites", { listing: listing }, () => {
+      console.log();
       $(event.target).replace($(`<p>FAVORITED</p>`));
     });
     console.log("fave");
@@ -37,9 +38,8 @@ $(document).ready(() => {
         <h5 class="big-price">$${listing.price}</h5>
         <p class="big-description">${listing.description}</p>
         <p class="big-date">Posted: ${listing.posted_date}</p>
-        <btn class="btn btn-primary message-button" id="message-seller-btn">
+        <btn class="btn btn-primary message-button" id="message-seller-btn">Message seller</btn>
         <p class="big-id">${listing.id}</p>
-        Message seller</btn>
         <btn class="btn btn-primary" id="fave-button">Favorite</btn>
       </article>
       `);
