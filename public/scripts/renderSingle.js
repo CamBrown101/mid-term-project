@@ -11,6 +11,7 @@ $(document).ready(() => {
       $(".big-id").hide();
     });
   });
+
   //returning to home
   $("main").on("click", "btn.big-back", () => {
     $(".main-container").empty();
@@ -37,9 +38,21 @@ $(document).ready(() => {
         <btn class="btn btn-primary message-button" id="message-seller-btn">Message seller</btn>
         <p class="big-id">${listing.id}</p>
         <btn class="btn btn-primary" id="fave-button">Favorite</btn>
+        <btn class="btn btn-danger" id="delete-button">Delete</btn>
       </article>
       `);
 
     return articleContainer;
   };
+
+  $("main").on("click", "#delete-button", (event) => {
+    const listingid = $(".big-id").text();
+    console.log(listingid);
+    const idObject = { listingid };
+    $.post("/listings/delete", idObject, () => {
+      $(".main-container").empty();
+      createCategoryRows();
+      homePageLoad();
+    });
+  });
 });
