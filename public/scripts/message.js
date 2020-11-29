@@ -51,7 +51,6 @@ $(document).ready(() => {
 
   $("main").on("submit", ".messages-form", (event) => {
     event.preventDefault();
-    console.log("new-message-click-working");
     const message = $(".message-input").val();
     const data = {
       message: message,

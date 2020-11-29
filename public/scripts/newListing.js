@@ -8,7 +8,6 @@ const clearForm = () => {
 };
 
 $(document).ready(() => {
-  console.log("its working");
   $(".new-listing-content").submit((event) => {
     event.preventDefault();
 
