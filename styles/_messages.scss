@@ -1,0 +1,69 @@
+#messages-container {
+  margin: 230px 7% 7% 100px;
+  padding-bottom: 5%;
+  padding: 3%;
+  background-color: $background-grey;
+  width: 100%;
+  border: solid 3px lightgray;
+  border-radius: 10px;
+  margin: 0;
+  justify-content: center;
+  align-content: center;
+}
+.messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 95%;
+  padding: 3%;
+  margin: 1%;
+  text-overflow: inherit;
+  border: solid 5px $font-color;
+  border-radius: 10px;
+  background-color: $alert-color;
+  color: $font-color;
+}
+.message {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  background-color: $light-cream;
+  border: solid 3px $background-grey;
+  color: $font-color;
+  border-radius: 10px;
+  padding: 2%;
+  margin-top: 2%;
+}
+
+.recieved {
+  align-self: flex-start;
+}
+
+.sent {
+  align-self: flex-end;
+}
+
+.recieved .username {
+  align-self: flex-start;
+}
+
+.sent .username {
+  align-self: flex-end;
+}
+
+.message-content {
+  align-self: center;
+}
+
+.recieved .timestamp {
+  align-self: flex-end;
+}
+
+.username {
+  font-size: 2em;
+}
+
+.message-content {
+  font-size: 1.5em;
+}

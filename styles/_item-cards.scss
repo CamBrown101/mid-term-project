@@ -1,7 +1,4 @@
 .main-container {
-  margin-top: 230px;
-  margin-left: 7%;
-  margin-right: 7%;
   margin: 230px 7% 7% 100px;
   padding-bottom: 5%;
 
@@ -26,7 +23,7 @@
     border: solid 5px $font-color;
     border-radius: 10px;
     background-color: $light-cream;
-    color:$font-color;
+    color: $font-color;
     justify-self: center;
   }
 
@@ -36,9 +33,7 @@
   }
 
   article.card-container a.btn {
-  background-color: $header-background;
-  color: $project-white;
+    background-color: $header-background;
+    color: $project-white;
+  }
 }
-
-}
-
