@@ -19,6 +19,7 @@ $(document).ready(() => {
   $("#logout-btn").click(() => {
     $.get("/logout", () => {
       console.log("Logged Out");
+      $(".main-container").empty();
       createCategoryRows();
       homePageLoad();
     });
