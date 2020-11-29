@@ -10,7 +10,7 @@
   justify-content: center;
   align-content: center;
 }
-.messages {
+.inner-message-conatiner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,6 +23,14 @@
   border-radius: 10px;
   background-color: $alert-color;
   color: $font-color;
+}
+.messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  text-overflow: inherit;
 }
 .message {
   display: flex;
