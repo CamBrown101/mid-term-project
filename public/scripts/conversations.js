@@ -26,7 +26,7 @@ $(document).ready(() => {
   $("#convo-btn").click((event) => {
     event.preventDefault();
     $.get(`/messages/`, (listing) => {
-      console.log(listing);
+      console.log(listing[0]);
       $(".main-container").empty();
       $(".main-container").append(createConversationContainer());
       $(".messages").append(createConversations(listing));
