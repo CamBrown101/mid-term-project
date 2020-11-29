@@ -104,8 +104,6 @@ module.exports = (db) => {
 
   router.get("/categories", (req, res) => {
     const listing = req.query;
-    console.log(req.body);
-    console.log(res);
 
     const queryStrings = [
       `SELECT * FROM listings ORDER BY posted_date LIMIT 10`,
@@ -121,5 +119,26 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
+
+  router.post("/delete", (req, res) => {
+    const listingId = req.body.listingid;
+    const loggedInId = req.session.user_id;
+    const queryParams = [listingId, loggedInId];
+
+    const queryString = `
+    DELETE FROM listings 
+    WHERE listings.id = $1
+    AND listings.user_id = $2;`;
+
+    db.query(queryString, queryParams)
+      .then(() => {
+        console.log(queryString, queryParams);
+        res.status(200);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
   return router;
 };
