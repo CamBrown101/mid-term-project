@@ -7,9 +7,10 @@ module.exports = (db) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
     console.log(req.session.id);
-    db.query(`SELECT messages.id, listing_id, sender_id, receiver_id, listings.title, messages.message
+    db.query(`SELECT messages.id, listing_id, sender_id, receiver_id, listings.title, messages.message, senders.name AS sender, recievers.name AS reciever
               FROM messages
-              JOIN users ON sender_id = users.id
+              JOIN users senders ON sender_id = senders.id
+              JOIN users recievers ON receiver_id = recievers.id
               JOIN listings ON listing_id = listings.id
               WHERE sender_id = $1
               OR receiver_id = $1
