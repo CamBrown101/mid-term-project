@@ -50,9 +50,7 @@ $(document).ready(() => {
     console.log(listingid);
     const idObject = { listingid };
     $.post("/listings/delete", idObject, () => {
-      $(".main-container").empty();
-      createCategoryRows();
-      homePageLoad();
+      window.location.replace("/");
     });
   });
 });

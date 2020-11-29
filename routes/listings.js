@@ -148,7 +148,7 @@ module.exports = (db) => {
     db.query(queryString, queryParams)
       .then(() => {
         console.log(queryString, queryParams);
-        res.status(200);
+        res.send("Deleted")
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
