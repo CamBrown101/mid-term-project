@@ -39,11 +39,13 @@ nav .login-info {
 }
 
 nav #logged-in {
-  display: inline;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 nav #logged-out {
-  display: inline;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 #item-search {
