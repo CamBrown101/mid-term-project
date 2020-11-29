@@ -25,6 +25,7 @@ const homePageLoad = () => {
     $(`#listings-row-${index}`).empty();
     for (const item of listings) {
       $(`#listings-row-${index}`).append(createNewCard(item));
+      $(".id").hide();
     }
   };
   let categoryArr = ["newest", "games", "bikes"];
