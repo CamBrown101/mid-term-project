@@ -7,6 +7,7 @@ $(document).ready(() => {
     $.get(`/listings/${listingID}`, (data) => {
       console.log(data);
       $(".main-container").append(createListingBig(data.listing));
+      console.log(data.listing.user_id, data.user_id);
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
       }
