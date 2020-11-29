@@ -16,7 +16,7 @@ module.exports = (db) => {
           req.session.user_id = data.rows[0].id;
         }
         const user = data.rows[0];
-        res.redirect("/");
+        res.redirect("/login");
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -26,13 +26,17 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     const email = req.session.user_id;
     db.query(
-      `SELECT * FROM users
+      `SELECT name FROM users
               WHERE email = $1;`,
       [email]
     )
       .then((data) => {
         const user = data.rows[0];
-        res.send(user);
+        if (user) {
+          res.send(user);
+        } else {
+          res.send(false);
+        }
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
