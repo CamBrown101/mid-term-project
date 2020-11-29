@@ -42,6 +42,7 @@ $(document).ready(() => {
         <p class="big-id">${listing.id}</p>
         Message seller</btn>
         <btn class="btn btn-primary" id="fave-button">Favorite</btn>
+        <btn class="btn btn-danger" id="fave-button">Delete</btn>
       </article>
       `);
 
