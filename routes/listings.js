@@ -57,15 +57,18 @@ module.exports = (db) => {
 
   //individual listing
   router.get("/:id", (req, res) => {
-    console.log(req.params.id);
     db.query(
       `SELECT * FROM listings
               WHERE id = $1;`,
       [req.params.id]
     )
       .then((data) => {
-        const listing = data.rows[0];
-        res.send(listing);
+        const returnData = {
+          listing: data.rows[0],
+          user_id: req.session.user_id,
+        };
+        console.log(returnData);
+        res.send(returnData);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
