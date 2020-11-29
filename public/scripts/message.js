@@ -39,9 +39,10 @@ const createRecievedMessage = (message) => {
 };
 
 $(document).ready(() => {
+  let listingId = 0;
   $("main").on("click", "#message-seller-btn", (event) => {
     event.preventDefault();
-    const listingId = $("#message-seller-btn").siblings(".big-id").text();
+    listingId = $("#message-seller-btn").siblings(".big-id").text();
     console.log(listingId);
     $.get(`/messages/${listingId}`, (messages) => {
       console.log(messages);
@@ -50,7 +51,6 @@ $(document).ready(() => {
 
   $("main").on("submit", ".messages-form", (event) => {
     event.preventDefault();
-    console.log("new-message-click-working");
     const message = $(".message-input").val();
     const data = {
       message: message,
