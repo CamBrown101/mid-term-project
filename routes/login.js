@@ -3,7 +3,8 @@ const router  = express.Router();
 
 //Get a single user
 module.exports = (db) => {
-  router.get('/login', (req, res) => {
+  router.post('/', (req, res) => {
+    console.log(req.body)
     const email = req.body.email;
     db.query(`SELECT * FROM users
               WHERE email = $1;`, [email])
