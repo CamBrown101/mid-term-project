@@ -17,7 +17,7 @@ module.exports = (db) => {
 
     if (req.query.category) {
       if (req.query.category === "newest") {
-        queryText += `ORDER BY posted_date LIMIT 4`;
+        queryText += `ORDER BY posted_date ASC LIMIT 4`;
       } else {
         queryText += `
         AND category = '${req.query.category}' LIMIT 4`;

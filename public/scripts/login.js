@@ -1,5 +1,4 @@
 $(document).ready(() => {
-  console.log("its working");
   $("#login-click").submit((event) => {
     event.preventDefault();
     const email = $("#login-email").val();

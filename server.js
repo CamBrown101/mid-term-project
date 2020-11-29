@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
-const cookieSession = require('cookie-session');
+const cookieSession = require("cookie-session");
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -23,10 +23,12 @@ db.connect();
 app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
-app.use(cookieSession({
-  name: 'session',
-  keys: ['BuyAndSell']
-}));
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["BuyAndSell"],
+  })
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
@@ -61,19 +63,23 @@ app.use("/login", loginRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 
-  //test that database is connected and returning data
-  return db
-    .query(
-      `
-  SELECT * FROM users
-`,
-      []
-    )
-    .then((res) => {
-      // console.log(res.rows);
+  const id = req.session.user_id;
+  db.query(
+    `SELECT name FROM users
+            WHERE id = $1;`,
+    [id]
+  )
+    .then((data) => {
+      const user = data.rows[0];
+      if (user) {
+        console.log(user);
+        res.send(user);
+      } else {
+        res.send(false);
+      }
     })
     .catch((err) => {
-      return null;
+      res.status(500).json({ error: err.message });
     });
 });
 
