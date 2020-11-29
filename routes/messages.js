@@ -25,14 +25,14 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
-  //WIP
+  //WIP need get reciever id
   router.post("/:id", (req, res) => {
     userID = req.session.user_id;
     const listingID = req.params.id;
+    const message = req.body.message;
     db.query(`INSERT INTO messages (listing_id, receiver_id, sender_id, message)
-              VALUES ($1, 2, $2, 'TEST');`,
-      [userID, listingID]
-    )
+              VALUES ($1, 2, $2, $3);`,
+      [userID, listingID, message])
       .then((data) => {
         const messages = data.rows;
         res.send(messages);
