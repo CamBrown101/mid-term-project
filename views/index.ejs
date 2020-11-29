@@ -73,7 +73,12 @@
         <p class="message-content">message content</p>
         <p class="timestamp">timestamp</p>
       </div>
-      <form class="messages-form" method="POST" action="/messages/:listingid">
+      <form
+        class="messages-form"
+        method="POST"
+        name="new-message"
+        action="/messages/:listingid"
+      >
         <textarea class="message-input" placeholder="New Message"></textarea>
         <button id="message-submit" class="btn btn-primary" type="submit">
           Send
