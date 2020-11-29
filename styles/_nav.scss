@@ -29,14 +29,12 @@ nav {
     align-items: flex-end;
   }
 #log-out {
-  display: none;
-  // display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 #login {
   display:flex;
-  // display:none;
   justify-content: center;
   align-items: center;
 }
