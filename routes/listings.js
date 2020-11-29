@@ -55,6 +55,15 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/favourites", (req, res) => {
+    const listingID = req.body.listing;
+    const userID = 1;
+    db.query(`
+              INSERT INTO favorite_items (user_id, item_id)
+              VALUES ($1, $2);
+    `, [userID, listingID]);
+  })
+
   //individual listing
   router.get("/:id", (req, res) => {
     console.log(req.params.id);
