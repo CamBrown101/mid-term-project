@@ -27,8 +27,10 @@ CREATE TABLE listings (
 CREATE TABLE messages (
   id SERIAL PRIMARY KEY NOT NULL,
   listing_id INTEGER REFERENCES listings(id) ON DELETE CASCADE,
+  receiver_id INTEGER REFERENCES listings(id) ON DELETE CASCADE,
   sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  message VARCHAR(255) NOT NULL
+  message VARCHAR(255) NOT NULL,
+  is_read BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE favorite_items (

@@ -17,7 +17,7 @@ module.exports = (db) => {
 
     if (req.query.category) {
       if (req.query.category === "newest") {
-        queryText += `ORDER BY posted_date ASC LIMIT 4`;
+        queryText += `ORDER BY posted_date LIMIT 4`;
       } else {
         queryText += `
         AND category = '${req.query.category}' LIMIT 4`;
@@ -54,16 +54,6 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
-
-  router.post("/favourites", (req, res) => {
-    const listingID = req.body.listing;
-    const userID = 1;
-    console.log(req.body);
-    db.query(`
-              INSERT INTO favorite_items (user_id, item_id)
-              VALUES ($1, $2);
-    `, [userID, listingID]);
-  })
 
   //individual listing
   router.get("/:id", (req, res) => {

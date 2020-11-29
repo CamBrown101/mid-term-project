@@ -20,12 +20,12 @@ VALUES (1, 1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', 'https:
 
 
 
-INSERT INTO messages (id, listing_id, sender_id, message)
-VALUES (1, 3, 2, 'Hello!'),
-(2, 3, 2, 'Hi, is this still for sale?'),
-(3, 4, 3, 'Hello!'),
-(4, 1, 1, 'Hello!'),
-(5, 2, 3, 'Hello!');
+INSERT INTO messages (id, listing_id, receiver_id, sender_id, message)
+VALUES (1, 3, 2, 1, 'Hello!'),
+(2, 3, 2, 3, 'Hi, is this still for sale?'),
+(3, 4, 3, 1, 'Hello!'),
+(4, 1, 1, 2,  'Hello!'),
+(5, 2, 3, 2, 'Hello!');
 
 
 INSERT INTO favorite_items (id, user_id, item_id)
