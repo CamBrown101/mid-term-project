@@ -23,7 +23,7 @@ const createConversations = (message) => {
 };
 
 $(document).ready(() => {
-  $("main").on("click", "#message-btn", (event) => {
+  $("#convo-btn").click((event) => {
     event.preventDefault();
     $.get(`/messages/`, (listing) => {
       console.log(listing);
