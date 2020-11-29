@@ -29,11 +29,19 @@ nav {
     align-items: flex-end;
   }
 #logout {
+  display:none;
+}
+.logout {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+
 #login {
+display: none;
+}
+.login {
   display:flex;
   justify-content: center;
   align-items: center;
