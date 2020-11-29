@@ -24,11 +24,11 @@ module.exports = (db) => {
   });
 
   router.get("/", (req, res) => {
-    const email = req.session.user_id;
+    const id = req.session.user_id;
     db.query(
       `SELECT name FROM users
-              WHERE email = $1;`,
-      [email]
+              WHERE id = $1;`,
+      [id]
     )
       .then((data) => {
         const user = data.rows[0];
