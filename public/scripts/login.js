@@ -1,19 +1,22 @@
 $(document).ready(() => {
   $('#login').hide()
-  $('#log-out').hide()
+  $('#logout').hide()
+  
+  
   $.get('/login', (data) => {
     if(data) {
       const username = data.name;
       $('#login').hide()
-      $('#log-out').show()
+      $('#logout').show()
       $('.usernameLoggedIn').text(`Logged in as ${username}`)
     } else {
       $('#login').show()
     }
   });
 
-  $(".login-btn").submit((event) => {
-    event.preventDefault();
-
-  });
+  $('#logout-btn').click(()=>{
+    $.get('/logout', ()=> {
+      console.log('Logged Out')
+    })
+  })
 });
