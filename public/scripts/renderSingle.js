@@ -22,6 +22,7 @@ $(document).ready(() => {
     });
     console.log("fave");
   });
+
   const createListingBig = function (listing) {
     const articleContainer = $(`
       <article class="big-listing">
