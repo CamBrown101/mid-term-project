@@ -1,14 +1,10 @@
 $(document).ready(() => {
-  console.log("its working");
-  $("#login-click").submit((event) => {
-    event.preventDefault();
-    const email = $("#login-email").val();
-    const data = {
-      email: email,
-    };
+  $.get('/', (data) => {
     console.log(data);
-    $.post("/login", data, (res) => {
-      console.log(res);
-    });
+  });
+
+  $(".login-btn").submit((event) => {
+    event.preventDefault();
+
   });
 });

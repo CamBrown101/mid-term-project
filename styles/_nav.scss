@@ -23,20 +23,21 @@ nav {
   .nav-items {
     padding: 0 2%;
     width: 100%;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-end;
   }
-  .login-info {
-    display: flex;
-  }
-
-  #logged-in {
-    display: inline;
-  }
-
-  #logged-out {
-    display: inline;
-  }
+#log-out {
+  display: none;
+  // display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#login {
+  display:flex;
+  // display:none;
+  justify-content: center;
+  align-items: center;
+}
 }

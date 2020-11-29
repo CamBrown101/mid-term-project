@@ -28,22 +28,22 @@ nav .hamburger {
 nav .nav-items {
   padding: 0 2%;
   width: 100%;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-end;
 }
 
-nav .login-info {
+nav #log-out {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav #login {
   display: flex;
-}
-
-nav #logged-in {
-  display: inline;
-}
-
-nav #logged-out {
-  display: inline;
+  justify-content: center;
+  align-items: center;
 }
 
 #item-search {
