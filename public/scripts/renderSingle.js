@@ -29,8 +29,10 @@ $(document).ready(() => {
   //returning to home
   $("main").on("click", "btn.big-back", () => {
     $(".main-container").empty();
-    window.location.replace("/");
+    createCategoryRows();
+    homePageLoad();
   });
+
   $("main").on("click", "#fave-button", (event) => {
     const listing = $(event.target).siblings(".big-id").html();
     $.post("/listings/favourites", { listing: listing }, () => {
