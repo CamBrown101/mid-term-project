@@ -100,6 +100,8 @@ $(document).ready(() => {
     $.get(`/users/${id}`, (data) => {
       $(".main-container").empty();
       $(".main-container").append(renderUserPage(data));
+    });
+  });
   //Mark Sold Functionality
   $("main").on("click", "#sold-button", (event) => {
     const listingid = $(".big-id").text();
