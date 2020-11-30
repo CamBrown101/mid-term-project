@@ -1,5 +1,7 @@
 {
   "eslint.format.enable": true,
   "eslint.run": "onSave",
-  "eslint.alwaysShowStatus": true
+  "eslint.alwaysShowStatus": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true
 }
