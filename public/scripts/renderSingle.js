@@ -7,7 +7,6 @@ $(document).ready(() => {
       $(".main-container").append(createListingBig(data.listing));
       $(".big-user-id").hide();
       $(".big-id").hide();
-
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
         $("#delete-button").show();
@@ -28,13 +27,11 @@ $(document).ready(() => {
       }
     });
   });
-
   //returning to home
   $("main").on("click", "btn.big-back", () => {
     $(".main-container").empty();
     window.location.replace("/");
   });
-
   $("main").on("click", "#fave-button", (event) => {
     const listing = $(event.target).siblings(".big-id").html();
     $.post("/listings/favourites", { listing: listing }, () => {
@@ -43,7 +40,6 @@ $(document).ready(() => {
       );
     });
   });
-
   $("main").on("click", "#fave-delete-button", (event) => {
     const listing = $(event.target).siblings(".big-id").html();
     $.post(
@@ -56,7 +52,6 @@ $(document).ready(() => {
       }
     );
   });
-
   const createListingBig = function (listing) {
     console.log(listing);
     const local = moment(listing.posted_date)
@@ -82,10 +77,8 @@ $(document).ready(() => {
         <btn class="btn btn-danger" id="delete-button">Delete</btn>
       </article>
       `);
-
     return articleContainer;
   };
-
   //Delete button functionality
   $("main").on("click", "#delete-button", (event) => {
     const listingid = $(".big-id").text();
@@ -94,7 +87,6 @@ $(document).ready(() => {
       window.location.replace("/");
     });
   });
-
   $("main").on("click", ".big-user-name", (event) => {
     const id = $(".big-user-id").text();
     event.preventDefault();

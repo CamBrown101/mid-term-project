@@ -35,5 +35,34 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/", (req, res) => {
+    console.log(req.body);
+
+    const name = req.body.name;
+    const id = req.session.user_id;
+    const email = req.body.email;
+    const bio = req.body.bio;
+    const picture = req.body.picture;
+
+    const queryParams = [id, name, email, bio, picture];
+
+    const queryString = `
+        UPDATE users
+        SET name = $2,
+        email = $3,
+        user_bio = $4,
+        user_image = $5
+        WHERE users.id = $1
+        RETURNING *;
+    // `;
+    db.query(queryString, queryParams)
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
   return router;
 };
