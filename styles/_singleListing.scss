@@ -1,3 +1,15 @@
 #delete-button {
   display: none;
 }
+
+.big-user-name {
+  width: 5%;
+  white-space: nowrap;
+  user-select: none;
+  font-size: 20px;
+}
+
+.big-user-name:hover {
+  color: red;
+  cursor: pointer;
+}

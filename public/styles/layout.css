@@ -185,6 +185,18 @@ nav .username-logged-in:hover {
   display: none;
 }
 
+.big-user-name {
+  width: 5%;
+  white-space: nowrap;
+  user-select: none;
+  font-size: 20px;
+}
+
+.big-user-name:hover {
+  color: red;
+  cursor: pointer;
+}
+
 #new-listing {
   width: 30vw;
   height: 20vw;
