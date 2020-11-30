@@ -6,13 +6,17 @@ $(document).ready(() => {
     $.get(`/listings/${listingID}`, (data) => {
       $(".main-container").append(createListingBig(data.listing));
       $(".big-user-id").hide();
+      $(".big-id").hide();
+
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
-      }
-      if (data.listing.user_id === data.user_id) {
         $("#delete-button").show();
+        $("#sold-button").show();
       }
-      $(".big-id").hide();
+      if (data.listing.is_sold) {
+        $(".image-wrapper").append('<h3 class="sold-indicator">SOLD!</h3>');
+        $("#sold-button").hide();
+      }
     });
     $.get(`/listings/favourites/${listingID}`, (data) => {
       console.log(data);
@@ -62,7 +66,9 @@ $(document).ready(() => {
       <article class="big-listing">
         <btn class="btn btn-primary big-back">HOME</btn>
         <h2 class="big-title">${listing.title}</h5>
-        <img class="big-img" src="${listing.picture_url}">
+        <div class="image-wrapper">
+          <img class="big-img" src="${listing.picture_url}">
+        </div>
         <h5 class="big-price">$${listing.price}</h5>
         <p class="big-description">${listing.description}</p>
         <p class="big-user-id">${listing.user_id}</p>
@@ -71,6 +77,7 @@ $(document).ready(() => {
         <btn class="btn btn-primary message-button" id="message-seller-btn">Message seller</btn>
         <p class="big-id">${listing.id}</p>
         <btn class="btn btn-primary" id="fave-button">Favorite</btn>
+        <btn class="btn btn-warning" id="sold-button">Sold</btn>
         <btn class="btn btn-danger" id="delete-button">Delete</btn>
       </article>
       `);
@@ -78,6 +85,7 @@ $(document).ready(() => {
     return articleContainer;
   };
 
+  //Delete button functionality
   $("main").on("click", "#delete-button", (event) => {
     const listingid = $(".big-id").text();
     const idObject = { listingid };
@@ -92,6 +100,15 @@ $(document).ready(() => {
     $.get(`/users/${id}`, (data) => {
       $(".main-container").empty();
       $(".main-container").append(renderUserPage(data));
+  //Mark Sold Functionality
+  $("main").on("click", "#sold-button", (event) => {
+    const listingid = $(".big-id").text();
+    const idObject = { listingid };
+    $.post("/listings/sold", idObject, (data) => {
+      if (data.rows[0].is_sold) {
+        $(".image-wrapper").append('<h3 class="sold-indicator">SOLD!</h3>');
+        $("#sold-button").hide();
+      }
     });
   });
 });

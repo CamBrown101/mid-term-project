@@ -13,3 +13,29 @@
   color: red;
   cursor: pointer;
 }
+
+#sold-button {
+  display: none;
+}
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-grey;
+  border: solid 5px $font-color;
+  border-radius: 10px;
+  margin: 2%;
+  padding: 3%;
+  img {
+    margin: 0;
+    background-color: $light-cream;
+    border: solid 5px $font-color;
+    border-radius: 10px;
+  }
+  .sold-indicator {
+    margin: 2%;
+    font-size: 4em;
+    color: red;
+  }
+}
