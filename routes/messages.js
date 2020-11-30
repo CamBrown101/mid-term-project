@@ -60,10 +60,11 @@ module.exports = (db) => {
     userID = req.session.user_id;
     const listingID = req.params.id;
     const message = req.body.message;
+    const owner = req.body.ownerId;
     db.query(
       `INSERT INTO messages (listing_id, receiver_id, sender_id, message)
-              VALUES ($1, 2, $2, $3);`,
-      [userID, listingID, message]
+              VALUES ($1, $2, $3, $4);`,
+      [userID, owner, listingID, message]
     )
       .then((data) => {
         const messages = data.rows;
