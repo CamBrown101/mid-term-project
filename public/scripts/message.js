@@ -112,22 +112,21 @@ $(document).ready(() => {
   $("main").on("submit", ".messages-form", (event) => {
     event.preventDefault();
     const message = $(".message-input").val();
-    $(".message-input").val("");
-    $.get(`/listings/owner/${listingId}`, (data) => {
-      console.log(data);
-      const ownerId = data.owner;
-      const userId = data.user_id;
-      console.log(ownerId, userId);
-      const send = {
-        message,
-      };
-      send.receiver = ownerId;
-      if (ownerId === userId) {
-        send.receiver = buyerId;
-      }
-      console.log(send);
-      $.post(`/messages/${listingId}`, send, (message) => {});
-    });
+    if (message.trim()) {
+      $(".message-input").val("");
+      $.get(`/listings/owner/${listingId}`, (data) => {
+        const ownerId = data.owner;
+        const userId = data.user_id;
+        const send = {
+          message,
+        };
+        send.receiver = ownerId;
+        if (ownerId === userId) {
+          send.receiver = buyerId;
+        }
+        $.post(`/messages/${listingId}`, send, (message) => {});
+      });
+    }
   });
 
   $("#convo-btn").click((event) => {
