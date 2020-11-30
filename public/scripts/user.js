@@ -92,7 +92,7 @@ $(document).ready(() => {
       picture: picture,
     };
     $.post("/users/", data, (user) => {
-      console.log(user[0].fields);
+      console.log(user);
       $(".main-container").empty();
       $(".main-container").append(renderUserPage(user));
       $(".main-container").append(renderUserUpdateForm(user));

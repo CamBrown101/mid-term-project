@@ -56,7 +56,7 @@ module.exports = (db) => {
     `;
     db.query(queryString, queryParams)
       .then((data) => {
-        res.send(data);
+        res.send(data.rows[0]);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
