@@ -190,5 +190,27 @@ module.exports = (db) => {
       });
   });
 
+  //Mark a listing as sold
+  router.post("/sold", (req, res) => {
+    const listingId = req.body.listingid;
+    const loggedInId = req.session.user_id;
+    const queryParams = [listingId, loggedInId];
+
+    const queryString = `
+    UPDATE listings
+    SET is_sold = true,
+    sold_date = now()
+    WHERE listings.id = $1
+    AND listings.user_id = $2;
+`;
+    db.query(queryString, queryParams)
+      .then(() => {
+        res.send("Deleted");
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
   return router;
 };
