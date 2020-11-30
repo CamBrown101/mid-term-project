@@ -56,5 +56,10 @@ nav {
   .username-logged-in {
     margin-top: auto;
     margin-bottom: auto;
+    user-select: none;
+  }
+  .username-logged-in:hover {
+    color: red;
+    cursor: pointer;
   }
 }

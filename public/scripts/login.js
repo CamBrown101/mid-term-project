@@ -4,7 +4,7 @@ $(document).ready(() => {
       const username = data.name;
       $("#login").hide();
       $("#logout").show();
-      $(".username-logged-in").text(`Logged in as ${username}`);
+      $(".username-logged-in").text(`${username}`);
     } else {
       $("#login").show();
       $("#logout").hide();
