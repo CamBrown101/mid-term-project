@@ -93,6 +93,23 @@ module.exports = (db) => {
       });
   });
 
+  router.get("/owner/:id", (req, res) => {
+    db.query(
+      `SELECT user_id FROM listings
+              WHERE id = $1;`,
+      [req.params.id]
+    )
+      .then((data) => {
+        const returnData = {
+          owner: data.rows[0],
+        };
+        res.send(returnData);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
   //create a listing
   router.post("/", (req, res) => {
     const listing = req.body;
@@ -156,6 +173,8 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
+
+
 
   return router;
 };

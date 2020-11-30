@@ -53,3 +53,11 @@ const createCategoryRows = () => {
   <div id="listings-row-2" class="card-row"></div>
   `);
 };
+
+//Get owner Id from listing Id
+const getOwnerIdByListingId = (listingId) => {
+  $.get(`/listings/owner/${listingId}`, (data) => {
+    const ownerId = data.owner;
+    return ownerId;
+  });
+};
