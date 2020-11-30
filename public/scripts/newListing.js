@@ -29,6 +29,7 @@ $(document).ready(() => {
     console.log(data);
     console.log("listing");
     $.post("/listings", data, (listing) => {
+      createCategoryRows();
       console.log(listing);
       clearForm();
       homePageLoad();
