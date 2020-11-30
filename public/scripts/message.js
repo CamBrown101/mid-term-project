@@ -28,7 +28,6 @@ const createSentMessage = (message) => {
 };
 
 const createRecievedMessage = (message) => {
-  console.log(message);
   const recievedMessageTemplate = $(`
   <div class="message recieved">
     <p class="username">${message.receiver}</p>
@@ -81,6 +80,7 @@ $(document).ready(() => {
   $("main").on("submit", ".messages-form", (event) => {
     event.preventDefault();
     const message = $(".message-input").val();
+    $(".message-input").val("");
     $.get(`/listings/owner/${listingId}`, (data) => {
       const ownerId = data.user_id;
       const send = {
@@ -110,8 +110,29 @@ $(document).ready(() => {
       .html();
     $.get(`/messages/${listingId}`, (data) => {
       messageRender(data);
+  // COMMENT THIS OUT
+  const checkNewMessage = () => {
+    // console.log(listingId, "listingsId");
+    console.log("Fire");
+  };
+  $(window).on("click", () => {
+    $.get(`/messages/${listingId}`, (data) => {
+      console.log(data, "data");
+      const messages = data.messages;
+      const id = data.user_id;
+      messages.forEach((message) => {
+        if (id === message.sender_id) {
+          $(".messages").append(createSentMessage(message));
+        } else {
+          $(".messages").append(createRecievedMessage(message));
+        }
+      });
     });
+    checkNewMessage();
   });
+
+  // const timeOut = setInterval(checkNewMessage, 1000);
+  // clearTimeout(timeOut);
 });
 // $(".messages").append(createSentMessage(message));
 // $(".messages").append(createRecievedMessage(messages));
