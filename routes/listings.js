@@ -42,7 +42,7 @@ module.exports = (db) => {
     db.query(
       `
               SELECT * FROM listings
-              JOIN favorite_items ON listings.id = item_id
+              JOIN favorite_items ON item_id = listings.id
               WHERE favorite_items.user_id = $1;`,
       [userID]
     )
@@ -79,11 +79,12 @@ module.exports = (db) => {
   router.post("/favourites/:id/delete", (req, res) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
+    console.log("Delete fave", userID, listingID)
     db.query(
       `DELETE FROM favorite_items
               WHERE user_id = $1
               AND item_id = $2;`,
-      [userID, req.body.listing]
+      [userID, listingID]
     )
       .then((data) => {
         res.send(data);
