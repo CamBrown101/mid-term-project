@@ -9,18 +9,15 @@ $(document).ready(() => {
 
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
-      }
-      if (data.listing.user_id === data.user_id) {
         $("#delete-button").show();
+        $("#sold-button").show();
       }
       if (data.listing.is_sold) {
         $(".image-wrapper").append("<div><h3>SOLD!</h3></div>");
-      } else {
-        $("#sold-button").show();
+        $("#sold-button").hide();
       }
     });
     $.get(`/listings/favourites/${listingID}`, (data) => {
-      console.log(data);
       if (data !== undefined) {
         $("#fave-button").replaceWith(
           `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
@@ -98,7 +95,7 @@ $(document).ready(() => {
     const idObject = { listingid };
     $.post("/listings/sold", idObject, (data) => {
       if (data.rows[0].is_sold) {
-        $(".image-wrapper").append("<div><h3>SOLD!</h3></div>");
+        $(".image-wrapper").append('<h3 class="sold-indicator">SOLD!</h3>');
         $("#sold-button").hide();
       }
     });
