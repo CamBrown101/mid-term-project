@@ -37,4 +37,14 @@ $(document).ready(() => {
       });
     }
   });
+  $("#get-faves-button").click((event) => {
+    event.preventDefault();
+    clearResultsContainer();
+    $.get("/listings/favourites", (listing) => {
+      renderListing(listing);
+      $searchBar.fadeToggle("slow", () => {
+        $searchBar.hide();
+      });
+    });
+  });
 });
