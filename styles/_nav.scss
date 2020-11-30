@@ -11,7 +11,7 @@ nav {
   justify-content: center;
   align-items: flex-end;
   color: white;
-
+  z-index: 2;
   i {
     font-size: 6em;
   }
@@ -46,5 +46,15 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  #logout-btn {
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+
+  .usernameLoggedIn {
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }

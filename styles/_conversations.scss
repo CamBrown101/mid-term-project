@@ -6,6 +6,10 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.conversation:hover {
+  background-color: $project-white;
+  color: $font-color;
+}
 .conversation-title-label {
   grid-row: 1;
   grid-column: 1;
@@ -41,22 +45,29 @@
 }
 
 .conversation-title {
+  white-space: nowrap;
   width: 1fr;
   grid-column: 1;
   grid-row: 1;
 }
 
 .conversation-receiver {
+  white-space: nowrap;
   width: 1fr;
   grid-column: 2;
   grid-row: 1;
 }
 
 .conversation-sender {
+  white-space: nowrap;
   width: 1fr;
   grid-column: 3;
   grid-row: 1;
 }
 
-.conversation-item {
+.conversation-message-icon {
+  max-width: 64px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
 }

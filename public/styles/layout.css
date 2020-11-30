@@ -15,6 +15,7 @@ nav {
   justify-content: center;
   align-items: flex-end;
   color: white;
+  z-index: 2;
 }
 
 nav i {
@@ -54,6 +55,16 @@ nav .login {
   align-items: center;
 }
 
+nav #logout-btn {
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+nav .usernameLoggedIn {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 #item-search {
   display: flex;
   flex-direction: column;
@@ -71,7 +82,7 @@ nav .login {
 
 .search-bar {
   display: none;
-  margin-top: 200px;
+  margin-top: 150px;
   position: fixed;
   left: 0;
   top: 0;
@@ -111,7 +122,7 @@ nav .login {
 }
 
 .main-container {
-  margin: 230px 7% 7% 100px;
+  margin: 180px 7% 7% 100px;
   padding-bottom: 5%;
 }
 
@@ -337,6 +348,11 @@ nav .login {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.conversation:hover {
+  background-color: #ffffff;
+  color: #1f271b;
+}
+
 .conversation-title-label {
   grid-row: 1;
   grid-column: 1;
@@ -374,19 +390,29 @@ nav .login {
 }
 
 .conversation-title {
+  white-space: nowrap;
   width: 1fr;
   grid-column: 1;
   grid-row: 1;
 }
 
 .conversation-receiver {
+  white-space: nowrap;
   width: 1fr;
   grid-column: 2;
   grid-row: 1;
 }
 
 .conversation-sender {
+  white-space: nowrap;
   width: 1fr;
   grid-column: 3;
   grid-row: 1;
+}
+
+.conversation-message-icon {
+  max-width: 64px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
 }
