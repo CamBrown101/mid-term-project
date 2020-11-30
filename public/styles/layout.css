@@ -430,3 +430,33 @@ nav .username-logged-in {
   width: auto;
   height: auto;
 }
+
+.user-screen {
+  width: 90%;
+  border-style: solid;
+  border-color: #1F271B;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  color: #ffffff;
+  background-color: grey;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.user-image-container {
+  display: block;
+  width: 100%;
+}
+
+.user-info-container {
+  display: block;
+  width: 100%;
+}
+
+.user-image {
+  max-width: 400px;
+  max-height: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
