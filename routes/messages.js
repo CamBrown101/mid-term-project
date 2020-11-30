@@ -7,7 +7,7 @@ module.exports = (db) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
     db.query(
-      `SELECT messages.id, listing_id, sender_id, receiver_id, listings.title, messages.message, senders.name AS sender, receivers.name AS receiver
+      `SELECT messages.id, listing_id, sender_id, receiver_id, listings.user_id AS owner_id, listings.title, messages.message, senders.name AS sender, receivers.name AS receiver
               FROM messages
               JOIN users senders ON sender_id = senders.id
               JOIN users receivers ON receiver_id = receivers.id

@@ -58,7 +58,6 @@ $(document).ready(() => {
           $(".messages").append(createRecievedMessage(message));
         }
       });
-
     });
   });
 
