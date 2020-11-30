@@ -519,3 +519,7 @@ nav .username-logged-in:hover {
 label {
   margin-top: 8px;
 }
+
+.update-user-content {
+  display: grid;
+}

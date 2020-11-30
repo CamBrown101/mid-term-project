@@ -25,7 +25,7 @@ const renderUserUpdateForm = (user) => {
   const userPageTemplate = $(`
           <div class="user-update users-main">
           <h2 class="user-update-header">Update your details: </h2>
-          <form class="new-listing-content" method="POST" action="/users">
+          <form class="update-user-content" method="POST" action="/users">
               <label for="update-user-name">Username</label>
               <input
                 type="text"
@@ -58,7 +58,7 @@ const renderUserUpdateForm = (user) => {
                 id="update-user-image"
                 value="${user.user_image}"
               />
-              <button id="update-user-form" class="btn btn-primary" type="submit">
+              <button id="update-user-form" class="btn btn-primary" >
                 Update
               </button>
             </form>
@@ -77,23 +77,25 @@ $(document).ready(() => {
     });
   });
 
-  $("#update-user-form").click((event) => {
+  $("main").on("click", "#update-user-form", (event) => {
+    // // $(".update-user-content").submit((event) => {
     event.preventDefault();
     const name = $("#update-user-name").val();
     const email = $("#update-user-email").val();
     const bio = $("#update-user-bio").val();
     const picture = $("#update-user-image").val();
+
     const data = {
       name: name,
       email: email,
       bio: bio,
       picture: picture,
     };
-    console.log(data);
-    $.post("/users/", data, (data) => {
+    $.post("/users/", data, (user) => {
+      console.log(user);
       $(".main-container").empty();
-      $(".main-container").append(renderUserPage(data));
-      $(".main-container").append(renderUserUpdateForm(data));
+      $(".main-container").append(renderUserPage(user));
+      $(".main-container").append(renderUserUpdateForm(user));
     });
   });
 });
