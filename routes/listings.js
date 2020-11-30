@@ -42,7 +42,7 @@ module.exports = (db) => {
     db.query(
       `
               SELECT * FROM listings
-              JOIN favorite_items ON listings.id = item_id
+              JOIN favorite_items ON item_id = listings.id
               WHERE favorite_items.user_id = $1;`,
       [userID]
     )
