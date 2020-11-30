@@ -15,7 +15,6 @@ const createConversationContainer = () => {
 };
 
 const createConversations = (item) => {
-  console.log(item);
   const sentMessageTemplate = $(`
           <div class="conversation">
             <p class="conversation-title conversation-item">${item.title}</p>

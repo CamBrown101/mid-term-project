@@ -41,7 +41,6 @@ const homePageLoad = () => {
 const messageRender = (data) => {
   const messages = data.messages;
   const id = data.user_id;
-  console.log(messages);
   $(".main-container").empty();
   $(".main-container").append(createMessagesContainer());
   messages.forEach((message) => {
