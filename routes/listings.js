@@ -6,7 +6,7 @@ module.exports = (db) => {
   //Maybe could add in more options
   router.get("/", (req, res) => {
     let queryText = `SELECT * FROM listings
-                    WHERE 1 = 1
+                    WHERE is_sold = FALSE
     `;
     const queryParams = [];
     if (req.query.text) {
@@ -192,6 +192,29 @@ module.exports = (db) => {
     db.query(queryString, queryParams)
       .then(() => {
         res.send("Deleted");
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
+  //Mark a listing as sold
+  router.post("/sold", (req, res) => {
+    const listingId = req.body.listingid;
+    const loggedInId = req.session.user_id;
+    const queryParams = [listingId, loggedInId];
+
+    const queryString = `
+    UPDATE listings
+    SET is_sold = true,
+    sold_date = clock_timestamp()
+    WHERE listings.id = $1
+    AND listings.user_id = $2
+    RETURNING *;
+`;
+    db.query(queryString, queryParams)
+      .then((data) => {
+        res.send(data);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

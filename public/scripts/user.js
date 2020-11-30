@@ -6,7 +6,7 @@ const renderUserPage = (user) => {
     isAdmin = "False";
   }
   const userPageTemplate = $(`
-          <div class="user-screen">
+          <div class="user-screen users-main">
           <div class="user-image-container">
             <img class="user-image" src="${user.user_image}"></p>
           </div>
@@ -21,12 +21,59 @@ const renderUserPage = (user) => {
   return userPageTemplate;
 };
 
+const renderUserUpdateForm = (user) => {
+  const userPageTemplate = $(`
+          <div class="user-update users-main">
+          <h2 class="user-update-header">Update your details: </h2>
+          <form class="new-listing-content" method="POST" action="/listings">
+              <label for="update-user-name">Username</label>
+              <input
+                type="text"
+                name="username"
+                class="user-update-input"
+                id="update-user-name"
+                value="${user.name}"
+              />
+              <label for="update-user-email">Email</label>
+              <input
+                type="text"
+                name="email"
+                class="user-update-input"
+                id="update-user-email"
+                value="${user.email}"
+              />
+              <label for="update-user-bio">Bio</label>
+              <input
+                type="text"
+                name="bio"
+                class="user-update-input"
+                id="update-user-bio"
+                value="${user.user_bio}"
+              />
+              <label for="update-user-image">Profile picture</label>
+              <input
+                type="text"
+                name="image"
+                class="user-update-input"
+                id="update-user-image"
+                value="${user.user_image}"
+              />
+              <button id="update-user-form" class="btn btn-primary" type="submit">
+                Update
+              </button>
+            </form>
+          </div>
+`);
+  return userPageTemplate;
+};
+
 $(document).ready(() => {
   $(".username-logged-in").click((event) => {
     event.preventDefault();
     $.get(`/users/current/`, (data) => {
       $(".main-container").empty();
       $(".main-container").append(renderUserPage(data));
+      $(".main-container").append(renderUserUpdateForm(data));
     });
   });
 });

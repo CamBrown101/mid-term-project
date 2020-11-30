@@ -1,4 +1,4 @@
-.user-screen {
+.users-main {
   width: 90%;
   border-style: solid;
   border-color: $font-color;
@@ -6,7 +6,11 @@
   padding: 10px;
   display: grid;
   color: $project-white;
+  margin-bottom: 1em;
   background-color: $background-grey;
+}
+
+.user-screen {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
@@ -26,4 +30,12 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.user-update {
+  padding: 20px;
+}
+
+label {
+  margin-top: 8px;
 }

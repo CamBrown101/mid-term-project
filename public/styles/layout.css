@@ -185,6 +185,47 @@ nav .username-logged-in:hover {
   display: none;
 }
 
+.big-user-name {
+  width: 5%;
+  white-space: nowrap;
+  user-select: none;
+  font-size: 20px;
+}
+
+.big-user-name:hover {
+  color: red;
+  cursor: pointer;
+}
+
+#sold-button {
+  display: none;
+}
+
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  border: solid 5px #1F271B;
+  border-radius: 10px;
+  margin: 2%;
+  padding: 3%;
+}
+
+.image-wrapper img {
+  margin: 0;
+  background-color: #DCC7BE;
+  border: solid 5px #1F271B;
+  border-radius: 10px;
+}
+
+.image-wrapper .sold-indicator {
+  margin: 2%;
+  font-size: 4em;
+  color: red;
+}
+
 #new-listing {
   width: 30vw;
   height: 20vw;
@@ -437,7 +478,7 @@ nav .username-logged-in:hover {
   height: auto;
 }
 
-.user-screen {
+.users-main {
   width: 90%;
   border-style: solid;
   border-color: #1F271B;
@@ -445,7 +486,11 @@ nav .username-logged-in:hover {
   padding: 10px;
   display: grid;
   color: #ffffff;
+  margin-bottom: 1em;
   background-color: grey;
+}
+
+.user-screen {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
@@ -465,4 +510,12 @@ nav .username-logged-in:hover {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.user-update {
+  padding: 20px;
+}
+
+label {
+  margin-top: 8px;
 }
