@@ -1,7 +1,7 @@
-INSERT INTO users (name, email, password)
-VALUES ('Marcel Mueller', 'mail.marcelm@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
-('Cameron Brown', 'example@example.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
-('Micheal Krishna', 'test@test.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+INSERT INTO users (name, email, password, user_image, user_bio)
+VALUES ('Marcel Mueller', 'mail.marcelm@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'I love coding and selling things'),
+('Cameron Brown', 'example@example.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'My name is Cam and I love perfect CSS alignment'),
+('Micheal Krishna', 'test@test.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'My name is Michael and I am the route master');
 
 INSERT INTO listings(user_id, title, price, description, picture_url, category, posted_date)
 VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-27 17:35:23 +0000'),
