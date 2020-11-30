@@ -84,16 +84,18 @@ $(document).ready(() => {
     const email = $("#update-user-email").val();
     const bio = $("#update-user-bio").val();
     const picture = $("#update-user-image").val();
+
     const data = {
       name: name,
       email: email,
       bio: bio,
       picture: picture,
     };
-    $.post("/users/", data, (data) => {
+    $.post("/users/", data, (user) => {
+      console.log(user[0].fields);
       $(".main-container").empty();
-      $(".main-container").append(renderUserPage(data));
-      $(".main-container").append(renderUserUpdateForm(data));
+      $(".main-container").append(renderUserPage(user));
+      $(".main-container").append(renderUserUpdateForm(user));
     });
   });
 });

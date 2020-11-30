@@ -44,7 +44,7 @@ module.exports = (db) => {
     const picture = req.body.picture;
 
     const queryParams = [id, name, email, bio, picture];
-    // console.log(queryParams);
+
     const queryString = `
         UPDATE users
         SET name = $2,
