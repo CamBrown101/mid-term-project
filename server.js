@@ -68,5 +68,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Buy Things, Sell Things listening on port ${PORT}`);
 });

@@ -31,6 +31,9 @@ module.exports = (db) => {
         const listings = data.rows;
         res.send(listings);
       })
+      .then(() => {
+        res.redirect("");
+      })
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
@@ -112,7 +115,8 @@ module.exports = (db) => {
 
   //individual listing
   router.get("/:id", (req, res) => {
-    db.query(`SELECT listings.id, listings.user_id, listings.title, listings.price, listings.description, listings.picture_url, listings.category, listings.posted_date, users.name
+    db.query(
+      `SELECT listings.id, listings.user_id, listings.title, listings.price, listings.description, listings.picture_url, listings.category, listings.posted_date, users.name
               FROM listings
               JOIN users ON user_id = users.id
               WHERE listings.id = $1;`,
