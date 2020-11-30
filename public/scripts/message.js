@@ -110,28 +110,40 @@ $(document).ready(() => {
       .html();
     $.get(`/messages/${listingId}`, (data) => {
       messageRender(data);
-      // COMMENT THIS OUT
-      const checkNewMessage = () => {
-        // console.log(listingId, "listingsId");
-        console.log("Fire");
-      };
-      $(window).on("click", () => {
-        $.get(`/messages/${listingId}`, (data) => {
-          console.log(data, "data");
-          const messages = data.messages;
-          const id = data.user_id;
-          messages.forEach((message) => {
-            if (id === message.sender_id) {
-              $(".messages").append(createSentMessage(message));
-            } else {
-              $(".messages").append(createRecievedMessage(message));
-            }
-          });
-        });
-        checkNewMessage();
-      });
 
-      // const timeOut = setInterval(checkNewMessage, 1000);
+      // Checks to see if there is a new message and renders it
+      let messagesLength = data.messages.length;
+      const checkNewMessage = () => {
+        console.log("Fire");
+        $.get(`/messages/${listingId}`, (data) => {
+          if (messagesLength < data.messages.length) {
+            const messagesToRender = data.messages.length - messagesLength;
+            const messages = [];
+            for (
+              let i = data.messages.length - messagesToRender;
+              i < data.messages.length;
+              i++
+            ) {
+              messages.push(data.messages[i]);
+            }
+            messagesLength = data.messages.length;
+            const id = data.user_id;
+            messages.forEach((message) => {
+              if (id === message.sender_id) {
+                $(".messages").append(createSentMessage(message));
+              } else {
+                $(".messages").append(createRecievedMessage(message));
+              }
+            });
+          }
+        });
+      };
+
+      // $(window).on("click", () => {
+      //   checkNewMessage();
+      // });
+
+      const timeOut = setInterval(checkNewMessage, 3000);
       // clearTimeout(timeOut);
     });
   });
