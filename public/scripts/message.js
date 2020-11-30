@@ -69,10 +69,12 @@ const createConversations = (item) => {
 
 $(document).ready(() => {
   let listingId = 0;
+  let buyerId = 0;
   $("main").on("click", "#message-seller-btn", (event) => {
     event.preventDefault();
     listingId = $("#message-seller-btn").siblings(".big-id").text();
     $.get(`/messages/${listingId}`, (data) => {
+      if (data.messages[0] !== undefined) buyerId = data.messages[0].sender_id;
       messageRender(data);
       let messagesLength = data.messages.length;
       const checkNewMessage = () => {
@@ -112,11 +114,18 @@ $(document).ready(() => {
     const message = $(".message-input").val();
     $(".message-input").val("");
     $.get(`/listings/owner/${listingId}`, (data) => {
-      const ownerId = data.user_id;
+      console.log(data);
+      const ownerId = data.owner;
+      const userId = data.user_id;
+      console.log(ownerId, userId);
       const send = {
         message,
-        ownerId,
       };
+      send.receiver = ownerId;
+      if (ownerId === userId) {
+        send.receiver = buyerId;
+      }
+      console.log(send);
       $.post(`/messages/${listingId}`, send, (message) => {});
     });
   });
@@ -139,6 +148,7 @@ $(document).ready(() => {
       .children(".conversation-listing-id")
       .html();
     $.get(`/messages/${listingId}`, (data) => {
+      if (data.messages[0] !== undefined) buyerId = data.messages[0].sender_id;
       messageRender(data);
 
       // Checks to see if there is a new message and renders it
