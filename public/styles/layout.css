@@ -179,6 +179,10 @@ nav .username-logged-in {
   display: none;
 }
 
+#sold-button {
+  display: none;
+}
+
 #new-listing {
   width: 30vw;
   height: 20vw;

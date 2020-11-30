@@ -10,14 +10,16 @@ $(document).ready(() => {
       }
       if (data.listing.user_id === data.user_id) {
         $("#delete-button").show();
+        $("#sold-button").show();
       }
       $(".big-id").hide();
     });
     $.get(`/listings/favourites/${listingID}`, (data) => {
       console.log(data);
-      if(data !== undefined) {
-
-        $("#fave-button").replaceWith(`<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`)
+      if (data !== undefined) {
+        $("#fave-button").replaceWith(
+          `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
+        );
       }
     });
   });
@@ -31,15 +33,23 @@ $(document).ready(() => {
   $("main").on("click", "#fave-button", (event) => {
     const listing = $(event.target).siblings(".big-id").html();
     $.post("/listings/favourites", { listing: listing }, () => {
-      $(event.target).replaceWith(`<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`);
+      $(event.target).replaceWith(
+        `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
+      );
     });
   });
 
   $("main").on("click", "#fave-delete-button", (event) => {
     const listing = $(event.target).siblings(".big-id").html();
-    $.post(`/listings/favourites/${listing}/delete`, { listing: listing }, () => {
-      $(event.target).replaceWith(`<btn class="btn btn-primary" id="fave-button">Favorite</btn>`);
-    });
+    $.post(
+      `/listings/favourites/${listing}/delete`,
+      { listing: listing },
+      () => {
+        $(event.target).replaceWith(
+          `<btn class="btn btn-primary" id="fave-button">Favorite</btn>`
+        );
+      }
+    );
   });
 
   const createListingBig = function (listing) {
@@ -58,6 +68,7 @@ $(document).ready(() => {
         <btn class="btn btn-primary message-button" id="message-seller-btn">Message seller</btn>
         <p class="big-id">${listing.id}</p>
         <btn class="btn btn-primary" id="fave-button">Favorite</btn>
+        <btn class="btn btn-warning" id="sold-button">Sold</btn>
         <btn class="btn btn-danger" id="delete-button">Delete</btn>
       </article>
       `);
@@ -65,12 +76,19 @@ $(document).ready(() => {
     return articleContainer;
   };
 
+  //Delete button functionality
   $("main").on("click", "#delete-button", (event) => {
     const listingid = $(".big-id").text();
-    console.log(listingid);
     const idObject = { listingid };
     $.post("/listings/delete", idObject, () => {
       window.location.replace("/");
     });
+  });
+
+  //Mark Sold Functionality
+  $("main").on("click", "#sold-button", (event) => {
+    const listingid = $(".big-id").text();
+    const idObject = { listingid };
+    $.post("/listings/sold", idObject, () => {});
   });
 });
