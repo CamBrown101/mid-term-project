@@ -28,7 +28,10 @@ $(document).ready(() => {
   });
 
   const createListingBig = function (listing) {
-    const time = moment(listing.posted_date).fromNow();
+    const local = moment(listing.posted_date)
+      .local()
+      .format("YYYY-MM-DD HH:mm:ss");
+    const time = moment(local).fromNow();
     const articleContainer = $(`
       <article class="big-listing">
         <btn class="btn btn-primary big-back">HOME</btn>

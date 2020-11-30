@@ -3,7 +3,7 @@ const createListing = function (listing) {
     <h5 class="card-title">${listing.title}</h5>
     <img src="${listing.photo_url}">
     <p class="card-description">${listing.description}</p>
-    <a src="#" class="btn btn-primary">Do Something</a>
+    <a src="#" class="btn btn-primary">View Item</a>
     </article>`);
   return articleContainer;
 };

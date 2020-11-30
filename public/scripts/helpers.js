@@ -5,7 +5,7 @@ const createNewCard = function (listing) {
       <h5 class="card-title">${listing.title}</h5>
       <img src="${listing.picture_url}">
       <p class="card-description">${listing.description}</p>
-      <a src="#" class="btn btn-primary small-listing-button">Do Something</a>
+      <a src="#" class="btn btn-primary small-listing-button">View Item</a>
       <div class="id">${listing.id}</div>
     </article>
     `);
@@ -41,7 +41,6 @@ const homePageLoad = () => {
 const messageRender = (data) => {
   const messages = data.messages;
   const id = data.user_id;
-  console.log(messages);
   $(".main-container").empty();
   $(".main-container").append(createMessagesContainer());
   messages.forEach((message) => {
