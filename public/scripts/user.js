@@ -25,7 +25,7 @@ const renderUserUpdateForm = (user) => {
   const userPageTemplate = $(`
           <div class="user-update users-main">
           <h2 class="user-update-header">Update your details: </h2>
-          <form class="new-listing-content" method="POST" action="/listings">
+          <form class="new-listing-content" method="POST" action="/users">
               <label for="update-user-name">Username</label>
               <input
                 type="text"
