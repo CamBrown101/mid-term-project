@@ -6,7 +6,7 @@ module.exports = (db) => {
   //Maybe could add in more options
   router.get("/", (req, res) => {
     let queryText = `SELECT * FROM listings
-                    WHERE 1 = 1
+                    WHERE is_sold = FALSE
     `;
     const queryParams = [];
     if (req.query.text) {
