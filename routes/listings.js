@@ -17,7 +17,8 @@ module.exports = (db) => {
 
     if (req.query.category) {
       if (req.query.category === "newest") {
-        queryText += `ORDER BY posted_date LIMIT 4`;
+        queryText += `ORDER BY posted_date DESC
+        LIMIT 4`;
       } else {
         queryText += `
         AND category = '${req.query.category}' LIMIT 4`;
@@ -57,7 +58,8 @@ module.exports = (db) => {
 
   router.post("/favourites", (req, res) => {
     const userID = req.session.user_id;
-    db.query(`
+    db.query(
+      `
               INSERT INTO favorite_items (user_id, item_id)
               VALUES ($1, $2)
               ON CONFLICT DO NOTHING;`,
@@ -117,31 +119,13 @@ module.exports = (db) => {
     ];
     db.query(
       `INSERT INTO listings (user_id, title, price, description, picture_url, category, posted_date)
-              VALUES ($1, $2, $3, $4, $5, $6, CURRENT_TIMESTAMP)
+              VALUES ($1, $2, $3, $4, $5, $6, clock_timestamp())
               RETURNING *;`,
       queryParams
     )
       .then((data) => {
         const listing = data.rows[0];
         res.send(listing);
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
-  });
-
-  router.get("/categories", (req, res) => {
-    const listing = req.query;
-
-    const queryStrings = [
-      `SELECT * FROM listings ORDER BY posted_date LIMIT 10`,
-      `SELECT * FROM listings WHERE category = 'Games' ORDER BY posted_date LIMIT 10`,
-      `SELECT * FROM listings WHERE category = 'Bikes' ORDER BY posted_date LIMIT 10`,
-    ];
-
-    db.query(queryStrings[0], [])
-      .then((data) => {
-        res.send(data.rows);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -166,8 +150,6 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
-
-
 
   return router;
 };
