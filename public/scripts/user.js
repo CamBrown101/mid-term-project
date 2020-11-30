@@ -32,7 +32,7 @@ const renderUserUpdateForm = (user) => {
                 name="username"
                 class="user-update-input"
                 id="update-user-name"
-                placeholder="${user.name}"
+                value="${user.name}"
               />
               <label for="update-user-email">Email</label>
               <input
@@ -40,7 +40,7 @@ const renderUserUpdateForm = (user) => {
                 name="email"
                 class="user-update-input"
                 id="update-user-email"
-                placeholder="${user.email}"
+                value="${user.email}"
               />
               <label for="update-user-bio">Bio</label>
               <input
@@ -48,7 +48,7 @@ const renderUserUpdateForm = (user) => {
                 name="bio"
                 class="user-update-input"
                 id="update-user-bio"
-                placeholder="${user.user_bio}"
+                value="${user.user_bio}"
               />
               <label for="update-user-image">Profile picture</label>
               <input
@@ -56,7 +56,7 @@ const renderUserUpdateForm = (user) => {
                 name="image"
                 class="user-update-input"
                 id="update-user-image"
-                placeholder="${user.user_image}"
+                value="${user.user_image}"
               />
               <button id="update-user-form" class="btn btn-primary" type="submit">
                 Update
