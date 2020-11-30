@@ -64,14 +64,16 @@ $(document).ready(() => {
   $("main").on("submit", ".messages-form", (event) => {
     event.preventDefault();
     const message = $(".message-input").val();
-    const ownerId = getOwnerIdByListingId(listingId);
-    const data = {
-      message,
-      ownerId,
-    };
-    console.log(data);
-    $.post(`/messages/${listingId}`, data, (message) => {
-      console.log(message);
+    const ownerId = $.get(`/listings/owner/${listingId}`, (data) => {
+      const ownerId = data.user_id;
+
+      const data = {
+        message,
+        ownerId,
+      };
+      $.post(`/messages/${listingId}`, data, (message) => {
+        console.log(message);
+      });
     });
   });
 });
