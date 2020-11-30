@@ -37,11 +37,11 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     console.log(req.body);
-    const name = req.body.username;
+    const name = req.body.name;
     const id = req.session.user_id;
     const email = req.body.email;
     const bio = req.body.bio;
-    const picture = req.body.image;
+    const picture = req.body.picture;
 
     const queryParams = [id, name, email, bio, picture];
     // console.log(queryParams);
