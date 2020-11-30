@@ -349,7 +349,8 @@ nav .usernameLoggedIn {
 }
 
 .conversation:hover {
-  filter: invert(100%);
+  background-color: #ffffff;
+  color: #1f271b;
 }
 
 .conversation-title-label {

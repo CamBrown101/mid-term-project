@@ -7,7 +7,8 @@
 }
 
 .conversation:hover {
-  filter: invert(100%);
+  background-color: $project-white;
+  color: $font-color;
 }
 .conversation-title-label {
   grid-row: 1;
