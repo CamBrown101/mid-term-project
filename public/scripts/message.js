@@ -138,6 +138,9 @@ $(document).ready(() => {
             });
           }
         });
+        if( $(".messages").length === 0) {
+          clearTimeout(timeOut);
+        }
       };
 
       // $(window).on("click", () => {
