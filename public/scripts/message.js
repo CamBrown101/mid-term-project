@@ -74,6 +74,36 @@ $(document).ready(() => {
     listingId = $("#message-seller-btn").siblings(".big-id").text();
     $.get(`/messages/${listingId}`, (data) => {
       messageRender(data);
+      let messagesLength = data.messages.length;
+      const checkNewMessage = () => {
+        console.log("Fire");
+        $.get(`/messages/${listingId}`, (data) => {
+          if (messagesLength < data.messages.length) {
+            const messagesToRender = data.messages.length - messagesLength;
+            const messages = [];
+            for (
+              let i = data.messages.length - messagesToRender;
+              i < data.messages.length;
+              i++
+            ) {
+              messages.push(data.messages[i]);
+            }
+            messagesLength = data.messages.length;
+            const id = data.user_id;
+            messages.forEach((message) => {
+              if (id === message.sender_id) {
+                $(".messages").append(createSentMessage(message));
+              } else {
+                $(".messages").append(createRecievedMessage(message));
+              }
+            });
+          }
+        });
+        if ($(".messages").length === 0) {
+          clearTimeout(timeOut);
+        }
+      };
+      const timeOut = setInterval(checkNewMessage, 3000);
     });
   });
 
@@ -104,7 +134,6 @@ $(document).ready(() => {
     });
   });
 
-  //C
   $("main").on("click", ".conversation", (event) => {
     listingId = $(event.currentTarget)
       .children(".conversation-listing-id")
@@ -138,16 +167,13 @@ $(document).ready(() => {
             });
           }
         });
+        if ($(".messages").length === 0) {
+          clearTimeout(timeOut);
+        }
       };
-
-      // $(window).on("click", () => {
-      //   checkNewMessage();
-      // });
-
       const timeOut = setInterval(checkNewMessage, 3000);
-      // clearTimeout(timeOut);
     });
+
+    const timeOut = setInterval(checkNewMessage, 3000);
   });
 });
-// $(".messages").append(createSentMessage(message));
-// $(".messages").append(createRecievedMessage(messages));
