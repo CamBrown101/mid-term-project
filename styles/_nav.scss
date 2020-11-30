@@ -5,19 +5,13 @@ header {
   background-color: $header-background;
 }
 
-.conversation-message-icon {
-  max-width: 64px;
-  max-height: 64px;
-  width: auto;
-  height: auto;
-}
 nav {
   height: 150px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   color: white;
-
+  z-index: 2;
   i {
     font-size: 6em;
   }
