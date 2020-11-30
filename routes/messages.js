@@ -56,6 +56,7 @@ module.exports = (db) => {
 
   //WIP need get reciever id
   router.post("/:id", (req, res) => {
+    console.log(req.body);
     userID = req.session.user_id;
     const listingID = req.params.id;
     const message = req.body.message;
