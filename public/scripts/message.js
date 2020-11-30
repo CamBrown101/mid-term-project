@@ -142,6 +142,7 @@ $(document).ready(() => {
       messageRender(data);
 
       // Checks to see if there is a new message and renders it
+      //needs refractor
       let messagesLength = data.messages.length;
       const checkNewMessage = () => {
         console.log("Fire");
