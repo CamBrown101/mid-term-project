@@ -36,10 +36,9 @@ module.exports = (db) => {
       });
   });
 
-  //TODO using logged in user id query db for user favorites then display
-  //currently only returns favourites for user 1
+  //Sends favourites for logged in user
   router.get("/favourites", (req, res) => {
-    const userID = 1;
+    const userID = req.session.user_id;
     db.query(
       `
               SELECT * FROM listings
@@ -56,13 +55,50 @@ module.exports = (db) => {
       });
   });
 
+  //Sends single favourite for logged in user
+  router.get("/favourites/:id", (req, res) => {
+    const userID = req.session.user_id;
+    const listingID = req.params.id;
+    db.query(
+      `
+              SELECT * FROM favorite_items
+              WHERE user_id = $1
+              AND item_id = $2;`,
+      [userID, listingID]
+    )
+      .then((data) => {
+        const listings = data.rows[0];
+        res.send(listings);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({ error: err.message });
+      });
+  });
+
+  router.post("/favourites/:id/delete", (req, res) => {
+    const userID = req.session.user_id;
+    const listingID = req.params.id;
+    db.query(`DELETE FROM favorite_items
+              WHERE user_id = $1
+              AND item_id = $2;`,
+      [userID, req.body.listing]
+    )
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
+  //Post new favourite for user
   router.post("/favourites", (req, res) => {
     const userID = req.session.user_id;
     db.query(
       `
               INSERT INTO favorite_items (user_id, item_id)
-              VALUES ($1, $2)
-              ON CONFLICT DO NOTHING;`,
+              VALUES ($1, $2);`,
       [userID, req.body.listing]
     )
       .then((data) => {
@@ -92,6 +128,7 @@ module.exports = (db) => {
       });
   });
 
+  //Sends the user id of the owner of the listing
   router.get("/owner/:id", (req, res) => {
     db.query(
       `SELECT user_id FROM listings
@@ -132,6 +169,7 @@ module.exports = (db) => {
       });
   });
 
+  //Delete a listing
   router.post("/delete", (req, res) => {
     const listingId = req.body.listingid;
     const loggedInId = req.session.user_id;

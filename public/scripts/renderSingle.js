@@ -13,6 +13,13 @@ $(document).ready(() => {
       }
       $(".big-id").hide();
     });
+    $.get(`/listings/favourites/${listingID}`, (data) => {
+      console.log(data);
+      if(data !== undefined) {
+
+        $("#fave-button").replaceWith(`<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`)
+      }
+    });
   });
 
   //returning to home
@@ -20,10 +27,18 @@ $(document).ready(() => {
     $(".main-container").empty();
     window.location.replace("/");
   });
+
   $("main").on("click", "#fave-button", (event) => {
     const listing = $(event.target).siblings(".big-id").html();
     $.post("/listings/favourites", { listing: listing }, () => {
-      $(event.target).replaceWith(`<p>FAVORITED</p>`);
+      $(event.target).replaceWith(`<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`);
+    });
+  });
+
+  $("main").on("click", "#fave-delete-button", (event) => {
+    const listing = $(event.target).siblings(".big-id").html();
+    $.post(`/listings/favourites/${listing}/delete`, { listing: listing }, () => {
+      $(event.target).replaceWith(`<btn class="btn btn-primary" id="fave-button">Favorite</btn>`);
     });
   });
 
