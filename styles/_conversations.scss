@@ -6,6 +6,22 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.conversation {
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column: 1/ 5;
+  text-align: center;
+  background-color: grey;
+  font-size: 1em;
+  margin: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .conversation:hover {
   background-color: $project-white;
   color: $font-color;
@@ -27,21 +43,6 @@
 .conversation-messages-label {
   grid-row: 1;
   grid-column: 4;
-}
-.conversation {
-  width: 100%;
-  height: 100px;
-  line-height: 100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-column: 1/ 5;
-  text-align: center;
-  background-color: grey;
-  font-size: 1em;
-  margin: 1em;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .conversation-title {

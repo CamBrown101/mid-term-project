@@ -34,13 +34,31 @@ $(document).ready(() => {
     $.get(`/messages/`, (data) => {
       const conversations = data.messages;
       const id = data.id;
-      console.log(conversations);
       $(".main-container").empty();
       $(".main-container").append(createConversationContainer());
       for (const item of conversations) {
         $(".conversations").append(createConversations(item));
         $(".conversation-listing-id").hide();
       }
+    });
+  });
+
+  $("main").on("click", ".conversation", (event) => {
+    const listingId = $(".conversation:last-child").children().last().text();
+    console.log(listingId);
+    $.get(`/messages/${listingId}`, (data) => {
+      const messages = data.messages;
+      const id = data.user_id;
+      console.log(messages);
+      $(".main-container").empty();
+      $(".main-container").append(createMessagesContainer());
+      messages.forEach((message) => {
+        if (id === message.sender_id) {
+          $(".messages").append(createSentMessage(message));
+        } else {
+          $(".messages").append(createRecievedMessage(message));
+        }
+      });
     });
   });
 });
