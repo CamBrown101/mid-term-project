@@ -110,29 +110,31 @@ $(document).ready(() => {
       .html();
     $.get(`/messages/${listingId}`, (data) => {
       messageRender(data);
-  // COMMENT THIS OUT
-  const checkNewMessage = () => {
-    // console.log(listingId, "listingsId");
-    console.log("Fire");
-  };
-  $(window).on("click", () => {
-    $.get(`/messages/${listingId}`, (data) => {
-      console.log(data, "data");
-      const messages = data.messages;
-      const id = data.user_id;
-      messages.forEach((message) => {
-        if (id === message.sender_id) {
-          $(".messages").append(createSentMessage(message));
-        } else {
-          $(".messages").append(createRecievedMessage(message));
-        }
+      // COMMENT THIS OUT
+      const checkNewMessage = () => {
+        // console.log(listingId, "listingsId");
+        console.log("Fire");
+      };
+      $(window).on("click", () => {
+        $.get(`/messages/${listingId}`, (data) => {
+          console.log(data, "data");
+          const messages = data.messages;
+          const id = data.user_id;
+          messages.forEach((message) => {
+            if (id === message.sender_id) {
+              $(".messages").append(createSentMessage(message));
+            } else {
+              $(".messages").append(createRecievedMessage(message));
+            }
+          });
+        });
+        checkNewMessage();
       });
-    });
-    checkNewMessage();
-  });
 
-  // const timeOut = setInterval(checkNewMessage, 1000);
-  // clearTimeout(timeOut);
+      // const timeOut = setInterval(checkNewMessage, 1000);
+      // clearTimeout(timeOut);
+    });
+  });
 });
 // $(".messages").append(createSentMessage(message));
 // $(".messages").append(createRecievedMessage(messages));
