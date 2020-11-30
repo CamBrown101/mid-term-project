@@ -33,13 +33,14 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     const userID = req.session.user_id;
     db.query(
-      `SELECT messages.id, listing_id, sender_id, receiver_id, listings.title, messages.message, senders.name AS sender, receivers.name AS receiver
+      `SELECT listing_id, senders.id, receivers.id, listings.title, senders.name AS sender, receivers.name AS receiver
               FROM messages
               JOIN users senders ON sender_id = senders.id
               JOIN users receivers ON receiver_id = receivers.id
               JOIN listings ON listing_id = listings.id
               WHERE sender_id = $1
-              OR receiver_id = $1;`,
+              OR receiver_id = $1
+              GROUP BY listing_id, senders.id, receivers.id, listings.title, senders.name, receivers.name;`,
       [userID]
     )
       .then((data) => {
@@ -50,6 +51,7 @@ module.exports = (db) => {
         res.send(returnData);
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });
@@ -64,7 +66,7 @@ module.exports = (db) => {
     db.query(
       `INSERT INTO messages (listing_id, receiver_id, sender_id, message)
               VALUES ($1, $2, $3, $4);`,
-      [listing_id, owner, userID, message]
+      [listingID, owner, userID, message]
     )
       .then((data) => {
         const messages = data.rows;
