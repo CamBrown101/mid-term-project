@@ -161,6 +161,10 @@ nav .usernameLoggedIn {
   color: #ffffff;
 }
 
+.main-container .btn {
+  white-space: nowrap;
+}
+
 #delete-button {
   display: none;
 }
