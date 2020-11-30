@@ -1,7 +1,7 @@
 INSERT INTO users (id, name, email, password)
 VALUES (1, 'Marcel Mueller', 'mail.marcelm@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
 (2, 'Cameron Brown', 'example@example.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'),
-(3, 'Micheal Krishna', 'example@example.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+(3, 'Micheal Krishna', 'test@test.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
 
 INSERT INTO listings(id, user_id, title, price, description, picture_url, category, posted_date)
 VALUES (1, 1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', 'https://www.freeiconspng.com/uploads/money-flat-money-png-15.png', 'bikes', current_timestamp),
