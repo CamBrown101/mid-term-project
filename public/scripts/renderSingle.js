@@ -22,11 +22,9 @@ $(document).ready(() => {
   });
   $("main").on("click", "#fave-button", (event) => {
     const listing = $(event.target).siblings(".big-id").html();
-    console.log(listing);
     $.post("/listings/favourites", { listing: listing }, () => {
       $(event.target).replaceWith(`<p>FAVORITED</p>`);
     });
-    console.log("fave");
   });
 
   const createListingBig = function (listing) {

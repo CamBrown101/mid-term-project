@@ -15,7 +15,6 @@ $(document).ready(() => {
   });
   $("#logout-btn").click(() => {
     $.get("/logout", () => {
-      console.log("Logged Out");
       location.reload();
     });
   });
