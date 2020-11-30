@@ -38,6 +38,20 @@ const homePageLoad = () => {
   }
 };
 
+const messageRender = (data) => {
+  const messages = data.messages;
+  const id = data.user_id;
+  console.log(messages);
+  $(".main-container").empty();
+  $(".main-container").append(createMessagesContainer());
+  messages.forEach((message) => {
+    if (id === message.sender_id) {
+      $(".messages").append(createSentMessage(message));
+    } else {
+      $(".messages").append(createRecievedMessage(message));
+    }
+  });
+};
 //Loads listings using the renderListings function
 const loadListings = () => {
   return $.ajax("/listings").then((listing) => {
@@ -52,12 +66,4 @@ const createCategoryRows = () => {
   <div id="listings-row-1" class="card-row"></div>
   <div id="listings-row-2" class="card-row"></div>
   `);
-};
-
-//Get owner Id from listing Id
-const getOwnerIdByListingId = (listingId) => {
-  $.get(`/listings/owner/${listingId}`, (data) => {
-    const ownerId = data.user_id;
-    return ownerId;
-  });
 };

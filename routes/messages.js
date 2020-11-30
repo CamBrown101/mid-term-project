@@ -60,16 +60,18 @@ module.exports = (db) => {
     const listingID = req.params.id;
     const message = req.body.message;
     const owner = req.body.ownerId;
+    console.log(listingID, userID, owner, message);
     db.query(
       `INSERT INTO messages (listing_id, receiver_id, sender_id, message)
               VALUES ($1, $2, $3, $4);`,
-      [userID, owner, listingID, message]
+      [listing_id, owner, userID, message]
     )
       .then((data) => {
         const messages = data.rows;
         res.send(messages);
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });

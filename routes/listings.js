@@ -56,8 +56,6 @@ module.exports = (db) => {
   });
 
   router.post("/favourites", (req, res) => {
-    console.log("fave");
-    console.log(req.body.listing);
     const userID = req.session.user_id;
     db.query(`
               INSERT INTO favorite_items (user_id, item_id)
@@ -69,7 +67,6 @@ module.exports = (db) => {
         res.send(data);
       })
       .catch((err) => {
-        console.log(err.message);
         res.status(500).json({ error: err.message });
       });
   });
@@ -100,7 +97,6 @@ module.exports = (db) => {
       [req.params.id]
     )
       .then((data) => {
-        console.log(data);
         res.send(data.rows[0]);
       })
       .catch((err) => {
@@ -164,7 +160,6 @@ module.exports = (db) => {
 
     db.query(queryString, queryParams)
       .then(() => {
-        console.log(queryString, queryParams);
         res.send("Deleted");
       })
       .catch((err) => {

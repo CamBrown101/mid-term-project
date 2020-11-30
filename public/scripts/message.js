@@ -46,33 +46,23 @@ $(document).ready(() => {
     listingId = $("#message-seller-btn").siblings(".big-id").text();
     console.log(listingId);
     $.get(`/messages/${listingId}`, (data) => {
-      const messages = data.messages;
-      const id = data.user_id;
-      console.log(messages);
-      $(".main-container").empty();
-      $(".main-container").append(createMessagesContainer());
-      messages.forEach((message) => {
-        if (id === message.sender_id) {
-          $(".messages").append(createSentMessage(message));
-        } else {
-          $(".messages").append(createRecievedMessage(message));
-        }
-      });
+      messageRender(data);
     });
   });
 
   $("main").on("submit", ".messages-form", (event) => {
     event.preventDefault();
     const message = $(".message-input").val();
-    const ownerId = getOwnerIdByListingId(listingId);
-    console.log("hi", ownerId)
-    const data = {
-      message,
-      ownerId,
-    };
-    console.log(data);
-    $.post(`/messages/${listingId}`, data, (message) => {
-      console.log(message);
+    $.get(`/listings/owner/${listingId}`, (data) => {
+      const ownerId = data.user_id;
+      console.log(ownerId);
+      const send = {
+        message,
+        ownerId,
+      };
+      $.post(`/messages/${listingId}`, send, (message) => {
+        console.log(message);
+      });
     });
   });
 });
