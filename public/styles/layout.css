@@ -54,6 +54,16 @@ nav .login {
   align-items: center;
 }
 
+nav #logout-btn {
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+nav .usernameLoggedIn {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 #item-search {
   display: flex;
   flex-direction: column;
@@ -337,6 +347,10 @@ nav .login {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+.conversations:hover {
+  filter: invert(100%);
+}
+
 .conversation-title-label {
   grid-row: 1;
   grid-column: 1;
@@ -374,19 +388,30 @@ nav .login {
 }
 
 .conversation-title {
+  white-space: nowrap;
   width: 1fr;
   grid-column: 1;
   grid-row: 1;
 }
 
 .conversation-receiver {
+  white-space: nowrap;
   width: 1fr;
   grid-column: 2;
   grid-row: 1;
 }
 
 .conversation-sender {
+  white-space: nowrap;
   width: 1fr;
   grid-column: 3;
   grid-row: 1;
+}
+
+.conversation-message-icon {
+  filter: invert(100%);
+  max-width: 64px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
 }

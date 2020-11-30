@@ -20,7 +20,7 @@ const createConversations = (item) => {
             <p class="conversation-title conversation-item">${item.title}</p>
             <p class="conversation-receiver conversation-item">${item.receiver}</p>
             <p class="conversation-sender conversation-item">${item.sender}</p>
-            <p class="conversation-messages conversation-item"></p>
+            <p class="conversation-messages conversation-item"><img class="conversation-message-icon" src="/img/message.png"></p>
           </div>
 `);
   return sentMessageTemplate;
