@@ -38,6 +38,20 @@ const homePageLoad = () => {
   }
 };
 
+const messageRender = (data) => {
+  const messages = data.messages;
+  const id = data.user_id;
+  console.log(messages);
+  $(".main-container").empty();
+  $(".main-container").append(createMessagesContainer());
+  messages.forEach((message) => {
+    if (id === message.sender_id) {
+      $(".messages").append(createSentMessage(message));
+    } else {
+      $(".messages").append(createRecievedMessage(message));
+    }
+  });
+};
 //Loads listings using the renderListings function
 const loadListings = () => {
   return $.ajax("/listings").then((listing) => {
