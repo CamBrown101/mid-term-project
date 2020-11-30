@@ -51,7 +51,7 @@ $(document).ready(() => {
       console.log(messages);
       $(".main-container").empty();
       $(".main-container").append(createMessagesContainer());
-      messages.forEach( (message) => {
+      messages.forEach((message) => {
         if (id === message.sender_id) {
           $(".messages").append(createSentMessage(message));
         } else {
@@ -64,17 +64,16 @@ $(document).ready(() => {
   $("main").on("submit", ".messages-form", (event) => {
     event.preventDefault();
     const message = $(".message-input").val();
+    const ownerId = getOwnerIdByListingId(listingId);
     const data = {
-      message: message,
+      message,
+      ownerId,
     };
     console.log(data);
     $.post(`/messages/${listingId}`, data, (message) => {
       console.log(message);
     });
   });
-
-
-
-    // $(".messages").append(createSentMessage(message));
-    // $(".messages").append(createRecievedMessage(messages));
 });
+// $(".messages").append(createSentMessage(message));
+// $(".messages").append(createRecievedMessage(messages));
