@@ -131,13 +131,18 @@ module.exports = (db) => {
 
   //Sends the user id of the owner of the listing
   router.get("/owner/:id", (req, res) => {
+    const userID = req.session.user_id;
     db.query(
       `SELECT user_id FROM listings
               WHERE id = $1;`,
       [req.params.id]
     )
       .then((data) => {
-        res.send(data.rows[0]);
+        const returnData = {
+          owner : data.rows[0].user_id,
+          user_id : userID
+        }
+        res.send(returnData);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
