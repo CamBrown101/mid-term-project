@@ -73,7 +73,6 @@ $(document).ready(() => {
   $("main").on("click", "#message-seller-btn", (event) => {
     event.preventDefault();
     listingId = $("#message-seller-btn").siblings(".big-id").text();
-    console.log(listingId);
     $.get(`/messages/${listingId}`, (data) => {
       messageRender(data);
     });
@@ -84,14 +83,11 @@ $(document).ready(() => {
     const message = $(".message-input").val();
     $.get(`/listings/owner/${listingId}`, (data) => {
       const ownerId = data.user_id;
-      console.log(ownerId);
       const send = {
         message,
         ownerId,
       };
-      $.post(`/messages/${listingId}`, send, (message) => {
-        console.log(message);
-      });
+      $.post(`/messages/${listingId}`, send, (message) => {});
     });
   });
 
