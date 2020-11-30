@@ -20,7 +20,7 @@ CREATE TABLE listings (
   description VARCHAR(255) NOT NULL,
   picture_url VARCHAR(255) NOT NULL,
   category VARCHAR(255) NOT NULL,
-  posted_date DATE,
+  posted_date TIMESTAMPTZ,
   sold_date DATE,
   is_sold BOOLEAN NOT NULL DEFAULT FALSE
 );
