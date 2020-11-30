@@ -174,7 +174,5 @@ $(document).ready(() => {
       };
       const timeOut = setInterval(checkNewMessage, 3000);
     });
-
-    const timeOut = setInterval(checkNewMessage, 3000);
   });
 });

@@ -163,7 +163,7 @@ nav .username-logged-in {
 
 .main-container .listing-image::before {
   content: "fall back";
-  content: url("../img/test.png");
+  content: url("./img/test.png");
 }
 
 .main-container article.card-container a.btn {
