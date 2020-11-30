@@ -47,18 +47,8 @@ $(document).ready(() => {
     const listingId = $(".conversation:last-child").children().last().text();
     console.log(listingId);
     $.get(`/messages/${listingId}`, (data) => {
-      const messages = data.messages;
-      const id = data.user_id;
-      console.log(messages);
-      $(".main-container").empty();
-      $(".main-container").append(createMessagesContainer());
-      messages.forEach((message) => {
-        if (id === message.sender_id) {
-          $(".messages").append(createSentMessage(message));
-        } else {
-          $(".messages").append(createRecievedMessage(message));
-        }
-      });
+      console.log(data);
+      messageRender(data);
     });
   });
 });
