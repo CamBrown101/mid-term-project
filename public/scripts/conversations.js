@@ -15,13 +15,14 @@ const createConversationContainer = () => {
 };
 
 const createConversations = (item) => {
+  console.log(item);
   const sentMessageTemplate = $(`
           <div class="conversation">
             <p class="conversation-title conversation-item">${item.title}</p>
             <p class="conversation-receiver conversation-item">${item.receiver}</p>
             <p class="conversation-sender conversation-item">${item.sender}</p>
             <p class="conversation-messages conversation-item"><img class="conversation-message-icon" src="/img/message.png"></p>
-            <p class="conversation-listing-id">${item.id}</p>
+            <p class="conversation-listing-id">${item.listing_id}</p>
 
             </div>
 `);
@@ -33,7 +34,6 @@ $(document).ready(() => {
     event.preventDefault();
     $.get(`/messages/`, (data) => {
       const conversations = data.messages;
-      const id = data.id;
       $(".main-container").empty();
       $(".main-container").append(createConversationContainer());
       for (const item of conversations) {
@@ -45,9 +45,7 @@ $(document).ready(() => {
 
   $("main").on("click", ".conversation", (event) => {
     const listingId = $(".conversation:last-child").children().last().text();
-    console.log(listingId);
     $.get(`/messages/${listingId}`, (data) => {
-      console.log(data);
       messageRender(data);
     });
   });

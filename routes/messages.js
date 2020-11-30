@@ -58,15 +58,15 @@ module.exports = (db) => {
 
   //WIP need get reciever id
   router.post("/:id", (req, res) => {
-    userID = req.session.user_id;
-    const listingID = req.params.id;
+    const userId = req.session.user_id;
+    const listingId = req.params.id;
     const message = req.body.message;
     const owner = req.body.ownerId;
-    console.log(listingID, userID, owner, message);
+    console.log(listingId, userId, owner, message);
     db.query(
       `INSERT INTO messages (listing_id, receiver_id, sender_id, message)
               VALUES ($1, $2, $3, $4);`,
-      [listingID, owner, userID, message]
+      [listingId, owner, userId, message]
     )
       .then((data) => {
         const messages = data.rows;
