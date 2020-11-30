@@ -4,13 +4,11 @@ const router = express.Router();
 //Get a single user
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    console.log("Deleting cookie, logging out...");
     req.session = null;
     res.clearCookie("user_id");
 
     res.redirect("/");
   });
-
 
   return router;
 };

@@ -152,8 +152,18 @@ nav .usernameLoggedIn {
 }
 
 .main-container img {
+  width: 100%;
+  margin: 5%;
+}
+
+.main-container .listing-image {
   width: 80%;
   margin: 5%;
+}
+
+.main-container .listing-image::before {
+  content: "fall back";
+  content: url("./img/test.png");
 }
 
 .main-container article.card-container a.btn {

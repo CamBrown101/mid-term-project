@@ -10,7 +10,6 @@ const clearForm = () => {
 $(document).ready(() => {
   $(".new-listing-content").submit((event) => {
     event.preventDefault();
-
     console.log("click listing");
     const title = $("#listing-title").val();
     const price = $("#listing-number").val();
@@ -29,8 +28,7 @@ $(document).ready(() => {
 
     console.log(data);
     clearForm();
-    $.post("/listings", data, (listing) => {
-      console.log(listing);
-    });
+    console.log("listing");
+    $.post("/listings", data, (listing) => {});
   });
 });

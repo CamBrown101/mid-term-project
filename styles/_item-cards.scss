@@ -28,10 +28,17 @@
   }
 
   img {
+    width: 100%;
+    margin: 5%;
+  }
+  .listing-image {
     width: 80%;
     margin: 5%;
   }
-
+  .listing-image::before {
+    content: "fall back";
+    content: url("./img/test.png");
+  }
   article.card-container a.btn {
     background-color: $header-background;
     color: $project-white;
