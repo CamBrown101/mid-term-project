@@ -4,19 +4,19 @@ VALUES ('Marcel Mueller', 'mail.marcelm@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmv
 ('Micheal Krishna', 'test@test.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
 
 INSERT INTO listings(user_id, title, price, description, picture_url, category, posted_date)
-VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', 'https://www.freeiconspng.com/uploads/money-flat-money-png-15.png', 'bikes', current_date),
- (3, 'Comfy Couch', 450, 'You will not regret sitting on this couch', './img/test.png', 'furniture', current_date),
- (2, 'Macbook Pro', 700, 'Macbook Pro 2015, Core i5/16gb ram', './img/test.png', 'computers', current_date),
- (1, 'Playstation 5 console', 1500, 'High price due to being a dirty scalper', './img/test.png', 'games', current_date),
- (2, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', current_date),
-(2, 'BMX Bike', 400, 'Awesome for tricks', './img/test.png', 'bikes', current_date),
- (2, 'Downhill Bike', 4000, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', current_date),
- (2, 'Road Bike', 1500, 'Amazing road bike', 'img/test.png', 'bikes', current_date),
- (2, 'Single Speed Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', current_date),
-  ( 1, 'Xbox Series X', 1500, 'High price due to being a dirty scalper', './img/test.png', 'games', current_date),
- (1, 'Xbox Series S', 1000, 'High price due to being a dirty scalper', './img/test.png', 'games', current_date),
- (1, 'Nintendo 64', 200, 'N64 with all the good games', './img/test.png', 'games', current_date),
- (1, 'Sega Genesis', 60, 'Sega Genesis with Sonic the Hedgehog', './img/test.png', 'games', current_date);
+VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-27 17:35:23 +0000'),
+ (3, 'Comfy Couch', 450, 'You will not regret sitting on this couch', './img/test.png', 'furniture', '2020-11-26 17:35:23 +0000'),
+ (2, 'Macbook Pro', 700, 'Macbook Pro 2015, Core i5/16gb ram', './img/test.png', 'computers', '2020-11-25 17:35:23 +0000'),
+ (1, 'Playstation 5 console', 1500, 'High price due to being a dirty scalper', './img/test.png', 'games', '2020-11-24 17:35:23 +0000'),
+ (2, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-23 17:35:23 +0000'),
+(2, 'BMX Bike', 400, 'Awesome for tricks', './img/test.png', 'bikes', '2020-11-22 17:35:23 +0000'),
+ (2, 'Downhill Bike', 4000, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-21 17:35:23 +0000'),
+ (2, 'Road Bike', 1500, 'Amazing road bike', 'img/test.png', 'bikes', '2020-11-20 17:35:23 +0000'),
+ (2, 'Single Speed Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-19 17:35:23 +0000'),
+  ( 1, 'Xbox Series X', 1500, 'High price due to being a dirty scalper', './img/test.png', 'games', '2020-11-18 17:35:23 +0000'),
+ (1, 'Xbox Series S', 1000, 'High price due to being a dirty scalper', './img/test.png', 'games', '2020-11-17 17:35:23 +0000'),
+ (1, 'Nintendo 64', 200, 'N64 with all the good games', './img/test.png', 'games', '2020-11-16 17:35:23 +0000'),
+ (1, 'Sega Genesis', 60, 'Sega Genesis with Sonic the Hedgehog', './img/test.png', 'games', '2020-11-15 17:35:23 +0000');
 
 
 
