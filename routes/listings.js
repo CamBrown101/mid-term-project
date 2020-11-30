@@ -139,9 +139,9 @@ module.exports = (db) => {
     )
       .then((data) => {
         const returnData = {
-          owner : data.rows[0].user_id,
-          user_id : userID
-        }
+          owner: data.rows[0].user_id,
+          user_id: userID,
+        };
         res.send(returnData);
       })
       .catch((err) => {

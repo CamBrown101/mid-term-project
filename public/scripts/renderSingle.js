@@ -15,9 +15,10 @@ $(document).ready(() => {
     });
     $.get(`/listings/favourites/${listingID}`, (data) => {
       console.log(data);
-      if(data !== undefined) {
-
-        $("#fave-button").replaceWith(`<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`)
+      if (data !== undefined) {
+        $("#fave-button").replaceWith(
+          `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
+        );
       }
     });
   });
@@ -31,15 +32,23 @@ $(document).ready(() => {
   $("main").on("click", "#fave-button", (event) => {
     const listing = $(event.target).siblings(".big-id").html();
     $.post("/listings/favourites", { listing: listing }, () => {
-      $(event.target).replaceWith(`<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`);
+      $(event.target).replaceWith(
+        `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
+      );
     });
   });
 
   $("main").on("click", "#fave-delete-button", (event) => {
     const listing = $(event.target).siblings(".big-id").html();
-    $.post(`/listings/favourites/${listing}/delete`, { listing: listing }, () => {
-      $(event.target).replaceWith(`<btn class="btn btn-primary" id="fave-button">Favorite</btn>`);
-    });
+    $.post(
+      `/listings/favourites/${listing}/delete`,
+      { listing: listing },
+      () => {
+        $(event.target).replaceWith(
+          `<btn class="btn btn-primary" id="fave-button">Favorite</btn>`
+        );
+      }
+    );
   });
 
   const createListingBig = function (listing) {
@@ -54,6 +63,7 @@ $(document).ready(() => {
         <img class="big-img" src="${listing.picture_url}">
         <h5 class="big-price">$${listing.price}</h5>
         <p class="big-description">${listing.description}</p>
+        <p class="big-user-name">${listing.user_name}</p>
         <p class="big-date">Posted: ${time}</p>
         <btn class="btn btn-primary message-button" id="message-seller-btn">Message seller</btn>
         <p class="big-id">${listing.id}</p>
