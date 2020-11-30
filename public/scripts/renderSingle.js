@@ -24,7 +24,7 @@ $(document).ready(() => {
     const listing = $(event.target).siblings(".big-id").html();
     console.log(listing);
     $.post("/listings/favourites", { listing: listing }, () => {
-      $(event.target).replace($(`<p>FAVORITED</p>`));
+      $(event.target).replaceWith(`<p>FAVORITED</p>`);
     });
     console.log("fave");
   });
