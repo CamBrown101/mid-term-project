@@ -26,6 +26,7 @@ module.exports = (db) => {
       });
   });
 
+  //Get all messages for a user
   router.get("/", (req, res) => {
     const userID = req.session.user_id;
     db.query(
