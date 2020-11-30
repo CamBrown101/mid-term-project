@@ -112,9 +112,10 @@ module.exports = (db) => {
 
   //individual listing
   router.get("/:id", (req, res) => {
-    db.query(`SELECT user_id, title, price, description, picture_url, category, posted_date, users.name FROM listings
+    db.query(`SELECT listings.user_id, listings.title, listings.price, listings.description, listings.picture_url, listings.category, listings.posted_date, users.name
+              FROM listings
               JOIN users ON user_id = users.id
-              WHERE id = $1;`,
+              WHERE listings.id = $1;`,
       [req.params.id]
     )
       .then((data) => {
@@ -125,6 +126,7 @@ module.exports = (db) => {
         res.send(returnData);
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });
