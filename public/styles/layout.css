@@ -449,7 +449,7 @@ nav .username-logged-in:hover {
   height: auto;
 }
 
-.user-screen {
+.users-main {
   width: 90%;
   border-style: solid;
   border-color: #1F271B;
@@ -457,7 +457,11 @@ nav .username-logged-in:hover {
   padding: 10px;
   display: grid;
   color: #ffffff;
+  margin-bottom: 1em;
   background-color: grey;
+}
+
+.user-screen {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
@@ -477,4 +481,12 @@ nav .username-logged-in:hover {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.user-update {
+  padding: 20px;
+}
+
+label {
+  margin-top: 8px;
 }

@@ -6,7 +6,7 @@ const renderUserPage = (user) => {
     isAdmin = "False";
   }
   const userPageTemplate = $(`
-          <div class="user-screen">
+          <div class="user-screen users-main">
           <div class="user-image-container">
             <img class="user-image" src="${user.user_image}"></p>
           </div>
@@ -23,17 +23,48 @@ const renderUserPage = (user) => {
 
 const renderUserUpdateForm = (user) => {
   const userPageTemplate = $(`
-          <div class="user-update">
-          <div class="user-update-containter-one">
+          <div class="user-update users-main">
+          <h2 class="user-update-header">Update your details: </h2>
+          <form class="new-listing-content" method="POST" action="/listings">
+              <label for="update-user-name">Username</label>
+              <input
+                type="text"
+                name="username"
+                class="user-update-input"
+                id="update-user-name"
+                placeholder="${user.name}"
+              />
+              <label for="update-user-email">Email</label>
+              <input
+                type="text"
+                name="email"
+                class="user-update-input"
+                id="update-user-email"
+                placeholder="${user.email}"
+              />
+              <label for="update-user-bio">Bio</label>
+              <input
+                type="text"
+                name="bio"
+                class="user-update-input"
+                id="update-user-bio"
+                placeholder="${user.user_bio}"
+              />
+              <label for="update-user-image">Profile picture</label>
+              <input
+                type="text"
+                name="image"
+                class="user-update-input"
+                id="update-user-image"
+                placeholder="${user.user_image}"
+              />
+              <button id="update-user-form" class="btn btn-primary" type="submit">
+                Update
+              </button>
+            </form>
           </div>
-          <div class="user-update-containter-one">
-            <div class="user-name user-item"><h4 class="user-header">User name: </h4>${user.name}</div>
-            <div class="user-email user-item"><h4 class="user-header">Email: </h4>${user.email}</div>
-            <div class="user-admin user-item"><h4 class="user-header">Admin Privileges: </h4>${isAdmin}</div>
-            <div class="user-bio"><h4 class="user-header">User Bio:</h4>\n${user.user_bio}</div>
-          </div>
-            </div>
 `);
+  return userPageTemplate;
 };
 
 $(document).ready(() => {
@@ -42,6 +73,7 @@ $(document).ready(() => {
     $.get(`/users/current/`, (data) => {
       $(".main-container").empty();
       $(".main-container").append(renderUserPage(data));
+      $(".main-container").append(renderUserUpdateForm(data));
     });
   });
 });
