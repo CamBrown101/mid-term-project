@@ -11,12 +11,12 @@ const createConversationContainer = () => {
   return messagesContainer;
 };
 
-const createConversations = (message) => {
+const createConversations = (item) => {
   const sentMessageTemplate = $(`
           <div class="conversation">
-            <p class="conversation-title">${message.listing_title}</p>
-            <p class="conversation-sender">${message.sender_name}</p>
-            <p class="conversation-receiver">${message.receiver_name}</p>
+            <p class="conversation-title">${item.title}</p>
+            <p class="conversation-sender">${item.sender}</p>
+            <p class="conversation-receiver">${item.receiver}</p>
           </div>
 `);
   return sentMessageTemplate;
@@ -25,11 +25,13 @@ const createConversations = (message) => {
 $(document).ready(() => {
   $("#convo-btn").click((event) => {
     event.preventDefault();
-    $.get(`/messages/`, (listing) => {
-      console.log(listing[0]);
+    $.get(`/messages/`, (conversations) => {
+      console.log(conversations);
       $(".main-container").empty();
       $(".main-container").append(createConversationContainer());
-      $(".messages").append(createConversations(listing));
+      for (const item of conversations) {
+        $(".conversations").append(createConversations(item));
+      }
     });
   });
 });
