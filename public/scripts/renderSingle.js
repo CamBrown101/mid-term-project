@@ -16,7 +16,7 @@ $(document).ready(() => {
     });
     $.get(`/listings/favourites/${listingID}`, (data) => {
       console.log(data);
-      if (data !== undefined) {
+      if (data) {
         $("#fave-button").replaceWith(
           `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
         );
