@@ -199,13 +199,14 @@ module.exports = (db) => {
     const queryString = `
     UPDATE listings
     SET is_sold = true,
-    sold_date = now()
+    sold_date = clock_timestamp()
     WHERE listings.id = $1
-    AND listings.user_id = $2;
+    AND listings.user_id = $2
+    RETURNING *;
 `;
     db.query(queryString, queryParams)
-      .then(() => {
-        res.send("Deleted");
+      .then((data) => {
+        res.send(data);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

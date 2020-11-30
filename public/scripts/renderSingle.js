@@ -5,14 +5,19 @@ $(document).ready(() => {
     $(".main-container").empty();
     $.get(`/listings/${listingID}`, (data) => {
       $(".main-container").append(createListingBig(data.listing));
+      $(".big-id").hide();
+
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
       }
       if (data.listing.user_id === data.user_id) {
         $("#delete-button").show();
+      }
+      if (data.listing.is_sold) {
+        $(".image-wrapper").append("<div><h3>SOLD!</h3></div>");
+      } else {
         $("#sold-button").show();
       }
-      $(".big-id").hide();
     });
     $.get(`/listings/favourites/${listingID}`, (data) => {
       console.log(data);
@@ -61,7 +66,9 @@ $(document).ready(() => {
       <article class="big-listing">
         <btn class="btn btn-primary big-back">HOME</btn>
         <h2 class="big-title">${listing.title}</h5>
-        <img class="big-img" src="${listing.picture_url}">
+        <div class="image-wrapper">
+          <img class="big-img" src="${listing.picture_url}">
+        </div>
         <h5 class="big-price">$${listing.price}</h5>
         <p class="big-description">${listing.description}</p>
         <p class="big-date">Posted: ${time}</p>
@@ -89,6 +96,11 @@ $(document).ready(() => {
   $("main").on("click", "#sold-button", (event) => {
     const listingid = $(".big-id").text();
     const idObject = { listingid };
-    $.post("/listings/sold", idObject, () => {});
+    $.post("/listings/sold", idObject, (data) => {
+      if (data.rows[0].is_sold) {
+        $(".image-wrapper").append("<div><h3>SOLD!</h3></div>");
+        $("#sold-button").hide();
+      }
+    });
   });
 });
