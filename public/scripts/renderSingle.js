@@ -93,7 +93,7 @@ $(document).ready(() => {
       window.location.replace("/");
     });
   });
-
+}
   $("main").on("click", ".big-user-name", (event) => {
     const id = $(".big-user-id").text();
     event.preventDefault();
