@@ -6,7 +6,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.conversations:hover {
+.conversation:hover {
   filter: invert(100%);
 }
 .conversation-title-label {
@@ -65,7 +65,6 @@
 }
 
 .conversation-message-icon {
-  filter: invert(100%);
   max-width: 64px;
   max-height: 64px;
   width: auto;

@@ -5,6 +5,12 @@ header {
   background-color: $header-background;
 }
 
+.conversation-message-icon {
+  max-width: 64px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
+}
 nav {
   height: 150px;
   display: flex;

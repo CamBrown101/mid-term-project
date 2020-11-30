@@ -21,7 +21,9 @@ const createConversations = (item) => {
             <p class="conversation-receiver conversation-item">${item.receiver}</p>
             <p class="conversation-sender conversation-item">${item.sender}</p>
             <p class="conversation-messages conversation-item"><img class="conversation-message-icon" src="/img/message.png"></p>
-          </div>
+            <p class="conversation-listing-id">${item.id}</p>
+
+            </div>
 `);
   return sentMessageTemplate;
 };
