@@ -195,6 +195,8 @@ nav .username-logged-in:hover {
 .big-user-name:hover {
   color: red;
   cursor: pointer;
+}
+
 #sold-button {
   display: none;
 }
@@ -516,5 +518,4 @@ nav .username-logged-in:hover {
 
 label {
   margin-top: 8px;
-}
 }
