@@ -100,10 +100,8 @@ module.exports = (db) => {
       [req.params.id]
     )
       .then((data) => {
-        const returnData = {
-          owner: data.rows[0],
-        };
-        res.send(returnData);
+        console.log(data);
+        res.send(data.rows[0]);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

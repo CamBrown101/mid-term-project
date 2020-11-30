@@ -71,7 +71,8 @@ const createCategoryRows = () => {
 //Get owner Id from listing Id
 const getOwnerIdByListingId = (listingId) => {
   $.get(`/listings/owner/${listingId}`, (data) => {
-    const ownerId = data.owner;
+    console.log(data);
+    const ownerId = data.user_id;
     return ownerId;
   });
 };
