@@ -13,7 +13,7 @@ $(document).ready(() => {
         $("#sold-button").show();
       }
       if (data.listing.is_sold) {
-        $(".image-wrapper").append("<div><h3>SOLD!</h3></div>");
+        $(".image-wrapper").append('<h3 class="sold-indicator">SOLD!</h3>');
         $("#sold-button").hide();
       }
     });
