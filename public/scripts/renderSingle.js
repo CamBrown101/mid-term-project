@@ -30,6 +30,7 @@ $(document).ready(() => {
   });
 
   const createListingBig = function (listing) {
+    const time = moment(listing.posted_date).fromNow();
     const articleContainer = $(`
       <article class="big-listing">
         <btn class="btn btn-primary big-back">HOME</btn>
@@ -37,7 +38,7 @@ $(document).ready(() => {
         <img class="big-img" src="${listing.picture_url}">
         <h5 class="big-price">$${listing.price}</h5>
         <p class="big-description">${listing.description}</p>
-        <p class="big-date">Posted: ${listing.posted_date}</p>
+        <p class="big-date">Posted: ${time}</p>
         <btn class="btn btn-primary message-button" id="message-seller-btn">Message seller</btn>
         <p class="big-id">${listing.id}</p>
         <btn class="btn btn-primary" id="fave-button">Favorite</btn>
