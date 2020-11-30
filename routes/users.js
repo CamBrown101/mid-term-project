@@ -1,5 +1,5 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 //Get a single user
 module.exports = (db) => {
@@ -12,10 +12,8 @@ module.exports = (db) => {
         const user = data.rows[0];
         res.send(user);
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
 
@@ -27,13 +25,10 @@ module.exports = (db) => {
         const user = data.rows[0];
         res.send(user);
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
-
 
   return router;
 };
