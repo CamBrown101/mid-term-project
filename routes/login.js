@@ -31,7 +31,6 @@ module.exports = (db) => {
       .then((data) => {
         const user = data.rows[0];
         if (user) {
-          console.log(user);
           res.send(user);
         } else {
           res.send(false);
