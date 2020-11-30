@@ -19,8 +19,8 @@ const createMessagesContainer = () => {
 const createSentMessage = (message) => {
   const sentMessageTemplate = $(`
           <div class="message sent">
-            <p class="username">${message.sender_username}</p>
-            <p class="message-content">${message.content}</p>
+            <p class="username">${message.sender}</p>
+            <p class="message-content">${message.message}</p>
             <p class="timestamp">${message.timestamp}</p>
           </div>
 `);
@@ -28,10 +28,11 @@ const createSentMessage = (message) => {
 };
 
 const createRecievedMessage = (message) => {
+  console.log(message);
   const recievedMessageTemplate = $(`
   <div class="message recieved">
-    <p class="username">${message.reciever_username}</p>
-    <p class="message-content">${message.content}</p>
+    <p class="username">${message.receiver}</p>
+    <p class="message-content">${message.message}</p>
     <p class="timestamp">${message.timestamp}</p>
   </div>
 `);
@@ -44,8 +45,20 @@ $(document).ready(() => {
     event.preventDefault();
     listingId = $("#message-seller-btn").siblings(".big-id").text();
     console.log(listingId);
-    $.get(`/messages/${listingId}`, (messages) => {
+    $.get(`/messages/${listingId}`, (data) => {
+      const messages = data.messages;
+      const id = data.user_id;
       console.log(messages);
+      $(".main-container").empty();
+      $(".main-container").append(createMessagesContainer());
+      messages.forEach( (message) => {
+        if (id === message.sender_id) {
+          $(".messages").append(createSentMessage(message));
+        } else {
+          $(".messages").append(createRecievedMessage(message));
+        }
+      });
+
     });
   });
 
@@ -60,4 +73,9 @@ $(document).ready(() => {
       console.log(message);
     });
   });
+
+
+
+    // $(".messages").append(createSentMessage(message));
+    // $(".messages").append(createRecievedMessage(messages));
 });

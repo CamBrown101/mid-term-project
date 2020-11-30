@@ -4,7 +4,7 @@ const createConversationContainer = () => {
     <div class="inner-message-conatiner">
       <div class="conversations">
       </div>
-      
+
     </div>
   </section>
 `);
@@ -25,7 +25,9 @@ const createConversations = (item) => {
 $(document).ready(() => {
   $("#convo-btn").click((event) => {
     event.preventDefault();
-    $.get(`/messages/`, (conversations) => {
+    $.get(`/messages/`, (data) => {
+      const conversations = data.messages;
+      const id = data.id;
       console.log(conversations);
       $(".main-container").empty();
       $(".main-container").append(createConversationContainer());

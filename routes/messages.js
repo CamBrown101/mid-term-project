@@ -12,14 +12,17 @@ module.exports = (db) => {
               JOIN users senders ON sender_id = senders.id
               JOIN users receivers ON receiver_id = receivers.id
               JOIN listings ON listing_id = listings.id
-              WHERE sender_id = $1
-              OR receiver_id = $1
+              WHERE (sender_id = $1
+              OR receiver_id = $1)
               AND listing_id = $2;`,
       [userID, listingID]
     )
       .then((data) => {
-        const messages = data.rows;
-        res.send(messages);
+        const returnData = {
+          messages: data.rows,
+          user_id: req.session.user_id,
+        };
+        res.send(returnData);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -40,8 +43,11 @@ module.exports = (db) => {
       [userID]
     )
       .then((data) => {
-        const messages = data.rows;
-        res.send(messages);
+        const returnData = {
+          messages: data.rows,
+          user_id: req.session.user_id,
+        };
+        res.send(returnData);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
