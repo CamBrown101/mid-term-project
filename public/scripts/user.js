@@ -76,4 +76,27 @@ $(document).ready(() => {
       $(".main-container").append(renderUserUpdateForm(data));
     });
   });
+
+  $("#update-user-form").submit((event) => {
+    event.preventDefault();
+    const name = $("#listing-title").val();
+    const email = $("#listing-number").val();
+    const bio = $("#listing-description").val();
+    const picture = $("#listing-picture-url").val();
+
+    const data = {
+      name: name,
+      email: email,
+      bio: bio,
+      picture: picture,
+    };
+
+    console.log(data);
+    $.post("/users/", data, (data) => {
+      console.log(data);
+      $(".main-container").empty();
+      $(".main-container").append(renderUserPage(data));
+      $(".main-container").append(renderUserUpdateForm(data));
+    });
+  });
 });
