@@ -29,12 +29,9 @@ $(document).ready(() => {
     console.log(data);
     console.log("listing");
     $.post("/listings", data, (listing) => {
-<<<<<<< HEAD
       createCategoryRows();
-=======
       console.log(listing);
       clearForm();
->>>>>>> db9e701fe80cb9cef79045f69cc04a0ef012ab5a
       homePageLoad();
     });
   });

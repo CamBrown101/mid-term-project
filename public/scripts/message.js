@@ -168,11 +168,7 @@ $(document).ready(() => {
             });
           }
         });
-<<<<<<< HEAD
-        if( $(".messages").length === 0) {
-=======
         if ($(".messages").length === 0) {
->>>>>>> db9e701fe80cb9cef79045f69cc04a0ef012ab5a
           clearTimeout(timeOut);
         }
       };
