@@ -65,6 +65,7 @@ $(document).ready(() => {
     event.preventDefault();
     const message = $(".message-input").val();
     const ownerId = getOwnerIdByListingId(listingId);
+    console.log("hi", ownerId)
     const data = {
       message,
       ownerId,
