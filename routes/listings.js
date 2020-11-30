@@ -62,7 +62,7 @@ module.exports = (db) => {
     db.query(`
               INSERT INTO favorite_items (user_id, item_id)
               VALUES ($1, $2)
-              WHERE NOT user_id = $1 AND item_id = $2;`,
+              ON CONFLICT DO NOTHING;`,
       [userID, req.body.listing]
     )
       .then((data) => {
