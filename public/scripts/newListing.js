@@ -27,11 +27,10 @@ $(document).ready(() => {
     };
 
     console.log(data);
-    clearForm();
     console.log("listing");
     $.post("/listings", data, (listing) => {
       console.log(listing);
-      createCategoryRows();
+      clearForm();
       homePageLoad();
     });
   });
