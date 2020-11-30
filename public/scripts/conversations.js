@@ -44,7 +44,8 @@ $(document).ready(() => {
   });
 
   $("main").on("click", ".conversation", (event) => {
-    const listingId = $(".conversation:last-child").children().last().text();
+    const listingId = $(event.currentTarget).children('.conversation-listing-id').html();
+    console.log(listingId);
     $.get(`/messages/${listingId}`, (data) => {
       messageRender(data);
     });
