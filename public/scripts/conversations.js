@@ -39,6 +39,7 @@ $(document).ready(() => {
       $(".main-container").append(createConversationContainer());
       for (const item of conversations) {
         $(".conversations").append(createConversations(item));
+        $(".conversation-listing-id").hide();
       }
     });
   });
