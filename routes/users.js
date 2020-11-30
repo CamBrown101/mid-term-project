@@ -37,15 +37,14 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     console.log(req.body);
-
-    const name = req.body.name;
+    const name = req.body.username;
     const id = req.session.user_id;
     const email = req.body.email;
     const bio = req.body.bio;
-    const picture = req.body.picture;
+    const picture = req.body.image;
 
     const queryParams = [id, name, email, bio, picture];
-
+    // console.log(queryParams);
     const queryString = `
         UPDATE users
         SET name = $2,
@@ -54,7 +53,7 @@ module.exports = (db) => {
         user_image = $5
         WHERE users.id = $1
         RETURNING *;
-    // `;
+    `;
     db.query(queryString, queryParams)
       .then((data) => {
         res.send(data);

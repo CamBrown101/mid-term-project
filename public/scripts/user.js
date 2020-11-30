@@ -77,23 +77,20 @@ $(document).ready(() => {
     });
   });
 
-  $("#update-user-form").submit((event) => {
+  $("#update-user-form").click((event) => {
     event.preventDefault();
-    const name = $("#listing-title").val();
-    const email = $("#listing-number").val();
-    const bio = $("#listing-description").val();
-    const picture = $("#listing-picture-url").val();
-
+    const name = $("#update-user-name").val();
+    const email = $("#update-user-email").val();
+    const bio = $("#update-user-bio").val();
+    const picture = $("#update-user-image").val();
     const data = {
       name: name,
       email: email,
       bio: bio,
       picture: picture,
     };
-
     console.log(data);
     $.post("/users/", data, (data) => {
-      console.log(data);
       $(".main-container").empty();
       $(".main-container").append(renderUserPage(data));
       $(".main-container").append(renderUserUpdateForm(data));
