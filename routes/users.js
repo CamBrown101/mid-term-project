@@ -54,7 +54,7 @@ module.exports = (db) => {
         user_image = $5
         WHERE users.id = $1
         RETURNING *;
-    // `;
+    `;
     db.query(queryString, queryParams)
       .then((data) => {
         res.send(data);
