@@ -3,8 +3,11 @@ const createConversationContainer = () => {
   <section id="messages-container">
     <div class="inner-message-conatiner">
       <div class="conversations">
-      </div>
-      
+      <h4 class="conversation-title-label">Listing</h4>
+      <h4 class="conversation-receiver-label">Owner</h4>
+      <h4 class="conversation-sender-label">User</h4>
+      <h4 class="conversation-messages-label">Messages</h4>
+      </div> 
     </div>
   </section>
 `);
@@ -14,9 +17,10 @@ const createConversationContainer = () => {
 const createConversations = (item) => {
   const sentMessageTemplate = $(`
           <div class="conversation">
-            <p class="conversation-title">${item.title}</p>
-            <p class="conversation-sender">${item.sender}</p>
-            <p class="conversation-receiver">${item.receiver}</p>
+            <p class="conversation-title conversation-item">${item.title}</p>
+            <p class="conversation-receiver conversation-item">${item.receiver}</p>
+            <p class="conversation-sender conversation-item">${item.sender}</p>
+            <p class="conversation-messages conversation-item"></p>
           </div>
 `);
   return sentMessageTemplate;
