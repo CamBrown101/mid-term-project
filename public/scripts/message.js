@@ -30,7 +30,7 @@ const createSentMessage = (message) => {
 const createRecievedMessage = (message) => {
   const recievedMessageTemplate = $(`
   <div class="message recieved">
-    <p class="username">${message.receiver}</p>
+    <p class="username">${message.sender}</p>
     <p class="message-content">${message.message}</p>
     <p class="timestamp">${message.timestamp}</p>
   </div>
