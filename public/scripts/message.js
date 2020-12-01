@@ -65,8 +65,9 @@ const createConversations = (item) => {
             <p class="conversation-sender conversation-item">${item.sender}</p>
             <p class="conversation-messages conversation-item"><img class="conversation-message-icon" src="/img/message.png"></p>
             <div class="conversation-listing-id">${item.listing_id}</div>
-            <div id="sender-receiver-id">${item.senders_id}${item.receiver_id}</div>
-          </div>
+            <div class="sender-id">${item.senders_id}${item.receiver_id}</div>
+            <div class="receiver-id">${item.receiver_id}</div>
+            </div>
 `);
   return sentMessageTemplate;
 };
@@ -148,18 +149,19 @@ $(document).ready(() => {
       for (const item of conversations) {
         $(".conversations").append(createConversations(item));
         $(".conversation-listing-id").hide();
-        $("#sender-receiver-id").hide();
+        $(".sender-id").hide();
+        $(".receiver-id").hide();
       }
     });
   });
 
   $("main").on("click", ".conversation", (event) => {
-    const senderReceiverId = $(event.currentTarget)
-      .children("#sender-receiver-id")
-      .html();
+    const senderId = $(event.currentTarget).children("#sender-id").html();
+    const receiverId = $(event.currentTarget).children("#receiver-id").html();
+    console.log(senderId, receiverId);
     const dataObject = {
-      sender_id: senderReceiverId[0],
-      receiver_id: senderReceiverId[1],
+      sender_id: senderId,
+      receiver_id: receiverId,
     };
     // listingId = $(event.currentTarget)
     //   .children(".conversation-listing-id")
