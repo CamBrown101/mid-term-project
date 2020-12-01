@@ -33,7 +33,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     const userID = req.session.user_id;
     db.query(
-      `SELECT listing_id, senders.id, receivers.id, listings.title, senders.name AS sender, receivers.name AS receiver
+      `SELECT listing_id, senders.id as senders_id, receivers.id as receiver_id, listings.title, senders.name AS sender, receivers.name AS receiver
               FROM messages
               JOIN users senders ON sender_id = senders.id
               JOIN users receivers ON receiver_id = receivers.id
@@ -48,6 +48,7 @@ module.exports = (db) => {
           messages: data.rows,
           user_id: req.session.user_id,
         };
+        console.log(returnData);
         res.send(returnData);
       })
       .catch((err) => {
