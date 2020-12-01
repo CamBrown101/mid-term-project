@@ -36,7 +36,8 @@ const homePageLoad = () => {
       if (res.length > 4) {
         res = res.slice(res.length - 4, res.length);
       }
-      $(".main-container").prepend(`<h3 class="category-heading">Favourites</h3>
+      $(".listings-favourites")
+        .append(`<h3 class="category-heading">Favourites</h3>
     <div id="listings-row-favourites" class="card-row"></div>`);
       renderListings(res.reverse(), "favourites");
     }
@@ -75,6 +76,7 @@ const loadListings = () => {
 //Create category row Html
 const createCategoryRows = () => {
   $(".main-container").append(`
+  <div class="listings-favourites"></div>
   <h3 class="category-heading">New Listings</h3>
   <div id="listings-row-0" class="card-row"></div>
   <h3 class="category-heading">Games</h3>
