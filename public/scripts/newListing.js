@@ -37,7 +37,7 @@ const createNewListingForm = function (listing) {
 
     <input
       type="url"
-      name="picture-url"
+      name="picture_url"
       id="listing-picture-url"
       placeholder="Pic?"
       required
