@@ -17,11 +17,12 @@ const createMessagesContainer = () => {
 };
 
 const createSentMessage = (message) => {
+  console.log(message);
   const sentMessageTemplate = $(`
           <div class="message sent">
             <p class="username">${message.sender}</p>
             <p class="message-content">${message.message}</p>
-            <p class="timestamp">${message.timestamp}</p>
+            <p class="timestamp">${message.time}</p>
           </div>
 `);
   return sentMessageTemplate;

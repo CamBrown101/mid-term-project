@@ -165,7 +165,7 @@ module.exports = (db) => {
     ];
     db.query(
       `INSERT INTO listings (user_id, title, price, description, picture_url, category, posted_date)
-              VALUES ($1, $2, $3, $4, $5, $6, clock_timestamp())
+              VALUES ($1, $2, $3, $4, $5, $6)
               RETURNING *;`,
       queryParams
     )
