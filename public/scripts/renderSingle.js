@@ -12,6 +12,10 @@ $(document).ready(() => {
           $("#delete-button").show();
           $("#sold-button").show();
         }
+        if (!user) {
+          $("#message-seller-btn").hide();
+          $("#fave-button").hide();
+        }
       })
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
