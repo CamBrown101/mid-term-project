@@ -30,6 +30,15 @@ const homePageLoad = () => {
       $(".id").hide();
     }
   };
+
+  $.get("/listings/favourites", (res) => {
+    if (res.length >= 3) {
+      $(".main-container").prepend(`<h3 class="category-heading">Favourites</h3>
+    <div id="listings-row-favourites" class="card-row"></div>`);
+      renderListings(res, "favourites");
+    }
+  });
+
   let categoryArr = ["newest", "games", "bikes"];
 
   for (let i = 0; i < 3; i++) {
@@ -63,8 +72,11 @@ const loadListings = () => {
 //Create category row Html
 const createCategoryRows = () => {
   $(".main-container").append(`
+  <h3 class="category-heading">New Listings</h3>
   <div id="listings-row-0" class="card-row"></div>
+  <h3 class="category-heading">Games</h3>
   <div id="listings-row-1" class="card-row"></div>
+  <h3 class="category-heading">Bikes</h3>
   <div id="listings-row-2" class="card-row"></div>
   `);
 };
