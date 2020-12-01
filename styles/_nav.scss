@@ -63,3 +63,17 @@ nav {
     cursor: pointer;
   }
 }
+
+input.search-input {
+  height: 50px;
+  font-size: 20px;
+  background-image: url(/img/search.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 50px;
+  background-size: 48px 48px;
+  background-color: #fff;
+  border: 1px solid #000;
+  box-shadow: none;
+  -webkit-appearance: none;
+}
