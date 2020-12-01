@@ -43,7 +43,7 @@ $(document).ready(() => {
     });
   });
   $("main").on("click", "#fave-delete-button", (event) => {
-    const listing = $(event.target).siblings(".big-id").html();
+    const listing =  $(".big-id").text();
     $.post(
       `/listings/favourites/${listing}/delete`,
       { listing: listing },

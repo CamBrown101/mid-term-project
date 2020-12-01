@@ -41,7 +41,11 @@ module.exports = (db) => {
     const userID = req.session.user_id;
     db.query(
       `
-              SELECT * FROM listings
+              SELECT listings.*,
+              favorite_items.item_id AS fave_item_ID,
+              favorite_items.user_id AS fave_user_ID,
+              favorite_items.id AS fave_id
+              FROM listings
               JOIN favorite_items ON item_id = listings.id
               WHERE favorite_items.user_id = $1;`,
       [userID]
