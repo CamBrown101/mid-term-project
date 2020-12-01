@@ -21,8 +21,9 @@ $(document).ready(() => {
 
   //Takes search input and sends to server to query results from database
   $("#item-search").submit((event) => {
+    console.log("hello");
     event.preventDefault();
-    const searchString = $("#text").val();
+    const searchString = $("#search-input").val();
     const data = {
       text: searchString,
     };

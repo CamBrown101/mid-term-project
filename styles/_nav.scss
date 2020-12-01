@@ -85,7 +85,7 @@ nav {
   flex-direction: row;
 }
 input.search-input {
-  height: 50px;
+  height: 40px;
   max-width: 140px;
   font-size: 20px;
   background-image: url(/img/search.png);
@@ -122,4 +122,8 @@ input.search-input {
 #new-listing-button:hover {
   background-color: black;
   color: white;
+}
+
+select {
+  height: 30px;
 }
