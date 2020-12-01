@@ -109,7 +109,8 @@ module.exports = (db) => {
   router.get("/:id", (req, res) => {
     db.query(
       `SELECT * FROM listings
-              WHERE id = $1;`,
+      JOIN users ON users.id = user_id
+      WHERE listings.id = $1;`,
       [req.params.id]
     )
       .then((data) => {

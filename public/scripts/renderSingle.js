@@ -8,7 +8,9 @@ const createListingBig = function (listing) {
       <btn class="btn btn-primary big-back">HOME</btn>
       <h2 class="big-title">${listing.title}</h5>
       <div class="image-wrapper">
-        <img class="big-img" src="${listing.picture_url}">
+      <object class="listing-image" data="${listing.picture_url}" type="image/png">
+      <img class="big-img" src="/img/test.png">
+      </object>
       </div>
       <h5 class="big-price">$${listing.price}</h5>
       <p class="big-description">${listing.description}</p>
@@ -32,7 +34,7 @@ $(document).ready(() => {
     const listingID = $(event.target).siblings(".id").html();
     $(".main-container").empty();
     $.get(`/listings/${listingID}`, (data) => {
-      console.log(data, "data");
+      console.log(data);
       $(".main-container").append(createListingBig(data.listing));
       $(".big-user-id").hide();
       $(".big-id").hide();

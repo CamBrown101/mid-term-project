@@ -78,7 +78,6 @@ $(document).ready(() => {
     const category = $("#listing-category").val();
 
     const data = {
-      user_id: 1,
       title: title,
       price: price,
       description: description,
