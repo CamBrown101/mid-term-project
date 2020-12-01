@@ -6,7 +6,7 @@ header {
 }
 
 nav {
-  height: 150px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -63,17 +63,127 @@ nav {
     cursor: pointer;
   }
 }
-
-input.search-input {
+.nav-search-sort {
+  position: fixed;
+  width: 100vw;
   height: 50px;
+  top: 100px;
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  background-color: $background-grey;
+}
+
+.nav-item {
+  text-align: center;
+
+  margin: 5px;
+}
+#item-search {
+  display: flex;
+  flex-direction: row;
+}
+input.search-input {
+  height: 40px;
+  max-width: 100%;
   font-size: 20px;
   background-image: url(/img/search.png);
   background-repeat: no-repeat;
   background-position: left center;
   padding-left: 50px;
+  margin-left: 20px;
   background-size: 48px 48px;
   background-color: #fff;
   border: 1px solid #000;
   box-shadow: none;
   -webkit-appearance: none;
+}
+
+#sort-price,
+#sort-date,
+#sort-category {
+  font-size: 18px;
+  -webkit-appearance: menulist-button;
+  height: 38px;
+}
+#nav-search {
+  max-width: 80px;
+}
+
+.search-bar {
+  z-index: 10;
+  height: 20%;
+  background-color: $accent-color;
+  border: solid 3px $font-color;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: $font-color;
+}
+
+#new-listing-button {
+  user-select: none;
+}
+
+#new-listing-button:hover {
+  background-color: black;
+  color: white;
+}
+
+select {
+  height: 30px;
+}
+
+.fas {
+  font-size: 7vw;
+  margin-left: 45%;
+  margin-right: auto;
+}
+
+@media (max-width: 1000px) {
+  .nav-search-sort {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: $background-grey;
+    height: 140px;
+  }
+  .nav-item {
+    width: 100%;
+    margin: 4px;
+    text-align: center;
+  }
+
+  #item-search {
+    width: 100%;
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  input.search-input {
+    width: 300px;
+  }
+  #new-listing-button {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  #nav-search {
+    width: 100px;
+  }
+  #get-favss-button {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  #sort-price {
+    grid-row: 2;
+    grid-column: 2;
+  }
+  #sort-date {
+    grid-row: 3;
+    grid-column: 1;
+  }
+  #sort-category {
+    grid-row: 3;
+    grid-column: 2;
+  }
 }
