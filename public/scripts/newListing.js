@@ -37,7 +37,7 @@ const createNewListingForm = function (listing) {
 
     <input
       type="url"
-      name="picture-url"
+      name="picture_url"
       id="listing-picture-url"
       placeholder="Pic?"
       required
@@ -70,7 +70,7 @@ $(document).ready(() => {
     homePageLoad();
   });
 
-  $(".new-listing-click").submit((event) => {
+  $(".main-container").submit((event) => {
     event.preventDefault();
     const title = $("#listing-title").val();
     const price = $("#listing-number").val();
