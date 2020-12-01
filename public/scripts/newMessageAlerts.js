@@ -1,8 +1,10 @@
-const getMessageCount = () => {
-  $.get(`messages/count`, (count) => {
-    return count.rows[0];
-  });
-};
 $(document).ready(() => {
-  console.log(getMessageCount());
+  const getMessageCount = () => {
+    const getCount = $.get(`messages/count`, (count) => {
+      const newCount = count.rows[0];
+      console.log(newCount, "inside");
+      return newCount;
+    });
+    return getCount;
+  };
 });
