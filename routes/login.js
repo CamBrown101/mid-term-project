@@ -20,6 +20,7 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
+
   router.get("/", (req, res) => {
     const id = req.session.user_id;
     db.query(
