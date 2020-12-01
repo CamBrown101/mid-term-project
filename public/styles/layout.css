@@ -186,7 +186,7 @@ input.search-input {
   margin: 5%;
 }
 
-.main-container .listing-image::before {
+.main-container #listing-image::before {
   content: "fall back";
   content: url("/img/test.png");
 }

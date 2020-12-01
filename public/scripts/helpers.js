@@ -4,7 +4,7 @@ const createNewCard = function (listing) {
     <article class="card-container">
       <h5 class="card-title">${listing.title}</h5>
       <object class="listing-image" data="${listing.picture_url}" type="image/png">
-      <img class="listing-image" src="/img/test.png">
+      <img id="listing-image" src="/img/test.png">
       </object>
       <p class="card-description">${listing.description}</p>
       <a src="#" class="btn btn-primary small-listing-button">View Item</a>

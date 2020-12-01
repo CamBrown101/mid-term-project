@@ -40,7 +40,7 @@
     width: 80%;
     margin: 5%;
   }
-  .listing-image::before {
+  #listing-image::before {
     content: "fall back";
     content: url("/img/test.png");
   }

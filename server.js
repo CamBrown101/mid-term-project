@@ -73,6 +73,6 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-app.get("*", function (req, res) {
-  res.render("error");
-});
+// app.get("*", function (req, res) {
+//   res.render("error");
+// });
