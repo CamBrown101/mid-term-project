@@ -41,14 +41,16 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     const userID = req.session.user_id;
     db.query(
-      `SELECT listing_id, senders.id as senders_id, receivers.id as receiver_id, listings.title, senders.name AS sender, receivers.name AS receiver
-              FROM messages
-              JOIN users senders ON sender_id = senders.id
-              JOIN users receivers ON receiver_id = receivers.id
-              JOIN listings ON listing_id = listings.id
-              WHERE sender_id = $1
-              OR receiver_id = $1
-              GROUP BY listing_id, senders.id, receivers.id, listings.title, senders.name, receivers.name;`,
+      `SELECT listing_id, owners.id as owners_id, listings.title, owners.name AS owner, messages.sender_id, messages.receiver_id, senders.name AS sender, receivers.name AS receiver
+      FROM messages
+      JOIN listings ON listing_id = listings.id
+      JOIN users owners ON listings.user_id = owners.id
+      JOIN users senders ON senders.id = messages.sender_id
+      JOIN users receivers ON messages.receiver_id = receivers.id
+      WHERE sender_id = $1
+      OR receiver_id = $1
+      OR owners.id = $1
+      GROUP BY listing_id, owners.id, listings.title, messages.sender_id, messages.receiver_id, senders.name, receivers.name;`,
       [userID]
     )
       .then((data) => {
@@ -61,6 +63,7 @@ module.exports = (db) => {
         res.send(returnData);
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });
