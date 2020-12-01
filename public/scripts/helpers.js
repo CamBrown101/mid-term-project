@@ -85,36 +85,3 @@ const createCategoryRows = () => {
   <div id="listings-row-2" class="card-row"></div>
   `);
 };
-
-// Checks to see if there is a new message and renders it
-//needs refractor
-const checkNewMessage = (data) => {
-  let messagesLength = data.messages.length;
-
-  console.log("Fire");
-  $.get(`/messages/${listingId}`, (data) => {
-    if (messagesLength < data.messages.length) {
-      const messagesToRender = data.messages.length - messagesLength;
-      const messages = [];
-      for (
-        let i = data.messages.length - messagesToRender;
-        i < data.messages.length;
-        i++
-      ) {
-        messages.push(data.messages[i]);
-      }
-      messagesLength = data.messages.length;
-      const id = data.user_id;
-      messages.forEach((message) => {
-        if (id === message.sender_id) {
-          $(".messages").append(createSentMessage(message));
-        } else {
-          $(".messages").append(createRecievedMessage(message));
-        }
-      });
-    }
-  });
-  if ($(".messages").length === 0) {
-    clearTimeout(timeOut);
-  }
-};

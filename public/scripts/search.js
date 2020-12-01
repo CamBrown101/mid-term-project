@@ -15,6 +15,7 @@ $(document).ready(() => {
     listings.forEach((element) => {
       const $resultsContainer = $(".results-container");
       $resultsContainer.append(createNewCard(element));
+      $(".id").hide();
     });
   };
 
