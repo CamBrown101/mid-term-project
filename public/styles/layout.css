@@ -71,10 +71,6 @@ nav .username-logged-in:hover {
   cursor: pointer;
 }
 
-#error {
-  text-align: center;
-}
-
 #item-search {
   display: flex;
   flex-direction: column;

@@ -57,6 +57,7 @@ const createConversationContainer = () => {
 };
 
 const createConversations = (item) => {
+  console.log(item);
   const sentMessageTemplate = $(`
           <div class="conversation">
             <p class="conversation-title conversation-item">${item.title}</p>
@@ -64,6 +65,7 @@ const createConversations = (item) => {
             <p class="conversation-sender conversation-item">${item.sender}</p>
             <p class="conversation-messages conversation-item"><img class="conversation-message-icon" src="/img/message.png"></p>
             <div class="conversation-listing-id">${item.listing_id}</div>
+            <div id="sender-receiver-id">${item.senders_id}${item.receiver_id}</div>
           </div>
 `);
   return sentMessageTemplate;
@@ -146,22 +148,31 @@ $(document).ready(() => {
       for (const item of conversations) {
         $(".conversations").append(createConversations(item));
         $(".conversation-listing-id").hide();
+        $("#sender-receiver-id").hide();
       }
     });
   });
 
   $("main").on("click", ".conversation", (event) => {
-    listingId = $(event.currentTarget)
-      .children(".conversation-listing-id")
+    const senderReceiverId = $(event.currentTarget)
+      .children("#sender-receiver-id")
       .html();
-    $.get(`/messages/${listingId}`, (data) => {
+    const dataObject = {
+      sender_id: senderReceiverId[0],
+      receiver_id: senderReceiverId[1],
+    };
+    // listingId = $(event.currentTarget)
+    //   .children(".conversation-listing-id")
+    //   .html();
+    $.get(`/messages/${dataObject}`, (data) => {
       if (data.messages[0] !== undefined) buyerId = data.messages[0].sender_id;
       messageRender(data);
 
       // Checks to see if there is a new message and renders it
       //needs refractor
-      let messagesLength = data.messages.length;
       const checkNewMessage = () => {
+        let messagesLength = data.messages.length;
+
         console.log("Fire");
         $.get(`/messages/${listingId}`, (data) => {
           if (messagesLength < data.messages.length) {
@@ -189,7 +200,8 @@ $(document).ready(() => {
           clearTimeout(timeOut);
         }
       };
-      const timeOut = setInterval(checkNewMessage, 3000);
+
+      const timeOut = setInterval(checkNewMessage(), 3000);
     });
   });
 });
