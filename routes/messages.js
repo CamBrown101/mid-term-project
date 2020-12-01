@@ -62,7 +62,7 @@ module.exports = (db) => {
     const receiver = req.body.receiver;
     db.query(
       `INSERT INTO messages (listing_id, receiver_id, sender_id, message, time)
-              VALUES ($1, $2, $3, $4, now());`,
+              VALUES ($1, $2, $3, $4, clock_timestamp());`,
       [listingId, receiver, userId, message]
     )
       .then((data) => {
