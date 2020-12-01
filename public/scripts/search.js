@@ -1,23 +1,20 @@
 $(document).ready(() => {
   //jQuery variables
-  const resultsContainerHtml = $(`<div class="results-container"></div>`);
-  const $mainContainer = $(".main-container");
   const $searchBar = $(".search-bar");
   //Show button on click
   $(".hamburger").click(() => {
     $searchBar.fadeToggle("slow");
   });
 
-  //Loops through results and adds new cards
   const renderListing = (listings) => {
-    $mainContainer.empty();
-    $mainContainer.append(resultsContainerHtml);
+    $(".main-container").empty();
+    $(".main-container").append(`<div class="results-container"></div>`);
     listings.forEach((element) => {
-      const $resultsContainer = $(".results-container");
-      $resultsContainer.append(createNewCard(element));
+      $(".results-container").append(createNewCard(element));
       $(".id").hide();
     });
   };
+  //Loops through results and adds new cards
 
   //Takes search input and sends to server to query results from database
   $("#item-search").submit((event) => {
