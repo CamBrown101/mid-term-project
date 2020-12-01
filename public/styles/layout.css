@@ -10,7 +10,7 @@ header {
 }
 
 nav {
-  height: 150px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -71,8 +71,31 @@ nav .username-logged-in:hover {
   cursor: pointer;
 }
 
+.nav-search-sort {
+  position: fixed;
+  width: 100vw;
+  margin-top: 30px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  background-color: grey;
+}
+
+.nav-item {
+  flex: 1 1 auto;
+  text-align: center;
+  margin: 5px;
+}
+
+#item-search {
+  display: flex;
+  flex-direction: row;
+}
+
 input.search-input {
   height: 50px;
+  max-width: 140px;
   font-size: 20px;
   background-image: url(/img/search.png);
   background-repeat: no-repeat;
@@ -85,27 +108,11 @@ input.search-input {
   -webkit-appearance: none;
 }
 
-#item-search {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-}
-
-.menu-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2%;
-  width: 90%;
-  margin: auto;
+#nav-search {
+  max-width: 80px;
 }
 
 .search-bar {
-  display: none;
-  margin-top: 150px;
-  position: fixed;
-  left: 0;
-  top: 0;
   z-index: 10;
   height: 20%;
   background-color: #CBB9A8;
@@ -116,16 +123,20 @@ input.search-input {
 }
 
 #new-listing-button {
-  margin: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #DCC7BE;
   user-select: none;
 }
 
 #new-listing-button:hover {
   background-color: black;
   color: white;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  padding: 2%;
+  width: 90%;
+  margin: auto;
 }
 
 .results-container {
@@ -142,7 +153,7 @@ input.search-input {
 }
 
 .main-container {
-  margin: 180px 7% 7% 100px;
+  margin: 60px 7% 7% 100px;
   padding-bottom: 5%;
 }
 

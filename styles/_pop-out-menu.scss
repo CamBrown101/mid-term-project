@@ -1,42 +1,9 @@
-#item-search {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-}
 .menu-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 2%;
   width: 90%;
   margin: auto;
-}
-.search-bar {
-  display: none;
-  margin-top: 150px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  height: 20%;
-  background-color: $accent-color;
-  border: solid 3px $font-color;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  color: $font-color;
-}
-
-#new-listing-button {
-  margin: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: $light-cream;
-  user-select: none;
-}
-
-#new-listing-button:hover {
-  background-color: black;
-  color: white;
 }
 
 .results-container {
