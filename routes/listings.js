@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-
   //Sends the user id of the owner of the listing
   router.get("/owner/:id", (req, res) => {
     const userID = req.session.user_id;
@@ -64,7 +63,7 @@ module.exports = (db) => {
         queryText += `
         AND category = '${req.query.category}' LIMIT 4`;
       }
-    };
+    }
 
     queryText += `;`;
     db.query(queryText, queryParams)
@@ -78,32 +77,33 @@ module.exports = (db) => {
       });
   });
 
-//create a listing
-router.post("/", (req, res) => {
-  const listing = req.body;
-  const queryParams = [
-    listing.user_id,
-    listing.title,
-    listing.price,
-    listing.description,
-    listing.picture_url,
-    listing.category,
-  ];
-  db.query(
-    `INSERT INTO listings (user_id, title, price, description, picture_url, category, posted_date)
+  //create a listing
+  router.post("/", (req, res) => {
+    const listing = req.body;
+    console.log(req.body);
+    const queryParams = [
+      listing.user_id,
+      listing.title,
+      listing.price,
+      listing.description,
+      listing.picture_url,
+      listing.category,
+    ];
+    db.query(
+      `INSERT INTO listings (user_id, title, price, description, picture_url, category, posted_date)
             VALUES ($1, $2, $3, $4, $5, $6, CLOCK_TIMESTAMP())
             RETURNING *;`,
-    queryParams
-  )
-    .then((data) => {
-      const listing = data.rows[0];
-      res.send(listing);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ error: err.message });
-    });
-});
+      queryParams
+    )
+      .then((data) => {
+        const listing = data.rows[0];
+        res.send(listing);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({ error: err.message });
+      });
+  });
 
   //individual listing
   router.get("/:id", (req, res) => {

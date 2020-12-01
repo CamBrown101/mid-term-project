@@ -16,25 +16,33 @@ const createNewListingForm = function (listing) {
       name="title"
       id="listing-title"
       placeholder="What are you selling?"
+      required
     />
+
     <input
       type="number"
       name="price"
       id="listing-number"
       placeholder="How much is it?"
+      required
     />
+
     <input
       type="text"
       name="description"
       id="listing-description"
       placeholder="What are you selling?"
+      required
     />
+
     <input
-      type="text"
+      type="url"
       name="picture-url"
       id="listing-picture-url"
       placeholder="Pic?"
+      required
     />
+
     <select id="listing-category" name="category">
       <option value="bikes">Bikes</option>
       <option value="computers">Computers</option>
