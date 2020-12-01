@@ -65,7 +65,7 @@ const createConversations = (item) => {
             <p class="conversation-sender conversation-item">${item.sender}</p>
             <p class="conversation-messages conversation-item"><img class="conversation-message-icon" src="/img/message.png"></p>
             <div class="conversation-listing-id">${item.listing_id}</div>
-            <div class="sender-id">${item.senders_id}${item.receiver_id}</div>
+            <div class="sender-id">${item.senders_id}</div>
             <div class="receiver-id">${item.receiver_id}</div>
             </div>
 `);
@@ -156,8 +156,8 @@ $(document).ready(() => {
   });
 
   $("main").on("click", ".conversation", (event) => {
-    const senderId = $(event.currentTarget).children("#sender-id").html();
-    const receiverId = $(event.currentTarget).children("#receiver-id").html();
+    const senderId = $(event.currentTarget).children(".sender-id").html();
+    const receiverId = $(event.currentTarget).children(".receiver-id").html();
     console.log(senderId, receiverId);
     const dataObject = {
       sender_id: senderId,
