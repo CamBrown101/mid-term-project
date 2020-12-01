@@ -2,6 +2,22 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
+  router.get("/count", (req, res) => {
+    const userId = req.session.user_id;
+    const queryParams = [userId];
+    const queryString = `
+    SELECT COUNT(*) FROM messages
+    WHERE receiver_id = $1;
+    `;
+    db.query(queryString, queryParams)
+      .then((count) => {
+        res.send(count);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
   //Get all messages for a given listing
   router.get("/:id", (req, res) => {
     const userID = req.session.user_id;
