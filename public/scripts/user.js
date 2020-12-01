@@ -67,6 +67,33 @@ const renderUserUpdateForm = (user) => {
   return userPageTemplate;
 };
 
+const newUserListing = (listing) => {
+  const newListing = $(`
+    <article class="user-listing-parent users-main">
+      <div class="user-listing-container-one">
+        <object class="user-listing-image" data="${listing.picture_url}" type="image/png">
+        <img class="user-listing-image" src="/img/test.png">
+        </object>
+      </div>
+      <div class="user-listing-container-two">
+        <h5 class="user-listing-title"><h4 class="user-h4">Listing: </h4>${listing.title}</h5>
+        <p class="user-listing-description"><h4 class="user-h4">Description: </h4>\n${listing.description}</p>
+        <div class="id">${listing.id}</div>
+        <div class="user-listing-price"><h4 class="user-h4">Price: </h4>$${listing.price}</div>
+        <a src="#" class="btn btn-primary small-listing-button">View Item</a>
+      </div>
+     </article>
+    `);
+  return newListing;
+};
+
+const renderUserListings = (listings) => {
+  for (const item of listings) {
+    $(`.main-container`).append(newUserListing(item));
+    $(".id").hide();
+  }
+};
+
 $(document).ready(() => {
   $(".username-logged-in").click((event) => {
     event.preventDefault();
@@ -74,6 +101,10 @@ $(document).ready(() => {
       $(".main-container").empty();
       $(".main-container").append(renderUserPage(data));
       $(".main-container").append(renderUserUpdateForm(data));
+      $.get("/users/listings/", (data) => {
+        console.log(data);
+        renderUserListings(data);
+      });
     });
   });
 

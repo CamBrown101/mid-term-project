@@ -3,6 +3,24 @@ const router = express.Router();
 
 //Get a single user
 module.exports = (db) => {
+  // Sends the listings of current logged in user
+  router.get("/listings", (req, res) => {
+    const id = req.session.user_id;
+    console.log(id);
+    db.query(
+      `SELECT * FROM listings
+        WHERE user_id = $1;`,
+      [id]
+    )
+      .then((data) => {
+        res.send(data.rows);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json({ error: err.message });
+      });
+  });
+
   router.get("/current", (req, res) => {
     const user = req.session.user_id;
     db.query(

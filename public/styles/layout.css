@@ -523,3 +523,19 @@ label {
 .update-user-content {
   display: grid;
 }
+
+.user-listing-parent {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.user-listing-container-one {
+  display: block;
+  width: 100%;
+}
+
+.user-listing-container-two {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -6,7 +6,7 @@ module.exports = (db) => {
   //Maybe could add in more options
   router.get("/", (req, res) => {
     let queryText = `SELECT * FROM listings
-                    WHERE is_sold = FALSE
+                    WHERE 1 = 1
     `;
     const queryParams = [];
     if (req.query.text) {
@@ -42,7 +42,7 @@ module.exports = (db) => {
     db.query(
       `
               SELECT * FROM listings
-              JOIN favorite_items ON item_id = listings.id
+              JOIN favorite_items ON listings.id = item_id
               WHERE favorite_items.user_id = $1;`,
       [userID]
     )
@@ -79,12 +79,11 @@ module.exports = (db) => {
   router.post("/favourites/:id/delete", (req, res) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
-    console.log("Delete fave", userID, listingID);
     db.query(
       `DELETE FROM favorite_items
               WHERE user_id = $1
               AND item_id = $2;`,
-      [userID, listingID]
+      [userID, req.body.listing]
     )
       .then((data) => {
         res.send(data);
@@ -97,7 +96,6 @@ module.exports = (db) => {
   //Post new favourite for user
   router.post("/favourites", (req, res) => {
     const userID = req.session.user_id;
-    console.log(req.body.listing);
     db.query(
       `
               INSERT INTO favorite_items (user_id, item_id)
@@ -115,10 +113,8 @@ module.exports = (db) => {
   //individual listing
   router.get("/:id", (req, res) => {
     db.query(
-      `SELECT listings.id, listings.user_id, listings.title, listings.price, listings.description, listings.picture_url, listings.category, listings.posted_date, users.name
-              FROM listings
-              JOIN users ON user_id = users.id
-              WHERE listings.id = $1;`,
+      `SELECT * FROM listings
+              WHERE id = $1;`,
       [req.params.id]
     )
       .then((data) => {
@@ -129,7 +125,6 @@ module.exports = (db) => {
         res.send(returnData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });
@@ -194,29 +189,6 @@ module.exports = (db) => {
     db.query(queryString, queryParams)
       .then(() => {
         res.send("Deleted");
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
-  });
-
-  //Mark a listing as sold
-  router.post("/sold", (req, res) => {
-    const listingId = req.body.listingid;
-    const loggedInId = req.session.user_id;
-    const queryParams = [listingId, loggedInId];
-
-    const queryString = `
-    UPDATE listings
-    SET is_sold = true,
-    sold_date = clock_timestamp()
-    WHERE listings.id = $1
-    AND listings.user_id = $2
-    RETURNING *;
-`;
-    db.query(queryString, queryParams)
-      .then((data) => {
-        res.send(data);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

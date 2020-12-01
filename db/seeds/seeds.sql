@@ -1,7 +1,8 @@
-INSERT INTO users (name, email, password, user_image, user_bio)
-VALUES ('Marcel Mueller', 'mail.marcelm@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'I love coding and selling things'),
-('Cameron Brown', 'example@example.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'My name is Cam and I love perfect CSS alignment'),
-('Micheal Krishna', 'test@test.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'My name is Michael and I am the route master');
+INSERT INTO users (name, email, password, user_image, user_bio, is_admin)
+VALUES ('Marcel Mueller', 'mail.marcelm@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'I love coding and selling things', FALSE),
+('Cameron Brown', 'example@example.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'My name is Cam and I love perfect CSS alignment', FALSE),
+('Micheal Krishna', 'test@test.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'My name is Michael and I am the route master', FALSE),
+('Admin USer', 'admin@admin.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'My name is Michael and I am the route master', TRUE);
 
 INSERT INTO listings(user_id, title, price, description, picture_url, category, posted_date)
 VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-27 17:35:23 +0000'),
@@ -38,6 +39,5 @@ VALUES (1, 2),
 (3, 5),
 (3, 2),
 (3, 1);
-
 
 

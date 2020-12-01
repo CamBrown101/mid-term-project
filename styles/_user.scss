@@ -43,3 +43,33 @@ label {
 .update-user-content {
   display: grid;
 }
+
+.user-listing-parent {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.user-listing-container-one {
+  display: block;
+  width: 100%;
+}
+
+.user-listing-container-two {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+// <article class="user-listing-container users-main">
+// <div class="user-listing-container-one">
+//   <object class="user-listing-image" data="${listing.picture_url}" type="image/png">
+//   <img class="user-listing-image" src="/img/test.png">
+//   </object>
+// </div>
+// <div class="user-listing-container-two">
+//   <h5 class="user-listing-title">${listing.title}</h5>
+//   <p class="user-listing-description">${listing.description}</p>
+//   <a src="#" class="btn btn-primary user-listing-button">View Item</a>
+//   <div class="user-listing-price">${listing.price}</div>
+// </div>
+// </article>
