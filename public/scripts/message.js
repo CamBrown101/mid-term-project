@@ -30,11 +30,13 @@ const createSentMessage = (message) => {
 };
 
 const createRecievedMessage = (message) => {
+  const local = moment(message.time).local().format("YYYY-MM-DD HH:mm:ss");
+  const time = moment(local).fromNow();
   const recievedMessageTemplate = $(`
   <div class="message recieved">
     <p class="username">${message.sender}</p>
     <p class="message-content">${message.message}</p>
-    <p class="timestamp">${message.timestamp}</p>
+    <p class="timestamp">${time}</p>
   </div>
 `);
   return recievedMessageTemplate;
@@ -65,7 +67,7 @@ const createConversations = (item) => {
             <p class="conversation-sender conversation-item">${item.sender}</p>
             <p class="conversation-messages conversation-item"><img class="conversation-message-icon" src="/img/message.png"></p>
             <div class="conversation-listing-id">${item.listing_id}</div>
-            <div class="sender-id">${item.senders_id}</div>
+            <div class="sender-id">${item.sender_id}</div>
             <div class="receiver-id">${item.receiver_id}</div>
             </div>
 `);
@@ -78,10 +80,9 @@ $(document).ready(() => {
   $("main").on("click", "#message-seller-btn", (event) => {
     event.preventDefault();
     listingId = $("#message-seller-btn").siblings(".big-id").text();
-    const reciever_id = $(".seller-id").text();
-    console.log(reciever_id, "reciever_id");
+    const receiver_id = $(".seller-id").text();
     const reqData = {
-      reciever_id,
+      receiver_id,
     };
     console.log(reqData);
     $.get(`/messages/${listingId}`, reqData, (data) => {
@@ -90,7 +91,7 @@ $(document).ready(() => {
       let messagesLength = data.messages.length;
       const checkNewMessage = () => {
         console.log("Fire");
-        $.get(`/messages/${listingId}`, (data) => {
+        $.get(`/messages/${listingId}`, reqData, (data) => {
           if (messagesLength < data.messages.length) {
             const messagesToRender = data.messages.length - messagesLength;
             const messages = [];
@@ -158,7 +159,6 @@ $(document).ready(() => {
   $("main").on("click", ".conversation", (event) => {
     const senderId = $(event.currentTarget).children(".sender-id").html();
     const receiverId = $(event.currentTarget).children(".receiver-id").html();
-    console.log(senderId, receiverId);
     const dataObject = {
       sender_id: senderId,
       receiver_id: receiverId,
@@ -173,11 +173,10 @@ $(document).ready(() => {
 
       // Checks to see if there is a new message and renders it
       //needs refractor
+      let messagesLength = data.messages.length;
       const checkNewMessage = () => {
-        let messagesLength = data.messages.length;
-
         console.log("Fire");
-        $.get(`/messages/${listingId}`, (data) => {
+        $.get(`/messages/${listingId}`, dataObject, (data) => {
           if (messagesLength < data.messages.length) {
             const messagesToRender = data.messages.length - messagesLength;
             const messages = [];
@@ -204,7 +203,7 @@ $(document).ready(() => {
         }
       };
 
-      const timeOut = setInterval(checkNewMessage(), 3000);
+      const timeOut = setInterval(checkNewMessage, 3000);
     });
   });
 });

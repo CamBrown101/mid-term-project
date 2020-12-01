@@ -6,12 +6,12 @@ module.exports = (db) => {
   router.get("/:id", (req, res) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
-    let recieverID = req.query.receiver_id;
+    let receiverID = req.query.receiver_id;
     console.log(req.query);
-    if (userID == recieverID) {
-      recieverID = req.query.sender_id;
+    if (userID == receiverID) {
+      receiverID = req.query.sender_id;
     }
-    console.log( listingID, userID, recieverID,"help");
+    console.log( listingID, userID, receiverID,"help");
     db.query(
       `SELECT messages.id, messages.time, listing_id, sender_id, receiver_id, listings.user_id AS owner_id, listings.title, messages.message, senders.name AS sender, receivers.name AS receiver
               FROM messages
@@ -23,7 +23,7 @@ module.exports = (db) => {
               OR (sender_id = $3
               AND receiver_id = $1))
               AND listing_id = $2;`,
-      [userID, listingID, recieverID]
+      [userID, listingID, receiverID]
     )
       .then((data) => {
         const returnData = {
@@ -41,7 +41,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     const userID = req.session.user_id;
     db.query(
-      `SELECT listing_id, owners.id as owners_id, listings.title, owners.name AS owner, messages.sender_id, messages.receiver_id, senders.name AS sender, receivers.name AS receiver
+      `SELECT DISTINCT ON((listing_id, LEAST(messages.sender_id, messages.receiver_id), GREATEST(messages.sender_id, messages.receiver_id))) listing_id, owners.id as owners_id, listings.title, owners.name AS owner, messages.sender_id, messages.receiver_id, senders.name AS sender, receivers.name AS receiver
       FROM messages
       JOIN listings ON listing_id = listings.id
       JOIN users owners ON listings.user_id = owners.id
@@ -49,8 +49,7 @@ module.exports = (db) => {
       JOIN users receivers ON messages.receiver_id = receivers.id
       WHERE sender_id = $1
       OR receiver_id = $1
-      OR owners.id = $1
-      GROUP BY listing_id, owners.id, listings.title, messages.sender_id, messages.receiver_id, senders.name, receivers.name;`,
+      OR owners.id = $1;`,
       [userID]
     )
       .then((data) => {
