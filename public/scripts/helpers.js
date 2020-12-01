@@ -33,9 +33,12 @@ const homePageLoad = () => {
 
   $.get("/listings/favourites", (res) => {
     if (res.length >= 3) {
+      if (res.length > 4) {
+        res = res.slice(res.length - 4, res.length);
+      }
       $(".main-container").prepend(`<h3 class="category-heading">Favourites</h3>
     <div id="listings-row-favourites" class="card-row"></div>`);
-      renderListings(res, "favourites");
+      renderListings(res.reverse(), "favourites");
     }
   });
 
