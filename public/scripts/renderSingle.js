@@ -7,6 +7,12 @@ $(document).ready(() => {
       $(".main-container").append(createListingBig(data.listing));
       $(".big-user-id").hide();
       $(".big-id").hide();
+      $.get(`/users/current`, (user) => {
+        if (user.is_admin) {
+          $("#delete-button").show();
+          $("#sold-button").show();
+        }
+      })
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
         $("#delete-button").show();
@@ -43,7 +49,7 @@ $(document).ready(() => {
     });
   });
   $("main").on("click", "#fave-delete-button", (event) => {
-    const listing = $(event.target).siblings(".big-id").html();
+    const listing =  $(".big-id").text();
     $.post(
       `/listings/favourites/${listing}/delete`,
       { listing: listing },
