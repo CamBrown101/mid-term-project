@@ -1,13 +1,7 @@
 #new-listing {
-  width: 30vw;
-  height: 20vw;
-  min-width: 400px;
-  min-height: 300px;
+  width: 100%;
   background-color: $background-grey;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  border-color: black;
+  border-color: $font-color;
 }
 .new-listing-content {
   display: grid;
@@ -57,4 +51,7 @@
   margin-top: 0.5em;
   margin-left: auto;
   margin-right: auto;
+}
+#hide-new-listing {
+  width: 100%;
 }

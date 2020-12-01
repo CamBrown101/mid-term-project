@@ -7,8 +7,62 @@ const clearForm = () => {
   $("#new-listing").fadeOut();
 };
 
+const createNewListingForm = function (listing) {
+  const newListingForm = $(`
+<section id="new-listing">
+  <form class="new-listing-content" method="POST" action="/listings">
+    <input
+      type="text"
+      name="title"
+      id="listing-title"
+      placeholder="What are you selling?"
+    />
+    <input
+      type="number"
+      name="price"
+      id="listing-number"
+      placeholder="How much is it?"
+    />
+    <input
+      type="text"
+      name="description"
+      id="listing-description"
+      placeholder="What are you selling?"
+    />
+    <input
+      type="text"
+      name="picture-url"
+      id="listing-picture-url"
+      placeholder="Pic?"
+    />
+    <select id="listing-category" name="category">
+      <option value="bikes">Bikes</option>
+      <option value="computers">Computers</option>
+      <option value="games">Games</option>
+    </select>
+    <button id="new-listing-click" class="btn btn-primary" type="submit">
+      Submit
+    </button>
+    </form>
+    <div id="hide-new-listing" class="btn btn-danger">Cancel</div>
+</section>
+    `);
+  return newListingForm;
+};
+
 $(document).ready(() => {
-  $(".new-listing-content").submit((event) => {
+  $("#new-listing-button").click(() => {
+    $(".search-bar").fadeOut();
+    $(".main-container").empty();
+    $(".main-container").append(createNewListingForm());
+  });
+  $(document).on("click", "#hide-new-listing", () => {
+    $(".main-container").empty();
+    createCategoryRows();
+    homePageLoad();
+  });
+
+  $(".new-listing-click").submit((event) => {
     event.preventDefault();
     const title = $("#listing-title").val();
     const price = $("#listing-number").val();
