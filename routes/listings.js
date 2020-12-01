@@ -22,32 +22,7 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
-  //create a listing
-  router.post("/", (req, res) => {
-    const listing = req.body;
-    const queryParams = [
-      listing.user_id,
-      listing.title,
-      listing.price,
-      listing.description,
-      listing.picture_url,
-      listing.category,
-    ];
-    db.query(
-      `INSERT INTO listings (user_id, title, price, description, picture_url, category, posted_date)
-              VALUES ($1, $2, $3, $4, $5, $6, CLOCK_TIMESTAMP())
-              RETURNING *;`,
-      queryParams
-    )
-      .then((data) => {
-        const listing = data.rows[0];
-        res.send(listing);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json({ error: err.message });
-      });
-  });
+
   //Delete a listing
   router.post("/delete", (req, res) => {
     const listingId = req.body.listingid;
@@ -67,9 +42,6 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
-
-
-
 
   //Return all listings for a given query
   //Maybe could add in more options
@@ -104,6 +76,33 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
+
+//create a listing
+router.post("/", (req, res) => {
+  const listing = req.body;
+  const queryParams = [
+    listing.user_id,
+    listing.title,
+    listing.price,
+    listing.description,
+    listing.picture_url,
+    listing.category,
+  ];
+  db.query(
+    `INSERT INTO listings (user_id, title, price, description, picture_url, category, posted_date)
+            VALUES ($1, $2, $3, $4, $5, $6, CLOCK_TIMESTAMP())
+            RETURNING *;`,
+    queryParams
+  )
+    .then((data) => {
+      const listing = data.rows[0];
+      res.send(listing);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    });
+});
 
   //individual listing
   router.get("/:id", (req, res) => {

@@ -43,6 +43,22 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/:id/delete", (req, res) => {
+    const userID = req.session.user_id;
+    const listingID = req.params.id;
+    db.query(
+      `DELETE FROM favorite_items
+              WHERE user_id = $1
+              AND item_id = $2;`,
+      [userID, req.body.listing]
+    )
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
 
   //Sends single favourite for logged in user
   router.get("/:id", (req, res) => {
@@ -64,22 +80,7 @@ module.exports = (db) => {
       });
   });
 
-  router.post("/:id/delete", (req, res) => {
-    const userID = req.session.user_id;
-    const listingID = req.params.id;
-    db.query(
-      `DELETE FROM favorite_items
-              WHERE user_id = $1
-              AND item_id = $2;`,
-      [userID, req.body.listing]
-    )
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
-  });
+
 
   return router;
 };
