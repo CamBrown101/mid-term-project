@@ -7,7 +7,7 @@ module.exports = (db) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
     db.query(
-      `SELECT messages.id, listing_id, sender_id, receiver_id, listings.user_id AS owner_id, listings.title, messages.message, senders.name AS sender, receivers.name AS receiver
+      `SELECT messages.id, messages.time, listing_id, sender_id, receiver_id, listings.user_id AS owner_id, listings.title, messages.message, senders.name AS sender, receivers.name AS receiver
               FROM messages
               JOIN users senders ON sender_id = senders.id
               JOIN users receivers ON receiver_id = receivers.id
@@ -63,8 +63,8 @@ module.exports = (db) => {
     const receiver = req.body.receiver;
     console.log(userId, listingId, message, receiver);
     db.query(
-      `INSERT INTO messages (listing_id, receiver_id, sender_id, message)
-              VALUES ($1, $2, $3, $4);`,
+      `INSERT INTO messages (listing_id, receiver_id, sender_id, message, time)
+              VALUES ($1, $2, $3, $4, now());`,
       [listingId, receiver, userId, message]
     )
       .then((data) => {
