@@ -50,7 +50,7 @@ module.exports = (db) => {
       `DELETE FROM favorite_items
               WHERE user_id = $1
               AND item_id = $2;`,
-      [userID, req.body.listing]
+      [userID, listingID]
     )
       .then((data) => {
         res.send(data);
