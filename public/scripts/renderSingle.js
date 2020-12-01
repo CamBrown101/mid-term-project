@@ -75,13 +75,15 @@ $(document).ready(() => {
   });
 
   $("main").on("click", "#fave-button", (event) => {
-    const listing = $(event.target).siblings(".big-id").html();
+    const listing = $(".big-id").text();
+    console.log(listing)
     $.post("/listings/favourites", { listing: listing }, () => {
       $(event.target).replaceWith(
         `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
       );
     });
   });
+
   $("main").on("click", "#fave-delete-button", (event) => {
     const listing = $(".big-id").text();
     $.post(
