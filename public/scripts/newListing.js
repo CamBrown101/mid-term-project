@@ -64,7 +64,7 @@ $(document).ready(() => {
     $(".main-container").empty();
     $(".main-container").append(createNewListingForm());
   });
-  $(document).on("click", "#hide-new-listing", () => {
+  $("#new-listing").on("click", "#hide-new-listing", () => {
     $(".main-container").empty();
     createCategoryRows();
     homePageLoad();

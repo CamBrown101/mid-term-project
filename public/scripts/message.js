@@ -163,9 +163,9 @@ $(document).ready(() => {
       sender_id: senderId,
       receiver_id: receiverId,
     };
-    // listingId = $(event.currentTarget)
-    //   .children(".conversation-listing-id")
-    //   .html();
+    listingId = $(event.currentTarget)
+      .children(".conversation-listing-id")
+      .html();
     $.get(`/messages/`, dataObject, (data) => {
       if (data.messages[0] !== undefined) buyerId = data.messages[0].sender_id;
       messageRender(data);
