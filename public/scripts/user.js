@@ -79,9 +79,11 @@ const newUserListing = (listing) => {
         <h5 class="user-listing-title"><h4 class="user-h4">Listing: </h4>${listing.title}</h5>
         <p class="user-listing-description"><h4 class="user-h4">Description: </h4>\n${listing.description}</p>
         <div class="id">${listing.id}</div>
+        <div class="price-btn-parent">
         <div class="user-listing-price"><h4 class="user-h4">Price: </h4>$${listing.price}</div>
-        <a src="#" class="btn btn-primary small-listing-button">View Item</a>
-      </div>
+        <button class="user-listing-button btn btn-primary small-listing-button">View Item</button>
+         </div>
+        </div>
      </article>
     `);
   return newListing;
