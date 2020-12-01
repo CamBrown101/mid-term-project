@@ -36,14 +36,16 @@ $(document).ready(() => {
       });
     }
   });
+
   $("#get-faves-button").click((event) => {
     event.preventDefault();
     clearResultsContainer();
     $.get("/listings/favourites", (listing) => {
+      $(".results-container").remove()
       renderListing(listing);
-      $searchBar.fadeToggle("slow", () => {
-        $searchBar.hide();
-      });
+      // $searchBar.fadeToggle("slow", () => {
+      //   $searchBar.hide();
+      // });
     });
   });
 });

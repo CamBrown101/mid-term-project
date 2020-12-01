@@ -6,6 +6,7 @@ module.exports = (db) => {
   //Post new favourite for user
   router.post("/", (req, res) => {
     const userID = req.session.user_id;
+    console.log(req.body.listing);
     db.query(
       `
               INSERT INTO favorite_items (user_id, item_id)
@@ -50,7 +51,7 @@ module.exports = (db) => {
       `DELETE FROM favorite_items
               WHERE user_id = $1
               AND item_id = $2;`,
-      [userID, req.body.listing]
+      [userID, listingID]
     )
       .then((data) => {
         res.send(data);
