@@ -14,6 +14,12 @@ const createNewCard = function (listing) {
   return articleContainer;
 };
 
+//reset select menus
+const selectReset = () => {
+  $("#sort-date").prop("selectedIndex", 0);
+  $("#sort-category").prop("selectedIndex", 0);
+  $("#sort-price").prop("selectedIndex", 0);
+};
 //Clears results container
 const clearResultsContainer = () => {
   $(".results-container").empty();

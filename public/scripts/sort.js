@@ -18,6 +18,9 @@ $(document).ready(() => {
       $.get(`/sort/price`, optionsObj, (data) => {
         console.log(data);
         $(".main-container").empty();
+        //reset other drop down select menus
+        $("#sort-date").prop("selectedIndex", 0);
+        $("#sort-category").prop("selectedIndex", 0);
         renderSort(data);
       });
     }
@@ -29,8 +32,27 @@ $(document).ready(() => {
       const optionsObj = {
         options: options,
       };
-      $.get(`/sort/price`, optionsObj, (data) => {
+      $.get(`/sort/date`, optionsObj, (data) => {
         $(".main-container").empty();
+        //reset other drop down select menus
+        $("#sort-price").prop("selectedIndex", 0);
+        $("#sort-category").prop("selectedIndex", 0);
+        renderSort(data);
+      });
+    }
+  });
+
+  $("#sort-category").change(function () {
+    const options = $("#sort-category").val();
+    if (options !== "category") {
+      const optionsObj = {
+        options: options,
+      };
+      $.get(`/sort/category`, optionsObj, (data) => {
+        $(".main-container").empty();
+        //reset other drop down select menus
+        $("#sort-price").prop("selectedIndex", 0);
+        $("#sort-category").prop("selectedIndex", 0);
         renderSort(data);
       });
     }
