@@ -8,7 +8,7 @@ VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/tes
  (3, 'Comfy Couch', 450, 'You will not regret sitting on this couch', './img/test.png', 'furniture', '2020-11-26 17:35:23 +0000'),
  (2, 'Macbook Pro', 700, 'Macbook Pro 2015, Core i5/16gb ram', './img/test.png', 'computers', '2020-11-25 17:35:23 +0000'),
  (1, 'Playstation 5 console', 1500, 'High price due to being a dirty scalper', './img/test.png', 'games', '2020-11-24 17:35:23 +0000'),
- (2, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-23 17:35:23 +0000'),
+ (2, 'Crappy Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-23 17:35:23 +0000'),
 (2, 'BMX Bike', 400, 'Awesome for tricks', './img/test.png', 'bikes', '2020-11-22 17:35:23 +0000'),
  (2, 'Downhill Bike', 4000, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-21 17:35:23 +0000'),
  (2, 'Road Bike', 1500, 'Amazing road bike', 'img/test.png', 'bikes', '2020-11-20 17:35:23 +0000'),

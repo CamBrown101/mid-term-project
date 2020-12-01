@@ -79,7 +79,7 @@ module.exports = (db) => {
   router.post("/favourites/:id/delete", (req, res) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
-    console.log("Delete fave", userID, listingID)
+    console.log("Delete fave", userID, listingID);
     db.query(
       `DELETE FROM favorite_items
               WHERE user_id = $1
@@ -97,6 +97,7 @@ module.exports = (db) => {
   //Post new favourite for user
   router.post("/favourites", (req, res) => {
     const userID = req.session.user_id;
+    console.log(req.body.listing);
     db.query(
       `
               INSERT INTO favorite_items (user_id, item_id)
@@ -113,7 +114,8 @@ module.exports = (db) => {
 
   //individual listing
   router.get("/:id", (req, res) => {
-    db.query(`SELECT listings.id, listings.user_id, listings.title, listings.price, listings.description, listings.picture_url, listings.category, listings.posted_date, users.name
+    db.query(
+      `SELECT listings.id, listings.user_id, listings.title, listings.price, listings.description, listings.picture_url, listings.category, listings.posted_date, users.name
               FROM listings
               JOIN users ON user_id = users.id
               WHERE listings.id = $1;`,
