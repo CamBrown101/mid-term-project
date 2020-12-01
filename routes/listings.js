@@ -82,7 +82,7 @@ module.exports = (db) => {
     const listing = req.body;
     console.log(req.body);
     const queryParams = [
-      listing.user_id,
+      req.session.user_id,
       listing.title,
       listing.price,
       listing.description,
