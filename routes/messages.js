@@ -7,6 +7,9 @@ module.exports = (db) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
     const recieverID = req.query.receiver_id;
+    if (userID === recieverID) {
+      recieverID = req.query.sender_id;
+    }
     console.log(req.query.reciever_id);
     db.query(
       `SELECT messages.id, messages.time, listing_id, sender_id, receiver_id, listings.user_id AS owner_id, listings.title, messages.message, senders.name AS sender, receivers.name AS receiver

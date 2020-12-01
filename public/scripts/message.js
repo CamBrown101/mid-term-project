@@ -166,7 +166,8 @@ $(document).ready(() => {
     listingId = $(event.currentTarget)
       .children(".conversation-listing-id")
       .html();
-    $.get(`/messages/`, dataObject, (data) => {
+
+    $.get(`/messages/${listingId}`, dataObject, (data) => {
       if (data.messages[0] !== undefined) buyerId = data.messages[0].sender_id;
       messageRender(data);
 
