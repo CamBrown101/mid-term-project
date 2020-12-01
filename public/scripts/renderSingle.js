@@ -16,7 +16,7 @@ $(document).ready(() => {
           $("#message-seller-btn").hide();
           $("#fave-button").hide();
         }
-      })
+      });
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
         $("#delete-button").show();
@@ -30,14 +30,15 @@ $(document).ready(() => {
     $.get(`/listings/favourites/${listingID}`, (data) => {
       console.log(data);
       if (data) {
-        console.log(true)
+        console.log(true);
         $("#fave-button").replaceWith(
           `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
         );
       }
     });
   });
-  //returning to home
+
+  //Returning to home
   $("main").on("click", "btn.big-back", () => {
     $(".main-container").empty();
     createCategoryRows();
@@ -53,7 +54,7 @@ $(document).ready(() => {
     });
   });
   $("main").on("click", "#fave-delete-button", (event) => {
-    const listing =  $(".big-id").text();
+    const listing = $(".big-id").text();
     $.post(
       `/listings/favourites/${listing}/delete`,
       { listing: listing },
