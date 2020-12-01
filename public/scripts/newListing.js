@@ -69,8 +69,7 @@ $(document).ready(() => {
     createCategoryRows();
     homePageLoad();
   });
-
-  $("#new-listing").submit((event) => {
+  $("main").on("submit", ".new-listing-content", (event) => {
     event.preventDefault();
     const title = $("#listing-title").val();
     const price = $("#listing-number").val();
