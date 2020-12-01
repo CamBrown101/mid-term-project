@@ -132,6 +132,11 @@ nav .username-logged-in:hover {
   padding-bottom: 5%;
 }
 
+.main-container .category-heading {
+  color: #1F271B;
+  margin-left: 2%;
+}
+
 .main-container .card-row {
   display: flex;
   background-color: grey;

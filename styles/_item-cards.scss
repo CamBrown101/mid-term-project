@@ -2,6 +2,11 @@
   margin: 180px 7% 7% 100px;
   padding-bottom: 5%;
 
+  .category-heading {
+    color: $font-color;
+    margin-left: 2%;
+  }
+
   .card-row {
     display: flex;
     background-color: $background-grey;
