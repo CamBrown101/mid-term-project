@@ -2,7 +2,6 @@ const renderSort = (listings) => {
   $(".main-container").empty();
   $(".main-container").append(`<div class="results-container"></div>`);
   listings.forEach((element) => {
-    console.log(element);
     $(".results-container").append(createNewCard(element));
     $(".id").hide();
   });
@@ -16,7 +15,6 @@ $(document).ready(() => {
         options: options,
       };
       $.get(`/sort/price`, optionsObj, (data) => {
-        console.log(data);
         $(".main-container").empty();
         //reset other drop down select menus
         $("#sort-date").prop("selectedIndex", 0);
@@ -52,7 +50,7 @@ $(document).ready(() => {
         $(".main-container").empty();
         //reset other drop down select menus
         $("#sort-price").prop("selectedIndex", 0);
-        $("#sort-category").prop("selectedIndex", 0);
+        $("#sort-date").prop("selectedIndex", 0);
         renderSort(data);
       });
     }
