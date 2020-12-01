@@ -70,7 +70,7 @@ $(document).ready(() => {
     homePageLoad();
   });
 
-  $(".main-container").submit((event) => {
+  $("#new-listing").submit((event) => {
     event.preventDefault();
     const title = $("#listing-title").val();
     const price = $("#listing-number").val();

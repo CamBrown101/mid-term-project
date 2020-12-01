@@ -6,11 +6,12 @@ module.exports = (db) => {
   router.get("/:id", (req, res) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
-    const recieverID = req.query.receiver_id;
-    if (userID === recieverID) {
+    let recieverID = req.query.receiver_id;
+    console.log(req.query);
+    if (userID == recieverID) {
       recieverID = req.query.sender_id;
     }
-    console.log(req.query.reciever_id);
+    console.log( listingID, userID, recieverID,"help");
     db.query(
       `SELECT messages.id, messages.time, listing_id, sender_id, receiver_id, listings.user_id AS owner_id, listings.title, messages.message, senders.name AS sender, receivers.name AS receiver
               FROM messages
