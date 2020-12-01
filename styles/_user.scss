@@ -51,25 +51,54 @@ label {
 .user-listing-container-one {
   display: block;
   width: 100%;
+  margin: 0;
 }
 
 .user-listing-container-two {
   display: block;
   width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  padding-right: 20px;
 }
 
-// <article class="user-listing-container users-main">
+.user-listing-image {
+  max-width: 200px;
+  max-height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-h4 {
+  font-size: 1em;
+}
+
+.price-btn-parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.user-listing-price {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.user-listing-btn {
+  grid-row: 1;
+  grid-column: 2;
+}
+// <article class="user-listing-parent users-main">
 // <div class="user-listing-container-one">
 //   <object class="user-listing-image" data="${listing.picture_url}" type="image/png">
 //   <img class="user-listing-image" src="/img/test.png">
 //   </object>
 // </div>
 // <div class="user-listing-container-two">
-//   <h5 class="user-listing-title">${listing.title}</h5>
-//   <p class="user-listing-description">${listing.description}</p>
-//   <a src="#" class="btn btn-primary user-listing-button">View Item</a>
-//   <div class="user-listing-price">${listing.price}</div>
+//   <h5 class="user-listing-title"><h4 class="user-h4">Listing: </h4>${listing.title}</h5>
+//   <p class="user-listing-description"><h4 class="user-h4">Description: </h4>\n${listing.description}</p>
+//   <div class="id">${listing.id}</div>
+//   <div class="user-listing-price"><h4 class="user-h4">Price: </h4>$${listing.price}</div>
+//   <a src="#" class="btn btn-primary small-listing-button">View Item</a>
 // </div>
 // </article>
+// `);

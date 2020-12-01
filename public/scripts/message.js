@@ -17,12 +17,13 @@ const createMessagesContainer = () => {
 };
 
 const createSentMessage = (message) => {
-  console.log(message);
+  const local = moment(message.time).local().format("YYYY-MM-DD HH:mm:ss");
+  const time = moment(local).fromNow();
   const sentMessageTemplate = $(`
           <div class="message sent">
             <p class="username">${message.sender}</p>
             <p class="message-content">${message.message}</p>
-            <p class="timestamp">${message.time}</p>
+            <p class="timestamp">${time}</p>
           </div>
 `);
   return sentMessageTemplate;
@@ -79,6 +80,7 @@ $(document).ready(() => {
       messageRender(data);
       let messagesLength = data.messages.length;
       const checkNewMessage = () => {
+        console.log("Fire");
         $.get(`/messages/${listingId}`, (data) => {
           if (messagesLength < data.messages.length) {
             const messagesToRender = data.messages.length - messagesLength;
@@ -154,6 +156,7 @@ $(document).ready(() => {
       //needs refractor
       let messagesLength = data.messages.length;
       const checkNewMessage = () => {
+        console.log("Fire");
         $.get(`/messages/${listingId}`, (data) => {
           if (messagesLength < data.messages.length) {
             const messagesToRender = data.messages.length - messagesLength;

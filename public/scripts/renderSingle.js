@@ -1,3 +1,30 @@
+const createListingBig = function (listing) {
+  const local = moment(listing.posted_date)
+    .local()
+    .format("YYYY-MM-DD HH:mm:ss");
+  const time = moment(local).fromNow();
+  const articleContainer = $(`
+    <article class="big-listing">
+      <btn class="btn btn-primary big-back">HOME</btn>
+      <h2 class="big-title">${listing.title}</h5>
+      <div class="image-wrapper">
+        <img class="big-img" src="${listing.picture_url}">
+      </div>
+      <h5 class="big-price">$${listing.price}</h5>
+      <p class="big-description">${listing.description}</p>
+      <p class="big-user-id">${listing.user_id}</p>
+      <p class="big-date">Posted: ${time}</p>
+      <p class="big-user-name">Seller: ${listing.name}</p>
+      <btn class="btn btn-primary message-button" id="message-seller-btn">Message seller</btn>
+      <p class="big-id">${listing.id}</p>
+      <btn class="btn btn-primary" id="fave-button">Favorite</btn>
+      <btn class="btn btn-warning" id="sold-button">Sold</btn>
+      <btn class="btn btn-danger" id="delete-button">Delete</btn>
+    </article>
+    `);
+  return articleContainer;
+};
+
 $(document).ready(() => {
   //Clicking an item brings user to item page
   $("main").on("click", "a.small-listing-button", (event) => {
@@ -29,7 +56,9 @@ $(document).ready(() => {
     });
     $.get(`/listings/favourites/${listingID}`, (data) => {
       if (data) {
-        $("#fave-button").replaceWith(`<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`);
+        $("#fave-button").replaceWith(
+          `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
+        );
       }
     });
   });
@@ -61,32 +90,7 @@ $(document).ready(() => {
       }
     );
   });
-  const createListingBig = function (listing) {
-    const local = moment(listing.posted_date)
-      .local()
-      .format("YYYY-MM-DD HH:mm:ss");
-    const time = moment(local).fromNow();
-    const articleContainer = $(`
-      <article class="big-listing">
-        <btn class="btn btn-primary big-back">HOME</btn>
-        <h2 class="big-title">${listing.title}</h5>
-        <div class="image-wrapper">
-          <img class="big-img" src="${listing.picture_url}">
-        </div>
-        <h5 class="big-price">$${listing.price}</h5>
-        <p class="big-description">${listing.description}</p>
-        <p class="big-user-id">${listing.user_id}</p>
-        <p class="big-date">Posted: ${time}</p>
-        <p class="big-user-name">Seller: ${listing.name}</p>
-        <btn class="btn btn-primary message-button" id="message-seller-btn">Message seller</btn>
-        <p class="big-id">${listing.id}</p>
-        <btn class="btn btn-primary" id="fave-button">Favorite</btn>
-        <btn class="btn btn-warning" id="sold-button">Sold</btn>
-        <btn class="btn btn-danger" id="delete-button">Delete</btn>
-      </article>
-      `);
-    return articleContainer;
-  };
+
   //Delete button functionality
   $("main").on("click", "#delete-button", (event) => {
     const listingid = $(".big-id").text();
