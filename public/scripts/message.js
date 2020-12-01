@@ -77,7 +77,13 @@ $(document).ready(() => {
   $("main").on("click", "#message-seller-btn", (event) => {
     event.preventDefault();
     listingId = $("#message-seller-btn").siblings(".big-id").text();
-    $.get(`/messages/${listingId}`, (data) => {
+    const reciever_id = $(".seller-id").text();
+    console.log(reciever_id, "reciever_id");
+    const reqData = {
+      reciever_id,
+    };
+    console.log(reqData);
+    $.get(`/messages/${listingId}`, reqData, (data) => {
       if (data.messages[0] !== undefined) buyerId = data.messages[0].sender_id;
       messageRender(data);
       let messagesLength = data.messages.length;

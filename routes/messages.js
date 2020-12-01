@@ -4,18 +4,22 @@ const router = express.Router();
 module.exports = (db) => {
   //Get all messages for a given listing
   router.get("/:id", (req, res) => {
+    console.log(req.query, "!!!!!!!!!!!!!!!!!!!!!!!!!");
     const userID = req.session.user_id;
     const listingID = req.params.id;
+    const recieverID = req.body.receiver_ID;
     db.query(
       `SELECT messages.id, messages.time, listing_id, sender_id, receiver_id, listings.user_id AS owner_id, listings.title, messages.message, senders.name AS sender, receivers.name AS receiver
               FROM messages
               JOIN users senders ON sender_id = senders.id
               JOIN users receivers ON receiver_id = receivers.id
               JOIN listings ON listing_id = listings.id
-              WHERE (sender_id = $1
+              WHERE ((sender_id = $1
               OR receiver_id = $1)
+              OR (sender_id = $3
+              OR receiver_id = $3))
               AND listing_id = $2;`,
-      [userID, listingID]
+      [userID, listingID, recieverID]
     )
       .then((data) => {
         const returnData = {
@@ -44,6 +48,7 @@ module.exports = (db) => {
       [userID]
     )
       .then((data) => {
+        console.log(data.rows);
         const returnData = {
           messages: data.rows,
           user_id: req.session.user_id,
