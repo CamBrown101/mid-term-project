@@ -16,7 +16,6 @@ module.exports = (db) => {
         res.send(data.rows);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });
@@ -54,7 +53,6 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    console.log(req.body);
     const name = req.body.name;
     const id = req.session.user_id;
     const email = req.body.email;

@@ -10,7 +10,6 @@ const clearForm = () => {
 $(document).ready(() => {
   $(".new-listing-content").submit((event) => {
     event.preventDefault();
-    console.log("click listing");
     const title = $("#listing-title").val();
     const price = $("#listing-number").val();
     const description = $("#listing-description").val();
@@ -26,11 +25,8 @@ $(document).ready(() => {
       category: category,
     };
 
-    console.log(data);
-    console.log("listing");
     $.post("/listings", data, (listing) => {
       createCategoryRows();
-      console.log(listing);
       clearForm();
       homePageLoad();
     });

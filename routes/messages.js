@@ -51,7 +51,6 @@ module.exports = (db) => {
         res.send(returnData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });
@@ -61,7 +60,6 @@ module.exports = (db) => {
     const listingId = req.params.id;
     const message = req.body.message;
     const receiver = req.body.receiver;
-    console.log(userId, listingId, message, receiver);
     db.query(
       `INSERT INTO messages (listing_id, receiver_id, sender_id, message)
               VALUES ($1, $2, $3, $4);`,
@@ -72,7 +70,6 @@ module.exports = (db) => {
         res.send(messages);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });

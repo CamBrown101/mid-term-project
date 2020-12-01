@@ -102,7 +102,6 @@ $(document).ready(() => {
       $(".main-container").append(renderUserPage(data));
       $(".main-container").append(renderUserUpdateForm(data));
       $.get("/users/listings/", (data) => {
-        console.log(data);
         renderUserListings(data);
       });
     });
@@ -123,7 +122,6 @@ $(document).ready(() => {
       picture: picture,
     };
     $.post("/users/", data, (user) => {
-      console.log(user);
       $(".main-container").empty();
       $(".main-container").append(renderUserPage(user));
       $(".main-container").append(renderUserUpdateForm(user));

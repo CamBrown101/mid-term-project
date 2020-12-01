@@ -78,7 +78,6 @@ $(document).ready(() => {
       messageRender(data);
       let messagesLength = data.messages.length;
       const checkNewMessage = () => {
-        console.log("Fire");
         $.get(`/messages/${listingId}`, (data) => {
           if (messagesLength < data.messages.length) {
             const messagesToRender = data.messages.length - messagesLength;
@@ -154,7 +153,6 @@ $(document).ready(() => {
       //needs refractor
       let messagesLength = data.messages.length;
       const checkNewMessage = () => {
-        console.log("Fire");
         $.get(`/messages/${listingId}`, (data) => {
           if (messagesLength < data.messages.length) {
             const messagesToRender = data.messages.length - messagesLength;

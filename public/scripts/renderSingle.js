@@ -28,12 +28,8 @@ $(document).ready(() => {
       }
     });
     $.get(`/listings/favourites/${listingID}`, (data) => {
-      console.log(data);
       if (data) {
-        console.log(true);
-        $("#fave-button").replaceWith(
-          `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
-        );
+        $("#fave-button").replaceWith(`<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`);
       }
     });
   });
@@ -66,7 +62,6 @@ $(document).ready(() => {
     );
   });
   const createListingBig = function (listing) {
-    console.log(listing);
     const local = moment(listing.posted_date)
       .local()
       .format("YYYY-MM-DD HH:mm:ss");
