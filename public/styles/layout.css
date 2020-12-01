@@ -235,6 +235,10 @@ nav .username-logged-in:hover {
   color: red;
 }
 
+.seller-id {
+  display: none;
+}
+
 #new-listing {
   width: 30vw;
   height: 20vw;

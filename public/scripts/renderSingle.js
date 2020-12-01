@@ -17,6 +17,7 @@ const createListingBig = function (listing) {
       <p class="big-user-name">Seller: ${listing.name}</p>
       <btn class="btn btn-primary message-button" id="message-seller-btn">Message seller</btn>
       <p class="big-id">${listing.id}</p>
+      <p class="seller-id">${listing.user_id}</p>
       <btn class="btn btn-primary" id="fave-button">Favorite</btn>
       <btn class="btn btn-warning" id="sold-button">Sold</btn>
       <btn class="btn btn-danger" id="delete-button">Delete</btn>
@@ -31,6 +32,7 @@ $(document).ready(() => {
     const listingID = $(event.target).siblings(".id").html();
     $(".main-container").empty();
     $.get(`/listings/${listingID}`, (data) => {
+      console.log(data, "data");
       $(".main-container").append(createListingBig(data.listing));
       $(".big-user-id").hide();
       $(".big-id").hide();
