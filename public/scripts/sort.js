@@ -1,8 +1,30 @@
+//Creates HTML for a new card listing
+const createSortedCard = function (listing) {
+  const local = moment(listing.posted_date)
+    .local()
+    .format("YYYY-MM-DD HH:mm:ss");
+  const time = moment(local).fromNow();
+  const articleContainer = $(`
+    <article class="card-container">
+      <h5 class="card-title">${listing.title}</h5>
+      <object class="listing-image" data="${listing.picture_url}" type="image/png">
+      <img id="listing-image" src="/img/test.png">
+      </object>
+      <p class="card-description">${listing.description}</p>
+      <a src="#" class="btn btn-primary small-listing-button">View Item</a>
+      <h5 class="big-price">$${listing.price}</h5>
+      <p class="big-date">Posted: ${time}</p>
+      <div class="id">${listing.id}</div>
+    </article>
+    `);
+  return articleContainer;
+};
+
 const renderSort = (listings) => {
   $(".main-container").empty();
   $(".main-container").append(`<div class="results-container"></div>`);
   listings.forEach((element) => {
-    $(".results-container").append(createNewCard(element));
+    $(".results-container").append(createSortedCard(element));
     $(".id").hide();
   });
 };

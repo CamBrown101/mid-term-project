@@ -76,7 +76,7 @@ $(document).ready(() => {
 
   $("main").on("click", "#fave-button", (event) => {
     const listing = $(".big-id").text();
-    console.log(listing)
+    console.log(listing);
     $.post("/listings/favourites", { listing: listing }, () => {
       $(event.target).replaceWith(
         `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
