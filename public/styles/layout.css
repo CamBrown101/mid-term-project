@@ -233,22 +233,27 @@ select {
 
 .main-container .card-row {
   display: flex;
+  background-color: #ffffff;
   padding: 1%;
   border: solid 3px #ffffff;
   margin-bottom: 2%;
-  -webkit-box-shadow: 1px 3px 5px 5px #000000;
-  box-shadow: 1px 3px 5px 5px #000000;
+  justify-content: space-around;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
 }
 
 .main-container .card-container {
   width: 90%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  max-height: 700px;
+  min-width: 240px;
+  max-width: 400px;
   margin: 0.3em;
   background-color: #ffffff;
   color: #1f271b;
   justify-self: center;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.9fr 1.1fr;
@@ -269,7 +274,10 @@ select {
 }
 
 .main-container .card-upper {
+  vertical-align: top;
   top: 0;
+  margin: 0;
+  padding: 0;
   position: relative;
   grid-row: 1;
   grid-column: 1;
@@ -282,7 +290,7 @@ select {
   padding: 1rem;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr 0.5fr 0.5fr;
 }
 
 .main-container .card-lower .card-title {
@@ -297,13 +305,41 @@ select {
   grid-column: 1;
 }
 
-.main-container .card-lower .small-listing-button {
+.main-container .card-lower .card-date {
   grid-row: 3;
   grid-column: 1;
-  width: 70%;
-  height: 70%;
+}
+
+.main-container .card-lower .card-price {
+  grid-row: 4;
+  grid-column: 1;
+}
+
+.main-container .card-lower .small-listing-button {
+  grid-row: 5;
+  grid-column: 1;
+  width: 60%;
+  height: 90%;
   margin-left: auto;
   margin-right: auto;
+  border: none;
+  background: #404040;
+  color: #ffffff;
+  font-weight: 100;
+  text-transform: uppercase;
+  border-radius: 4px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+.main-container .card-lower .small-listing-button:hover {
+  color: #404040;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
 }
 
 .main-container .listing-image::before {
