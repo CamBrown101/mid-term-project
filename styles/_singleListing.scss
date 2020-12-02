@@ -2,6 +2,29 @@
   display: none;
 }
 
+.big-listing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $project-white;
+  padding: 1%;
+  border: solid 3px $project-white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+}
+
+.big-image-container {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.big-info-container {
+  grid-row: 1;
+  grid-column: 2;
+  margin: auto;
+}
 .big-user-name {
   width: 5%;
   white-space: nowrap;

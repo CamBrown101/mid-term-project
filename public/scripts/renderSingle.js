@@ -6,13 +6,15 @@ const createListingBig = function (listing) {
   const time = moment(local).fromNow();
   const articleContainer = $(`
     <article class="big-listing">
-      <btn class="btn btn-primary big-back">HOME</btn>
-      <h2 class="big-title">${listing.title}</h5>
-      <div class="image-wrapper">
+    <div class="big-image-container">
       <object class="listing-image" data="${listing.picture_url}" type="image/png">
       <img class="big-img" src="/img/test.png">
       </object>
       </div>
+      <div class="big-info-container">
+      <btn class="btn btn-primary big-back">HOME</btn>
+      <h2 class="big-title">${listing.title}</h5>
+      
       <h5 class="big-price">$${listing.price}</h5>
       <p class="big-description">${listing.description}</p>
       <p class="big-user-id">${listing.user_id}</p>
@@ -24,7 +26,8 @@ const createListingBig = function (listing) {
       <btn class="btn btn-primary" id="fave-button">Favorite</btn>
       <btn class="btn btn-warning" id="sold-button">Sold</btn>
       <btn class="btn btn-danger" id="delete-button">Delete</btn>
-    </article>
+   </div>
+      </article>
     `);
   return articleContainer;
 };
@@ -71,7 +74,7 @@ $(document).ready(() => {
     $.get(`/listings/favourites/${listingID}`, (data) => {
       console.log(!data);
       if (data) {
-        console.log('rep1');
+        console.log("rep1");
         $("#fave-button").replaceWith(
           `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
         );
