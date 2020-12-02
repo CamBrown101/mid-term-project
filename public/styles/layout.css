@@ -222,8 +222,6 @@ select {
   align-content: center;
 }
 
-<<<<<<< HEAD
-=======
 .main-container {
   margin: 200px 7% 7% 100px;
   padding-bottom: 5%;
@@ -361,7 +359,6 @@ select {
   white-space: nowrap;
 }
 
->>>>>>> feature/messageCount
 #delete-button {
   display: none;
 }
