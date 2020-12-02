@@ -20,6 +20,8 @@
 .user-info-container {
   display: block;
   width: 100%;
+  padding: 2em;
+  line-height: 2em;
 }
 
 .user-image {
@@ -85,15 +87,17 @@ label {
   grid-row: 1;
   grid-column: 2;
 }
-// <div class="user-screen users-main">
-// <div class="user-image-container">
-//   <img class="user-image" src="${user.user_image}"></p>
-// </div>
-// <div class="user-info-container">
-//   <div class="user-name user-item"><h4 class="user-header">User name: </h4>${user.name}</div>
-//   <div class="user-email user-item"><h4 class="user-header">Email: </h4>${user.email}</div>
-//   <div class="user-admin user-item"><h4 class="user-header">Admin Privileges: </h4>${isAdmin}</div>
-//   <div class="user-bio"><h4 class="user-header">User Bio:</h4>\n${user.user_bio}</div>
-// </div>
-//   </div>
-// `);
+
+.user-item {
+  margin: 1em;
+  font-weight: bolder;
+}
+
+.user-bio {
+  margin: 1em;
+  font-weight: bolder;
+}
+
+.user-header {
+  font-weight: bolder;
+}

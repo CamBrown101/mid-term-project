@@ -85,6 +85,7 @@ nav .username-logged-in:hover {
   flex-direction: row;
   white-space: nowrap;
   background-color: grey;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
 .nav-item {
@@ -238,9 +239,7 @@ select {
   border: solid 3px #ffffff;
   margin-bottom: 2%;
   justify-content: space-around;
-  -webkit-box-shadow: 1px 3px 5px 5px #000000;
-  box-shadow: 1px 3px 5px 5px #000000;
-  height: 45vh;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
 }
 
 .main-container .card-container {
@@ -357,6 +356,12 @@ select {
 
 .main-container .btn {
   white-space: nowrap;
+}
+
+@media (min-width: 1281px) {
+  .card-row {
+    height: 90%;
+  }
 }
 
 #delete-button {
@@ -680,6 +685,8 @@ select {
 .user-info-container {
   display: block;
   width: 100%;
+  padding: 2em;
+  line-height: 2em;
 }
 
 .user-image {
@@ -744,4 +751,18 @@ label {
 .user-listing-btn {
   grid-row: 1;
   grid-column: 2;
+}
+
+.user-item {
+  margin: 1em;
+  font-weight: bolder;
+}
+
+.user-bio {
+  margin: 1em;
+  font-weight: bolder;
+}
+
+.user-header {
+  font-weight: bolder;
 }
