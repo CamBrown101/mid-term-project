@@ -62,7 +62,7 @@ $(document).ready(() => {
         listingId = item.listing_id;
         $.get(`/messages/unread/${listingId}`, dataObject, (data) => {
           //This is the number of new messages in this convo. currently unstyled
-          //$newConvo.children(".conversation-messages").append($(`<p>${data.count}</p>`));
+          $newConvo.children(".conversation-messages").append($(`<p>${data.count}</p>`));
           $(".conversations").append($newConvo);
           $(".conversation-listing-id").hide();
           $(".sender-id").hide();
