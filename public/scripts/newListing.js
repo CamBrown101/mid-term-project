@@ -1,3 +1,4 @@
+//Clears out form on submit
 const clearForm = () => {
   $("#listing-title").val("");
   $("#listing-number").val("");
@@ -7,7 +8,8 @@ const clearForm = () => {
   $("#new-listing").fadeOut();
 };
 
-const createNewListingForm = function (listing) {
+//Renders form
+const createNewListingForm = function () {
   const newListingForm = $(`
 <section id="new-listing">
   <form class="new-listing-content" method="POST" action="/listings">
@@ -59,18 +61,24 @@ const createNewListingForm = function (listing) {
 };
 
 $(document).ready(() => {
+  //Loads new listing form
   $("#new-listing-button").click(() => {
     $(".search-bar").fadeOut();
     $(".main-container").empty();
     $(".main-container").append(createNewListingForm());
   });
+
+  //reloads home screen
   $("#new-listing").on("click", "#hide-new-listing", () => {
     $(".main-container").empty();
     createCategoryRows();
     homePageLoad();
   });
+
+  //POSTs new listing to server
   $("main").on("submit", ".new-listing-content", (event) => {
     event.preventDefault();
+
     const title = $("#listing-title").val();
     const price = $("#listing-number").val();
     const description = $("#listing-description").val();
