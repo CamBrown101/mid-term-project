@@ -2,7 +2,77 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-  //Get all messages for a given listing
+
+  //Count all the unread messages for a user
+  router.get("/unread/", (req, res) => {
+    const userID = req.session.user_id;
+    db.query(
+      `SELECT count(messages.id)
+              FROM messages
+              WHERE receiver_id = $1
+              AND is_read = false;`,
+      [userID]
+    )
+      .then((data) => {
+        res.send(data.rows[0]);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
+  //count unread messages for a chat
+  router.get("/unread/:id", (req, res) => {
+    const userID = req.session.user_id;
+    const listingID = req.params.id;
+    let receiverID = req.query.receiver_id;
+    if (userID == receiverID) {
+      receiverID = req.query.sender_id;
+    }
+    db.query(
+      `SELECT count(messages.id)
+              FROM messages
+              JOIN users senders ON sender_id = senders.id
+              JOIN users receivers ON receiver_id = receivers.id
+              JOIN listings ON listing_id = listings.id
+              WHERE ((sender_id = $1
+              AND receiver_id = $3)
+              OR (sender_id = $3
+              AND receiver_id = $1))
+              AND listing_id = $2
+              AND is_read = false;`,
+      [userID, listingID, receiverID]
+    )
+      .then((data) => {
+        res.send(data.rows[0]);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
+//TODO mark messages as seen
+router.post("/unread/:id", (req, res) => {
+  const userID = req.session.user_id;
+  const listingID = req.params.id;
+  db.query(`
+  UPDATE messages
+  SET is_read = TRUE
+  WHERE receiver_id = $1
+  AND listing_id = $2
+  RETURNING *;
+  `, [userID, listingID]
+  )
+    .then((data) => {
+      res.send(data.rows);
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ error: err.message });
+    });
+});
+
+  //Get all messages for a given listing chat
   router.get("/:id", (req, res) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
