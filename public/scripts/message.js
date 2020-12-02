@@ -59,7 +59,6 @@ const createConversationContainer = () => {
 };
 
 const createConversations = (item) => {
-  console.log(item);
   const sentMessageTemplate = $(`
           <div class="conversation">
             <p class="conversation-title conversation-item">${item.title}</p>
@@ -84,7 +83,6 @@ $(document).ready(() => {
     const reqData = {
       receiver_id,
     };
-    console.log(reqData);
     $.get(`/messages/${listingId}`, reqData, (data) => {
       if (data.messages[0] !== undefined) buyerId = data.messages[0].sender_id;
       messageRender(data);
