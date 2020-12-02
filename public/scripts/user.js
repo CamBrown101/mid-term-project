@@ -80,8 +80,7 @@ const newUserListing = (listing) => {
         <p class="user-listing-description"><h4 class="user-h4">Description: </h4>\n${listing.description}</p>
         <div class="price-btn-parent">
         <div class="user-listing-price"><h4 class="user-h4">Price: </h4>$${listing.price}</div>
-        <button class="user-listing-button btn btn-primary small-listing-button">View Item</button>
-        <div class="id">${listing.id}</div>
+        <a src="#" class="btn btn-primary small-listing-button">View Item</a>        <div class="id">${listing.id}</div>
 
         </div>
         </div>
@@ -108,16 +107,6 @@ const renderUserPage = (data) => {
 
 $(document).ready(() => {
   $(".username-logged-in").click((event) => {
-    $("main").on("click", ".user-listing-button", (event) => {
-      const listingID = $(event.target).siblings(".id").html();
-
-      $.get(`/listings/${listingID}`, (data) => {
-        $(".main-container").empty();
-        $(".main-container").append(createListingBig(data.listing));
-        $(".big-user-id").hide();
-        $(".big-id").hide();
-      });
-    });
     event.preventDefault();
     $.get(`/users/current/`, (data) => {
       renderUserPage(data);
