@@ -85,6 +85,7 @@ nav .username-logged-in:hover {
   flex-direction: row;
   white-space: nowrap;
   background-color: grey;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
 .nav-item {
@@ -219,144 +220,6 @@ select {
   margin: 0;
   justify-content: center;
   align-content: center;
-}
-
-.main-container {
-  margin: 200px 7% 7% 100px;
-  padding-bottom: 5%;
-}
-
-.main-container .category-heading {
-  color: #1f271b;
-  margin-left: 2%;
-}
-
-.main-container .card-row {
-  display: flex;
-  background-color: #ffffff;
-  padding: 1%;
-  border: solid 3px #ffffff;
-  margin-bottom: 2%;
-  justify-content: space-around;
-  -webkit-box-shadow: 1px 3px 5px 5px #000000;
-  box-shadow: 1px 3px 5px 5px #000000;
-  height: 45vh;
-}
-
-.main-container .card-container {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-height: 700px;
-  min-width: 240px;
-  max-width: 400px;
-  margin: 0.3em;
-  background-color: #ffffff;
-  color: #1f271b;
-  justify-self: center;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.9fr 1.1fr;
-}
-
-.main-container img {
-  width: 100%;
-  margin: 5%;
-}
-
-.main-container .listing-image {
-  height: 100%;
-  width: 100%;
-  max-width: 400px;
-  position: relative;
-  z-index: 0;
-}
-
-.main-container .card-upper {
-  vertical-align: top;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  grid-row: 1;
-  grid-column: 1;
-}
-
-.main-container .card-lower {
-  height: 100%;
-  grid-row: 2;
-  grid-column: 1;
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 2fr 1fr 0.5fr 0.5fr;
-}
-
-.main-container .card-lower .card-title {
-  grid-row: 1;
-  grid-column: 1;
-  font-weight: bolder;
-  text-align: center;
-}
-
-.main-container .card-lower .card-description {
-  grid-row: 2;
-  grid-column: 1;
-}
-
-.main-container .card-lower .card-date {
-  grid-row: 3;
-  grid-column: 1;
-}
-
-.main-container .card-lower .card-price {
-  grid-row: 4;
-  grid-column: 1;
-}
-
-.main-container .card-lower .small-listing-button,
-.main-container .card-lower .view-button {
-  grid-row: 5;
-  grid-column: 1;
-  width: 60%;
-  height: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  border: none;
-  background: #404040;
-  color: #ffffff;
-  font-weight: 100;
-  text-transform: uppercase;
-  border-radius: 4px;
-  display: inline-block;
-  transition: all 0.3s ease 0s;
-}
-
-.main-container .card-lower .small-listing-button:hover,
-.main-container .card-lower .view-button:hover {
-  color: #404040;
-  font-weight: 700;
-  letter-spacing: 3px;
-  background: none;
-  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-  transition: all 0.3s ease 0s;
-}
-
-.main-container .listing-image::before {
-  content: "fall back";
-  content: url("/img/test.png");
-}
-
-.main-container article.card-container a.btn {
-  background-color: #0b4f6c;
-  color: #ffffff;
-}
-
-.main-container .btn {
-  white-space: nowrap;
 }
 
 #delete-button {
@@ -660,15 +523,19 @@ select {
 
 .users-main {
   width: 90%;
+  max-width: 700px;
   display: grid;
   margin: 0.3em;
   background-color: #ffffff;
   color: #1f271b;
   justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
 }
 
 .user-screen {
+  margin-bottom: 2em;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
@@ -680,18 +547,21 @@ select {
 .user-info-container {
   display: block;
   width: 100%;
+  padding-left: 2em;
+  line-height: 2em;
 }
 
 .user-image {
   max-width: 400px;
   max-height: 400px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  left: 0;
 }
 
 .user-update {
   padding: 20px;
+  margin-bottom: 2em;
 }
 
 label {
@@ -699,31 +569,42 @@ label {
 }
 
 .update-user-content {
+  margin-bottom: 2em;
   display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  max-width: 800px;
 }
 
 .user-listing-parent {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  font-weight: bolder;
+  margin-bottom: 2em;
 }
 
 .user-listing-container-one {
-  display: block;
+  grid-row: 1;
+  grid-column: 1;
   width: 100%;
-  margin: 0;
+  margin: 4px;
 }
 
 .user-listing-container-two {
-  display: block;
+  grid-row: 1;
+  grid-column: 2;
+  display: grid;
   width: 100%;
   padding-right: 20px;
 }
 
 .user-listing-image {
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 300px;
+  max-height: 300px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-right: 20px;
 }
 
 .user-h4 {
@@ -744,4 +625,196 @@ label {
 .user-listing-btn {
   grid-row: 1;
   grid-column: 2;
+}
+
+.user-item {
+  margin: 1em;
+  font-weight: bolder;
+}
+
+.user-bio {
+  margin: 1em;
+  font-weight: bolder;
+}
+
+.user-header {
+  font-weight: bolder;
+}
+
+.card-label {
+  font-weight: bolder;
+}
+
+.small-listing-button,
+.card-view-button {
+  grid-row: 5;
+  grid-column: 1;
+  width: 70%;
+  height: 90%;
+  padding: 4px;
+  user-select: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: none;
+  background-color: #404040;
+  color: #ffffff !important;
+  font-weight: 100;
+  text-transform: uppercase;
+  border-radius: 4px;
+  display: inline;
+  transition: all 0.3s ease 0s;
+}
+
+.small-listing-button:hover,
+.card-view-button:hover {
+  background-color: #ffffff;
+  color: #404040 !important;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
+}
+
+#update-user-form {
+  width: 60%;
+  height: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  border: none;
+  background-color: #404040;
+  color: #ffffff;
+  font-weight: 100;
+  text-transform: uppercase;
+  border-radius: 4px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+#update-user-form:hover {
+  color: #404040;
+  background-color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
+}
+
+.main-container {
+  margin: 200px 7% 7% 100px;
+  padding-bottom: 5%;
+}
+
+.main-container .category-heading {
+  color: #1f271b;
+  margin-left: 2%;
+}
+
+.main-container .card-row {
+  display: flex;
+  background-color: #ffffff;
+  padding: 1%;
+  border: solid 3px #ffffff;
+  margin-bottom: 2%;
+  justify-content: space-around;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+}
+
+.main-container .card-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 700px;
+  min-width: 240px;
+  max-width: 400px;
+  margin: 0.3em;
+  background-color: #ffffff;
+  color: #1f271b;
+  justify-self: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.9fr 1.1fr;
+}
+
+.main-container img {
+  width: 100%;
+  margin: 5%;
+}
+
+.main-container .listing-image {
+  height: 100%;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  z-index: 0;
+}
+
+.main-container .card-upper {
+  vertical-align: top;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.main-container .card-lower {
+  height: 100%;
+  grid-row: 2;
+  grid-column: 1;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 1fr 0.5fr 0.5fr;
+}
+
+.main-container .card-lower .card-title {
+  grid-row: 1;
+  grid-column: 1;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.main-container .card-lower .card-description {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.main-container .card-lower .card-date {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.main-container .card-lower .card-price {
+  grid-row: 4;
+  grid-column: 1;
+}
+
+.main-container .listing-image::before {
+  content: "fall back";
+  content: url("/img/test.png");
+}
+
+.main-container article.card-container a.btn {
+  background-color: #0b4f6c;
+  color: #ffffff;
+}
+
+.main-container .btn {
+  white-space: nowrap;
+}
+
+@media (min-width: 1281px) {
+  .card-row {
+    height: 90%;
+  }
 }

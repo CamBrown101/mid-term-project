@@ -14,9 +14,7 @@
     border: solid 3px $project-white;
     margin-bottom: 2%;
     justify-content: space-around;
-    -webkit-box-shadow: 1px 3px 5px 5px #000000;
-    box-shadow: 1px 3px 5px 5px #000000;
-    height: 45vh;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
   }
 
   .card-container {
@@ -88,35 +86,6 @@
       grid-row: 4;
       grid-column: 1;
     }
-
-    .small-listing-button,
-    .view-button {
-      grid-row: 5;
-      grid-column: 1;
-      width: 60%;
-      height: 90%;
-      margin-left: auto;
-      margin-right: auto;
-
-      border: none;
-      background: #404040;
-      color: #ffffff;
-      font-weight: 100;
-      text-transform: uppercase;
-      border-radius: 4px;
-      display: inline-block;
-      transition: all 0.3s ease 0s;
-    }
-    .small-listing-button:hover,
-    .view-button:hover {
-      color: #404040;
-      font-weight: 700;
-      letter-spacing: 3px;
-      background: none;
-      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      transition: all 0.3s ease 0s;
-    }
   }
 
   .listing-image::before {
@@ -133,6 +102,11 @@
   }
 }
 
+@media (min-width: 1281px) {
+  .card-row {
+    height: 90%;
+  }
+}
 //commenting out since click handlers only fired once
 // .category-heading:hover {
 //   color: red;

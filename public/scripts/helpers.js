@@ -14,13 +14,15 @@ const createNewCard = function (listing) {
       </object>
       </div>
       <div class="card-lower">
-        <h5 class="card-title">${listing.title}</h5>
-        <p class="card-description">${listing.description}</p>
-        <p class="card-price">Price: $${listing.price}</p>
-        <p class="card-date">Posted: ${time}</p>
+        <h5 class="card-title card-label">${listing.title}</h5>
+        <p class="card-description card-label">${listing.description}</p>
+        <p class="card-price card-label">Price: $${listing.price}</p>
+        <p class="card-date card-label">Posted: ${time}</p>
         <div class="id">${listing.id}</div>
-        <a src="#"  class="btn small-listing-button">View Item</a>
+        <a src="#"  class="small-listing-button  user-view-button">View Item</a>
+
         </div>
+
     </article>
     `);
   return articleContainer;
@@ -51,12 +53,12 @@ const homePageLoad = () => {
   };
 
   $.get("/listings/favourites", (res) => {
-    if (res.length >= 3) {
+    if (res.length >= 4) {
       let arrayToRender = [];
 
+      //shifs the cards being rendered
       const increaseIndexByOne = () => {
         if (indexToStopRender === res.length) {
-          console.log(res.length);
           indexToStartRender = 0;
           indexToStopRender = 3;
         } else {
