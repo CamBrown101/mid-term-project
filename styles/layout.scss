@@ -1,9 +1,15 @@
 // See: https://sass-lang.com/
 @import "variables";
 body {
-  background-color: $light-cream;
+  font-family: "Oxygen", sans-serif;
+  background-image: url("/img/webb.png");
+  background-repeat: repeat;
 }
 
+h3 {
+  font-weight: bolder;
+  font-size: 32px;
+}
 @import "nav";
 @import "pop-out-menu";
 @import "item-cards";

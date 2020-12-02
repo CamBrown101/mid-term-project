@@ -1,5 +1,12 @@
 body {
-  background-color: #DCC7BE;
+  font-family: "Oxygen", sans-serif;
+  background-image: url("/img/webb.png");
+  background-repeat: repeat;
+}
+
+h3 {
+  font-weight: bolder;
+  font-size: 32px;
 }
 
 header {
@@ -20,10 +27,6 @@ nav {
 
 nav i {
   font-size: 6em;
-}
-
-nav .hamburger {
-  font-size: 4em;
 }
 
 nav .nav-items {
