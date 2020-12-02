@@ -14,6 +14,7 @@ header {
   top: 0;
   width: 100%;
   background-color: #0b4f6c;
+  z-index: 999;
 }
 
 nav {
@@ -22,7 +23,8 @@ nav {
   justify-content: center;
   align-items: flex-end;
   color: white;
-  z-index: 2;
+  top: 0;
+  z-index: 100;
 }
 
 nav i {
@@ -231,7 +233,6 @@ select {
 
 .main-container .card-row {
   display: flex;
-  background-color: rgba(255, 255, 255, 0.4);
   padding: 1%;
   border: solid 3px #ffffff;
   margin-bottom: 2%;
@@ -244,7 +245,6 @@ select {
   display: flex;
   align-items: center;
   margin: 0.3em;
-  text-overflow: inherit;
   background-color: #ffffff;
   color: #1f271b;
   justify-self: center;
@@ -254,11 +254,18 @@ select {
   grid-template-rows: 0.9fr 1.1fr;
 }
 
+.main-container img {
+  width: 100%;
+  margin: 5%;
+}
+
 .main-container .listing-image {
   height: 100%;
   width: 100%;
   max-width: 400px;
   border-radius: 4px 4px 0 0;
+  position: relative;
+  z-index: 0;
 }
 
 .main-container .card-upper {

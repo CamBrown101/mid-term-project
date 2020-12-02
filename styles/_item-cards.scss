@@ -9,7 +9,7 @@
 
   .card-row {
     display: flex;
-    background-color: rgba(255, 255, 255, 0.4);
+    // background-color: rgba(255, 255, 255, 0.4);
     padding: 1%;
     border: solid 3px $project-white;
     margin-bottom: 2%;
@@ -22,7 +22,6 @@
     display: flex;
     align-items: center;
     margin: 0.3em;
-    text-overflow: inherit;
     background-color: $project-white;
     color: $font-color;
     justify-self: center;
@@ -32,15 +31,17 @@
     grid-template-rows: 0.9fr 1.1fr;
   }
 
-  // img {
-  //   width: 100%;
-  //   margin: 5%;
-  // }
+  img {
+    width: 100%;
+    margin: 5%;
+  }
   .listing-image {
     height: 100%;
     width: 100%;
     max-width: 400px;
     border-radius: 4px 4px 0 0;
+    position: relative;
+    z-index: 0;
   }
 
   .card-upper {
