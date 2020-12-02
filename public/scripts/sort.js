@@ -43,44 +43,29 @@ const renderSort = (listings, title) => {
   });
 };
 
+const getSorted = (sortBy, options) => {
+  $.get(`/sort/${sortBy}`, {options}, (data) => {
+    $(".main-container").empty();
+    //reset drop down select menus
+    $("#sort-price").prop("selectedIndex", 0);
+    $("#sort-date").prop("selectedIndex", 0);
+    $("#sort-category").prop("selectedIndex", 0);
+    const title = `Sort by ${sortBy} ${convertForTitle(options)}`;
+    renderSort(data, title);
+  });
+}
+
 $(document).ready(() => {
   //Sort by price select menu handler
   $("#sort-price").change(function () {
     const options = $("#sort-price").val();
-    if (options === "ASC" || options === "DESC") {
-      const optionsObj = {
-        options: options,
-      };
-
-      $.get(`/sort/price`, optionsObj, (data) => {
-        $(".main-container").empty();
-        //reset other drop down select menus
-        $("#sort-date").prop("selectedIndex", 0);
-        $("#sort-category").prop("selectedIndex", 0);
-        const converted = convertForTitle($("#sort-price").val());
-        const title = `Sort by price ${converted}`;
-        renderSort(data, title);
-      });
-    }
+    getSorted('price', options);
   });
 
   //Sort by date select menu handler
   $("#sort-date").change(function () {
     const options = $("#sort-date").val();
-    if (options === "ASC" || options === "DESC") {
-      const optionsObj = {
-        options: options,
-      };
-      $.get(`/sort/date`, optionsObj, (data) => {
-        $(".main-container").empty();
-        //reset other drop down select menus
-        $("#sort-price").prop("selectedIndex", 0);
-        $("#sort-category").prop("selectedIndex", 0);
-        const converted = convertForTitle($("#sort-date").val());
-        const title = `Sort by date ${converted}`;
-        renderSort(data, title);
-      });
-    }
+    getSorted('date', options);
   });
 
   //Sort by category select menu handler
