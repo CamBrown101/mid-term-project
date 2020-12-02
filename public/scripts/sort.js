@@ -30,6 +30,7 @@ const convertForTitle = (string) => {
   } else if (string === "DESC") {
     return "descending";
   }
+  return string;
 };
 
 //Render sorted listings with title
@@ -71,18 +72,6 @@ $(document).ready(() => {
   //Sort by category select menu handler
   $("#sort-category").change(function () {
     const options = $("#sort-category").val();
-    if (options !== "category") {
-      const optionsObj = {
-        options: options,
-      };
-      $.get(`/sort/category`, optionsObj, (data) => {
-        $(".main-container").empty();
-        //reset other drop down select menus
-        $("#sort-price").prop("selectedIndex", 0);
-        $("#sort-date").prop("selectedIndex", 0);
-        const title = `Sort by category ${$("#sort-category").val()}`;
-        renderSort(data, title);
-      });
-    }
+    getSorted('category', options);
   });
 });
