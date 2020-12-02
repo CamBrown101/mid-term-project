@@ -2,8 +2,9 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-
   z-index: 999;
+  background-image: url("/img/oriental-tiles.png");
+  background-repeat: repeat;
 }
 
 nav {
@@ -13,8 +14,7 @@ nav {
   align-items: flex-end;
   border: none;
   color: white;
-  background-image: url("/img/oriental-tiles.png");
-  background-repeat: repeat;
+
   top: 0;
   z-index: 100;
   i {
@@ -74,7 +74,7 @@ nav {
   border-top: none;
   display: flex;
   flex-direction: row;
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: rgba(0.5, 0, 0, 0.2);
   white-space: nowrap;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
 }
