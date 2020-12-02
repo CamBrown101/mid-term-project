@@ -51,12 +51,18 @@ const homePageLoad = () => {
   };
 
   $.get("/listings/favourites", (res) => {
-    if (res.length >= 4) {
+    const favouritesArray = res;
+    if (favouritesArray.length >= 4) {
       const buildArray = () => {
         arrayToRender = [];
-        arrayToRender = [res[0], res[1], res[2], res[3]];
-        let firstItem = res.shift();
-        res.push(firstItem);
+        arrayToRender = [
+          favouritesArray[0],
+          favouritesArray[1],
+          favouritesArray[2],
+          favouritesArray[3],
+        ];
+        let firstItem = favouritesArray.shift();
+        favouritesArray.push(firstItem);
       };
 
       const renderNextFour = () => {
