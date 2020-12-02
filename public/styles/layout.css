@@ -657,14 +657,12 @@ select {
 
 .users-main {
   width: 90%;
-  border-style: solid;
-  border-color: #1f271b;
-  border-radius: 10px;
-  padding: 10px;
   display: grid;
-  color: #ffffff;
-  margin-bottom: 1em;
-  background-color: grey;
+  margin: 0.3em;
+  background-color: #ffffff;
+  color: #1f271b;
+  justify-self: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
 }
 
 .user-screen {
