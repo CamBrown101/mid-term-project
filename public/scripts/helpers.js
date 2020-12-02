@@ -51,12 +51,12 @@ const homePageLoad = () => {
   };
 
   $.get("/listings/favourites", (res) => {
-    if (res.length >= 3) {
+    if (res.length >= 4) {
       let arrayToRender = [];
 
+      //shifs the cards being rendered
       const increaseIndexByOne = () => {
         if (indexToStopRender === res.length) {
-          console.log(res.length);
           indexToStartRender = 0;
           indexToStopRender = 3;
         } else {
