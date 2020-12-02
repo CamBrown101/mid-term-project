@@ -240,7 +240,6 @@ select {
   justify-content: space-around;
   -webkit-box-shadow: 1px 3px 5px 5px #000000;
   box-shadow: 1px 3px 5px 5px #000000;
-  height: 45vh;
 }
 
 .main-container .card-container {
