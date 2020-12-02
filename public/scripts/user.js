@@ -1,4 +1,4 @@
-const renderUserPage = (user) => {
+const renderUserCard = (user) => {
   let isAdmin = "";
   if (user.is_admin) {
     isAdmin = "True";
@@ -97,6 +97,15 @@ const renderUserListings = (listings) => {
   }
 };
 
+const renderUserPage = (data) => {
+  $(".main-container").empty();
+  $(".main-container").append(renderUserCard(data));
+  $(".main-container").append(renderUserUpdateForm(data));
+  $.get("/users/listings/", (data) => {
+    renderUserListings(data);
+  });
+};
+
 $(document).ready(() => {
   $(".username-logged-in").click((event) => {
     $("main").on("click", ".user-listing-button", (event) => {
@@ -111,12 +120,7 @@ $(document).ready(() => {
     });
     event.preventDefault();
     $.get(`/users/current/`, (data) => {
-      $(".main-container").empty();
-      $(".main-container").append(renderUserPage(data));
-      $(".main-container").append(renderUserUpdateForm(data));
-      $.get("/users/listings/", (data) => {
-        renderUserListings(data);
-      });
+      renderUserPage(data);
     });
   });
 
@@ -135,9 +139,7 @@ $(document).ready(() => {
       picture: picture,
     };
     $.post("/users/", data, (user) => {
-      $(".main-container").empty();
-      $(".main-container").append(renderUserPage(user));
-      $(".main-container").append(renderUserUpdateForm(user));
+      renderUserPage(user);
     });
   });
 });

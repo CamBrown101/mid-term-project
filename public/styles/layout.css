@@ -1,12 +1,19 @@
 body {
-  background-color: #DCC7BE;
+  font-family: "Oxygen", sans-serif;
+  background-image: url("/img/webb.png");
+  background-repeat: repeat;
+}
+
+h3 {
+  font-weight: bolder;
+  font-size: 32px;
 }
 
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #0B4F6C;
+  background-color: #0b4f6c;
 }
 
 nav {
@@ -20,10 +27,6 @@ nav {
 
 nav i {
   font-size: 6em;
-}
-
-nav .hamburger {
-  font-size: 4em;
 }
 
 nav .nav-items {
@@ -123,11 +126,11 @@ input.search-input {
 .search-bar {
   z-index: 10;
   height: 20%;
-  background-color: #CBB9A8;
-  border: solid 3px #1F271B;
+  background-color: #cbb9a8;
+  border: solid 3px #1f271b;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  color: #1F271B;
+  color: #1f271b;
 }
 
 #new-listing-button {
@@ -222,17 +225,18 @@ select {
 }
 
 .main-container .category-heading {
-  color: #1F271B;
+  color: #1f271b;
   margin-left: 2%;
 }
 
 .main-container .card-row {
   display: flex;
-  background-color: grey;
+  background-color: rgba(255, 255, 255, 0.4);
   padding: 1%;
-  border: solid 3px lightgray;
-  border-radius: 10px;
+  border: solid 3px #ffffff;
   margin-bottom: 2%;
+  -webkit-box-shadow: 1px 3px 5px 5px #000000;
+  box-shadow: 1px 3px 5px 5px #000000;
 }
 
 .main-container .card-container {
@@ -244,10 +248,10 @@ select {
   padding: 3%;
   margin: 1%;
   text-overflow: inherit;
-  border: solid 5px #1F271B;
+  border: solid 5px #1f271b;
   border-radius: 10px;
-  background-color: #DCC7BE;
-  color: #1F271B;
+  background-color: #ffffff;
+  color: #1f271b;
   justify-self: center;
 }
 
@@ -267,7 +271,7 @@ select {
 }
 
 .main-container article.card-container a.btn {
-  background-color: #0B4F6C;
+  background-color: #0b4f6c;
   color: #ffffff;
 }
 
@@ -301,7 +305,7 @@ select {
   justify-content: center;
   align-items: center;
   background-color: grey;
-  border: solid 5px #1F271B;
+  border: solid 5px #1f271b;
   border-radius: 10px;
   margin: 2%;
   padding: 3%;
@@ -309,8 +313,8 @@ select {
 
 .image-wrapper img {
   margin: 0;
-  background-color: #DCC7BE;
-  border: solid 5px #1F271B;
+  background-color: #dcc7be;
+  border: solid 5px #1f271b;
   border-radius: 10px;
 }
 
@@ -327,7 +331,7 @@ select {
 #new-listing {
   width: 100%;
   background-color: grey;
-  border-color: #1F271B;
+  border-color: #1f271b;
 }
 
 .new-listing-content {
@@ -406,10 +410,10 @@ select {
   padding: 3%;
   margin: 1%;
   text-overflow: inherit;
-  border: solid 5px #1F271B;
+  border: solid 5px #1f271b;
   border-radius: 10px;
-  background-color: #145C9E;
-  color: #1F271B;
+  background-color: #145c9e;
+  color: #1f271b;
 }
 
 .messages {
@@ -426,7 +430,7 @@ select {
   flex-direction: column;
   width: 70%;
   border: solid 3px grey;
-  color: #1F271B;
+  color: #1f271b;
   border-radius: 10px;
   padding: 2%;
   margin-top: 2%;
@@ -434,12 +438,12 @@ select {
 
 .recieved {
   align-self: flex-start;
-  background-color: #CBB9A8;
+  background-color: #cbb9a8;
 }
 
 .sent {
   align-self: flex-end;
-  background-color: #DCC7BE;
+  background-color: #dcc7be;
 }
 
 .recieved .username {
@@ -470,7 +474,7 @@ select {
   display: flex;
   justify-content: space-between;
   margin-top: 2%;
-  border: solid 3px #1F271B;
+  border: solid 3px #1f271b;
   border-radius: 10px;
   background-color: #ffffff;
   width: 100%;
@@ -523,7 +527,7 @@ select {
 
 .conversation:hover {
   background-color: #ffffff;
-  color: #1F271B;
+  color: #1f271b;
 }
 
 .conversation-title-label {
@@ -577,7 +581,7 @@ select {
 .users-main {
   width: 90%;
   border-style: solid;
-  border-color: #1F271B;
+  border-color: #1f271b;
   border-radius: 10px;
   padding: 10px;
   display: grid;

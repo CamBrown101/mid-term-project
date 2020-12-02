@@ -32,7 +32,6 @@ const createListingBig = function (listing) {
 $(document).ready(() => {
   //Clicking an item brings user to listing page
   $("main").on("click", "a.small-listing-button", (event) => {
-
     const listingID = $(event.target).siblings(".id").html();
 
     $(".main-container").empty();

@@ -21,11 +21,11 @@ VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/tes
 
 
 
-INSERT INTO messages (listing_id, receiver_id, sender_id, message)
-VALUES (3, 2, 1, 'Hello!'),
-(3, 2, 3, 'Hi, is this still for sale?'),
-(4, 3, 1, 'Hello!'),
-(2, 3, 2, 'Hello!');
+-- INSERT INTO messages (listing_id, receiver_id, sender_id, message)
+-- VALUES (3, 2, 1, 'Hello!'),
+-- (3, 2, 3, 'Hi, is this still for sale?'),
+-- (4, 3, 1, 'Hello!'),
+-- (2, 3, 2, 'Hello!');
 
 
 INSERT INTO favorite_items (user_id, item_id)
