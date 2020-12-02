@@ -12,12 +12,12 @@ VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/lis
  (2, 'Crappy Bike', 600, 'Rusty bike, no returns', './img/listings/crappy.jpg', 'bikes', '2020-11-23 17:35:23 +0000'),
 (2, 'BMX Bike', 400, 'Awesome for tricks', './img/listings/bmx.jpg', 'bikes', '2020-11-22 17:35:23 +0000'),
  (2, 'Downhill Bike', 4000, 'Rocky Mountain bike, lightly used', './img/listings/downhill.jpg', 'bikes', '2020-11-21 17:35:23 +0000'),
- (2, 'Road Bike', 1500, 'Amazing road bike', 'img/test.png', 'bikes', '2020-11-20 17:35:23 +0000'),
- (2, 'Single Speed Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-19 17:35:23 +0000'),
+ (2, 'Road Bike', 1500, 'Amazing road bike', './img/listings/roadbike.jpg', 'bikes', '2020-11-20 17:35:23 +0000'),
+ (2, 'Single Speed Bike', 600, 'Rocky Mountain bike, lightly used', './img/listings/singlespeed.jpg', 'bikes', '2020-11-19 17:35:23 +0000'),
   ( 1, 'Xbox Series X', 1500, 'High price due to being a dirty scalper', './img/listings/xbox.jpg', 'games', '2020-11-18 17:35:23 +0000'),
  (1, 'Xbox Series S', 1000, 'High price due to being a dirty scalper', './img/listings/seriess.jpg', 'games', '2020-11-17 17:35:23 +0000'),
  (1, 'Nintendo 64', 200, 'N64 with all the good games', './img/listings/n64.jpg', 'games', '2020-11-16 17:35:23 +0000'),
- (1, 'Sega Genesis', 60, 'Sega Genesis with Sonic the Hedgehog', './img/test.png', 'games', '2020-11-15 17:35:23 +0000');
+ (1, 'Sega Genesis', 60, 'Sega Genesis with Sonic the Hedgehog', './img/listings/genesis.jpg', 'games', '2020-11-15 17:35:23 +0000');
 
 
 
