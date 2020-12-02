@@ -1,6 +1,5 @@
-  let messagesLength;
-  $(document).ready(() => {
-
+let messagesLength;
+$(document).ready(() => {
   let listingId = 0;
   let buyerId = 0;
   $("main").on("click", "#message-seller-btn", (event) => {
