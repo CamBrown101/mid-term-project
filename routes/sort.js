@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-//Get a single user
 module.exports = (db) => {
   router.get("/price", (req, res) => {
     const queryString = `SELECT * FROM listings
