@@ -1,18 +1,5 @@
 <%- include('partials/_header') %>
 
-<!-- Search for an item -->
-<!-- <div class="search-bar">
-  <div class="menu-container">
-    <form id="item-search" method="GET" action="/">
-      <label for="search-input">Search for an item</label>
-      <input type="text" name="text" class="search-input" id="text" require maxlength="50"></textarea>
-      <button class="btn btn-primary" type="submit">Search</button>
-    </form>
-    <button id="new-listing-button" class="btn btn-primary">New Listing</button>
-    <button id="get-faves-button" class="btn btn-primary">Favourites</button>
-  </div>
-</div> -->
-
 <!-- Main listings -->
 <main class="main-container">
   <div class="listings-favourites"></div>
@@ -23,35 +10,5 @@
   <h3 id="bikes-title" class="category-heading">Bikes</h3>
   <div id="listings-row-2" class="card-row"></div>
 </main>
-
-<!-- Messaging -->
-<!-- <div class="main-container">
-  <section id="messages-container">
-    <div class="messages">
-      <div class="message sent">
-        <p class="username">username</p>
-        <p class="message-content">message content</p>
-        <p class="timestamp">timestamp</p>
-      </div>
-
-      <div class="message recieved">
-        <p class="username">username</p>
-        <p class="message-content">message content</p>
-        <p class="timestamp">timestamp</p>
-      </div>
-      <form
-        class="messages-form"
-        method="POST"
-        name="new-message"
-        action="/messages/:listingid"
-      >
-        <textarea class="message-input" placeholder="New Message"></textarea>
-        <button id="message-submit" class="btn btn-primary" type="submit">
-          Send
-        </button>
-      </form>
-    </div>
-  </section>
-</div> -->
 
 <%- include('partials/_footer') %>
