@@ -6,7 +6,6 @@ $(document).ready(() => {
     event.preventDefault();
     listingId = $("#message-seller-btn").siblings(".big-id").text();
     const receiver_id = $(".seller-id").text();
-    console.log(receiver_id, "receiver_id");
     const reqData = {
       receiver_id,
     };
@@ -15,7 +14,6 @@ $(document).ready(() => {
       if (data.messages[0] !== undefined) buyerId = data.messages[0].sender_id;
       messageRender(data);
       const checkNewMessage = () => {
-        console.log("Fire");
         $.get(`/messages/${listingId}`, reqData, (data2) => {
           renderNewMessage(data2);
         });
@@ -65,7 +63,6 @@ $(document).ready(() => {
   $("main").on("click", ".conversation", (event) => {
     const senderId = $(event.currentTarget).children(".sender-id").html();
     const receiverId = $(event.currentTarget).children(".receiver-id").html();
-    console.log(senderId, receiverId);
     const dataObject = {
       sender_id: senderId,
       receiver_id: receiverId,
@@ -81,7 +78,6 @@ $(document).ready(() => {
 
       // Checks to see if there is a new message and renders it
       const checkNewMessage = () => {
-        console.log("Fire");
         $.get(`/messages/${listingId}`, dataObject, (data) => {
           renderNewMessage(data);
         });
