@@ -1,13 +1,11 @@
 .users-main {
   width: 90%;
-  border-style: solid;
-  border-color: $font-color;
-  border-radius: 10px;
-  padding: 10px;
   display: grid;
-  color: $project-white;
-  margin-bottom: 1em;
-  background-color: $background-grey;
+  margin: 0.3em;
+  background-color: $project-white;
+  color: $font-color;
+  justify-self: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
 }
 
 .user-screen {
@@ -87,18 +85,15 @@ label {
   grid-row: 1;
   grid-column: 2;
 }
-// <article class="user-listing-parent users-main">
-// <div class="user-listing-container-one">
-//   <object class="user-listing-image" data="${listing.picture_url}" type="image/png">
-//   <img class="user-listing-image" src="/img/test.png">
-//   </object>
+// <div class="user-screen users-main">
+// <div class="user-image-container">
+//   <img class="user-image" src="${user.user_image}"></p>
 // </div>
-// <div class="user-listing-container-two">
-//   <h5 class="user-listing-title"><h4 class="user-h4">Listing: </h4>${listing.title}</h5>
-//   <p class="user-listing-description"><h4 class="user-h4">Description: </h4>\n${listing.description}</p>
-//   <div class="id">${listing.id}</div>
-//   <div class="user-listing-price"><h4 class="user-h4">Price: </h4>$${listing.price}</div>
-//   <a src="#" class="btn btn-primary small-listing-button">View Item</a>
+// <div class="user-info-container">
+//   <div class="user-name user-item"><h4 class="user-header">User name: </h4>${user.name}</div>
+//   <div class="user-email user-item"><h4 class="user-header">Email: </h4>${user.email}</div>
+//   <div class="user-admin user-item"><h4 class="user-header">Admin Privileges: </h4>${isAdmin}</div>
+//   <div class="user-bio"><h4 class="user-header">User Bio:</h4>\n${user.user_bio}</div>
 // </div>
-// </article>
+//   </div>
 // `);

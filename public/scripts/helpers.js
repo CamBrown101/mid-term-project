@@ -19,7 +19,7 @@ const createNewCard = function (listing) {
         <p class="card-price">Price: $${listing.price}</p>
         <p class="card-date">Posted: ${time}</p>
         <div class="id">${listing.id}</div>
-        <a src="#" id="card-listing-button" class="btn small-listing-button">View Item</a>
+        <a src="#"  class="btn small-listing-button">View Item</a>
         </div>
     </article>
     `);

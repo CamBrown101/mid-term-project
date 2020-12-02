@@ -45,5 +45,18 @@ module.exports = (db) => {
       });
   });
 
+  router.get("/new", (req, res) => {
+    const queryString = `SELECT * FROM listings
+    JOIN users ON users.id = user_id
+    ORDER BY posted_date DESC
+    LIMIT 20;`;
+    db.query(queryString, [])
+      .then((data) => {
+        res.send(data.rows);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
   return router;
 };

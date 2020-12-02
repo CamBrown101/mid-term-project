@@ -314,7 +314,8 @@ select {
   grid-column: 1;
 }
 
-.main-container .card-lower .small-listing-button {
+.main-container .card-lower .small-listing-button,
+.main-container .card-lower .view-button {
   grid-row: 5;
   grid-column: 1;
   width: 60%;
@@ -331,7 +332,8 @@ select {
   transition: all 0.3s ease 0s;
 }
 
-.main-container .card-lower .small-listing-button:hover {
+.main-container .card-lower .small-listing-button:hover,
+.main-container .card-lower .view-button:hover {
   color: #404040;
   font-weight: 700;
   letter-spacing: 3px;
