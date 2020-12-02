@@ -1,5 +1,11 @@
 //Creates HTML for a new card listing
 const createNewCard = function (listing) {
+  //Convert date to readable format with moment.js
+  const local = moment(listing.posted_date)
+    .local()
+    .format("YYYY-MM-DD HH:mm:ss");
+  const time = moment(local).fromNow();
+
   const articleContainer = $(`
     <article class="card-container">
       <div class="card-upper">
@@ -10,6 +16,7 @@ const createNewCard = function (listing) {
       <div class="card-lower">
         <h5 class="card-title">${listing.title}</h5>
         <p class="card-description">${listing.description}</p>
+        <p class="big-date">Posted: ${time}</p>
         <a src="#" class="btn btn-primary small-listing-button">View Item</a>
         <div class="id">${listing.id}</div>
         </div>

@@ -1,27 +1,4 @@
 //Creates HTML for a new sorted card listing
-const createSortedCard = function (listing) {
-
-  //Convert date to readable format with moment.js
-  const local = moment(listing.posted_date)
-    .local()
-    .format("YYYY-MM-DD HH:mm:ss");
-  const time = moment(local).fromNow();
-
-  const articleContainer = $(`
-    <article class="card-container">
-      <h5 class="card-title">${listing.title}</h5>
-      <object class="listing-image" data="${listing.picture_url}" type="image/png">
-      <img id="listing-image" src="/img/test.png">
-      </object>
-      <p class="card-description">${listing.description}</p>
-      <a src="#" class="btn btn-primary small-listing-button">View Item</a>
-      <h5 class="big-price">$${listing.price}</h5>
-      <p class="big-date">Posted: ${time}</p>
-      <div class="id">${listing.id}</div>
-    </article>
-    `);
-  return articleContainer;
-};
 
 //Convert from select value for sort title string
 const convertForTitle = (string) => {
@@ -39,13 +16,13 @@ const renderSort = (listings, title) => {
   $(".main-container").append(`<h2 class="sort-header">${title}</h2>`);
   $(".main-container").append(`<div class="results-container"></div>`);
   listings.forEach((element) => {
-    $(".results-container").append(createSortedCard(element));
+    $(".results-container").append(createNewCard(element));
     $(".id").hide();
   });
 };
 
 const getSorted = (sortBy, options) => {
-  $.get(`/sort/${sortBy}`, {options}, (data) => {
+  $.get(`/sort/${sortBy}`, { options }, (data) => {
     $(".main-container").empty();
     //reset drop down select menus
     $("#sort-price").prop("selectedIndex", 0);
@@ -54,24 +31,24 @@ const getSorted = (sortBy, options) => {
     const title = `Sort by ${sortBy} ${convertForTitle(options)}`;
     renderSort(data, title);
   });
-}
+};
 
 $(document).ready(() => {
   //Sort by price select menu handler
   $("#sort-price").change(function () {
     const options = $("#sort-price").val();
-    getSorted('price', options);
+    getSorted("price", options);
   });
 
   //Sort by date select menu handler
   $("#sort-date").change(function () {
     const options = $("#sort-date").val();
-    getSorted('date', options);
+    getSorted("date", options);
   });
 
   //Sort by category select menu handler
   $("#sort-category").change(function () {
     const options = $("#sort-category").val();
-    getSorted('category', options);
+    getSorted("category", options);
   });
 });
