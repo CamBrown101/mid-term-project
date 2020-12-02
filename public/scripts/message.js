@@ -52,13 +52,32 @@ $(document).ready(() => {
       $(".main-container").empty();
       $(".main-container").append(createConversationContainer());
       for (const item of conversations) {
-        $(".conversations").append(createConversations(item));
-        $(".conversation-listing-id").hide();
-        $(".sender-id").hide();
-        $(".receiver-id").hide();
+        let $newConvo = createConversations(item)
+        const senderId = item.sender_id;
+        const receiverId = item.receiver_id;
+        const dataObject = {
+          sender_id: senderId,
+          receiver_id: receiverId,
+        };
+        listingId = item.listing_id;
+        $.get(`/messages/unread/${listingId}`, dataObject, (data) => {
+          //This is the number of new messages in this convo. currently unstyled
+          //$newConvo.children(".conversation-messages").append($(`<p>${data.count}</p>`));
+          $(".conversations").append($newConvo);
+          $(".conversation-listing-id").hide();
+          $(".sender-id").hide();
+          $(".receiver-id").hide();
+        });
       }
     });
   });
+
+  const unreadCheck = setInterval(() => {
+    $.get(`/messages/unread`, (data) => {
+      console.log(data);
+      $("#convo-btn").html(`Messages: ${data.count}`);
+    });
+  }, 3000);
 
   $("main").on("click", ".conversation", (event) => {
     const senderId = $(event.currentTarget).children(".sender-id").html();
@@ -81,6 +100,7 @@ $(document).ready(() => {
         $.get(`/messages/${listingId}`, dataObject, (data) => {
           renderNewMessage(data);
         });
+        $.post(`/messages/unread/${listingId}`, dataObject, () => {});
         if ($(".messages").length === 0) {
           clearTimeout(timeOut);
         }

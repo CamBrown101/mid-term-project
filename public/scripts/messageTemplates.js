@@ -50,7 +50,7 @@ const createConversationContainer = () => {
       <h4 class="conversation-title-label">Listing</h4>
       <h4 class="conversation-receiver-label">Owner</h4>
       <h4 class="conversation-sender-label">User</h4>
-      <h4 class="conversation-messages-label">Messages</h4>
+      <h4 class="conversation-messages-label">New Messages</h4>
       </div>
     </div>
   </section>
