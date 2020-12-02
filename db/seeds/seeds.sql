@@ -6,7 +6,11 @@ VALUES ('Marcel Mueller', 'mail.marcelm@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmv
 
 INSERT INTO listings(user_id, title, price, description, picture_url, category, posted_date)
 VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/stockimg.jpg', 'bikes', '2020-11-27 17:35:23 +0000'),
+<<<<<<< HEAD
  (3, 'Comfy Couch', 450, 'You will not regret sitting on this couch', './img/listings/couch.jpg', 'furniture', '2020-11-26 17:35:23 +0000'),
+=======
+ (3, 'Comfy Couch', 450, 'You will not regret sitting on this couch', './img/listings/couch', 'furniture', '2020-11-26 17:35:23 +0000'),
+>>>>>>> 9c5fa212df21cce06e0bee070694f6590ccb68ca
  (2, 'Macbook Pro', 700, 'Macbook Pro 2015, Core i5/16gb ram', './img/listings/macbook.jpg', 'computers', '2020-11-25 17:35:23 +0000'),
  (1, 'Playstation 5 console', 1500, 'High price due to being a dirty scalper', './img/listings/ps5.jpg', 'games', '2020-11-24 17:35:23 +0000'),
  (2, 'Crappy Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-23 17:35:23 +0000'),
