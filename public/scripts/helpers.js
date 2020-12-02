@@ -16,7 +16,8 @@ const createNewCard = function (listing) {
       <div class="card-lower">
         <h5 class="card-title">${listing.title}</h5>
         <p class="card-description">${listing.description}</p>
-        <p class="big-date">Posted: ${time}</p>
+        <p class="card-price">Price: $${listing.price}</p>
+        <p class="card-date">Posted: ${time}</p>
         <a src="#" class="btn btn-primary small-listing-button">View Item</a>
         <div class="id">${listing.id}</div>
         </div>
@@ -55,7 +56,7 @@ const homePageLoad = () => {
         res = res.slice(res.length - 4, res.length);
       }
       $(".listings-favourites")
-        .append(`<h3 class="category-heading">Favourites</h3>
+        .append(`<h3 id="favourites-title" class="favourites-title category-heading">Favourites</h3>
     <div id="listings-row-favourites" class="card-row"></div>`);
       renderListings(res.reverse(), "favourites");
     }

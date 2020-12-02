@@ -1,5 +1,4 @@
 $(document).ready(() => {
-
   //Render all listing objects in given array
   const renderListing = (listings) => {
     $(".main-container").empty();
@@ -29,11 +28,11 @@ $(document).ready(() => {
   });
 
   //Takes user to page displaying their favourited listings
-  $("#get-faves-button").click((event) => {
+  $("#get-faves-button, #favourites-title").click((event) => {
     event.preventDefault();
     clearResultsContainer();
     $.get("/listings/favourites", (listing) => {
-      $(".results-container").remove()
+      $(".results-container").remove();
       renderListing(listing);
     });
   });

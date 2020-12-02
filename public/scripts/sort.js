@@ -51,4 +51,17 @@ $(document).ready(() => {
     const options = $("#sort-category").val();
     getSorted("category", options);
   });
+
+  // //Front page category title click handlers
+  // $("main").on("click", "#games-title", function () {
+  //   getSorted("category", "games");
+  // });
+
+  // $("main").on("click", "#bikes-title", function () {
+  //   getSorted("category", "bikes");
+  // });
+
+  // $("main").on("click", "#new-listings-title", function () {
+  //   getSorted("new", "category");
+  // });
 });
