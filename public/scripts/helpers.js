@@ -69,9 +69,13 @@ const homePageLoad = () => {
       };
 
       const renderNextFour = () => {
+        console.log("fire");
         $("#listings-row-favourites").empty();
         buildArray();
         renderListings(arrayToRender, "favourites");
+        if ($(".card-row").length === 0) {
+          clearTimeout(timeOut);
+        }
       };
 
       //Initial load
@@ -82,7 +86,7 @@ const homePageLoad = () => {
       renderListings(arrayToRender, "favourites");
 
       //sets interval
-      setInterval(renderNextFour, 8000);
+      const timeOut = setInterval(renderNextFour, 3000);
     }
   });
 
