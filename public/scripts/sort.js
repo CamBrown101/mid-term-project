@@ -20,9 +20,19 @@ const createSortedCard = function (listing) {
   return articleContainer;
 };
 
-const renderSort = (listings) => {
+const convertForTitle = (string) => {
+  if (string === "ASC") {
+    return "ascending";
+  } else if (string === "DESC") {
+    return "descending";
+  }
+};
+const renderSort = (listings, title) => {
   $(".main-container").empty();
+  $(".main-container").append(`<h2 class="sort-header">${title}</h2>`);
+
   $(".main-container").append(`<div class="results-container"></div>`);
+
   listings.forEach((element) => {
     $(".results-container").append(createSortedCard(element));
     $(".id").hide();
@@ -41,7 +51,9 @@ $(document).ready(() => {
         //reset other drop down select menus
         $("#sort-date").prop("selectedIndex", 0);
         $("#sort-category").prop("selectedIndex", 0);
-        renderSort(data);
+        const converted = convertForTitle($("#sort-price").val());
+        const title = `Sort by price ${converted}`;
+        renderSort(data, title);
       });
     }
   });
@@ -57,7 +69,9 @@ $(document).ready(() => {
         //reset other drop down select menus
         $("#sort-price").prop("selectedIndex", 0);
         $("#sort-category").prop("selectedIndex", 0);
-        renderSort(data);
+        const converted = convertForTitle($("#sort-date").val());
+        const title = `Sort by date ${converted}`;
+        renderSort(data, title);
       });
     }
   });
@@ -73,7 +87,8 @@ $(document).ready(() => {
         //reset other drop down select menus
         $("#sort-price").prop("selectedIndex", 0);
         $("#sort-date").prop("selectedIndex", 0);
-        renderSort(data);
+        const title = `Sort by category ${$("#sort-category").val()}`;
+        renderSort(data, title);
       });
     }
   });
