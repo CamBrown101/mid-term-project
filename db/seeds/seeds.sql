@@ -1,7 +1,7 @@
 INSERT INTO users (name, email, password, user_image, user_bio, is_admin)
 VALUES ('Marcel Mueller', 'mail.marcelm@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/profile/marcel.jpg', 'I love coding and selling things', FALSE),
-('Cameron Brown', 'example@example.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './profile/cam.jpg', 'My name is Cam and I love perfect CSS alignment', FALSE),
-('Michael Krishna', 'test@test.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './profile/michael.jpg', 'My name is Michael and I am the route master', FALSE),
+('Cameron Brown', 'example@example.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/profile/cam.jpg', 'My name is Cam and I love perfect CSS alignment', FALSE),
+('Michael Krishna', 'test@test.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/profile/michael.jpg', 'My name is Michael and I am the route master', FALSE),
 ('Admin USer', 'admin@admin.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'My name is Michael and I am the route master', TRUE);
 
 INSERT INTO listings(user_id, title, price, description, picture_url, category, posted_date)
