@@ -69,7 +69,9 @@ $(document).ready(() => {
 
     //Check if listing favourited
     $.get(`/listings/favourites/${listingID}`, (data) => {
+      console.log(!data);
       if (data) {
+        console.log('rep1');
         $("#fave-button").replaceWith(
           `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
         );
