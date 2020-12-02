@@ -236,8 +236,12 @@ select {
   padding: 1%;
   border: solid 3px #ffffff;
   margin-bottom: 2%;
+<<<<<<< HEAD
   -webkit-box-shadow: 1px 3px 5px 5px #000000;
   box-shadow: 1px 3px 5px 5px #000000;
+=======
+  height: 45vh;
+>>>>>>> 73c9049c0a12d2649458edf0c166ed272412bb63
 }
 
 .main-container .card-container {
