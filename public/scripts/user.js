@@ -80,7 +80,7 @@ const newUserListing = (listing) => {
         <p class="user-listing-description"><h4 class="user-h4">Description: </h4>\n${listing.description}</p>
         <div class="price-btn-parent">
         <div class="user-listing-price"><h4 class="user-h4">Price: </h4>$${listing.price}</div>
-        <a src="#" class="btn btn-primary small-listing-button">View Item</a>        <div class="id">${listing.id}</div>
+        <a src="#" class="btn small-listing-button">View Item</a>        <div class="id">${listing.id}</div>
 
         </div>
         </div>
