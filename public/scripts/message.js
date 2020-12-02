@@ -59,6 +59,7 @@ const createConversationContainer = () => {
 };
 
 const createConversations = (item) => {
+  console.log(item);
   const sentMessageTemplate = $(`
           <div class="conversation">
             <p class="conversation-title conversation-item">${item.title}</p>
@@ -80,9 +81,11 @@ $(document).ready(() => {
     event.preventDefault();
     listingId = $("#message-seller-btn").siblings(".big-id").text();
     const receiver_id = $(".seller-id").text();
+    console.log(receiver_id, "receiver_id");
     const reqData = {
       receiver_id,
     };
+    console.log(reqData);
     $.get(`/messages/${listingId}`, reqData, (data) => {
       if (data.messages[0] !== undefined) buyerId = data.messages[0].sender_id;
       messageRender(data);
@@ -157,6 +160,7 @@ $(document).ready(() => {
   $("main").on("click", ".conversation", (event) => {
     const senderId = $(event.currentTarget).children(".sender-id").html();
     const receiverId = $(event.currentTarget).children(".receiver-id").html();
+    console.log(senderId, receiverId);
     const dataObject = {
       sender_id: senderId,
       receiver_id: receiverId,
@@ -175,6 +179,7 @@ $(document).ready(() => {
       const checkNewMessage = () => {
         console.log("Fire");
         $.get(`/messages/${listingId}`, dataObject, (data) => {
+          console.log(data, "data");
           if (messagesLength < data.messages.length) {
             const messagesToRender = data.messages.length - messagesLength;
             const messages = [];

@@ -1,10 +1,10 @@
 $(document).ready(() => {
-  //jQuery variables
-  const $searchBar = $(".search-bar");
-  //Show button on click
-  $(".hamburger").click(() => {
-    $searchBar.fadeToggle("slow");
-  });
+  // //jQuery variables
+  // const $searchBar = $(".search-bar");
+  // //Show button on click
+  // $(".hamburger").click(() => {
+  //   $searchBar.fadeToggle("slow");
+  // });
 
   const renderListing = (listings) => {
     $(".main-container").empty();

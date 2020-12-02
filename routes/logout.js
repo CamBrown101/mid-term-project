@@ -6,7 +6,6 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     req.session = null;
     res.clearCookie("user_id");
-
     res.redirect("/");
   });
 

@@ -1,4 +1,7 @@
+//basic functionality for logging in/out
 $(document).ready(() => {
+
+  //Makes get request to login to check if logged in
   $.get("/login", (data) => {
     if (data) {
       const username = data.name;
@@ -10,9 +13,8 @@ $(document).ready(() => {
       $("#logout").hide();
     }
   });
-  $(".login-btn").submit((event) => {
-    event.preventDefault();
-  });
+
+//logout button functionality
   $("#logout-btn").click(() => {
     $.get("/logout", () => {
       location.reload();

@@ -20,6 +20,7 @@ const selectReset = () => {
   $("#sort-category").prop("selectedIndex", 0);
   $("#sort-price").prop("selectedIndex", 0);
 };
+
 //Clears results container
 const clearResultsContainer = () => {
   $(".results-container").empty();
@@ -59,6 +60,7 @@ const homePageLoad = () => {
   }
 };
 
+//renders chat page with messages
 const messageRender = (data) => {
   const messages = data.messages;
   const id = data.user_id;
@@ -72,6 +74,7 @@ const messageRender = (data) => {
     }
   });
 };
+
 //Loads listings using the renderListings function
 const loadListings = () => {
   return $.ajax("/listings").then((listing) => {

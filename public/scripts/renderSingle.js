@@ -1,3 +1,4 @@
+//Renders the page for a single listing
 const createListingBig = function (listing) {
   const local = moment(listing.posted_date)
     .local()
@@ -29,14 +30,20 @@ const createListingBig = function (listing) {
 };
 
 $(document).ready(() => {
-  //Clicking an item brings user to item page
+  //Clicking an item brings user to listing page
   $("main").on("click", "a.small-listing-button", (event) => {
+
     const listingID = $(event.target).siblings(".id").html();
+
     $(".main-container").empty();
+
     $.get(`/listings/${listingID}`, (data) => {
+      //loading page
       $(".main-container").append(createListingBig(data.listing));
       $(".big-user-id").hide();
       $(".big-id").hide();
+
+      //getting info for logged in user and showing correct UI
       $.get(`/users/current`, (user) => {
         if (user.is_admin) {
           $("#delete-button").show();
@@ -47,16 +54,21 @@ $(document).ready(() => {
           $("#fave-button").hide();
         }
       });
+
+      //if logged in as owner of listing
       if (data.listing.user_id === data.user_id) {
         $("#message-seller-btn").hide();
         $("#delete-button").show();
         $("#sold-button").show();
       }
+
       if (data.listing.is_sold) {
         $(".image-wrapper").append('<h3 class="sold-indicator">SOLD!</h3>');
         $("#sold-button").hide();
       }
     });
+
+    //Check if listing favourited
     $.get(`/listings/favourites/${listingID}`, (data) => {
       if (data) {
         $("#fave-button").replaceWith(
@@ -73,6 +85,7 @@ $(document).ready(() => {
     homePageLoad();
   });
 
+  //Functionality of favourite button
   $("main").on("click", "#fave-button", (event) => {
     const listing = $(".big-id").text();
     console.log(listing);
@@ -83,6 +96,7 @@ $(document).ready(() => {
     });
   });
 
+  //Functionality to remove favourite
   $("main").on("click", "#fave-delete-button", (event) => {
     const listing = $(".big-id").text();
     $.post(
@@ -104,6 +118,8 @@ $(document).ready(() => {
       window.location.replace("/");
     });
   });
+
+  //Navigate to userpage of owner of listing
   $("main").on("click", ".big-user-name", (event) => {
     const id = $(".big-user-id").text();
     event.preventDefault();
@@ -112,6 +128,7 @@ $(document).ready(() => {
       $(".main-container").append(renderUserPage(data));
     });
   });
+
   //Mark Sold Functionality
   $("main").on("click", "#sold-button", (event) => {
     const listingid = $(".big-id").text();
