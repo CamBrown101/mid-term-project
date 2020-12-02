@@ -13,7 +13,6 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #0b4f6c;
   z-index: 999;
 }
 
@@ -22,7 +21,10 @@ nav {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  border: none;
   color: white;
+  background-image: url("/img/oriental-tiles.png");
+  background-repeat: repeat;
   top: 0;
   z-index: 100;
 }
@@ -81,10 +83,11 @@ nav .username-logged-in:hover {
   width: 100vw;
   height: 50px;
   top: 100px;
+  border-top: none;
   display: flex;
   flex-direction: row;
+  background-color: rgba(255, 0, 0, 0.5);
   white-space: nowrap;
-  background-color: grey;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
@@ -336,10 +339,9 @@ select {
   margin: 230px 7% 7% 100px;
   padding-bottom: 5%;
   padding: 3%;
-  background-color: grey;
-  width: 100%;
-  border: solid 3px lightgray;
-  border-radius: 10px;
+  background-color: #ffffff;
+  border: solid 3px #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
   margin: 0;
   justify-content: center;
   align-content: center;
