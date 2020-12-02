@@ -52,36 +52,27 @@ const homePageLoad = () => {
 
   $.get("/listings/favourites", (res) => {
     if (res.length >= 4) {
-      let arrayToRender = [];
-
-      //shifs the cards being rendered
-      const increaseIndexByOne = () => {
-        if (indexToStopRender === res.length) {
-          indexToStartRender = 0;
-          indexToStopRender = 3;
-        } else {
-          indexToStartRender += 1;
-          indexToStopRender += 1;
-        }
-      };
-      let indexToStartRender = 0;
-      let indexToStopRender = 3;
-      const renderNextFour = () => {
-        increaseIndexByOne(indexToStopRender);
-        $("#listings-row-favourites").empty();
+      const buildArray = () => {
         arrayToRender = [];
-        for (let i = indexToStartRender; i <= indexToStopRender; i++) {
-          arrayToRender.push(res[i]);
-          renderListings(arrayToRender, "favourites");
-        }
+        arrayToRender = [res[0], res[1], res[2], res[3]];
+        let firstItem = res.shift();
+        res.push(firstItem);
       };
-      for (let i = indexToStartRender; i <= indexToStopRender; i++) {
-        arrayToRender.push(res[i]);
-      }
+
+      const renderNextFour = () => {
+        $("#listings-row-favourites").empty();
+        buildArray();
+        renderListings(arrayToRender, "favourites");
+      };
+
+      //Initial load
+      buildArray();
       $(".listings-favourites")
         .append(`<h3 id="favourites-title" class="favourites-title category-heading">Favourites</h3>
     <div id="listings-row-favourites" class="card-row"></div>`);
       renderListings(arrayToRender, "favourites");
+
+      //sets interval
       setInterval(renderNextFour, 8000);
     }
   });
