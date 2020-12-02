@@ -6,13 +6,13 @@ const createNewCard = function (listing) {
       <object class="listing-image" data="${listing.picture_url}" type="image/png">
       <img class="listing-image" src="/img/test.png">
       </object>
-    </div>
-    <div class="card-lower">
-      <h5 class="card-title">${listing.title}</h5>
-      <p class="card-description">${listing.description}</p>
-      <a src="#" class="btn btn-primary small-listing-button">View Item</a>
-      <div class="id">${listing.id}</div>
       </div>
+      <div class="card-lower">
+        <h5 class="card-title">${listing.title}</h5>
+        <p class="card-description">${listing.description}</p>
+        <a src="#" class="btn btn-primary small-listing-button">View Item</a>
+        <div class="id">${listing.id}</div>
+        </div>
     </article>
     `);
   return articleContainer;
