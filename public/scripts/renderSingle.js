@@ -34,7 +34,6 @@ $(document).ready(() => {
     const listingID = $(event.target).siblings(".id").html();
     $(".main-container").empty();
     $.get(`/listings/${listingID}`, (data) => {
-      console.log(data);
       $(".main-container").append(createListingBig(data.listing));
       $(".big-user-id").hide();
       $(".big-id").hide();
@@ -76,7 +75,6 @@ $(document).ready(() => {
 
   $("main").on("click", "#fave-button", (event) => {
     const listing = $(".big-id").text();
-    console.log(listing)
     $.post("/listings/favourites", { listing: listing }, () => {
       $(event.target).replaceWith(
         `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`

@@ -7,11 +7,9 @@ module.exports = (db) => {
     const userID = req.session.user_id;
     const listingID = req.params.id;
     let receiverID = req.query.receiver_id;
-    console.log(req.query);
     if (userID == receiverID) {
       receiverID = req.query.sender_id;
     }
-    console.log( listingID, userID, receiverID,"help");
     db.query(
       `SELECT messages.id, messages.time, listing_id, sender_id, receiver_id, listings.user_id AS owner_id, listings.title, messages.message, senders.name AS sender, receivers.name AS receiver
               FROM messages
@@ -53,16 +51,13 @@ module.exports = (db) => {
       [userID]
     )
       .then((data) => {
-        console.log(data.rows);
         const returnData = {
           messages: data.rows,
           user_id: req.session.user_id,
         };
-        console.log(returnData);
         res.send(returnData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });

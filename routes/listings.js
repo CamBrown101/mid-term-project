@@ -72,7 +72,6 @@ module.exports = (db) => {
         res.send(listings);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });
@@ -80,7 +79,6 @@ module.exports = (db) => {
   //create a listing
   router.post("/", (req, res) => {
     const listing = req.body;
-    console.log(req.body);
     const queryParams = [
       req.session.user_id,
       listing.title,
@@ -100,7 +98,6 @@ module.exports = (db) => {
         res.send(listing);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json({ error: err.message });
       });
   });
