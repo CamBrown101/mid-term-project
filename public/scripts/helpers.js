@@ -2,13 +2,17 @@
 const createNewCard = function (listing) {
   const articleContainer = $(`
     <article class="card-container">
-      <h5 class="card-title">${listing.title}</h5>
+      <div class="card-upper">
       <object class="listing-image" data="${listing.picture_url}" type="image/png">
-      <img id="listing-image" src="/img/test.png">
+      <img class="listing-image" src="/img/test.png">
       </object>
+    </div>
+    <div class="card-lower">
+      <h5 class="card-title">${listing.title}</h5>
       <p class="card-description">${listing.description}</p>
       <a src="#" class="btn btn-primary small-listing-button">View Item</a>
       <div class="id">${listing.id}</div>
+      </div>
     </article>
     `);
   return articleContainer;

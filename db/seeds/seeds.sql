@@ -5,7 +5,7 @@ VALUES ('Marcel Mueller', 'mail.marcelm@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmv
 ('Admin USer', 'admin@admin.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', './img/test.png', 'My name is Michael and I am the route master', TRUE);
 
 INSERT INTO listings(user_id, title, price, description, picture_url, category, posted_date)
-VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/test.png', 'bikes', '2020-11-27 17:35:23 +0000'),
+VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/stockimg.jpg', 'bikes', '2020-11-27 17:35:23 +0000'),
  (3, 'Comfy Couch', 450, 'You will not regret sitting on this couch', './img/test.png', 'furniture', '2020-11-26 17:35:23 +0000'),
  (2, 'Macbook Pro', 700, 'Macbook Pro 2015, Core i5/16gb ram', './img/test.png', 'computers', '2020-11-25 17:35:23 +0000'),
  (1, 'Playstation 5 console', 1500, 'High price due to being a dirty scalper', './img/test.png', 'games', '2020-11-24 17:35:23 +0000'),
