@@ -1,5 +1,6 @@
 //Creates HTML for a new sorted card listing
 const createSortedCard = function (listing) {
+
   //Convert date to readable format with moment.js
   const local = moment(listing.posted_date)
     .local()
@@ -50,6 +51,7 @@ $(document).ready(() => {
       const optionsObj = {
         options: options,
       };
+
       $.get(`/sort/price`, optionsObj, (data) => {
         $(".main-container").empty();
         //reset other drop down select menus
