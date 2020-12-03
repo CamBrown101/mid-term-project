@@ -163,6 +163,8 @@ input.search-input {
   transition: all 0.3s ease 0s;
 }
 
+#hide-new-listing:hover,
+#new-listing-click:hover,
 #new-listing-button:hover,
 #get-faves-button:hover,
 #logout-btn:hover,
@@ -355,6 +357,13 @@ select {
   font-size: 20px;
   font-weight: bolder;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+  max-width: 1000px;
+}
+
+.new-listing-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
 }
 
 .new-listing-content {
@@ -410,6 +419,24 @@ select {
 
 #hide-new-listing {
   width: 100%;
+}
+
+#hide-new-listing,
+#new-listing-click {
+  width: 130px;
+  height: 40px;
+  user-select: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: #404040;
+  color: #ffffff !important;
+  font-weight: 100;
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
 }
 
 #messages-container {
