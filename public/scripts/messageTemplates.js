@@ -5,7 +5,7 @@ const createMessagesContainer = () => {
       <div class="messages">
       </div>
       <form class="messages-form" method="POST" action="/messages/:listingid">
-        <textarea class="message-input" placeholder="New Message"></textarea>
+        <input type="text" class="message-input" placeholder="New Message"></textarea>
         <button id="message-submit" class="btn btn-primary" type="submit">
           Send
         </button>

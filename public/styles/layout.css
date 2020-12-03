@@ -142,7 +142,8 @@ input.search-input {
 #logout-btn,
 #convo-btn,
 #nav-search,
-.login-btn {
+.login-btn,
+#message-submit {
   user-select: none;
   grid-row: 1;
   grid-column: 2;
@@ -169,7 +170,8 @@ input.search-input {
 #logout-btn:hover,
 #convo-btn:hover,
 #nav-search:hover,
-.login-btn:hover {
+.login-btn:hover,
+#message-submit:hover {
   background-color: #ffffff;
   color: #404040 !important;
   font-weight: 700;
@@ -178,6 +180,12 @@ input.search-input {
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.3s ease 0s;
+}
+
+#message-submit {
+  height: 100%;
+  padding-top: 10px;
+  font-size: 18px;
 }
 
 select {
@@ -499,12 +507,18 @@ select {
 
 .recieved {
   align-self: flex-start;
-  background-color: #cbb9a8;
+  background-color: #adb5bd;
+  border: solid 3px #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .sent {
   align-self: flex-end;
-  background-color: #dcc7be;
+  background-color: #e9ecef;
+  border: solid 3px #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .recieved .username {
@@ -535,9 +549,11 @@ select {
   display: flex;
   justify-content: space-between;
   margin-top: 2%;
-  border: solid 3px #1f271b;
-  border-radius: 10px;
-  background-color: grey;
+  border: solid 3px #ffffff;
+  border-radius: 2px;
+  font-size: 18px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+  background-color: #ffffff;
   width: 100%;
 }
 

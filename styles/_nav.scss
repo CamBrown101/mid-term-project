@@ -129,7 +129,8 @@ input.search-input {
 #logout-btn,
 #convo-btn,
 #nav-search,
-.login-btn {
+.login-btn,
+#message-submit {
   user-select: none;
   grid-row: 1;
   grid-column: 2;
@@ -156,7 +157,8 @@ input.search-input {
 #logout-btn:hover,
 #convo-btn:hover,
 #nav-search:hover,
-.login-btn:hover {
+.login-btn:hover,
+#message-submit:hover {
   background-color: #ffffff;
   color: #404040 !important;
   font-weight: 700;
@@ -168,6 +170,11 @@ input.search-input {
   transition: all 0.3s ease 0s;
 }
 
+#message-submit {
+  height: 100%;
+  padding-top: 10px;
+  font-size: 18px;
+}
 select {
   height: 30px;
   color: #ffffff;
