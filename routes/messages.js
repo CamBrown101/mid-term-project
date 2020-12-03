@@ -35,10 +35,8 @@ module.exports = (db) => {
               JOIN users senders ON sender_id = senders.id
               JOIN users receivers ON receiver_id = receivers.id
               JOIN listings ON listing_id = listings.id
-              WHERE ((sender_id = $1
-              AND receiver_id = $3)
-              OR (sender_id = $3
-              AND receiver_id = $1))
+              WHERE (sender_id = $3
+              AND receiver_id = $1)
               AND listing_id = $2
               AND is_read = false;`,
       [userID, listingID, receiverID]
