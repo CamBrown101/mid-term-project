@@ -143,7 +143,13 @@ input.search-input {
 #convo-btn,
 #nav-search,
 .login-btn,
-#message-submit {
+#message-submit,
+#message-seller-btn,
+#fave-delete-button,
+#fave-button,
+.big-back,
+#delete-button,
+#sold-button {
   user-select: none;
   grid-row: 1;
   grid-column: 2;
@@ -171,7 +177,13 @@ input.search-input {
 #convo-btn:hover,
 #nav-search:hover,
 .login-btn:hover,
-#message-submit:hover {
+#message-submit:hover,
+#message-seller-btn:hover,
+#fave-delete-button:hover,
+#fave-button:hover,
+.big-back:hover,
+#delete-button:hover,
+#sold-button:hover {
   background-color: #ffffff;
   color: #404040 !important;
   font-weight: 700;
@@ -510,7 +522,7 @@ select {
   background-color: #adb5bd;
   border: solid 3px #ffffff;
   border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.6);
 }
 
 .sent {
@@ -518,7 +530,7 @@ select {
   background-color: #e9ecef;
   border: solid 3px #ffffff;
   border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.6);
 }
 
 .recieved .username {
