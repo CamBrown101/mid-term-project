@@ -52,6 +52,7 @@ const createNewListingForm = function () {
       <option value="computers">Computers</option>
       <option value="games">Games</option>
     </select>
+    
     <button id="new-listing-click" class="btn styled-button" type="submit">
       Submit
     </button>
@@ -67,6 +68,7 @@ const createNewListingForm = function () {
 $(document).ready(() => {
   //Loads new listing form
   $("#new-listing-button").click(() => {
+    $(".search-bar").fadeOut();
     $(".main-container").empty();
     $(".main-container").append(createNewListingForm());
   });

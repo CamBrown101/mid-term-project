@@ -3,8 +3,10 @@ header {
   top: 0;
   width: 100%;
   z-index: 999;
-  background-image: url("/img/oriental-tiles.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/img/webb.png");
   background-repeat: repeat;
+  border: 1px solid #000;
 }
 
 nav {
@@ -117,7 +119,7 @@ nav {
     url("/img/webb.png");
   background-repeat: repeat;
   white-space: nowrap;
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
+  box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
 #item-search {
