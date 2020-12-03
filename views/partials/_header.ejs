@@ -66,7 +66,6 @@
                 <h5 class="username-logged-in">Logged in as: username</h5>
                 <button id="logout-btn" class="align-middle btn btn-primary">Logout</button>
                 <button type="button" id="convo-btn" class="align-middle btn btn-primary">Messages</button>
-
               </div>
             </div>
 
@@ -83,45 +82,48 @@
               <button id="new-listing-button" class="nav-item btn btn-primary">New Listing</button>
               <button id="get-faves-button" class="nav-item btn btn-primary">Favourites</button>
             </div>
-
           </div>
         </div>
+
       </nav>
-      <nav class="nav-search-sort">
-        <form id="item-search" class="nav-item" method="GET" action="/">
-          <input type="text" name="text" class="search-input" id="search-input" require maxlength="50"></textarea>
-          <button id="nav-search" class="btn" type="submit">Search</button>
-        </form>
-        <div class="filter-options">
-          <form class="filter">
-            <label for="price-max">Max:</label>
-            <input type="number" id="price-max" required name="max"/>
-            <label for="price-max">Min:</label>
-            <input type="number" id="price-min" required name="min"/>
-            <button type="submit" class="login-btn btn btn-primary">Filter</button>
+
+
+      <div class="nav-search-sort">
+        <div id="left-aligned-search">
+          <form id="item-search" class="nav-item" method="GET" action="/">
+            <input type="text" name="text" class="search-input" id="search-input" require maxlength="50"></textarea>
+            <button id="nav-search" class="btn" type="submit">Search</button>
           </form>
+            <form class="filter">
+              <label class="min-max-label" for="price-max">Min:</label>
+              <input type="number" id="price-min" required name="min"/>
+              <label class="min-max-label" for="price-max">Max:</label>
+              <input type="number" id="price-max" required name="max"/>
+              <button id="filter-button" type="submit" class="btn btn-primary">Filter</button>
+            </form>
         </div>
-       
-        <select class="nav-item" id="sort-price" name="price">
-          <option value="price">Sort by price</option>
-          <option value="ASC">Price asc‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎&#9650;</option>
-          <option value="DESC">Price‎ desc‎ ‎  ‎ ‎ ‎ ‎‎&#9660;</option>
-        </select>
+        <div class="sort-selectors">
+          <select id="sort-price" name="price">
+            <option value="price">Sort by price</option>
+            <option value="ASC">Price asc‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎&#9650;</option>
+            <option value="DESC">Price‎ desc‎ ‎  ‎ ‎ ‎ ‎‎&#9660;</option>
+          </select>
+  
+          <select id="sort-date" name="date">
+            <option value="date">Sort by date</option>
+            <option value="ASC">Date asc‎‎‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎‎&#9650;</option>
+            <option value="DESC">Date desc ‎ ‎ ‎  ‎ ‎‎&#9660;</option>
+          </select>
+  
+          <select id="sort-category" name="category">
+            <option value="category">Category</option>
+            <option value="bikes">Bikes</option>
+            <option value="computers">Computers</option>
+            <option value="games">Games</option>
+          </select>
+        </div>
+       </div>
 
-        <select class="nav-item" id="sort-date" name="date">
-          <option value="date">Sort by date</option>
-          <option value="ASC">Date asc‎‎‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎‎&#9650;</option>
-          <option value="DESC">Date desc ‎ ‎ ‎  ‎ ‎‎&#9660;</option>
-        </select>
-
-        <select class="nav-item" id="sort-category" name="category">
-          <option value="category">Category</option>
-          <option value="bikes">Bikes</option>
-          <option value="computers">Computers</option>
-          <option value="games">Games</option>
-        </select>
-      </nav>
     </header>
-
   </body>
 </html>

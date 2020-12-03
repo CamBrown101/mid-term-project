@@ -30,20 +30,38 @@ nav {
 }
 
 nav i {
-  font-size: 6em;
+  font-size: 4em;
+  margin-left: 45%;
+  margin-right: auto;
 }
 
 nav .nav-items {
-  padding: 0 2%;
   width: 100%;
-  margin-bottom: 2%;
+  margin-bottom: 1.25%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  text-align: center;
+}
+
+nav #nav-left-container {
+  width: 300px;
+  left: 0;
+  display: flex;
+  position: fixed;
+  flex-direction: rows;
+  margin-left: 3%;
+}
+
+nav #nav-left-container #new-listing-button,
+nav #nav-left-container #get-faves-button {
+  display: block;
+  margin: 0 2%;
 }
 
 nav #logout {
   display: none;
+  margin-right: 3%;
 }
 
 nav .logout {
@@ -51,6 +69,7 @@ nav .logout {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-right: 3%;
 }
 
 nav #login {
@@ -80,23 +99,29 @@ nav .username-logged-in:hover {
   cursor: pointer;
 }
 
+.sort-selectors {
+  justify-self: flex-end;
+}
+
+#left-aligned-search {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .nav-search-sort {
   position: fixed;
   width: 100vw;
+  padding-right: 5%;
   height: 50px;
   top: 100px;
   border-top: none;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/webb.png");
   background-repeat: repeat;
   white-space: nowrap;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
-}
-
-.nav-item {
-  text-align: center;
-  margin: 5px;
 }
 
 #item-search {
@@ -111,8 +136,8 @@ input.search-input {
   background-image: url(/img/search.png);
   background-repeat: no-repeat;
   background-position: left center;
-  padding-left: 50px;
   margin-left: 20px;
+  margin-right: 2%;
   background-size: 48px 48px;
   background-color: #fff;
   border: 1px solid #000;
@@ -128,16 +153,7 @@ input.search-input {
   height: 38px;
 }
 
-.search-bar {
-  z-index: 10;
-  height: 20%;
-  background-color: #cbb9a8;
-  border: solid 3px #1f271b;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  color: #1f271b;
-}
-
+#filter-button,
 #new-listing-button,
 #get-faves-button,
 #logout-btn,
@@ -153,8 +169,6 @@ input.search-input {
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  justify-content: center;
   border: none;
   background-color: #404040;
   color: #ffffff !important;
@@ -163,6 +177,7 @@ input.search-input {
   transition: all 0.3s ease 0s;
 }
 
+#filter-button:hover,
 #hide-new-listing:hover,
 #new-listing-click:hover,
 #new-listing-button:hover,
@@ -181,6 +196,29 @@ input.search-input {
   transition: all 0.3s ease 0s;
 }
 
+#filter-button {
+  display: inline-block;
+  margin-right: 2%;
+  vertical-align: top;
+}
+
+.min-max-label {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+
+#price-max,
+#price-min {
+  height: 40px;
+  width: 80px;
+  font-size: 20px;
+  border: 1px solid #000;
+  box-shadow: none;
+  -webkit-appearance: none;
+}
+
 select {
   height: 30px;
   color: #ffffff;
@@ -189,69 +227,6 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-
-.fas {
-  font-size: 7vw;
-  margin-left: 45%;
-  margin-right: auto;
-}
-
-@media (max-width: 1000px) {
-  .nav-search-sort {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    background-color: grey;
-    height: 140px;
-  }
-  .nav-item {
-    width: 100%;
-    margin: 4px;
-    text-align: center;
-  }
-  #item-search {
-    width: 100%;
-    grid-row: 1;
-    grid-column: 1;
-  }
-  input.search-input {
-    width: 300px;
-  }
-  #get-favss-button {
-    grid-row: 2;
-    grid-column: 1;
-  }
-  #sort-price {
-    grid-row: 2;
-    grid-column: 2;
-  }
-  #sort-date {
-    grid-row: 3;
-    grid-column: 1;
-  }
-  #sort-category {
-    grid-row: 3;
-    grid-column: 2;
-  }
-}
-
-#nav-left-container {
-  width: 300px;
-  left: 0;
-  margin-top: auto;
-  margin-top: auto;
-  display: flex;
-  position: fixed;
-  flex-direction: rows;
-}
-
-#nav-left-container #get-faves-button {
-  display: block;
-}
-
-#nav-left-container #new-listing-button {
-  display: block;
 }
 
 .menu-container {
@@ -413,12 +388,6 @@ select {
 
 #hide-new-listing {
   margin-top: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#hide-new-listing {
-  width: 100%;
 }
 
 #hide-new-listing,

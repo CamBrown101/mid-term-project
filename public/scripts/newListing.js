@@ -65,7 +65,6 @@ const createNewListingForm = function () {
 $(document).ready(() => {
   //Loads new listing form
   $("#new-listing-button").click(() => {
-    $(".search-bar").fadeOut();
     $(".main-container").empty();
     $(".main-container").append(createNewListingForm());
   });
