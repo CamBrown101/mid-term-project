@@ -236,8 +236,9 @@ select {
 }
 
 #nav-left-container {
-  width: 300px;
+  width: 360px;
   left: 0;
+  white-space: nowrap;
   margin-top: auto;
   margin-top: auto;
   display: flex;
@@ -247,10 +248,12 @@ select {
 
 #nav-left-container #get-faves-button {
   display: block;
+  width: 170px;
 }
 
 #nav-left-container #new-listing-button {
   display: block;
+  width: 170px;
 }
 
 .menu-container {
@@ -356,7 +359,7 @@ select {
   font-size: 20px;
   font-weight: bolder;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
-  max-width: 1000px;
+  max-width: 700px;
 }
 
 .new-listing-container {
@@ -367,38 +370,52 @@ select {
 
 .new-listing-content {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
-#listing-title {
+.new-listing-content #listing-title {
   grid-row: 1;
-  grid-column: 1 / 2;
+  grid-column: auto / span 2;
+  height: 30px;
 }
 
-#listing-number {
+.new-listing-content #listing-description {
   grid-row: 2;
-  grid-column: 1 / 2;
+  grid-column: auto / span 2;
+  height: 30px;
 }
 
-#listing-description {
+.new-listing-content #listing-picture-url {
   grid-row: 3;
-  grid-column: 1 / 2;
+  grid-column: auto / span 2;
+  height: 30px;
 }
 
-#listing-picture-url {
+.new-listing-content #listing-category {
   grid-row: 4;
-  grid-column: 1 / 2;
+  grid-column: 1;
+  height: 30px;
+  -webkit-appearance: menulist-button;
 }
 
-#listing-category {
+.new-listing-content #listing-number {
+  grid-row: 4;
+  grid-column: 2;
+  height: 30px;
+  background-color: #404040;
+  color: #ffffff;
+}
+
+.new-listing-content #new-listing-click {
   grid-row: 5;
-  grid-column: 1 / 2;
+  grid-column: 1;
+  margin-top: 8px;
 }
 
-#listing-submit {
-  grid-row: 6;
-  grid-column: 1 / 2;
+.new-listing-content #hide-new-listing {
+  grid-row: 5;
+  grid-column: 2;
 }
 
 #listing-title,
@@ -430,6 +447,10 @@ select {
   font-weight: 100;
   text-transform: uppercase;
   transition: all 0.3s ease 0s;
+}
+
+#new-listing-title {
+  margin-left: 8px;
 }
 
 #messages-container {

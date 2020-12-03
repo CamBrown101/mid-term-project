@@ -229,8 +229,9 @@ select {
 }
 
 #nav-left-container {
-  width: 300px;
+  width: 360px;
   left: 0;
+  white-space: nowrap;
   margin-top: auto;
   margin-top: auto;
   display: flex;
@@ -238,8 +239,10 @@ select {
   flex-direction: rows;
   #get-faves-button {
     display: block;
+    width: 170px;
   }
   #new-listing-button {
     display: block;
+    width: 170px;
   }
 }
