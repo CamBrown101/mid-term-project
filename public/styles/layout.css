@@ -108,18 +108,24 @@ nav .username-logged-in:hover {
   justify-content: flex-start;
 }
 
+.search-align {
+  margin: 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .nav-search-sort {
   position: fixed;
   width: 100vw;
-  padding-right: 5%;
   height: 50px;
   top: 100px;
   border-top: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("/img/webb.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/webb.png");
   background-repeat: repeat;
   white-space: nowrap;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
@@ -133,12 +139,12 @@ nav .username-logged-in:hover {
 input.search-input {
   height: 40px;
   max-width: 100%;
+  margin-right: 2%;
   font-size: 20px;
   background-image: url(/img/search.png);
   background-repeat: no-repeat;
   background-position: left center;
-  margin-left: 20px;
-  margin-right: 2%;
+  padding-left: 0;
   background-size: 48px 48px;
   background-color: #fff;
   border: 1px solid #000;

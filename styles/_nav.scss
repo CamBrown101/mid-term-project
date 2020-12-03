@@ -86,15 +86,24 @@ nav {
     cursor: pointer;
   }
 }
+
 .sort-selectors {
   justify-self: flex-end;
-  margin-right: 7%;
 }
+
 #left-aligned-search {
   display: flex;
   justify-content: flex-start;
-  margin-left: 7%;
 }
+
+.search-align {
+  margin: 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .nav-search-sort {
   position: fixed;
   width: 100vw;
