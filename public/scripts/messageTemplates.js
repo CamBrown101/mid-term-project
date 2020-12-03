@@ -60,7 +60,7 @@ const createConversationContainer = () => {
 
 const createConversations = (item) => {
   const sentMessageTemplate = $(`
-    <div class="conversation">
+    <div class="conversation wow animate__fadeIn animate__animated">
       <p class="conversation-title conversation-item">${item.title}</p>
       <p class="conversation-receiver conversation-item">${item.receiver}</p>
       <p class="conversation-sender conversation-item">${item.sender}</p>
