@@ -47,7 +47,7 @@ nav #logout {
 }
 
 nav .logout {
-  min-width: 400px;
+  min-width: 440px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -142,7 +142,8 @@ input.search-input {
 #get-faves-button,
 #logout-btn,
 #convo-btn,
-#nav-search {
+#nav-search,
+.login-btn {
   user-select: none;
   grid-row: 1;
   grid-column: 2;
@@ -166,12 +167,13 @@ input.search-input {
 #get-faves-button:hover,
 #logout-btn:hover,
 #convo-btn:hover,
-#nav-search:hover {
+#nav-search:hover,
+.login-btn:hover {
   background-color: #ffffff;
   color: #404040 !important;
   font-weight: 700;
   letter-spacing: 3px;
-  background: none;
+  white-space: nowrap;
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.3s ease 0s;
@@ -243,12 +245,12 @@ select {
 .results-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  padding: 3%;
-  background-color: grey;
+  background-color: #ffffff;
+  padding: 1%;
+  border: solid 3px #ffffff;
   width: 100%;
-  border: solid 3px lightgray;
-  border-radius: 10px;
   margin: 0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-content: center;
 }
@@ -327,10 +329,27 @@ select {
   display: none;
 }
 
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  background-color: #ffffff;
+  padding: 1%;
+  border: solid 3px #ffffff;
+  width: 100%;
+  margin: 0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-content: center;
+}
+
 #new-listing {
   width: 100%;
-  background-color: grey;
-  border-color: #1f271b;
+  background-color: #ffffff;
+  padding: 1%;
+  border: solid 3px #ffffff;
+  font-size: 20px;
+  font-weight: bolder;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
 }
 
 .new-listing-content {
