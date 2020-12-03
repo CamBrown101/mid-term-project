@@ -12,9 +12,9 @@ const morgan = require("morgan");
 const cookieSession = require("cookie-session");
 
 // PG database client/connection setup
-const { Pool } = require("pg");
+const { Client } = require("pg");
 const dbParams = require("./lib/db.js");
-const db = new Pool(dbParams);
+const db = new Client(dbParams);
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT

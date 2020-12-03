@@ -192,6 +192,8 @@ input.search-input {
 #delete-button,
 #sold-button {
   user-select: none;
+  grid-row: 1;
+  grid-column: 2;
   width: 150px;
   height: 40px;
   user-select: none;
