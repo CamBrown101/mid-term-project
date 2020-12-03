@@ -54,6 +54,7 @@ $(document).ready(() => {
         if (user) {
           $("#message-seller-btn").show();
           $("#fave-button").show();
+          $("#fave-delete-button").show();
         }
       });
 
