@@ -30,10 +30,24 @@ nav {
   z-index: 100;
 }
 
-nav i {
-  font-size: 4em;
+nav .icon {
+  margin-bottom: 0;
+  font-size: 4rem;
   margin-left: 45%;
   margin-right: auto;
+  font-family: "BenchNine", sans-serif;
+  align-self: baseline;
+  margin-top: 10%;
+  user-select: none;
+}
+
+nav .logo-container {
+  width: 100%;
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-start;
+  margin-right: auto;
+  margin-left: 5%;
 }
 
 nav .nav-items {
@@ -178,7 +192,7 @@ input.search-input {
   user-select: none;
   grid-row: 1;
   grid-column: 2;
-  width: 130px;
+  width: 150px;
   height: 40px;
   user-select: none;
   cursor: pointer;
@@ -233,6 +247,11 @@ input.search-input {
 #sold-button {
   height: 40px;
   display: none;
+  margin: 10px;
+}
+
+#message-seller-btn:hover .message-icon {
+  filter: invert(0%);
 }
 
 .min-max-label {
@@ -276,7 +295,7 @@ select {
 
 .big-listing {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.8fr 1.2fr;
   grid-template-rows: 1fr;
   max-width: 940px;
   margin-left: auto;
@@ -295,8 +314,8 @@ select {
 .big-info-container {
   grid-row: 1;
   grid-column: 2;
-  padding: 1em;
-  margin: auto;
+  padding-top: 0.5em;
+  padding-left: 2em;
 }
 
 .big-user-name {
@@ -304,6 +323,11 @@ select {
   white-space: nowrap;
   user-select: none;
   font-size: 20px;
+  margin-bottom: 3em;
+}
+
+.big-title {
+  margin-top: 1.5em;
 }
 
 .big-user-name:hover {
@@ -559,6 +583,12 @@ select {
   width: 100%;
   border: none;
   resize: none;
+}
+
+.message-icon {
+  max-width: 30px;
+  max-height: 30px;
+  filter: invert(100%);
 }
 
 .main-footer {

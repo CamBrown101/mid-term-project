@@ -19,12 +19,26 @@ nav {
 
   top: 0;
   z-index: 100;
-  i {
-    font-size: 4em;
+
+  .icon {
+    margin-bottom: 0;
+    font-size: 4rem;
     margin-left: 45%;
     margin-right: auto;
+    font-family: "BenchNine", sans-serif;
+    align-self: baseline;
+    margin-top: 10%;
+    user-select: none;
   }
 
+  .logo-container {
+    width: 100%;
+    display: flex;
+    align-content: flex-end;
+    justify-content: flex-start;
+    margin-right: auto;
+    margin-left: 5%;
+  }
   .nav-items {
     width: 100%;
     margin-bottom: 1.25%;
@@ -168,7 +182,7 @@ input.search-input {
   user-select: none;
   grid-row: 1;
   grid-column: 2;
-  width: 130px;
+  width: 150px;
   height: 40px;
   user-select: none;
   cursor: pointer;
@@ -223,6 +237,11 @@ input.search-input {
 #sold-button {
   height: 40px;
   display: none;
+  margin: 10px;
+}
+
+#message-seller-btn:hover .message-icon {
+  filter: invert(0%);
 }
 .min-max-label {
   text-transform: uppercase;
@@ -230,6 +249,7 @@ input.search-input {
   margin-right: 2.5%;
   margin-left: 2.5%;
 }
+
 #price-max,
 #price-min {
   height: 40px;

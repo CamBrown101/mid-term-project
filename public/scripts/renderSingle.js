@@ -20,7 +20,7 @@ const createListingBig = function (listing) {
       <p class="big-user-id">${listing.user_id}</p>
       <p class="big-date">Posted: ${time}</p>
       <p class="big-user-name">Seller: ${listing.name}</p>
-      <btn class="btn btn-primary message-button" id="message-seller-btn">Message seller</btn>
+      <btn class="btn btn-primary message-button" id="message-seller-btn"><img class="message-icon" src="./img/comment.png"></btn>
       <p class="big-id">${listing.id}</p>
       <p class="seller-id">${listing.user_id}</p>
       <btn class="btn btn-primary" id="fave-button">Favorite</btn>
@@ -54,6 +54,7 @@ $(document).ready(() => {
         if (user) {
           $("#message-seller-btn").show();
           $("#fave-button").show();
+          $("#fave-delete-button").show();
         }
       });
 
