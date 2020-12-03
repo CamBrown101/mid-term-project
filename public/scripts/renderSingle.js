@@ -5,7 +5,7 @@ const createListingBig = function (listing) {
     .format("YYYY-MM-DD HH:mm:ss");
   const time = moment(local).fromNow();
   const articleContainer = $(`
-    <article class="big-listing">
+    <article class="big-listing wow animate__fadeIn animate__animated">
     <div class="big-image-container">
       <object class="listing-image" data="${listing.picture_url}" type="image/png">
       <img class="big-img" src="/img/test.png">
