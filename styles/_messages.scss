@@ -97,3 +97,9 @@
     resize: none;
   }
 }
+
+.message-icon {
+  max-width: 30px;
+  max-height: 30px;
+  filter: invert(100%);
+}

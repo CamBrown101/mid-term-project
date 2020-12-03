@@ -178,7 +178,7 @@ input.search-input {
   user-select: none;
   grid-row: 1;
   grid-column: 2;
-  width: 130px;
+  width: 150px;
   height: 40px;
   user-select: none;
   cursor: pointer;
@@ -233,6 +233,11 @@ input.search-input {
 #sold-button {
   height: 40px;
   display: none;
+  margin: 10px;
+}
+
+#message-seller-btn:hover .message-icon {
+  filter: invert(0%);
 }
 
 .min-max-label {
@@ -564,6 +569,12 @@ select {
   width: 100%;
   border: none;
   resize: none;
+}
+
+.message-icon {
+  max-width: 30px;
+  max-height: 30px;
+  filter: invert(100%);
 }
 
 .main-footer {
