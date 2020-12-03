@@ -2,6 +2,7 @@ body {
   font-family: "Oxygen", sans-serif;
   background-image: url("/img/webb.png");
   background-repeat: repeat;
+  overflow-y: scroll;
 }
 
 h3 {
@@ -191,8 +192,6 @@ input.search-input {
 #delete-button,
 #sold-button {
   user-select: none;
-  grid-row: 1;
-  grid-column: 2;
   width: 150px;
   height: 40px;
   user-select: none;
