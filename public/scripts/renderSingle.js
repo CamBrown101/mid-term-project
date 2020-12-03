@@ -95,6 +95,7 @@ $(document).ready(() => {
       $(event.target).replaceWith(
         `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
       );
+      $("#fave-delete-button").show();
     });
   });
 
@@ -108,6 +109,7 @@ $(document).ready(() => {
         $(event.target).replaceWith(
           `<btn class="btn btn-primary" id="fave-button">Favorite</btn>`
         );
+        $("#fave-button").show();
       }
     );
   });
