@@ -11,7 +11,7 @@ const clearForm = () => {
 //Renders form
 const createNewListingForm = function () {
   const newListingForm = $(`
-<section id="new-listing">
+<section id="new-listing" class="wow animate__fadeIn animate__animated">
   <form class="new-listing-content" method="POST" action="/listings">
     <input
       type="text"

@@ -90,7 +90,8 @@ router.post("/unread/:id", (req, res) => {
               AND receiver_id = $3)
               OR (sender_id = $3
               AND receiver_id = $1))
-              AND listing_id = $2;`,
+              AND listing_id = $2
+              ORDER BY messages.time;`,
       [userID, listingID, receiverID]
     )
       .then((data) => {

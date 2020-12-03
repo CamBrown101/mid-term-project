@@ -6,7 +6,7 @@ const renderUserCard = (user) => {
     isAdmin = "False";
   }
   const userPageTemplate = $(`
-          <div class="user-screen users-main">
+        <div class="user-screen users-main wow animate__fadeIn animate__animated">
           <div class="user-image-container">
             <img class="user-image" src="${user.user_image}"></p>
           </div>
@@ -16,7 +16,7 @@ const renderUserCard = (user) => {
             <div class="user-admin user-item"><h4 class="user-header">Admin Privileges: </h4>${isAdmin}</div>
             <div class="user-bio"><h4 class="user-header">User Bio:</h4>\n${user.user_bio}</div>
           </div>
-            </div>
+        </div>
 `);
   return userPageTemplate;
 };
