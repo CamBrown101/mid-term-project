@@ -45,7 +45,7 @@
   background-color: $light-grey;
   border: solid 3px $project-white;
   border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1.5px 1.5px 0 rgba(205, 199, 199, 0.9);
 }
 
 .sent {
@@ -53,7 +53,7 @@
   background-color: $lighter-grey;
   border: solid 3px $project-white;
   border-radius: 4px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1.5px 1.5px 0 rgba(0, 0, 0, 0.9);
 }
 
 .recieved .username {

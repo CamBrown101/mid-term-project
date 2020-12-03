@@ -14,8 +14,9 @@ header {
   top: 0;
   width: 100%;
   z-index: 999;
-  background-image: url("/img/oriental-tiles.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/webb.png");
   background-repeat: repeat;
+  border: 1px solid #000;
 }
 
 nav {
@@ -108,10 +109,17 @@ nav .username-logged-in:hover {
   justify-content: flex-start;
 }
 
+.search-align {
+  margin: 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .nav-search-sort {
   position: fixed;
   width: 100vw;
-  padding-right: 5%;
   height: 50px;
   top: 100px;
   border-top: none;
@@ -121,7 +129,7 @@ nav .username-logged-in:hover {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/webb.png");
   background-repeat: repeat;
   white-space: nowrap;
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
+  box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
 #item-search {
@@ -132,6 +140,7 @@ nav .username-logged-in:hover {
 input.search-input {
   height: 40px;
   max-width: 100%;
+  margin-right: 2%;
   font-size: 20px;
   background-image: url(/img/search.png);
   background-repeat: no-repeat;
@@ -213,6 +222,16 @@ input.search-input {
   display: inline-block;
   margin-right: 2%;
   vertical-align: top;
+}
+
+#message-seller-btn,
+#fave-delete-button,
+#fave-button,
+.big-back,
+#delete-button,
+#sold-button {
+  height: 40px;
+  display: none;
 }
 
 .min-max-label {
@@ -488,7 +507,7 @@ select {
   background-color: #adb5bd;
   border: solid 3px #ffffff;
   border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1.5px 1.5px 0 rgba(205, 199, 199, 0.9);
 }
 
 .sent {
@@ -496,7 +515,7 @@ select {
   background-color: #e9ecef;
   border: solid 3px #ffffff;
   border-radius: 4px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1.5px 1.5px 0 rgba(0, 0, 0, 0.9);
 }
 
 .recieved .username {
@@ -922,6 +941,7 @@ label {
 }
 
 .main-container .btn {
+  display: inline;
   white-space: nowrap;
 }
 

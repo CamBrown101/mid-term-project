@@ -3,8 +3,10 @@ header {
   top: 0;
   width: 100%;
   z-index: 999;
-  background-image: url("/img/oriental-tiles.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/img/webb.png");
   background-repeat: repeat;
+  border: 1px solid #000;
 }
 
 nav {
@@ -86,17 +88,27 @@ nav {
     cursor: pointer;
   }
 }
+
 .sort-selectors {
   justify-self: flex-end;
 }
+
 #left-aligned-search {
   display: flex;
   justify-content: flex-start;
 }
+
+.search-align {
+  margin: 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .nav-search-sort {
   position: fixed;
   width: 100vw;
-  padding-right: 5%;
   height: 50px;
   top: 100px;
   border-top: none;
@@ -107,7 +119,7 @@ nav {
     url("/img/webb.png");
   background-repeat: repeat;
   white-space: nowrap;
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
+  box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
 #item-search {
@@ -118,6 +130,7 @@ nav {
 input.search-input {
   height: 40px;
   max-width: 100%;
+  margin-right: 2%;
   font-size: 20px;
   background-image: url(/img/search.png);
   background-repeat: no-repeat;
@@ -201,6 +214,15 @@ input.search-input {
   vertical-align: top;
 }
 
+#message-seller-btn,
+#fave-delete-button,
+#fave-button,
+.big-back,
+#delete-button,
+#sold-button {
+  height: 40px;
+  display: none;
+}
 .min-max-label {
   text-transform: uppercase;
   font-weight: 700;
