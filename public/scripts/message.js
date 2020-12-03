@@ -65,7 +65,7 @@ $(document).ready(() => {
           // $newConvo
           //   .children(".conversation-messages")
           //   .append($(`<p class="message-count">${data.count}</p>`));
-          // $(".conversations").append($newConvo);
+          $(".conversations").append($newConvo);
           if (data.count > 0) {
             $(".conversation").css("background-color", "#650000");
           }
