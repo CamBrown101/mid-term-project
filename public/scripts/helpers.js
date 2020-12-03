@@ -7,7 +7,7 @@ const createNewCard = function (listing) {
   const time = moment(local).fromNow();
 
   const articleContainer = $(`
-    <article class="card-container wow animate__fadeIn animate_fadeOut animate__animated data-wow-duration="5s"">
+    <article class="card-container wow animate__fadeIn animate_fadeOut animate__animated" data-wow-duration="2s">
       <div class="card-upper">
       <object class="listing-image" data="${listing.picture_url}" type="image/png">
       <img class="listing-image" src="/img/test.png">
