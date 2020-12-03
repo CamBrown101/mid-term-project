@@ -39,6 +39,7 @@ nav .icon {
   align-self: baseline;
   margin-top: 10%;
   user-select: none;
+  cursor: pointer;
 }
 
 nav .logo-container {
