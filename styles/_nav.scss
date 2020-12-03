@@ -35,7 +35,7 @@ nav {
   }
 
   #nav-left-container {
-    width: 300px;
+    width: 360px;
     left: 0;
     display: flex;
     position: fixed;
@@ -135,7 +135,7 @@ input.search-input {
   background-image: url(/img/search.png);
   background-repeat: no-repeat;
   background-position: left center;
-  padding-left: 0;
+  padding-left: 50px;
   background-size: 48px 48px;
   background-color: #fff;
   border: 1px solid #000;
@@ -175,6 +175,7 @@ input.search-input {
   margin-left: auto;
   margin-right: auto;
   border: none;
+  white-space: nowrap;
   background-color: #404040;
   color: #ffffff !important;
   font-weight: 100;

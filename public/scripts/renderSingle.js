@@ -51,9 +51,9 @@ $(document).ready(() => {
           $("#delete-button").show();
           $("#sold-button").show();
         }
-        if (!user) {
-          $("#message-seller-btn").hide();
-          $("#fave-button").hide();
+        if (user) {
+          $("#message-seller-btn").show();
+          $("#fave-button").show();
         }
       });
 
