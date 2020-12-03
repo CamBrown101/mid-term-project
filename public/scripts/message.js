@@ -62,13 +62,14 @@ $(document).ready(() => {
         listingId = item.listing_id;
         $.get(`/messages/unread/${listingId}`, dataObject, (data) => {
           //This is the number of new messages in this convo. currently unstyled
-          // $newConvo
-          //   .children(".conversation-messages")
-          //   .append($(`<p class="message-count">${data.count}</p>`));
-          // $(".conversations").append($newConvo);
+          $newConvo
+            .children(".conversation-messages")
+            .append($(`<p class="message-count">${data.count}</p>`));
+
           if (data.count > 0) {
-            $(".conversation").css("background-color", "#650000");
+            $newConvo.css("background-color", "#650000");
           }
+          $(".conversations").append($newConvo);
           $(".conversation-listing-id").hide();
           $(".message-count").hide();
           $(".sender-id").hide();
@@ -80,7 +81,6 @@ $(document).ready(() => {
 
   const unreadCheck = setInterval(() => {
     $.get(`/messages/unread`, (data) => {
-      console.log(data);
       $("#convo-btn").html(`Messages: ${data.count}`);
     });
   }, 3000);

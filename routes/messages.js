@@ -67,7 +67,6 @@ router.post("/unread/:id", (req, res) => {
       res.send(data.rows);
     })
     .catch((err) => {
-      console.log(err)
       res.status(500).json({ error: err.message });
     });
 });

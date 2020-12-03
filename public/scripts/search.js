@@ -33,7 +33,6 @@ $(document).ready(() => {
     let minPrice = $("#price-min").val();
 
     if (!Number.isInteger(parseInt(maxPrice))) maxPrice = Number.MAX_SAFE_INTEGER;
-    console.log(maxPrice);
     $.get("/listings", {text: searchString}, (listings) => {
       const filteredListings = listings.filter(listing => listing.price >= minPrice && listing.price <= maxPrice);
       renderListing(filteredListings);

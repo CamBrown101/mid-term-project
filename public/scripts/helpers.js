@@ -69,7 +69,6 @@ const homePageLoad = () => {
       };
 
       const renderNextFour = () => {
-        console.log("fire");
         $("#listings-row-favourites").empty();
         buildArray();
         renderListings(arrayToRender, "favourites");
@@ -88,11 +87,9 @@ const homePageLoad = () => {
       //sets interval
       let timeOut = setInterval(renderNextFour, 5000);
       $(".listings-favourites").mouseenter(() => {
-        console.log("mouse");
         clearTimeout(timeOut);
       });
       $(".listings-favourites").mouseleave(() => {
-        console.log("mouse");
         timeOut = setInterval(renderNextFour, 5000);
       });
     }

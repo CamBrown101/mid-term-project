@@ -14,7 +14,7 @@ const createListingBig = function (listing) {
       <div class="big-info-container">
       <btn class="btn btn-primary big-back">HOME</btn>
       <h2 class="big-title">${listing.title}</h5>
-      
+
       <h5 class="big-price">$${listing.price}</h5>
       <p class="big-description">${listing.description}</p>
       <p class="big-user-id">${listing.user_id}</p>
@@ -72,9 +72,7 @@ $(document).ready(() => {
 
     //Check if listing favourited
     $.get(`/listings/favourites/${listingID}`, (data) => {
-      console.log(!data);
       if (data) {
-        console.log("rep1");
         $("#fave-button").replaceWith(
           `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
         );
@@ -92,7 +90,6 @@ $(document).ready(() => {
   //Functionality of favourite button
   $("main").on("click", "#fave-button", (event) => {
     const listing = $(".big-id").text();
-    console.log(listing);
     $.post("/listings/favourites", { listing: listing }, () => {
       $(event.target).replaceWith(
         `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
