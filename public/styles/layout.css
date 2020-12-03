@@ -224,6 +224,11 @@ input.search-input {
   vertical-align: top;
 }
 
+#sold-button,
+#delete-button {
+  height: 40px;
+}
+
 .min-max-label {
   text-transform: uppercase;
   font-weight: 700;
@@ -931,6 +936,7 @@ label {
 }
 
 .main-container .btn {
+  display: inline;
   white-space: nowrap;
 }
 
