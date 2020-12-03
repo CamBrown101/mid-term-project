@@ -4,7 +4,7 @@
 
 .big-listing {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.8fr 1.2fr;
   grid-template-rows: 1fr;
   max-width: 940px;
   margin-left: auto;
@@ -23,14 +23,19 @@
 .big-info-container {
   grid-row: 1;
   grid-column: 2;
-  padding: 1em;
-  margin: auto;
+  padding-top: 0.5em;
+  padding-left: 2em;
 }
 .big-user-name {
   width: 5%;
   white-space: nowrap;
   user-select: none;
   font-size: 20px;
+  margin-bottom: 3em;
+}
+
+.big-title {
+  margin-top: 1.5em;
 }
 
 .big-user-name:hover {

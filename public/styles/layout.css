@@ -59,7 +59,7 @@ nav .nav-items {
 }
 
 nav #nav-left-container {
-  width: 300px;
+  width: 360px;
   left: 0;
   display: flex;
   position: fixed;
@@ -158,7 +158,7 @@ input.search-input {
   background-image: url(/img/search.png);
   background-repeat: no-repeat;
   background-position: left center;
-  padding-left: 0;
+  padding-left: 50px;
   background-size: 48px 48px;
   background-color: #fff;
   border: 1px solid #000;
@@ -191,13 +191,14 @@ input.search-input {
   user-select: none;
   grid-row: 1;
   grid-column: 2;
-  width: 130px;
+  width: 150px;
   height: 40px;
   user-select: none;
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
   border: none;
+  white-space: nowrap;
   background-color: #404040;
   color: #ffffff !important;
   font-weight: 100;
@@ -245,6 +246,11 @@ input.search-input {
 #sold-button {
   height: 40px;
   display: none;
+  margin: 10px;
+}
+
+#message-seller-btn:hover .message-icon {
+  filter: invert(0%);
 }
 
 .min-max-label {
@@ -288,7 +294,7 @@ select {
 
 .big-listing {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.8fr 1.2fr;
   grid-template-rows: 1fr;
   max-width: 940px;
   margin-left: auto;
@@ -307,8 +313,8 @@ select {
 .big-info-container {
   grid-row: 1;
   grid-column: 2;
-  padding: 1em;
-  margin: auto;
+  padding-top: 0.5em;
+  padding-left: 2em;
 }
 
 .big-user-name {
@@ -316,6 +322,11 @@ select {
   white-space: nowrap;
   user-select: none;
   font-size: 20px;
+  margin-bottom: 3em;
+}
+
+.big-title {
+  margin-top: 1.5em;
 }
 
 .big-user-name:hover {
@@ -571,6 +582,12 @@ select {
   width: 100%;
   border: none;
   resize: none;
+}
+
+.message-icon {
+  max-width: 30px;
+  max-height: 30px;
+  filter: invert(100%);
 }
 
 .main-footer {
