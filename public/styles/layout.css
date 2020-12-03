@@ -234,6 +234,24 @@ select {
   }
 }
 
+#nav-left-container {
+  width: 300px;
+  left: 0;
+  margin-top: auto;
+  margin-top: auto;
+  display: flex;
+  position: fixed;
+  flex-direction: rows;
+}
+
+#nav-left-container #get-faves-button {
+  display: block;
+}
+
+#nav-left-container #new-listing-button {
+  display: block;
+}
+
 .menu-container {
   display: flex;
   align-items: center;

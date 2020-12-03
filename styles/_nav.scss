@@ -229,8 +229,18 @@ select {
   }
 }
 
-.styled-button {
-}
-
-.styled-button:hover {
+#nav-left-container {
+  width: 300px;
+  left: 0;
+  margin-top: auto;
+  margin-top: auto;
+  display: flex;
+  position: fixed;
+  flex-direction: rows;
+  #get-faves-button {
+    display: block;
+  }
+  #new-listing-button {
+    display: block;
+  }
 }
