@@ -242,19 +242,6 @@ select {
   margin: auto;
 }
 
-.results-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  background-color: #ffffff;
-  padding: 1%;
-  border: solid 3px #ffffff;
-  width: 100%;
-  margin: 0;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-content: center;
-}
-
 #delete-button {
   display: none;
 }
