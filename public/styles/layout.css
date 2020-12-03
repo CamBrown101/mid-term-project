@@ -108,10 +108,17 @@ nav .username-logged-in:hover {
   justify-content: flex-start;
 }
 
+.search-align {
+  margin: 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .nav-search-sort {
   position: fixed;
   width: 100vw;
-  padding-right: 5%;
   height: 50px;
   top: 100px;
   border-top: none;
@@ -132,6 +139,7 @@ nav .username-logged-in:hover {
 input.search-input {
   height: 40px;
   max-width: 100%;
+  margin-right: 2%;
   font-size: 20px;
   background-image: url(/img/search.png);
   background-repeat: no-repeat;
