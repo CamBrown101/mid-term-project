@@ -403,6 +403,8 @@ select {
   grid-row: 4;
   grid-column: 2;
   height: 30px;
+  background-color: #404040;
+  color: #ffffff;
 }
 
 .new-listing-content #new-listing-click {
