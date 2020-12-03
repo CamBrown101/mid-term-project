@@ -86,7 +86,15 @@ const homePageLoad = () => {
       renderListings(arrayToRender, "favourites");
 
       //sets interval
-      const timeOut = setInterval(renderNextFour, 3000);
+      let timeOut = setInterval(renderNextFour, 5000);
+      $(".listings-favourites").mouseenter(() => {
+        console.log("mouse");
+        clearTimeout(timeOut);
+      });
+      $(".listings-favourites").mouseleave(() => {
+        console.log("mouse");
+        timeOut = setInterval(renderNextFour, 5000);
+      });
     }
   });
 
