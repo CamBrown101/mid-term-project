@@ -214,9 +214,14 @@ input.search-input {
   vertical-align: top;
 }
 
-#sold-button,
-#delete-button {
+#message-seller-btn,
+#fave-delete-button,
+#fave-button,
+.big-back,
+#delete-button,
+#sold-button {
   height: 40px;
+  display: none;
 }
 .min-max-label {
   text-transform: uppercase;
