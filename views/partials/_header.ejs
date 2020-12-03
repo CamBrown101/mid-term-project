@@ -9,7 +9,7 @@
     <meta name="robots" content="index,follow" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen&family=Ubuntu&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link
@@ -19,7 +19,7 @@
     crossorigin="anonymous"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link
     rel="stylesheet"
@@ -85,21 +85,30 @@
           <input type="text" name="text" class="search-input" id="search-input" require maxlength="50"></textarea>
           <button id="nav-search" class="btn" type="submit">Search</button>
         </form>
+        <div class="filter-options">
+          <form class="filter">
+            <label for="price-max">Max:</label>
+            <input type="number" id="price-max" required name="max"/>
+            <label for="price-max">Min:</label>
+            <input type="number" id="price-min" required name="min"/>
+            <button type="submit" class="login-btn btn btn-primary">Filter</button>
+          </form>
+        </div>
         <button id="new-listing-button" class="nav-item btn btn-primary">New Listing</button>
         <button id="get-faves-button" class="nav-item btn btn-primary">Favourites</button>
-  
+
         <select class="nav-item" id="sort-price" name="price">
           <option value="price">Sort by price</option>
           <option value="ASC">Price asc‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎&#9650;</option>
           <option value="DESC">Price‎ desc‎ ‎  ‎ ‎ ‎ ‎‎&#9660;</option>
         </select>
-  
+
         <select class="nav-item" id="sort-date" name="date">
           <option value="date">Sort by date</option>
           <option value="ASC">Date asc‎‎‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎‎&#9650;</option>
           <option value="DESC">Date desc ‎ ‎ ‎  ‎ ‎‎&#9660;</option>
         </select>
-  
+
         <select class="nav-item" id="sort-category" name="category">
           <option value="category">Category</option>
           <option value="bikes">Bikes</option>
@@ -108,6 +117,6 @@
         </select>
       </nav>
     </header>
-    
+
   </body>
 </html>
