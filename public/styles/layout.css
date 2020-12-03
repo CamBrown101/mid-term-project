@@ -118,7 +118,8 @@ nav .username-logged-in:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/webb.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/img/webb.png");
   background-repeat: repeat;
   white-space: nowrap;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
@@ -159,7 +160,14 @@ input.search-input {
 #logout-btn,
 #convo-btn,
 #nav-search,
-.login-btn {
+.login-btn,
+#message-submit,
+#message-seller-btn,
+#fave-delete-button,
+#fave-button,
+.big-back,
+#delete-button,
+#sold-button {
   user-select: none;
   grid-row: 1;
   grid-column: 2;
@@ -185,7 +193,14 @@ input.search-input {
 #logout-btn:hover,
 #convo-btn:hover,
 #nav-search:hover,
-.login-btn:hover {
+.login-btn:hover,
+#message-submit:hover,
+#message-seller-btn:hover,
+#fave-delete-button:hover,
+#fave-button:hover,
+.big-back:hover,
+#delete-button:hover,
+#sold-button:hover {
   background-color: #ffffff;
   color: #404040 !important;
   font-weight: 700;
@@ -332,7 +347,7 @@ select {
   font-size: 20px;
   font-weight: bolder;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
-  max-width: 1000px;
+  max-width: 700px;
 }
 
 .new-listing-container {
@@ -343,38 +358,52 @@ select {
 
 .new-listing-content {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
-#listing-title {
+.new-listing-content #listing-title {
   grid-row: 1;
-  grid-column: 1 / 2;
+  grid-column: auto / span 2;
+  height: 30px;
 }
 
-#listing-number {
+.new-listing-content #listing-description {
   grid-row: 2;
-  grid-column: 1 / 2;
+  grid-column: auto / span 2;
+  height: 30px;
 }
 
-#listing-description {
+.new-listing-content #listing-picture-url {
   grid-row: 3;
-  grid-column: 1 / 2;
+  grid-column: auto / span 2;
+  height: 30px;
 }
 
-#listing-picture-url {
+.new-listing-content #listing-category {
   grid-row: 4;
-  grid-column: 1 / 2;
+  grid-column: 1;
+  height: 30px;
+  -webkit-appearance: menulist-button;
 }
 
-#listing-category {
+.new-listing-content #listing-number {
+  grid-row: 4;
+  grid-column: 2;
+  height: 30px;
+  background-color: #404040;
+  color: #ffffff;
+}
+
+.new-listing-content #new-listing-click {
   grid-row: 5;
-  grid-column: 1 / 2;
+  grid-column: 1;
+  margin-top: 8px;
 }
 
-#listing-submit {
-  grid-row: 6;
-  grid-column: 1 / 2;
+.new-listing-content #hide-new-listing {
+  grid-row: 5;
+  grid-column: 2;
 }
 
 #listing-title,
@@ -408,6 +437,10 @@ select {
   transition: all 0.3s ease 0s;
 }
 
+#new-listing-title {
+  margin-left: 8px;
+}
+
 #messages-container {
   justify-content: center;
   align-content: center;
@@ -424,9 +457,9 @@ select {
   padding: 3%;
   margin: 1%;
   text-overflow: inherit;
-  border: solid 3px black;
+  border: solid 3px #ffffff;
+  background-color: #ffffff;
   border-radius: 2px;
-  background-image: url("/img/oriental-tiles.png");
   background-repeat: repeat;
   color: #1f271b;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
@@ -454,12 +487,18 @@ select {
 
 .recieved {
   align-self: flex-start;
-  background-color: #cbb9a8;
+  background-color: #adb5bd;
+  border: solid 3px #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.6);
 }
 
 .sent {
   align-self: flex-end;
-  background-color: #dcc7be;
+  background-color: #e9ecef;
+  border: solid 3px #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.6);
 }
 
 .recieved .username {
@@ -490,9 +529,11 @@ select {
   display: flex;
   justify-content: space-between;
   margin-top: 2%;
-  border: solid 3px #1f271b;
-  border-radius: 10px;
-  background-color: grey;
+  border: solid 3px #ffffff;
+  border-radius: 2px;
+  font-size: 18px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+  background-color: #ffffff;
   width: 100%;
 }
 

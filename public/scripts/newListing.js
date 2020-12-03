@@ -13,7 +13,8 @@ const createNewListingForm = function () {
   const newListingForm = $(`
   <div class="new-listing-container">
 <section id="new-listing" class="wow animate__fadeIn animate__animated">
-  <form class="new-listing-content" method="POST" action="/listings">
+  <h2 id="new-listing-title">Create a new listing</h2>
+<form class="new-listing-content" method="POST" action="/listings">
     <input
       type="text"
       name="title"
@@ -34,7 +35,7 @@ const createNewListingForm = function () {
       type="text"
       name="description"
       id="listing-description"
-      placeholder="What are you selling?"
+      placeholder="Write a brief description."
       required
     />
 
@@ -54,8 +55,9 @@ const createNewListingForm = function () {
     <button id="new-listing-click" class="btn styled-button" type="submit">
       Submit
     </button>
-    </form>
     <div id="hide-new-listing" class="btn">Cancel</div>
+
+    </form>
 </section>
 </div>
     `);
