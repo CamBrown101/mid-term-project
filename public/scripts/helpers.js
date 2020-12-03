@@ -7,7 +7,7 @@ const createNewCard = function (listing) {
   const time = moment(local).fromNow();
 
   const articleContainer = $(`
-    <article class="card-container">
+    <article class="card-container wow animate__fadeIn animate_fadeOut animate__animated data-wow-duration="5s"">
       <div class="card-upper">
       <object class="listing-image" data="${listing.picture_url}" type="image/png">
       <img class="listing-image" src="/img/test.png">
@@ -82,7 +82,7 @@ const homePageLoad = () => {
       buildArray();
       $(".listings-favourites")
         .append(`<h3 id="favourites-title" class="favourites-title category-heading">Favourites</h3>
-    <div id="listings-row-favourites" class="card-row"></div>`);
+    <div id="listings-row-favourites" class="card-row wow animate__fadeIn animate__animated"></div>`);
       renderListings(arrayToRender, "favourites");
 
       //sets interval
@@ -125,12 +125,12 @@ const loadListings = () => {
 //Create category row Html
 const createCategoryRows = () => {
   $(".main-container").append(`
-  <div class="listings-favourites"></div>
+  <div class="listings-favourites wow animate__fadeIn animate__animated"></div>
   <h3 class="category-heading">New Listings</h3>
-  <div id="listings-row-0" class="card-row"></div>
+  <div id="listings-row-0" class="card-row wow animate__fadeIn animate__animated"></div>
   <h3 class="category-heading">Games</h3>
-  <div id="listings-row-1" class="card-row"></div>
+  <div id="listings-row-1" class="card-row wow animate__fadeIn animate__animated"></div>
   <h3 class="category-heading">Bikes</h3>
-  <div id="listings-row-2" class="card-row"></div>
+  <div id="listings-row-2" class="card-row wow animate__fadeIn animate__animated"></div>
   `);
 };
