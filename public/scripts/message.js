@@ -64,9 +64,13 @@ $(document).ready(() => {
           //This is the number of new messages in this convo. currently unstyled
           $newConvo
             .children(".conversation-messages")
-            .append($(`<p>${data.count}</p>`));
+            .append($(`<p class="message-count">${data.count}</p>`));
           $(".conversations").append($newConvo);
+          if (data.count > 0) {
+            $(".conversation").css("background-color", "#650000");
+          }
           $(".conversation-listing-id").hide();
+          $(".message-count").hide();
           $(".sender-id").hide();
           $(".receiver-id").hide();
         });

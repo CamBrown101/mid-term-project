@@ -5,16 +5,3 @@
   width: 90%;
   margin: auto;
 }
-
-.results-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  padding: 3%;
-  background-color: $background-grey;
-  width: 100%;
-  border: solid 3px lightgray;
-  border-radius: 10px;
-  margin: 0;
-  justify-content: center;
-  align-content: center;
-}
