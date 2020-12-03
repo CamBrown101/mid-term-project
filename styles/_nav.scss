@@ -88,15 +88,16 @@ nav {
 }
 .sort-selectors {
   justify-self: flex-end;
+  margin-right: 7%;
 }
 #left-aligned-search {
   display: flex;
   justify-content: flex-start;
+  margin-left: 7%;
 }
 .nav-search-sort {
   position: fixed;
   width: 100vw;
-  padding-right: 5%;
   height: 50px;
   top: 100px;
   border-top: none;
@@ -118,6 +119,7 @@ nav {
 input.search-input {
   height: 40px;
   max-width: 100%;
+  margin-right: 2%;
   font-size: 20px;
   background-image: url(/img/search.png);
   background-repeat: no-repeat;
