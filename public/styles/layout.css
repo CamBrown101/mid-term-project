@@ -88,7 +88,8 @@ nav .username-logged-in:hover {
   border-top: none;
   display: flex;
   flex-direction: row;
-  background-color: rgba(1, 0, 0, 0.2);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/webb.png");
+  background-repeat: repeat;
   white-space: nowrap;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
 }
