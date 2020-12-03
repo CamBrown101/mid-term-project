@@ -8,7 +8,8 @@ Full stack buy and sell website built with NodeJS, Express and PostgreSQL.
 - Create new listings
 - Delete listings if you are the owner or admin
 - Admin account with superuser permissions
-- Users can message owner of listing
+- Messaging functionality for sending and recieving messages
+- Notifications for unread messages
 - Various filtering options
 - Users can update account information
 - Users can favourite listings
