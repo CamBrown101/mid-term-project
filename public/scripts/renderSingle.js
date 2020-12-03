@@ -23,7 +23,7 @@ const createListingBig = function (listing) {
       <btn class="btn btn-primary message-button" id="message-seller-btn"><img class="message-icon" src="./img/comment.png"></btn>
       <p class="big-id">${listing.id}</p>
       <p class="seller-id">${listing.user_id}</p>
-      <btn class="btn btn-primary" id="fave-button">Favorite</btn>
+      <btn class="btn btn-primary" id="fave-button">FAVOURITE</btn>
       <btn class="btn btn-warning" id="sold-button">Sold</btn>
       <btn class="btn btn-danger" id="delete-button">Delete</btn>
    </div>
@@ -69,15 +69,12 @@ $(document).ready(() => {
         $(".image-wrapper").append('<h3 class="sold-indicator">SOLD!</h3>');
         $("#sold-button").hide();
       }
-    });
-
-    //Check if listing favourited
-    $.get(`/listings/favourites/${listingID}`, (data) => {
-      if (data) {
-        $("#fave-button").replaceWith(
-          `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
-        );
-      }
+      //Check if listing favourited
+      $.get(`/listings/favourites/${listingID}`, (data) => {
+        if (data) {
+          $("#fave-button").text("UNFAVOURITE");
+        }
+      });
     });
   });
 
@@ -90,28 +87,24 @@ $(document).ready(() => {
 
   //Functionality of favourite button
   $("main").on("click", "#fave-button", (event) => {
-    const listing = $(".big-id").text();
-    $.post("/listings/favourites", { listing: listing }, () => {
-      $(event.target).replaceWith(
-        `<btn class="btn btn-primary" id="fave-delete-button">Un-favourite</btn>`
+    console.log("hello");
+    if ($("#fave-button").text() === "UNFAVOURITE") {
+      const listing = $(".big-id").text();
+      $.post(
+        `/listings/favourites/${listing}/delete`,
+        { listing: listing },
+        () => {
+          $("#fave-button").text("FAVOURITE");
+        }
       );
-      $("#fave-delete-button").show();
-    });
-  });
+    }
 
-  //Functionality to remove favourite
-  $("main").on("click", "#fave-delete-button", (event) => {
-    const listing = $(".big-id").text();
-    $.post(
-      `/listings/favourites/${listing}/delete`,
-      { listing: listing },
-      () => {
-        $(event.target).replaceWith(
-          `<btn class="btn btn-primary" id="fave-button">Favorite</btn>`
-        );
-        $("#fave-button").show();
-      }
-    );
+    if ($("#fave-button").text() === "FAVOURITE") {
+      const listing = $(".big-id").text();
+      $.post("/listings/favourites", { listing: listing }, () => {
+        $("#fave-button").text("UNFAVOURITE");
+      });
+    }
   });
 
   //Delete button functionality
