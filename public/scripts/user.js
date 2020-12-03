@@ -99,10 +99,15 @@ const renderUserListings = (listings) => {
 const renderUserPage = (data) => {
   $(".main-container").empty();
   $(".main-container").append(renderUserCard(data));
-  $(".main-container").append(renderUserUpdateForm(data));
-  $.get("/users/listings/", (data) => {
-    renderUserListings(data);
-  });
+  $.get("/users/current", (currentUser) => {
+    if (currentUser.id === data.id) {
+      $(".main-container").append(renderUserUpdateForm(data));
+      $.get("/users/listings/", (data) => {
+        renderUserListings(data);
+      });
+    }
+  })
+
 };
 
 $(document).ready(() => {
