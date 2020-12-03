@@ -41,6 +41,7 @@ const clearResultsContainer = () => {
 };
 
 //Renders listings for home page
+
 const homePageLoad = () => {
   $("#new-listing").hide();
 

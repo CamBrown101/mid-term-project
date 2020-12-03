@@ -50,11 +50,11 @@ const createNewListingForm = function () {
       <option value="computers">Computers</option>
       <option value="games">Games</option>
     </select>
-    <button id="new-listing-click" class="btn btn-primary" type="submit">
+    <button id="new-listing-click" class="btn styled-button" type="submit">
       Submit
     </button>
     </form>
-    <div id="hide-new-listing" class="btn btn-danger">Cancel</div>
+    <div id="hide-new-listing" class="btn">Cancel</div>
 </section>
     `);
   return newListingForm;

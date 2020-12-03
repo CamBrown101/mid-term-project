@@ -14,6 +14,8 @@ header {
   top: 0;
   width: 100%;
   z-index: 999;
+  background-image: url("/img/oriental-tiles.png");
+  background-repeat: repeat;
 }
 
 nav {
@@ -23,8 +25,6 @@ nav {
   align-items: flex-end;
   border: none;
   color: white;
-  background-image: url("/img/oriental-tiles.png");
-  background-repeat: repeat;
   top: 0;
   z-index: 100;
 }
@@ -47,12 +47,14 @@ nav #logout {
 }
 
 nav .logout {
+  min-width: 400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 nav #login {
+  min-width: 400px;
   display: none;
 }
 
@@ -86,7 +88,7 @@ nav .username-logged-in:hover {
   border-top: none;
   display: flex;
   flex-direction: row;
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: rgba(1, 0, 0, 0.2);
   white-space: nowrap;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
 }
@@ -125,10 +127,6 @@ input.search-input {
   height: 38px;
 }
 
-#nav-search {
-  max-width: 80px;
-}
-
 .search-bar {
   z-index: 10;
   height: 20%;
@@ -139,17 +137,53 @@ input.search-input {
   color: #1f271b;
 }
 
-#new-listing-button {
+#new-listing-button,
+#get-faves-button,
+#logout-btn,
+#convo-btn,
+#nav-search {
   user-select: none;
+  grid-row: 1;
+  grid-column: 2;
+  width: 130px;
+  height: 40px;
+  user-select: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: #404040;
+  color: #ffffff !important;
+  font-weight: 100;
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
 }
 
-#new-listing-button:hover {
-  background-color: black;
-  color: white;
+#new-listing-button:hover,
+#get-faves-button:hover,
+#logout-btn:hover,
+#convo-btn:hover,
+#nav-search:hover {
+  background-color: #ffffff;
+  color: #404040 !important;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.3s ease 0s;
 }
 
 select {
   height: 30px;
+  color: #ffffff;
+  background-color: #404040;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .fas {
@@ -178,13 +212,6 @@ select {
   }
   input.search-input {
     width: 300px;
-  }
-  #new-listing-button {
-    grid-row: 1;
-    grid-column: 2;
-  }
-  #nav-search {
-    width: 100px;
   }
   #get-favss-button {
     grid-row: 2;
@@ -227,6 +254,31 @@ select {
 
 #delete-button {
   display: none;
+}
+
+.big-listing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  padding: 1%;
+  border: solid 3px #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+}
+
+.big-image-container {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.big-info-container {
+  grid-row: 1;
+  grid-column: 2;
+  padding: 1em;
+  margin: auto;
 }
 
 .big-user-name {
@@ -336,15 +388,11 @@ select {
 }
 
 #messages-container {
-  margin: 230px 7% 7% 100px;
-  padding-bottom: 5%;
-  padding: 3%;
-  background-color: #ffffff;
-  border: solid 3px #ffffff;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
-  margin: 0;
   justify-content: center;
   align-content: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .inner-message-conatiner {
@@ -355,10 +403,12 @@ select {
   padding: 3%;
   margin: 1%;
   text-overflow: inherit;
-  border: solid 5px #1f271b;
-  border-radius: 10px;
-  background-color: #145c9e;
+  border: solid 3px black;
+  border-radius: 2px;
+  background-image: url("/img/oriental-tiles.png");
+  background-repeat: repeat;
   color: #1f271b;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
 }
 
 .messages {
@@ -374,7 +424,7 @@ select {
   display: flex;
   flex-direction: column;
   width: 70%;
-  border: solid 3px grey;
+  border: solid 3px #ffffff;
   color: #1f271b;
   border-radius: 10px;
   padding: 2%;
@@ -421,7 +471,7 @@ select {
   margin-top: 2%;
   border: solid 3px #1f271b;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: grey;
   width: 100%;
 }
 

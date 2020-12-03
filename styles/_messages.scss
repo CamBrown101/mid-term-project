@@ -1,13 +1,9 @@
 #messages-container {
-  margin: 230px 7% 7% 100px;
-  padding-bottom: 5%;
-  padding: 3%;
-  background-color: $project-white;
-  border: solid 3px $project-white;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
-  margin: 0;
   justify-content: center;
   align-content: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .inner-message-conatiner {
   display: flex;
@@ -17,16 +13,19 @@
   padding: 3%;
   margin: 1%;
   text-overflow: inherit;
-  border: solid 5px $font-color;
-  border-radius: 10px;
-  background-color: $alert-color;
+  border: solid 3px black;
+  border-radius: 2px;
+  background-image: url("/img/oriental-tiles.png");
+  background-repeat: repeat;
   color: $font-color;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
 }
 .messages {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
   width: 100%;
   text-overflow: inherit;
 }
@@ -34,7 +33,7 @@
   display: flex;
   flex-direction: column;
   width: 70%;
-  border: solid 3px $background-grey;
+  border: solid 3px $project-white;
   color: $font-color;
   border-radius: 10px;
   padding: 2%;
@@ -80,7 +79,7 @@
   margin-top: 2%;
   border: solid 3px $font-color;
   border-radius: 10px;
-  background-color: $project-white;
+  background-color: $background-grey;
   width: 100%;
 
   .message-input {
