@@ -30,10 +30,23 @@ nav {
   z-index: 100;
 }
 
-nav i {
-  font-size: 4em;
+nav .icon {
+  margin-bottom: 0;
+  font-size: 4rem;
   margin-left: 45%;
   margin-right: auto;
+  font-family: "BenchNine", sans-serif;
+  align-self: baseline;
+  margin-top: 10%;
+}
+
+nav .logo-container {
+  width: 100%;
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-start;
+  margin-right: auto;
+  margin-left: 5%;
 }
 
 nav .nav-items {
