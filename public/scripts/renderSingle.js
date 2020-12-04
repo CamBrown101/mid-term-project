@@ -56,14 +56,13 @@ $(document).ready(() => {
           $("#fave-button").show();
           $("#fave-delete-button").show();
         }
+        //if logged in as owner of listing
+        if (data.listing.user_id === data.user_id) {
+          $("#message-seller-btn").hide();
+          $("#delete-button").show();
+          $("#sold-button").show();
+        }
       });
-
-      //if logged in as owner of listing
-      if (data.listing.user_id === data.user_id) {
-        $("#message-seller-btn").hide();
-        $("#delete-button").show();
-        $("#sold-button").show();
-      }
 
       if (data.listing.is_sold) {
         $(".image-wrapper").append('<h3 class="sold-indicator">SOLD!</h3>');
