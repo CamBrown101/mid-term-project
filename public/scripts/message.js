@@ -21,7 +21,7 @@ $(document).ready(() => {
           clearTimeout(timeOut);
         }
       };
-      const timeOut = setInterval(checkNewMessage, 3000);
+      const timeOut = setInterval(checkNewMessage, 2000);
     });
   });
 
@@ -83,7 +83,7 @@ $(document).ready(() => {
     $.get(`/messages/unread`, (data) => {
       $("#convo-btn").html(`Messages: ${data.count}`);
     });
-  }, 3000);
+  }, 2000);
 
   $("main").on("click", ".conversation", (event) => {
     const senderId = $(event.currentTarget).children(".sender-id").html();
@@ -112,7 +112,7 @@ $(document).ready(() => {
         }
       };
 
-      const timeOut = setInterval(checkNewMessage, 3000);
+      const timeOut = setInterval(checkNewMessage, 2000);
     });
   });
 });
