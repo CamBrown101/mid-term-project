@@ -33,7 +33,7 @@ const createRecievedMessage = (message) => {
   const local = moment(message.time).local().format("YYYY-MM-DD HH:mm:ss");
   const time = moment(local).fromNow();
   const recievedMessageTemplate = $(`
-  <div class="message recieved">
+  <div class="message recieved wow animate__fadeIn animate__animated">
     <p class="username">${message.sender}</p>
     <p class="message-content">${message.message}</p>
     <p class="timestamp">${time}</p>
