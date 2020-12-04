@@ -41,22 +41,28 @@ Full stack buy and sell website built with NodeJS, Express and PostgreSQL.
 - NPM 5.x or above
 - PostgreSQL 6.x
 
-  ### NPM Dependencies
+## NPM Dependencies
 
-  - body-parser
-  - chalk
-  - dotenv
-  - ejs
-  - express
-  - morgan
-  - node-sass-middleware
-  - pg
-  - pg-native
+- body-parser
+- chalk
+- dotenv
+- ejs
+- express
+- morgan
+- node-sass-middleware
+- pg
+- pg-native
 
-  ### CDN Dependencies
+## CDN Dependencies
 
-  - Bootstrap
-  - jQuery 3.2.1 min
-  - moment.js 2.29.1 min
-  - wow.js
-  - animate.css
+- Bootstrap
+- jQuery 3.2.1 min
+- moment.js 2.29.1 min
+- wow.js
+- animate.css
+
+## Contributors
+
+- Michael Krishna github: https://github.com/mkrishna768
+- Marcel Mueller github: https://github.com/marcellmueller
+- Cameron Brown github: https://github.com/CamBrown101
