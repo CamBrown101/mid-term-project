@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-
   //Post new favourite for user
   router.post("/", (req, res) => {
     const userID = req.session.user_id;
@@ -66,9 +65,9 @@ module.exports = (db) => {
     const listingID = req.params.id;
     db.query(
       `
-              SELECT * FROM favorite_items
-              WHERE user_id = $1
-              AND item_id = $2;`,
+          SELECT * FROM favorite_items
+          WHERE user_id = $1
+          AND item_id = $2;`,
       [userID, listingID]
     )
       .then((data) => {
@@ -82,3 +81,7 @@ module.exports = (db) => {
 
   return router;
 };
+
+var cat = "aa";
+
+var helloe_there = "asda";

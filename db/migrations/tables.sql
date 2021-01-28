@@ -12,8 +12,6 @@ CREATE TABLE users (
   is_admin BOOLEAN NOT NULL DEFAULT FALSE,
   user_image VARCHAR(255) NOT NULL,
   user_bio VARCHAR(255) NOT NULL
-
-
 );
 
 CREATE TABLE listings (

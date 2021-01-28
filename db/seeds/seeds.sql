@@ -16,7 +16,6 @@ VALUES (1, 'Mountain Bike', 600, 'Rocky Mountain bike, lightly used', './img/lis
  (2, 'Single Speed Bike', 600, 'Rocky Mountain bike, lightly used', './img/listings/singlespeed.jpg', 'bikes', '2020-11-19 17:35:23 +0000'),
   ( 1, 'Xbox Series X', 1500, 'High price due to being a dirty scalper', './img/listings/xbox.jpg', 'games', '2020-11-18 17:35:23 +0000'),
  (2, 'Xbox Series S', 1000, 'High price due to being a dirty scalper', './img/listings/seriess.jpg', 'games', '2020-11-17 17:35:23 +0000'),
- (1, 'Nintendo 64', 200, 'N64 with all the good games', './img/listings/n64.jpg', 'games', '2020-11-16 17:35:23 +0000'),
  (2, 'Thinkpad x1 Carbon', 900, 'Thinkpad gen 8 laptop in great shape, Core i5 8gb ram', './img/listings/thinkpadx1.jpg', 'computers', '2020-11-30 17:35:23 +0000'),
  (1, 'Surface Laptop 3', 1000, 'Surface ultrabook in great shape. Core i7 8gb ram', './img/listings/surface.jpg', 'computers', '2020-12-01 17:35:23 +0000'),
  (3, 'Gaming Rig', 1500, 'Ryzen 3700x with RTX 3080, email for full parts list', './img/listings/gamingrig.jpg', 'computers', '2020-12-03 17:35:23 +0000'),
