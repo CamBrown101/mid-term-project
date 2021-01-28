@@ -14,9 +14,9 @@ Full stack buy and sell website built with NodeJS, Express and PostgreSQL.
 - Users can update account information
 - Users can favourite listings
 
-![screen2](https://github.com/CamBrown101/mid-term-project/blob/master/docs/screen1.png "Screen1")
+![screen2](https://github.com/CamBrown101/mid-term-project/blob/master/docs/screen2.png "Screen2")
 
-![screen1](https://github.com/CamBrown101/mid-term-project/blob/master/docs/screen2.png "Screen2")
+![screen1](https://github.com/CamBrown101/mid-term-project/blob/master/docs/screen1.png "Screen1")
 
 A live version can be viewed here: https://buythingssellthings.herokuapp.com/
 
